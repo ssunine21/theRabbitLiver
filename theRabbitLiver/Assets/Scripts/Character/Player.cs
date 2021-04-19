@@ -29,9 +29,9 @@ public class Player : Character {
 		}
 
 		this.transform.position = offset;
-		TileManager.init.SpawnTile();
+		SpawnManager.init.SpawnTile();
 
 		if (RecordData.jumpCount > 4)
-			TileManager.init.RemoveTile();
+			SpawnManager.init.RemoveTile();
 	}
 }

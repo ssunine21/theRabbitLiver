@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class LevelDesign {
 
-	public int tileCount;
-	public int coinCount;
-	public int enemyCount;
+	public float tileCount;
+	public float coinCount;
+	public float heartCount;
+	public float enemyCount;
+	public float trapCount;
+
 }
