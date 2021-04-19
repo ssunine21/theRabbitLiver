@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1032,10 +1032,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e93847e3c86e1543a1d1d5b4c7d2bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
-  tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
-  trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
-  heartItem: {fileID: 6448552892010714933, guid: 8737ed222298a474191b5b5de067bf10, type: 3}
+  levelDesign:
+  - tile:
+      tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
+      tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
+    trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
+    tileCount: 50
+    coinCount: 0
+    heartCount: 10
+    enemyCount: 0
+    trapCount: 10
+  - tile:
+      tileLight: {fileID: 6806486310248525171, guid: e335574da29b9b140a8618fd829d011a, type: 3}
+      tileDark: {fileID: 2233141228595132022, guid: f7bdba2bde31b5849a6ed3ab078aecbf, type: 3}
+    trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
+    tileCount: 50
+    coinCount: 0
+    heartCount: 10
+    enemyCount: 0
+    trapCount: 10
+  coin: {fileID: 0}
+  heartItem: {fileID: 1709958097458868977, guid: 889d83bdbc8f3fb4fb059c000ccc7331, type: 3}
   tempTile: {fileID: 1429720365}
   initTileCount: 20
 --- !u!4 &792462038
