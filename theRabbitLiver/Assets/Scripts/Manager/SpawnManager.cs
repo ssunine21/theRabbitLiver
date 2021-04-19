@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpawnManager : MonoBehaviour {
     private static readonly int tileSpacing = 3;
 
-    public LevelDesign levelDesign;
+    public LevelDesign[] levelDesign;
 
-    public GameObject tileLight;
-    public GameObject tileDark;
-    public GameObject trap;
+    public GameObject coin;
     public GameObject heartItem;
     public GameObject tempTile;
 
@@ -17,46 +16,57 @@ public class SpawnManager : MonoBehaviour {
 
     private GameObject tiles;
 
-    private int totalTileCount;
+    private int level;
+    private int jumpCount;
+    private int currLevelMaxTileCount;
 
 	private void Awake() {
         Singleton();
-        levelDesign = new LevelDesign();
     }
 
     private void Start() {
         Destroy(tempTile);
-        levelDesign.tileCount = 80;
-        levelDesign.trapCount = 20;
-        levelDesign.heartCount = 20;
 
         tiles = new GameObject("Tiles");
-        for (int i = 0; i < initTileCount; ++i)
+        for (int i = 0; i < initTileCount; ++i) {
             SpawnTile();
+        }
     }
 
     public void SpawnTile() {
-        if (levelDesign.tileCount < totalTileCount) return;
 
-        GameObject gameObject = new GameObject(totalTileCount.ToString());
+        try {
+            if (levelDesign[level].tileCount < currLevelMaxTileCount) {
+                if (levelDesign.Length - 1 > level) {
+                    currLevelMaxTileCount = 0;
+                    level++;
+                }
+                return;
+            }
+        } catch (IndexOutOfRangeException e) {
+            Debug.LogError(e.StackTrace);
+		}
 
-        for (int i = totalTileCount; i < totalTileCount + tileSpacing; ++i) {
-            GameObject tile = i % 2 == 0 ? tileLight : tileDark;
-            Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * tileSpacing);
+        GameObject gameObject = new GameObject(jumpCount.ToString());
+
+        for (int i = jumpCount; i < jumpCount + tileSpacing; ++i) {
+            GameObject tile = i % 2 == 0 ? levelDesign[level].tile.tileLight : levelDesign[level].tile.tileDark;
+            Vector3 pos = new Vector3((i - jumpCount) * 3, 0, jumpCount * tileSpacing);
 
             Instantiate(tile, pos, Quaternion.identity, gameObject.transform);
 
-            if (SpawnObject(trap, pos, ref levelDesign.trapCount, gameObject)) { Debug.Log(levelDesign.trapCount); }
-            else if (SpawnObject(heartItem, pos, ref levelDesign.heartCount, gameObject)) { Debug.Log(levelDesign.heartCount); }
+            if (SpawnObject(levelDesign[level].trap, pos, ref levelDesign[level].trapCount, gameObject)) {}
+            else if (SpawnObject(heartItem, pos, ref levelDesign[level].heartCount, gameObject)) {}
         }
         gameObject.transform.SetParent(tiles.transform);
 
-        totalTileCount++;
+        currLevelMaxTileCount++;
+        jumpCount++;
 	}
 
     public bool SpawnObject(GameObject gameObject, Vector3 pos, ref float count, GameObject parent) {
-        int random = Random.Range(0, 100);
-        if (random < (count / levelDesign.tileCount) * 33) {
+        int random = UnityEngine.Random.Range(0, 100);
+        if (random < (count / levelDesign[level].tileCount) * 33) {
             if (--count > 0) {
                 Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
                 return true;
@@ -66,7 +76,8 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public void RemoveTile() {
-        Destroy(tiles.transform.GetChild(0).gameObject);
+        if (tiles.transform.childCount > 0)
+            Destroy(tiles.transform.GetChild(0).gameObject);
 	}
 
 
