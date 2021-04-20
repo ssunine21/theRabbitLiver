@@ -4,20 +4,24 @@ using UnityEngine;
 using System;
 
 public class SpawnManager : MonoBehaviour {
-    private static readonly int tileSpacing = 3;
+    private static readonly int TILE_SPACING = 3;
 
-    public LevelDesign[] levelDesign;
+    public LevelDesign[] _levelDesign;
+    public LevelDesign levelDesign {
+        get { return _levelDesign[level]; }
+    }
 
     public GameObject coin;
-    public GameObject heartItem;
+    public GameObject heart;
     public GameObject tempTile;
 
     public int initTileCount;
 
-    private GameObject tiles;
+    private GameObject tileParent;
+    private GameObject planeParent;
 
     private int level;
-    private int jumpCount;
+    private int totalTileCount;
     private int currLevelMaxTileCount;
 
 	private void Awake() {
@@ -27,7 +31,9 @@ public class SpawnManager : MonoBehaviour {
     private void Start() {
         Destroy(tempTile);
 
-        tiles = new GameObject("Tiles");
+        planeParent = new GameObject("Planes");
+        tileParent = new GameObject("Tiles");
+
         for (int i = 0; i < initTileCount; ++i) {
             SpawnTile();
         }
@@ -36,8 +42,8 @@ public class SpawnManager : MonoBehaviour {
     public void SpawnTile() {
 
         try {
-            if (levelDesign[level].tileCount < currLevelMaxTileCount) {
-                if (levelDesign.Length - 1 > level) {
+            if (levelDesign.tileCount <= currLevelMaxTileCount) {
+                if (_levelDesign.Length - 1 > level) {
                     currLevelMaxTileCount = 0;
                     level++;
                 }
@@ -47,26 +53,36 @@ public class SpawnManager : MonoBehaviour {
             Debug.LogError(e.StackTrace);
 		}
 
-        GameObject gameObject = new GameObject(jumpCount.ToString());
+        GameObject tileSet = new GameObject(totalTileCount.ToString());
 
-        for (int i = jumpCount; i < jumpCount + tileSpacing; ++i) {
-            GameObject tile = i % 2 == 0 ? levelDesign[level].tile.tileLight : levelDesign[level].tile.tileDark;
-            Vector3 pos = new Vector3((i - jumpCount) * 3, 0, jumpCount * tileSpacing);
+        for (int i = totalTileCount; i < totalTileCount + TILE_SPACING; ++i) {
+            GameObject tile = i % 2 == 0 ? levelDesign.tile.tileLight : levelDesign.tile.tileDark;
+            Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * TILE_SPACING);
 
-            Instantiate(tile, pos, Quaternion.identity, gameObject.transform);
+            Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
 
-            if (SpawnObject(levelDesign[level].trap, pos, ref levelDesign[level].trapCount, gameObject)) {}
-            else if (SpawnObject(heartItem, pos, ref levelDesign[level].heartCount, gameObject)) {}
+            if (SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet)) {}
+            else if (SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet)) {}
         }
-        gameObject.transform.SetParent(tiles.transform);
+        tileSet.transform.SetParent(tileParent.transform);
+
+        //Spawn Plane
+        if(totalTileCount % 10 == 0) {
+            GameObject planeSet = new GameObject((totalTileCount * 0.1).ToString());
+
+            Instantiate(levelDesign.plane, new Vector3(-16.4f, -0.7f, (totalTileCount * 3) + 13.5f), Quaternion.Euler(new Vector3(0, 90, 0)), planeSet.transform);
+            Instantiate(levelDesign.plane, new Vector3(22.5f, -0.7f, (totalTileCount * 3) + 13.5f), Quaternion.Euler(new Vector3(0, 270, 0)), planeSet.transform);
+
+            planeSet.transform.SetParent(planeParent.transform);
+        }
 
         currLevelMaxTileCount++;
-        jumpCount++;
+        totalTileCount++;
 	}
 
     public bool SpawnObject(GameObject gameObject, Vector3 pos, ref float count, GameObject parent) {
         int random = UnityEngine.Random.Range(0, 100);
-        if (random < (count / levelDesign[level].tileCount) * 33) {
+        if (random < (count / levelDesign.tileCount) * 33) {
             if (--count > 0) {
                 Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
                 return true;
@@ -76,8 +92,11 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public void RemoveTile() {
-        if (tiles.transform.childCount > 0)
-            Destroy(tiles.transform.GetChild(0).gameObject);
+        if (tileParent.transform.childCount > 0)
+            Destroy(tileParent.transform.GetChild(0).gameObject);
+
+        if (planeParent.transform.childCount > 4)
+            Destroy(planeParent.transform.GetChild(0).gameObject);
 	}
 
 
