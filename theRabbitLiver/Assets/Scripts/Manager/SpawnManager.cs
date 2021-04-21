@@ -13,12 +13,12 @@ public class SpawnManager : MonoBehaviour {
 
     public GameObject coin;
     public GameObject heart;
-    public GameObject tempTile;
 
-    public int initTileCount;
+    public int shownTileMax;
 
     private GameObject tileParent;
     private GameObject planeParent;
+    private GameObject player;
 
     private int level;
     private int totalTileCount;
@@ -29,13 +29,26 @@ public class SpawnManager : MonoBehaviour {
     }
 
     private void Start() {
-        Destroy(tempTile);
-
+        
         planeParent = new GameObject("Planes");
         tileParent = new GameObject("Tiles");
 
-        for (int i = 0; i < initTileCount; ++i) {
+        for (int i = 0; i < shownTileMax; ++i) {
             SpawnTile();
+        }
+
+        player = FindObjectOfType<Player>().gameObject;
+    }
+
+    private void Update() {
+
+        int playerZPos = player.transform.position.z == 0 ? 0 : (int)player.transform.position.z / 3;
+        int spawnCount = (playerZPos + shownTileMax) - totalTileCount;
+
+        if(spawnCount > 0) {
+            for(int i = 0; i < spawnCount; ++i) {
+                SpawnTile();
+            }
         }
     }
 
@@ -61,8 +74,7 @@ public class SpawnManager : MonoBehaviour {
 
             Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
 
-            if (SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet)) {}
-            else if (SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet)) {}
+            bool spawnObj = SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ? true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet);
         }
         tileSet.transform.SetParent(tileParent.transform);
 
@@ -80,9 +92,9 @@ public class SpawnManager : MonoBehaviour {
         totalTileCount++;
 	}
 
-    public bool SpawnObject(GameObject gameObject, Vector3 pos, ref float count, GameObject parent) {
+    public bool SpawnObject(GameObject gameObject, Vector3 pos, ref int count, GameObject parent) {
         int random = UnityEngine.Random.Range(0, 100);
-        if (random < (count / levelDesign.tileCount) * 33) {
+        if (random < ((float)count / levelDesign.tileCount) * 33) {
             if (--count > 0) {
                 Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
                 return true;
