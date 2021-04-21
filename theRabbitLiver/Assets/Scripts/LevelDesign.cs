@@ -9,15 +9,15 @@ public class LevelDesign {
 	public GameObject trap;
 
 	[Range(0, 100)]
-	public float tileCount;
+	public int tileCount;
 	[Range(0, 100)]
-	public float coinCount;
+	public int coinCount;
 	[Range(0, 100)]
-	public float heartCount;
+	public int heartCount;
 	[Range(0, 100)]
-	public float enemyCount;
+	public int enemyCount;
 	[Range(0, 100)]
-	public float trapCount;
+	public int trapCount;
 
 	[Range(0, 1)]
 	public float hpDecreasingSpeed;
