@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 
 public class SpawnManager : MonoBehaviour {
-    private static readonly int TILE_SPACING = 3;
 
     public LevelDesign[] _levelDesign;
     public LevelDesign levelDesign {
@@ -68,13 +67,16 @@ public class SpawnManager : MonoBehaviour {
 
         GameObject tileSet = new GameObject(totalTileCount.ToString());
 
-        for (int i = totalTileCount; i < totalTileCount + TILE_SPACING; ++i) {
+        for (int i = totalTileCount; i < totalTileCount + Definition.TILE_SPACING; ++i) {
             GameObject tile = i % 2 == 0 ? levelDesign.tile.tileLight : levelDesign.tile.tileDark;
-            Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * TILE_SPACING);
+            Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * Definition.TILE_SPACING);
 
             Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
 
-            bool spawnObj = SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ? true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet);
+            bool spawnObj =
+                SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
+                true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
+                true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet);
         }
         tileSet.transform.SetParent(tileParent.transform);
 
@@ -95,8 +97,11 @@ public class SpawnManager : MonoBehaviour {
     public bool SpawnObject(GameObject gameObject, Vector3 pos, ref int count, GameObject parent) {
         int random = UnityEngine.Random.Range(0, 100);
         if (random < ((float)count / levelDesign.tileCount) * 33) {
-            if (--count > 0) {
+            if (count > 0) {
+                if (gameObject is null) return false;
+
                 Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
+                count--;
                 return true;
             }
         }
@@ -107,7 +112,7 @@ public class SpawnManager : MonoBehaviour {
         if (tileParent.transform.childCount > 0)
             Destroy(tileParent.transform.GetChild(0).gameObject);
 
-        if (planeParent.transform.childCount > 4)
+        if (planeParent.transform.childCount > 5)
             Destroy(planeParent.transform.GetChild(0).gameObject);
 	}
 

@@ -3,35 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	private static readonly int MOVE_OFFSET = 3;
+
+	public bool isStop;
 
     private void Update() {
-		if (Input.GetKeyDown(KeyCode.LeftArrow) 
-			|| Input.GetKeyDown(KeyCode.RightArrow))
-			Move();
+		if (!isStop) {
+			if (Input.GetKeyDown(KeyCode.LeftArrow)
+				|| Input.GetKeyDown(KeyCode.RightArrow)) {
+				Move();
+			}
+		}
 	}
 
 	private void Move() {
 		Vector3 offset = new Vector3();
-		offset.z = this.transform.position.z + MOVE_OFFSET;
+		offset.z = this.transform.position.z + Definition.TILE_SPACING;
 		RecordData.jumpCount++;
 
 		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
 			if (this.transform.position.x == 0)
-				offset.x = MOVE_OFFSET * 2;
+				offset.x = Definition.TILE_SPACING * 2;
 			else
-				offset.x = this.transform.position.x - MOVE_OFFSET;
+				offset.x = this.transform.position.x - Definition.TILE_SPACING;
 		} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-			if (this.transform.position.x == MOVE_OFFSET * 2)
+			if (this.transform.position.x == Definition.TILE_SPACING * 2)
 				offset.x = 0;
 			else
-				offset.x = this.transform.position.x + MOVE_OFFSET;
+				offset.x = this.transform.position.x + Definition.TILE_SPACING;
 		}
 
 		this.transform.position = offset;
 		//SpawnManager.init.SpawnTile();
 
-		if (RecordData.jumpCount > 4)
+		if (RecordData.jumpCount > 50)
 			SpawnManager.init.RemoveTile();
 	}
 }
