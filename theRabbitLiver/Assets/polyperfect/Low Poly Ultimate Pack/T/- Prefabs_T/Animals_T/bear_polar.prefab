@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33000013984374932}
   - component: {fileID: 23000010254711640}
   - component: {fileID: 64822915491016386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: bear_polar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

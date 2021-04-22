@@ -1192,7 +1192,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1934958352}
-        m_TargetAssemblyTypeName: Bunny, Assembly-CSharp
+        m_TargetAssemblyTypeName: Notake, Assembly-CSharp
         m_MethodName: Skill
         m_Mode: 1
         m_Arguments:
@@ -1380,34 +1380,37 @@ MonoBehaviour:
       tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
       tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
     plane: {fileID: 1000011038681530, guid: f6710321408c46d4782a58e8db0b11e3, type: 3}
+    enemy: {fileID: 1000012151434938, guid: 00718396d819e4c03940020458d4cc17, type: 3}
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
     tileCount: 20
+    enemyCount: 10
+    trapCount: 0
     coinCount: 0
     heartCount: 0
-    enemyCount: 0
-    trapCount: 5
     hpDecreasingSpeed: 0.056
   - tile:
       tileLight: {fileID: 6806486310248525171, guid: e335574da29b9b140a8618fd829d011a, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: f7bdba2bde31b5849a6ed3ab078aecbf, type: 3}
     plane: {fileID: 4623280250564862162, guid: ce8ecd3707ade46209003c8330f4b77b, type: 3}
+    enemy: {fileID: 1000013150164422, guid: 4b613398b7b344a95afdd36f59ad7e50, type: 3}
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
     tileCount: 20
+    enemyCount: 1
+    trapCount: 5
     coinCount: 0
     heartCount: 0
-    enemyCount: 0
-    trapCount: 5
     hpDecreasingSpeed: 0.083
   - tile:
       tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
     plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
+    enemy: {fileID: 0}
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
     tileCount: 20
-    coinCount: 0
-    heartCount: 0
     enemyCount: 0
     trapCount: 5
+    coinCount: 0
+    heartCount: 0
     hpDecreasingSpeed: 0.16
   coin: {fileID: 0}
   heart: {fileID: 0}
@@ -3048,6 +3051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStop: 0
 --- !u!114 &1934958352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,9 +3061,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1934958350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b2d478283bd4510bc796855bf810ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 6983f19f279284ee2b73be402d457a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillDelay: 1
+  skillRange: 7.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1940660090
 PrefabInstance:
   m_ObjectHideFlags: 0
