@@ -10,7 +10,6 @@ public class Bunny : Character {
 
     private new void Start() {
         base.Start();
-
         distance = MOVE_OFFSET;
     }
 

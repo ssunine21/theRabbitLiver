@@ -9,8 +9,6 @@ public class Bono : Character {
 
     private new void Start() {
         base.Start();
-
-        level = 3;
         distance = level * MOVE_OFFSET;
     }
 

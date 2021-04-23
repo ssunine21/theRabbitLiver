@@ -5,14 +5,13 @@ using UnityEngine;
 public class Notake : Character {
     [Range(0, 20)]
     public float skillDelay;
-    [Range(0, 20)]
+
     public float skillRange;
 
     public LayerMask layerMask;
 
     private new void Start() {
         base.Start();
-        level = 3;
     }
 
     public override void Skill() {
@@ -30,20 +29,29 @@ public class Notake : Character {
         int count = level;
 
         while (count-- > 0) {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, skillRange, 1 << 3);
+            Vector3 pivot = transform.position;
+            pivot.x = 3;
+
+            Collider[] colliders = Physics.OverlapSphere(pivot, skillRange, 1 << 3);
             if (colliders.Length == 0) break;
 
-            float shortDistance = Vector3.Distance(transform.position, colliders[0].transform.position);
-            Vector3 shortEnemyPos = colliders[0].transform.transform.position;
+            float shortDistance = skillRange;
+            Vector3 targetEnemyPos = colliders[0].transform.position;
 
             // temptemptemptemptemptemptemptemp
-            GameObject temp = colliders[0].gameObject; ;
+            GameObject temp = colliders[0].gameObject;
             // --------------------------------
 
+            float distance;
+
             foreach (var collider in colliders) {
-                if(shortDistance > Vector3.Distance(transform.position, collider.transform.position)
-                    && collider.transform.position.z >= transform.position.z) {
-                    shortEnemyPos = collider.transform.transform.position;
+                distance = Vector3.Distance(transform.position, collider.transform.position);
+
+                if (shortDistance > distance
+                    && collider.transform.position.z == transform.position.z) {
+
+                    shortDistance = distance;
+                    targetEnemyPos = collider.transform.position;
 
                     // temptemptemptemptemptemptemptemp
                     temp = collider.gameObject;
@@ -51,13 +59,13 @@ public class Notake : Character {
                 }
             }
 
-            if (shortEnemyPos.z >= transform.position.z) {
-                transform.position = shortEnemyPos;
-                // temptemptemptemptemptemptemptemp
-                if (!(temp is null))
-                    Destroy(temp);
-                // --------------------------------
-            }
+            if (targetEnemyPos == Vector3.zero) break;
+
+            transform.position = targetEnemyPos;
+            // temptemptemptemptemptemptemptemp
+            if (!(temp is null))
+                Destroy(temp);
+            // --------------------------------
 
             yield return new WaitForSeconds(skillDelay);
         }
@@ -67,7 +75,9 @@ public class Notake : Character {
     }
 
     private void OnDrawGizmosSelected() {
+        Vector3 pivot = transform.position;
+        pivot.x = 3;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, skillRange);
+        Gizmos.DrawWireSphere(pivot, skillRange);
     }
 }
