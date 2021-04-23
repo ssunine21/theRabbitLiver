@@ -8,6 +8,7 @@ abstract public class Character : MonoBehaviour {
     protected Player player;
     protected Vector3 targetPos;
 
+    [SerializeField]
     protected int level;
     protected float targetPosRange = 0.05f;
     protected bool isSkill;

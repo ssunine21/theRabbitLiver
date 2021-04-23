@@ -3064,11 +3064,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6983f19f279284ee2b73be402d457a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 2
   skillDelay: 1
   skillRange: 7.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!1001 &1940660090
 PrefabInstance:
   m_ObjectHideFlags: 0
