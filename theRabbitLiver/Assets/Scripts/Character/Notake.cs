@@ -5,41 +5,43 @@ using UnityEngine;
 public class Notake : Character {
     [Range(0, 20)]
     public float skillDelay;
-
+    [Range(0, 20)]
     public float skillRange;
 
     public LayerMask layerMask;
 
-    private new void Start() {
+    private Vector3 pivot;
+
+    protected override void Start() {
         base.Start();
     }
 
-    public override void Skill() {
-        if (!isSkill) {
-            player.isStop = true;
-            isSkill = true;
+    public override bool Skill() {
+        if (!base.Skill()) return false;
 
-            StartCoroutine(nameof(SkillCoroutine));
-        }
+        StartCoroutine(nameof(SkillCoroutine));
+        return true;
     }
     
-
     private IEnumerator SkillCoroutine() {
 
         int count = level;
 
+        float shortDistance;
+        Vector3 targetEnemyPos;
+
         while (count-- > 0) {
-            Vector3 pivot = transform.position;
+            pivot = transform.position;
             pivot.x = 3;
 
             Collider[] colliders = Physics.OverlapSphere(pivot, skillRange, 1 << 3);
             if (colliders.Length == 0) break;
 
-            float shortDistance = skillRange;
-            Vector3 targetEnemyPos = colliders[0].transform.position;
+            shortDistance = skillRange;
+            targetEnemyPos = Vector3.zero;
 
             // temptemptemptemptemptemptemptemp
-            GameObject temp = colliders[0].gameObject;
+            GameObject temp = null;
             // --------------------------------
 
             float distance;
@@ -47,15 +49,26 @@ public class Notake : Character {
             foreach (var collider in colliders) {
                 distance = Vector3.Distance(transform.position, collider.transform.position);
 
-                if (shortDistance > distance
-                    && collider.transform.position.z == transform.position.z) {
+                if(collider.transform.position.z >= transform.position.z) {
+                    if (targetEnemyPos == Vector3.zero
+                        || collider.transform.position.z < targetEnemyPos.z) {
 
-                    shortDistance = distance;
-                    targetEnemyPos = collider.transform.position;
+                        shortDistance = distance;
+                        targetEnemyPos = collider.transform.position;
+                        temp = collider.gameObject;
 
-                    // temptemptemptemptemptemptemptemp
-                    temp = collider.gameObject;
-                    // --------------------------------
+                    } else if(collider.transform.position.z == targetEnemyPos.z) {
+
+                        if (shortDistance > distance) {
+
+                            shortDistance = distance;
+                            targetEnemyPos = collider.transform.position;
+
+                            // temptemptemptemptemptemptemptemp
+                            temp = collider.gameObject;
+                            // --------------------------------
+                        }
+                    }
                 }
             }
 
@@ -70,12 +83,12 @@ public class Notake : Character {
             yield return new WaitForSeconds(skillDelay);
         }
         
-            player.isStop = false;
-            isSkill = false;
+            player.isStopping = false;
+            isUsingSkill = false;
     }
 
     private void OnDrawGizmosSelected() {
-        Vector3 pivot = transform.position;
+        pivot = transform.position;
         pivot.x = 3;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(pivot, skillRange);
