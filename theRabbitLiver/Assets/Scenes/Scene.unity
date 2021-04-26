@@ -856,7 +856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &576812225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e3bbcdee2774582b09a2649d15007d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpBar: {fileID: 1005664578}
+  _hpBar: {fileID: 1005664578}
 --- !u!1001 &611808488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1934958352}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Notake, Assembly-CSharp
         m_MethodName: Skill
         m_Mode: 1
@@ -1313,6 +1313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790242758}
   - component: {fileID: 790242757}
+  - component: {fileID: 790242759}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1346,6 +1347,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &790242759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790242756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 391e3ac92eff34d68874d9712298dfeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fontSize: 30
+  R: 0
+  G: 0
+  B: 0
 --- !u!1 &792462036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,10 +1401,10 @@ MonoBehaviour:
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
     tileCount: 20
     enemyCount: 10
-    trapCount: 0
+    trapCount: 16
     coinCount: 0
     heartCount: 0
-    hpDecreasingSpeed: 0.056
+    hpDecreasingSpeed: 0.036
   - tile:
       tileLight: {fileID: 6806486310248525171, guid: e335574da29b9b140a8618fd829d011a, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: f7bdba2bde31b5849a6ed3ab078aecbf, type: 3}
@@ -1399,7 +1416,7 @@ MonoBehaviour:
     trapCount: 5
     coinCount: 0
     heartCount: 0
-    hpDecreasingSpeed: 0.083
+    hpDecreasingSpeed: 0.057
   - tile:
       tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
@@ -1411,7 +1428,7 @@ MonoBehaviour:
     trapCount: 5
     coinCount: 0
     heartCount: 0
-    hpDecreasingSpeed: 0.16
+    hpDecreasingSpeed: 0.055
   coin: {fileID: 0}
   heart: {fileID: 0}
   shownTileMax: 20
@@ -1670,7 +1687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.32968104, y: -0, z: -0, w: 0.9440924}
-  m_LocalPosition: {x: 3, y: 5.5, z: -4.4}
+  m_LocalPosition: {x: 3, y: 5.5, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3002,7 +3019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012304205182, guid: aa79f8e11b1752f4b81b6a7a84d83070, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4000012304205182, guid: aa79f8e11b1752f4b81b6a7a84d83070, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3032,6 +3049,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64499414720624622, guid: aa79f8e11b1752f4b81b6a7a84d83070, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64499414720624622, guid: aa79f8e11b1752f4b81b6a7a84d83070, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa79f8e11b1752f4b81b6a7a84d83070, type: 3}
 --- !u!1 &1934958350 stripped
@@ -3052,6 +3077,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStop: 0
+  superCharge: 0
+  trapCrashSpeed: 5
+  hpBar: {fileID: 576812226}
 --- !u!114 &1934958352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3061,15 +3089,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1934958350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6983f19f279284ee2b73be402d457a68, type: 3}
+  m_Script: {fileID: 11500000, guid: 16c6667a08f73461fbfbc6928fe685f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
-  skillDelay: 1
-  skillRange: 7.5
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 8
+  level: 3
+  speed: 5
+--- !u!136 &1934958353
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934958350}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5019283
+  m_Height: 1.391146
+  m_Direction: 1
+  m_Center: {x: -0.00000011920929, y: 1.0716957, z: -0.007861853}
+--- !u!54 &1934958358
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934958350}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &1940660090
 PrefabInstance:
   m_ObjectHideFlags: 0

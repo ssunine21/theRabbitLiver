@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class HPBar : MonoBehaviour {
 
-    public Image hpBar;
-
-    private void FixedUpdate() {
-        hpBar.fillAmount -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
+    public Image _hpBar;
+    public float hpBar {
+        get { return _hpBar.fillAmount; }
+        set {
+            _hpBar.fillAmount = value;
+        }
     }
 
+    private void FixedUpdate() {
+        _hpBar.fillAmount -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
+    }
 }

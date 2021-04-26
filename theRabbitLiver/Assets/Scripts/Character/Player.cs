@@ -3,14 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+	private float TRAP_DAMAGE = 0.1f;
+	private float ENEMY_RECOVERY = 0.1f;
 
-	public bool isStop;
+	public bool isStopping;
+	public bool isSuperCharge;
+	[Range(0, 20)]
+	public float trapCrashSpeed;
+
+	public HPBar hpBar;
+
+	private bool isCrashing;
+	private float crashErrorRange = 0.05f;
+
+	private Vector3 crashPos;
 
     private void Update() {
-		if (!isStop) {
+		if (!isStopping) {
 			if (Input.GetKeyDown(KeyCode.LeftArrow)
 				|| Input.GetKeyDown(KeyCode.RightArrow)) {
 				Move();
+			}
+		}
+	}
+
+	private void FixedUpdate() {
+		if (isCrashing) {
+			isStopping = true;
+
+			transform.Translate((crashPos - transform.position) * trapCrashSpeed * Time.deltaTime);
+
+			if (transform.position.z <= (crashPos.z + crashErrorRange)) {
+				transform.position = crashPos;
+				isStopping = false;
+				isCrashing = false;
 			}
 		}
 	}
@@ -37,5 +63,30 @@ public class Player : MonoBehaviour {
 
 		if (RecordData.jumpCount > 50)
 			SpawnManager.init.RemoveTile();
+	}
+
+	private void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
+			CollistionWithEnemy(collision);
+		} else if (collision.gameObject.CompareTag(Definition.TAG_TRAP)) {
+			CollistionWithTrap(collision);
+		}
+	}
+
+	private void CollistionWithEnemy(Collision collision) {
+		hpBar.hpBar += ENEMY_RECOVERY;
+		Destroy(collision.gameObject);
+	}
+
+	private void CollistionWithTrap(Collision collision) {
+		if (!isSuperCharge) {
+
+			isCrashing = true;
+			crashPos = transform.position;
+			crashPos.z -= Definition.TILE_SPACING;
+			hpBar.hpBar -= TRAP_DAMAGE;
+		}
+
+		Destroy(collision.gameObject);
 	}
 }

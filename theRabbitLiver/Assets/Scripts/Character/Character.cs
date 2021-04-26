@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Character : MonoBehaviour {
+public class Character : MonoBehaviour {
     protected static readonly int MOVE_OFFSET = Definition.TILE_SPACING;
 
     protected Player player;
@@ -10,12 +10,19 @@ abstract public class Character : MonoBehaviour {
 
     [SerializeField]
     protected int level;
-    protected float targetPosRange = 0.05f;
-    protected bool isSkill;
+    protected float posErrorRange = 0.05f;
+    protected bool isUsingSkill;
 
-    abstract public void Skill();
+    virtual public bool Skill() {
+        if (isUsingSkill) return false;
 
-    protected void Start() {
+        player.isSuperCharge = true;
+        player.isStopping = true;
+        isUsingSkill = true;
+        return true;
+    }
+
+    virtual protected void Start() {
         player = GetComponent<Player>();
     }
 }

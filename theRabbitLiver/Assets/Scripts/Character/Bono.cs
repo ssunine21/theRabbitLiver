@@ -7,29 +7,28 @@ public class Bono : Character {
     public float speed;
     private int distance;
 
-    private new void Start() {
+    protected override void Start() {
         base.Start();
         distance = level * MOVE_OFFSET;
     }
 
-    public override void Skill() {
-        if (!isSkill) {
-            targetPos = transform.position;
-            targetPos.z += distance;
+    public override bool Skill() {
+        if (!base.Skill()) return false;
 
-            player.isStop = true;
-            isSkill = true;
-        }
+        targetPos = transform.position;
+        targetPos.z += distance;
+
+        return true;
     }
 
     private void FixedUpdate() {
-        if (isSkill) {
+        if (isUsingSkill) {
             transform.Translate((targetPos - transform.position) * speed * Time.deltaTime);
 
-            if(transform.position.z >= (targetPos.z - targetPosRange)) {
+            if(transform.position.z >= (targetPos.z - posErrorRange)) {
                 transform.position = targetPos;
-                player.isStop = false;
-                isSkill = false;
+                player.isStopping = false;
+                isUsingSkill = false;
             }
         }
     }
