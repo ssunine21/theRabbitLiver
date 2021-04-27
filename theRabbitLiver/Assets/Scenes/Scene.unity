@@ -1400,7 +1400,7 @@ MonoBehaviour:
     plane: {fileID: 1000011038681530, guid: f6710321408c46d4782a58e8db0b11e3, type: 3}
     enemy: {fileID: 1000012151434938, guid: 00718396d819e4c03940020458d4cc17, type: 3}
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
-    tileCount: 20
+    tileCount: 40
     enemyCount: 10
     trapCount: 16
     coinCount: 0
@@ -1412,7 +1412,7 @@ MonoBehaviour:
     plane: {fileID: 4623280250564862162, guid: ce8ecd3707ade46209003c8330f4b77b, type: 3}
     enemy: {fileID: 1000013150164422, guid: 4b613398b7b344a95afdd36f59ad7e50, type: 3}
     trap: {fileID: 1410863979287842, guid: f7234947f3b2a43508a1ead6ce2e7d6e, type: 3}
-    tileCount: 20
+    tileCount: 40
     enemyCount: 1
     trapCount: 5
     coinCount: 0
@@ -1432,7 +1432,7 @@ MonoBehaviour:
     hpDecreasingSpeed: 0.055
   coin: {fileID: 0}
   heart: {fileID: 0}
-  shownTileMax: 20
+  prepareTileCount: 20
 --- !u!4 &792462038
 Transform:
   m_ObjectHideFlags: 0
@@ -1743,8 +1743,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 342.639, y: -82.744}
-  m_SizeDelta: {x: 611.847, y: 83.489}
+  m_AnchoredPosition: {x: 317.099, y: -79.261}
+  m_SizeDelta: {x: 560.768, y: 76.524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005664578
 MonoBehaviour:
@@ -1942,8 +1942,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 342.639, y: -82.744}
-  m_SizeDelta: {x: 611.847, y: 83.489}
+  m_AnchoredPosition: {x: 317.099, y: -79.261}
+  m_SizeDelta: {x: 560.768, y: 76.524}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194971528
 MonoBehaviour:
