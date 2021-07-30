@@ -1,0 +1,1557 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/2020.3.1f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+51585
+Successfully changed project path to: /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver
+/Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 73.03 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.1f1 (77a89f25062f)
+[Subsystems] Discovering subsystems at path /Applications/Unity/2020.3.1f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Assets
+GfxDevice: creating device client; threaded=0
+2021-07-28 09:28:10.766 Unity[3246:64546] Color LCD preferred device: Intel Iris Pro Graphics (low power)
+2021-07-28 09:28:10.766 Unity[3246:64546] Metal devices available: 1
+2021-07-28 09:28:10.766 Unity[3246:64546] 0: Intel Iris Pro Graphics (low power)
+2021-07-28 09:28:10.767 Unity[3246:64546] Using device Intel Iris Pro Graphics (low power)
+Initializing Metal device caps: Intel Iris Pro Graphics
+Initialize mono
+Mono path[0] = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56246
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/2020.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001901 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 72.23 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.180 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001241 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961dd7bc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622900000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dd7f000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9621dcf000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238b0000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9621dcf000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962395d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9621dcf000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962295d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dd7f000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dd85200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a1e000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.213 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/2020.3.1f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 135.8 MB.
+System memory in use after: 135.9 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1602.
+Total: 2.910521 ms (FindLiveObjects: 0.243280 ms CreateObjectMapping: 0.061240 ms MarkObjects: 2.461938 ms  DeleteObjects: 0.142623 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Materials/Shader/BlurShader.shader
+  artifactKey: Guid(a3e5ce1a8d3104f9e92cffe484e97688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Shader/BlurShader.shader using Guid(a3e5ce1a8d3104f9e92cffe484e97688) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb39156fa0944f3013ad77110b3339bd') in 1.349417 seconds
+  Import took 1.353667 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001414 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961f5e4a00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624ad5e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c00000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962391c000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962407de00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624ad5e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623943000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.205 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1126 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 138.0 MB.
+System memory in use after: 138.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1605.
+Total: 2.874205 ms (FindLiveObjects: 0.239963 ms CreateObjectMapping: 0.063025 ms MarkObjects: 2.456241 ms  DeleteObjects: 0.112536 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 14621.225605 seconds.
+  path: Assets/Images/UI/title.psd
+  artifactKey: Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/UI/title.psd using Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ce7222c7e3aeb78b2d7df916c589bb5') in 0.768311 seconds
+  Import took 0.870631 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.016847 seconds.
+  path: Assets/Images/UI/title.psd
+  artifactKey: Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/UI/title.psd using Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1c21569cb8e66f3acae3176ffd466be') in 0.166088 seconds
+  Import took 0.170845 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.078970 seconds.
+  path: Assets/Images/UI/title.psd
+  artifactKey: Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Images/UI/title.psd using Guid(cba646fe4f42d4fdb9de07633d05d2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb3d25aeca50d39022bebcf373779629') in 0.025135 seconds
+  Import took 0.030431 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001060 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9624b62800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229b7000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624b6de00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238b0000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229b7000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238f1000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229b7000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229b7000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96231c7200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96231cdc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229e6000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.270 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.68 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1126 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.1 MB.
+System memory in use after: 146.2 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1614.
+Total: 3.073719 ms (FindLiveObjects: 0.541707 ms CreateObjectMapping: 0.138685 ms MarkObjects: 2.309025 ms  DeleteObjects: 0.081588 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001900 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961deb7400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961deaa000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623918000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96239c5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623576000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962357c200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229e6000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.212 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1126 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.3 MB.
+System memory in use after: 146.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1617.
+Total: 2.297538 ms (FindLiveObjects: 0.177672 ms CreateObjectMapping: 0.043731 ms MarkObjects: 2.017282 ms  DeleteObjects: 0.057527 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002010 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96240aa600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961df61e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961df74400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624db9a00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96239a2000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.401 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1126 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 146.7 MB.
+System memory in use after: 146.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1620.
+Total: 2.314457 ms (FindLiveObjects: 0.227941 ms CreateObjectMapping: 0.057857 ms MarkObjects: 1.964628 ms  DeleteObjects: 0.062881 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 10777.225847 seconds.
+  path: Assets/Scripts/SkillButton.cs
+  artifactKey: Guid(87e11753ccebf4794bb68cf328ea3def) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/SkillButton.cs using Guid(87e11753ccebf4794bb68cf328ea3def) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cac1c772a0d403247b38280954e113ac') in 0.518840 seconds
+  Import took 0.542954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.931253 seconds.
+  path: Assets/Scripts/HPBar.cs
+  artifactKey: Guid(b6e3bbcdee2774582b09a2649d15007d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/HPBar.cs using Guid(b6e3bbcdee2774582b09a2649d15007d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0be30288544c37ea4fbde7507e06589') in 0.005767 seconds
+  Import took 0.009541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.286230 seconds.
+  path: Assets/Scripts/UI
+  artifactKey: Guid(1d412f633642442098c55912de6912ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UI using Guid(1d412f633642442098c55912de6912ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6964f4265bd58c0831132f42450b37e4') in 0.003085 seconds
+  Import took 0.006425 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000940 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9623076e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9620887e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961df0c800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961df12a00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.344 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1126 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 151.5 MB.
+System memory in use after: 151.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1623.
+Total: 3.065656 ms (FindLiveObjects: 0.388327 ms CreateObjectMapping: 0.077844 ms MarkObjects: 2.472529 ms  DeleteObjects: 0.125068 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 12.148797 seconds.
+  path: Assets/Scripts/LevelDesign.cs
+  artifactKey: Guid(d386629e4cef1d14289a7b2b2c4a3635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/LevelDesign.cs using Guid(d386629e4cef1d14289a7b2b2c4a3635) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd05418cbd0daebba7f2ad4982cbd43a') in 0.008699 seconds
+  Import took 0.013272 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.175158 seconds.
+  path: Assets/Scripts/Definition.cs
+  artifactKey: Guid(25eea54c7ec5948d3aa3e3c01978e82d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Definition.cs using Guid(25eea54c7ec5948d3aa3e3c01978e82d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05f144c472bc4ff9e378dc46782cd90c') in 0.005147 seconds
+  Import took 0.008625 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.683868 seconds.
+  path: Assets/Scripts/Camera.cs
+  artifactKey: Guid(959540939e5dbbc49947a5b2947bd114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Camera.cs using Guid(959540939e5dbbc49947a5b2947bd114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe39fb3e38c4ee7101e20e05db174edd') in 0.004418 seconds
+  Import took 0.008668 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.987490 seconds.
+  path: Assets/Scripts/Tile.cs
+  artifactKey: Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tile.cs using Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e4eaa0a3110bdbddad5ccdd86ad6ef1') in 0.008616 seconds
+  Import took 0.015333 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 397.503853 seconds.
+  path: Assets/Scripts/TileObject.cs
+  artifactKey: Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TileObject.cs using Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ef37dd23e2576f50615135320be59cd') in 0.007427 seconds
+  Import took 0.011755 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 689.839137 seconds.
+  path: Assets/Scripts/TileObject.cs
+  artifactKey: Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/TileObject.cs using Guid(cacc8121af23148d2b2d34f23501e376) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36f4c49298019946cbc0bb4071fd4fa0') in 0.005092 seconds
+  Import took 0.008126 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000990 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961f842c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961f846000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961ddc6200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961ddcc400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.176 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 151.8 MB.
+System memory in use after: 151.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1627.
+Total: 2.261338 ms (FindLiveObjects: 0.225025 ms CreateObjectMapping: 0.061657 ms MarkObjects: 1.913448 ms  DeleteObjects: 0.059992 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 28.004687 seconds.
+  path: Assets/Prefabs/Tiles/grassland_light.prefab
+  artifactKey: Guid(d61e44eec8a7eac4887341e3cddbced5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Tiles/grassland_light.prefab using Guid(d61e44eec8a7eac4887341e3cddbced5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '956038e871a71e7518dd68a5953ab0c3') in 0.556889 seconds
+  Import took 0.561309 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002370 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9624058600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962318e800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e7aa200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e7b0400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.307 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.87 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.5 MB.
+System memory in use after: 156.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1635.
+Total: 2.834629 ms (FindLiveObjects: 0.252789 ms CreateObjectMapping: 0.141612 ms MarkObjects: 2.364067 ms  DeleteObjects: 0.073058 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000990 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961e365200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e463c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623019200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623024600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.166 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.6 MB.
+System memory in use after: 156.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1638.
+Total: 2.610910 ms (FindLiveObjects: 0.184635 ms CreateObjectMapping: 0.043332 ms MarkObjects: 2.306414 ms  DeleteObjects: 0.074723 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001280 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961f970e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624796e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e61ee00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d21c400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.422 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.8 MB.
+System memory in use after: 156.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1641.
+Total: 2.402868 ms (FindLiveObjects: 0.236724 ms CreateObjectMapping: 0.066412 ms MarkObjects: 2.036271 ms  DeleteObjects: 0.062553 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000681 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961e722a00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e2eb600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e2eb600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e2f1800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.81 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.101 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.70 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.0 MB.
+System memory in use after: 157.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1644.
+Total: 2.695487 ms (FindLiveObjects: 0.287703 ms CreateObjectMapping: 0.060494 ms MarkObjects: 2.235254 ms  DeleteObjects: 0.078423 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000750 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9624e88e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962406ee00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624e78400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623264400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.315 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.2 MB.
+System memory in use after: 157.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1647.
+Total: 3.151361 ms (FindLiveObjects: 0.294969 ms CreateObjectMapping: 0.102096 ms MarkObjects: 2.695017 ms  DeleteObjects: 0.057981 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000930 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9623738800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961de62e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962373e000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961de62e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.170 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.4 MB.
+System memory in use after: 157.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1650.
+Total: 2.705584 ms (FindLiveObjects: 0.264739 ms CreateObjectMapping: 0.061023 ms MarkObjects: 2.303439 ms  DeleteObjects: 0.074544 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001020 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f962438b200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96236b4c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96236bcc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96236b4c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.154 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.6 MB.
+System memory in use after: 157.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1653.
+Total: 2.520363 ms (FindLiveObjects: 0.250969 ms CreateObjectMapping: 0.081804 ms MarkObjects: 2.114654 ms  DeleteObjects: 0.071905 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001278 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96247acc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96236ba800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96236ba800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623048200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.82 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.589 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 157.8 MB.
+System memory in use after: 157.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1656.
+Total: 2.496183 ms (FindLiveObjects: 0.231414 ms CreateObjectMapping: 0.159914 ms MarkObjects: 2.041257 ms  DeleteObjects: 0.062416 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001087 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961dd57400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dd66000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624787800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962478da00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.126 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.0 MB.
+System memory in use after: 158.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1659.
+Total: 2.656543 ms (FindLiveObjects: 0.185199 ms CreateObjectMapping: 0.044411 ms MarkObjects: 2.316570 ms  DeleteObjects: 0.108370 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001130 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961d64a600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2dbe00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2dbe00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2e2000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.181 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.2 MB.
+System memory in use after: 158.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1662.
+Total: 2.498340 ms (FindLiveObjects: 0.265280 ms CreateObjectMapping: 0.061748 ms MarkObjects: 2.098585 ms  DeleteObjects: 0.071131 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000962 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961dffdc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dfaa400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961df1f400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dfaa400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.359 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.4 MB.
+System memory in use after: 158.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1665.
+Total: 2.168143 ms (FindLiveObjects: 0.249056 ms CreateObjectMapping: 0.054432 ms MarkObjects: 1.795134 ms  DeleteObjects: 0.068011 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000884 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f9624f43e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624f3be00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d307200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d615400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.304 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 2.18 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.6 MB.
+System memory in use after: 158.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1668.
+Total: 2.759154 ms (FindLiveObjects: 0.245274 ms CreateObjectMapping: 0.063370 ms MarkObjects: 2.295777 ms  DeleteObjects: 0.153466 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000943 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961d701000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d701000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624bff400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d701000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.141 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.8 MB.
+System memory in use after: 158.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1671.
+Total: 2.164008 ms (FindLiveObjects: 0.239379 ms CreateObjectMapping: 0.055645 ms MarkObjects: 1.806050 ms  DeleteObjects: 0.061895 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000746 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961de4ae00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624af9400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e77fc00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961e61ee00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.451 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.0 MB.
+System memory in use after: 159.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1674.
+Total: 2.438941 ms (FindLiveObjects: 0.222262 ms CreateObjectMapping: 0.042758 ms MarkObjects: 2.101130 ms  DeleteObjects: 0.071525 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000892 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96243b6c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96243b6c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dbc6800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961dec4200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.230 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.2 MB.
+System memory in use after: 159.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1677.
+Total: 2.114696 ms (FindLiveObjects: 0.252500 ms CreateObjectMapping: 0.042082 ms MarkObjects: 1.746836 ms  DeleteObjects: 0.071673 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003230 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961f928400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96237f2600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961f93fa00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961f945c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.440 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.4 MB.
+System memory in use after: 159.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1680.
+Total: 2.157334 ms (FindLiveObjects: 0.188469 ms CreateObjectMapping: 0.042503 ms MarkObjects: 1.859427 ms  DeleteObjects: 0.065452 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000898 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96237f9400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624268e00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d3e8200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624808200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.689 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.72 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.6 MB.
+System memory in use after: 159.7 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1683.
+Total: 2.065707 ms (FindLiveObjects: 0.227986 ms CreateObjectMapping: 0.044782 ms MarkObjects: 1.738298 ms  DeleteObjects: 0.053557 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001033 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961d28d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2b2200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2b2200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d2b8c00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.097 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.67 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 159.8 MB.
+System memory in use after: 159.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1686.
+Total: 1.992787 ms (FindLiveObjects: 0.201823 ms CreateObjectMapping: 0.043817 ms MarkObjects: 1.675759 ms  DeleteObjects: 0.070144 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001093 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96243ff800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9621179600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d0e0600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961f946800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 3.65 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.616 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.82 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.0 MB.
+System memory in use after: 160.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1689.
+Total: 2.201916 ms (FindLiveObjects: 0.271899 ms CreateObjectMapping: 0.048363 ms MarkObjects: 1.817011 ms  DeleteObjects: 0.063227 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001025 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f96244c9800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96244c9800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622c1d000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96229a5000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9624481600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96244c9800 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.235 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.2 MB.
+System memory in use after: 160.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1692.
+Total: 3.174553 ms (FindLiveObjects: 0.275692 ms CreateObjectMapping: 0.104107 ms MarkObjects: 2.721002 ms  DeleteObjects: 0.072227 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000703 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-0x7f961d764600 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961d767a00 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f961edef000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f96238cd000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f962397a000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9622993000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9620b8b200 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9620b91400 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-0x7f9623a3b000 doesn't match image /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Library/ScriptAssemblies/UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.658 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1127 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 160.4 MB.
+System memory in use after: 160.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1695.
+Total: 2.416803 ms (FindLiveObjects: 0.239750 ms CreateObjectMapping: 0.119634 ms MarkObjects: 1.981555 ms  DeleteObjects: 0.063417 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
