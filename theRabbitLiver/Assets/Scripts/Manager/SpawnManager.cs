@@ -136,4 +136,10 @@ public class SpawnManager : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
+
+    public void TileUpDownAnimStart() {
+        foreach(TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
+            tile.StartUpDownCoroutine();
+        }
+    }
 }
