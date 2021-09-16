@@ -3,20 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
-	private float TRAP_DAMAGE = 0.1f;
-	private float ENEMY_RECOVERY = 0.1f;
+
+	private readonly float TRAP_DAMAGE = 0.1f;
+	private readonly float AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM = 0.3f;
+	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.1f;
+	private readonly float AMOUNT_RECOVERY_MP_ON_KILL = 0.2f;
 
 	public bool isStopping;
 	public bool isSuperCharge;
 	[Range(0, 20)]
 	public float trapCrashSpeed;
 
-	public HPBar hpBar;
-
-	private bool isCrashing;
+	public Stamina stamina;
+	
+	private bool _isCrashing;
+	public bool isCrashing {
+        get { return _isCrashing; }
+		set {
+			_isCrashing = value;
+			isStopping = value;
+		}
+    }
 	private float crashErrorRange = 0.05f;
 
 	private Vector3 crashPos;
+
+	private Character _character;
+	public Character character {
+		get { return _character; }
+        set { _character = value; }
+    }
 
     private void Update() {
 		if (!isStopping) {
@@ -29,15 +45,15 @@ public class Player : MonoBehaviour {
 
 	private void FixedUpdate() {
 		if (isCrashing) {
-			isStopping = true;
 
-			transform.Translate((crashPos - transform.position) * trapCrashSpeed * Time.deltaTime);
+			// Translate를 사용하지 말고 바로 위치를 옮긴 후 애니메이션으로 보정해보자 =======
+			// 애니메이션이 끝나면 isCrash를 false 로 ===============================
+			//transform.Translate((crashPos - transform.position) * trapCrashSpeed * Time.deltaTime);
 
-			if (transform.position.z <= (crashPos.z + crashErrorRange)) {
-				transform.position = crashPos;
-				isStopping = false;
-				isCrashing = false;
-			}
+			//if (transform.position.z <= (crashPos.z + crashErrorRange)) {
+			//	transform.position = crashPos;
+			//	isCrashing = false;
+			//}
 		}
 	}
 
@@ -59,7 +75,6 @@ public class Player : MonoBehaviour {
 		}
 
 		this.transform.position = offset;
-		//SpawnManager.init.SpawnTile();
 
 		if (RecordData.jumpCount > 50)
 			SpawnManager.init.RemoveTile();
@@ -67,26 +82,36 @@ public class Player : MonoBehaviour {
 
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
-			CollistionWithEnemy(collision);
+			CollisionWithEnemy(collision);
 		} else if (collision.gameObject.CompareTag(Definition.TAG_TRAP)) {
-			CollistionWithTrap(collision);
+			CollisionWithTrap(collision);
+		} else if (collision.gameObject.CompareTag(Definition.TAG_HEALTH_ITEM)) {
+			CollisionWithHealthItem(collision);
+
 		}
 	}
 
-	private void CollistionWithEnemy(Collision collision) {
-		hpBar.hpBar += ENEMY_RECOVERY;
+	private void CollisionWithEnemy(Collision collision) {
+		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
+		stamina.mpBar += AMOUNT_RECOVERY_MP_ON_KILL;
+
 		Destroy(collision.gameObject);
 	}
 
-	private void CollistionWithTrap(Collision collision) {
+	private void CollisionWithTrap(Collision collision) {
 		if (!isSuperCharge) {
 
-			isCrashing = true;
 			crashPos = transform.position;
 			crashPos.z -= Definition.TILE_SPACING;
-			hpBar.hpBar -= TRAP_DAMAGE;
+
+			transform.position = crashPos;
+			stamina.hpBar -= TRAP_DAMAGE;
 		}
 
 		Destroy(collision.gameObject);
 	}
+
+	private void CollisionWithHealthItem(Collision collision) {
+		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
+    }
 }
