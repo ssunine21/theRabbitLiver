@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour {
 
     public GameObject coin;
     public GameObject heart;
+    public GameObject[] characterPrefab;
 
     public int prepareTileCount;
 
@@ -23,18 +24,16 @@ public class SpawnManager : MonoBehaviour {
     private int totalTileCount;
     private int currLevelMaxTileCount;
 
-	private void Awake() {
+    private void Awake() {
         Singleton();
     }
 
     private void Start() {
-        
+
         planeParent = new GameObject("Planes");
         tileParent = new GameObject("Tiles");
 
         PrepareTileSpawn();
-
-        player = FindObjectOfType<Player>().gameObject;
     }
 
     private void PrepareTileSpawn() {
@@ -46,14 +45,23 @@ public class SpawnManager : MonoBehaviour {
 
     private void Update() {
 
+        if (player == null) return;
+
         int playerZPos = player.transform.position.z == 0 ? 0 : (int)player.transform.position.z / 3;
         int spawnCount = (playerZPos + prepareTileCount) - totalTileCount;
 
-        if(spawnCount > 0) {
-            for(int i = 0; i < spawnCount; ++i) {
+        if (spawnCount > 0) {
+            for (int i = 0; i < spawnCount; ++i) {
                 SpawnTile(true);
             }
         }
+    }
+
+    public GameObject SpawnPlayer() {
+        player = Instantiate(characterPrefab[(int)DataManager.init.userData.characterId]);
+        player.GetComponent<Player>().stamina = FindObjectOfType(typeof(Stamina)) as Stamina;
+
+        return player;
     }
 
     public void SpawnTile(bool withObject) {
@@ -83,7 +91,7 @@ public class SpawnManager : MonoBehaviour {
             if (withObject) {
                 bool spawnObj =
                     SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
-                    true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
+                    true : SpawnObject(heart, pos + heart.transform.position, ref levelDesign.heartCount, tileSet) ?
                     true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet);
             }
         }
@@ -108,7 +116,7 @@ public class SpawnManager : MonoBehaviour {
         int random = UnityEngine.Random.Range(0, 100);
         if (random < ((float)count / levelDesign.tileCount) * 33) {
             if (count > 0) {
-                if (gameObject is null) return false;
+                if (gameObject == null) return false;
 
                 Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
                 count--;
@@ -124,22 +132,22 @@ public class SpawnManager : MonoBehaviour {
 
         if (planeParent.transform.childCount > 5)
             Destroy(planeParent.transform.GetChild(0).gameObject);
-	}
+    }
 
-	public static SpawnManager init;
+    public void TileUpDownAnimStart() {
+        foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
+            tile.StartUpDownCoroutine();
+        }
+    }
+
+    public static SpawnManager init;
     private void Singleton() {
-        if (init is null) {
+        if (init == null) {
             init = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else {
             Destroy(this.gameObject);
-        }
-    }
-
-    public void TileUpDownAnimStart() {
-        foreach(TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
-            tile.StartUpDownCoroutine();
         }
     }
 }

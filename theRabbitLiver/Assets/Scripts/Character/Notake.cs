@@ -16,6 +16,10 @@ public class Notake : Character {
         base.Start();
     }
 
+    protected override void Ready() {
+
+    }
+
     public override bool Skill() {
         if (!base.Skill()) return false;
 
@@ -76,7 +80,7 @@ public class Notake : Character {
 
             transform.position = targetEnemyPos;
             // temptemptemptemptemptemptemptemp
-            if (!(temp is null))
+            if (!(temp == null))
                 Destroy(temp);
             // --------------------------------
 

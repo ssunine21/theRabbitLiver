@@ -5,18 +5,22 @@ using UnityEngine;
 public class Bono : Character {
     [Range(0, 20)]
     public float speed;
-    private int distance;
+    private int skillMoveDistance;
+    //BONO : Bono uses skill what move forward.
 
     protected override void Start() {
         base.Start();
-        distance = level * MOVE_OFFSET;
+        skillMoveDistance = level * MOVE_OFFSET;
+    }
+
+    protected override void Ready() {
     }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
 
         targetPos = transform.position;
-        targetPos.z += distance;
+        targetPos.z += skillMoveDistance;
 
         return true;
     }

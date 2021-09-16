@@ -5,12 +5,15 @@ using UnityEngine;
 public class Bunny : Character {
     [Range(0, 20)]
     public float speed;
-
     private int distance;
 
     protected override void Start() {
         base.Start();
         distance = MOVE_OFFSET;
+    }
+
+    protected override void Ready() {
+
     }
 
     public override bool Skill() {
