@@ -369,3 +369,5 @@
 /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/obj/Debug/Assembly-CSharp.dll
 /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/obj/Debug/Assembly-CSharp.pdb
+/Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Temp/Bin/Debug/Unity.2D.Sprite.Editor.dll
+/Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Temp/Bin/Debug/Unity.2D.Sprite.Editor.pdb
