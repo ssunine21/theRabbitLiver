@@ -42,7 +42,6 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
-
     private void Update() {
 
         if (player == null) return;

@@ -8,6 +8,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 	private readonly int hashMoveRight = Animator.StringToHash("moveRight");
 	private readonly int hashMoveLeft = Animator.StringToHash("moveLeft");
+	private readonly int hashHitTheTrap = Animator.StringToHash("hitTheTrap");
+	private readonly int hashDead = Animator.StringToHash("dead");
 
 	private readonly float CHAR_DIRECTION = 0f;
 	private readonly float TRAP_DAMAGE = 0.1f;
@@ -21,61 +23,68 @@ public class Player : MonoBehaviour {
 
 	public Stamina stamina;
 
-	public bool isStopping;
-	public bool isSuperCharge;
-	private bool _isCrashing;
-	public bool isCrashing {
-        get { return _isCrashing; }
+	public bool isGroggy = false;
+	public bool isSuperCharge = false;
+	public bool isDead = false;
+
+	private bool _hittingByTrap = false;
+	public bool hittingByTrap {
+		get { return _hittingByTrap; }
 		set {
-			_isCrashing = value;
-			isStopping = value;
+			_hittingByTrap = value;
+			isGroggy = value;
+			isSuperCharge = value;
 		}
-    }
+	}
 	private float crashErrorRange = 0.05f;
+	private Vector3 posAfterHitByTrap;
 
 	private Animator animator;
-	private Vector3 crashPos;
 
 	private Character _character;
 	public Character character {
 		get { return _character; }
-        set { _character = value; }
-    }
+		set { _character = value; }
+	}
 
-    private void Start() {
+	private void Start() {
 		animator = GetComponent<Animator>();
-    }
+	}
 
-    private void Update() {
-		if (!isStopping) {
-			if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) {
-				Move();
+	private void Update() {
+		if (!isGroggy && !isDead) {
+			if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+				Move(true);
+			} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+				Move(false);
+			}
+		}
+
+		if(stamina.hpBar <= 0 && !isDead) {
+			animator.SetTrigger(hashDead);
+			isDead = true;
+        }
+	}
+
+	private void FixedUpdate() {
+		if (hittingByTrap) {
+			this.transform.position = Vector3.Lerp(this.transform.position, posAfterHitByTrap, Time.deltaTime * trapCrashSpeed);
+
+			if (transform.position.z <= (posAfterHitByTrap.z + crashErrorRange)) {
+				transform.position = posAfterHitByTrap;
+				hittingByTrap = false;
 			}
 		}
 	}
 
-	private void FixedUpdate() {
-		if (isCrashing) {
-
-			// Translate를 사용하지 말고 바로 위치를 옮긴 후 애니메이션으로 보정해보자 =======
-			// 애니메이션이 끝나면 isCrash를 false 로 ===============================
-			//transform.Translate((crashPos - transform.position) * trapCrashSpeed * Time.deltaTime);
-
-			//if (transform.position.z <= (crashPos.z + crashErrorRange)) {
-			//	transform.position = crashPos;
-			//	isCrashing = false;
-			//}
-		}
-	}
-
-	private void Move() {
-		Vector3 offset = new Vector3();
+	private void Move(bool isLeft) {
+		Vector3 offset = new Vector3(0, this.transform.position.y, 0);
 		Vector3 quaternion = new Vector3();
 
 		offset.z = this.transform.position.z + Definition.TILE_SPACING;
 		RecordData.jumpCount++;
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+		if (isLeft) {
 			animator.SetTrigger(hashMoveLeft);
 
 			quaternion.y = -CHAR_DIRECTION;
@@ -83,7 +92,7 @@ public class Player : MonoBehaviour {
 				offset.x = Definition.TILE_SPACING * 2;
 			else
 				offset.x = this.transform.position.x - Definition.TILE_SPACING;
-		} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+		} else {
 			animator.SetTrigger(hashMoveRight);
 
 			quaternion.y = CHAR_DIRECTION;
@@ -100,38 +109,44 @@ public class Player : MonoBehaviour {
 			SpawnManager.init.RemoveTile();
 	}
 
-	private void OnCollisionEnter(Collision collision) {
+	private void OnTriggerStay(Collider collision) {
+		Debug.Log("OnTriggerEnter - " + collision);
+
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
 			CollisionWithEnemy(collision);
 		} else if (collision.gameObject.CompareTag(Definition.TAG_TRAP)) {
 			CollisionWithTrap(collision);
 		} else if (collision.gameObject.CompareTag(Definition.TAG_HEALTH_ITEM)) {
 			CollisionWithHealthItem(collision);
-
 		}
 	}
 
-	private void CollisionWithEnemy(Collision collision) {
+	private void CollisionWithEnemy(Collider collision) {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += AMOUNT_RECOVERY_MP_ON_KILL;
 
 		Destroy(collision.gameObject);
 	}
 
-	private void CollisionWithTrap(Collision collision) {
+	private void CollisionWithTrap(Collider collision) {
 		if (!isSuperCharge) {
+			hittingByTrap = true;
 
-			crashPos = transform.position;
-			crashPos.z -= Definition.TILE_SPACING;
+			posAfterHitByTrap = collision.transform.position;
+			posAfterHitByTrap.z -= Definition.TILE_SPACING;
 
-			transform.position = crashPos;
 			stamina.hpBar -= TRAP_DAMAGE;
-		}
+			animator.SetTrigger(hashHitTheTrap);
 
-		Destroy(collision.gameObject);
+			Destroy(collision.gameObject);
+		}
 	}
 
-	private void CollisionWithHealthItem(Collision collision) {
+	private void CollisionWithHealthItem(Collider collision) {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
-    }
+	}
+
+	public void Skill() {
+		Debug.Log("Skill");
+	}
 }

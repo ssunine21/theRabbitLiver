@@ -31,7 +31,7 @@ public class Bono : Character {
 
             if(transform.position.z >= (targetPos.z - posErrorRange)) {
                 transform.position = targetPos;
-                player.isStopping = false;
+                player.isGroggy = false;
                 isUsingSkill = false;
             }
         }

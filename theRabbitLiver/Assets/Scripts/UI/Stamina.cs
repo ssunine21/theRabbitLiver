@@ -11,6 +11,9 @@ public class Stamina : MonoBehaviour {
         get { return _hpBar.fillAmount; }
         set {
             _hpBar.fillAmount = value;
+            if (_hpBar.fillAmount <= 0) {
+                _hpBar.fillAmount = 0;
+            } else if (_hpBar.fillAmount > 1) _hpBar.fillAmount = 1;
         }
     }
 
@@ -26,7 +29,7 @@ public class Stamina : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        _hpBar.fillAmount -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
+        hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
     }
 
     public void SetStamina(float hp = 1, float mp = 0) {

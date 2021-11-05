@@ -20,7 +20,7 @@ public abstract class Character : MonoBehaviour {
         if (isUsingSkill || player.stamina.mpBar < 1) return false;
 
         player.isSuperCharge = true;
-        player.isStopping = true;
+        player.isGroggy = true;
         isUsingSkill = true;
         return true;
     }
