@@ -87,7 +87,7 @@ public class Notake : Character {
             yield return new WaitForSeconds(skillDelay);
         }
         
-            player.isStopping = false;
+            player.isGroggy = false;
             isUsingSkill = false;
     }
 
