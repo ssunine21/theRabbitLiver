@@ -33,11 +33,10 @@ public class Player : MonoBehaviour {
 		set {
 			_hittingByTrap = value;
 			isGroggy = value;
-			isSuperCharge = value;
 		}
 	}
 	private float crashErrorRange = 0.05f;
-	private Vector3 posAfterHitByTrap;
+	private Vector3 posAfterHit;
 
 	private Animator animator;
 
@@ -60,18 +59,23 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if(stamina.hpBar <= 0 && !isDead) {
-			animator.SetTrigger(hashDead);
-			isDead = true;
-        }
+		if (stamina.hpBar <= 0 && !isDead) {
+			//animator.SetTrigger(hashDead);
+			//isDead = true;
+		}
 	}
 
 	private void FixedUpdate() {
 		if (hittingByTrap) {
-			this.transform.position = Vector3.Lerp(this.transform.position, posAfterHitByTrap, Time.deltaTime * trapCrashSpeed);
+			this.transform.position = Vector3.Lerp(this.transform.position, posAfterHit, Time.deltaTime * trapCrashSpeed);
 
-			if (transform.position.z <= (posAfterHitByTrap.z + crashErrorRange)) {
-				transform.position = posAfterHitByTrap;
+			if (transform.position.z <= (posAfterHit.z + crashErrorRange)) {
+				transform.position = posAfterHit;
+				if (this.transform.position.z % 3 != 0) {
+					Vector3 vector3 = this.transform.position;
+					vector3.z -= (this.transform.transform.position.z % 3);
+				}
+
 				hittingByTrap = false;
 			}
 		}
@@ -121,6 +125,12 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	private void OnTriggerEnter(Collider collision) {
+		if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
+			CollisionWithAttack(collision);
+		}
+	}
+
 	private void CollisionWithEnemy(Collider collision) {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += AMOUNT_RECOVERY_MP_ON_KILL;
@@ -128,18 +138,30 @@ public class Player : MonoBehaviour {
 		Destroy(collision.gameObject);
 	}
 
+	private void CollisionWithAttack(Collider collider) {
+		if (!isSuperCharge) {
+			Hitting(collider);
+			//stamina.hpBar -= 30;
+		}
+	}
+
 	private void CollisionWithTrap(Collider collision) {
 		if (!isSuperCharge) {
-			hittingByTrap = true;
 
-			posAfterHitByTrap = collision.transform.position;
-			posAfterHitByTrap.z -= Definition.TILE_SPACING;
-
+			Hitting(collision);
 			stamina.hpBar -= TRAP_DAMAGE;
-			animator.SetTrigger(hashHitTheTrap);
 
 			Destroy(collision.gameObject);
 		}
+	}
+
+	private void Hitting(Collider collider) {
+		StartCoroutine(SuperChargeDelay(3));
+		posAfterHit = this.transform.position;
+		posAfterHit.z -= Definition.TILE_SPACING;
+		animator.SetTrigger(hashHitTheTrap);
+
+		hittingByTrap = true;
 	}
 
 	private void CollisionWithHealthItem(Collider collision) {
@@ -148,5 +170,10 @@ public class Player : MonoBehaviour {
 
 	public void Skill() {
 		Debug.Log("Skill");
+	}
+
+	IEnumerator SuperChargeDelay(float delay) {
+		yield return new WaitForSeconds(delay);
+		isSuperCharge = false;
 	}
 }

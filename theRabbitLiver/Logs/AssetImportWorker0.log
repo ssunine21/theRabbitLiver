@@ -12,285 +12,207 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55389
+61992
 Successfully changed project path to: /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver
 /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 85.31 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 73.84 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.1f1 (77a89f25062f)
 [Subsystems] Discovering subsystems at path /Applications/Unity/2020.3.1f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/duranno/Documents/GitHub/theRabbitLiver/theRabbitLiver/Assets
 GfxDevice: creating device client; threaded=0
-2021-11-05 14:39:20.962 Unity[12704:284446] Color LCD preferred device: Intel Iris Pro Graphics (low power)
-2021-11-05 14:39:20.962 Unity[12704:284446] Metal devices available: 1
-2021-11-05 14:39:20.962 Unity[12704:284446] 0: Intel Iris Pro Graphics (low power)
-2021-11-05 14:39:20.964 Unity[12704:284446] Using device Intel Iris Pro Graphics (low power)
+2021-11-12 15:47:27.581 Unity[13054:335409] Color LCD preferred device: Intel Iris Pro Graphics (low power)
+2021-11-12 15:47:27.581 Unity[13054:335409] Metal devices available: 1
+2021-11-12 15:47:27.581 Unity[13054:335409] 0: Intel Iris Pro Graphics (low power)
+2021-11-12 15:47:27.581 Unity[13054:335409] Using device Intel Iris Pro Graphics (low power)
 Initializing Metal device caps: Intel Iris Pro Graphics
 Initialize mono
 Mono path[0] = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56704
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56054
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/2020.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000689 seconds.
+Registered in 0.000714 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 75.41 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 77.56 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.483 seconds
+- Completed reload, in  5.146 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001189 seconds.
+Registered in 0.000745 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.70 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.299 seconds
+- Completed reload, in  1.312 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/2020.3.1f1/Unity.app/Contents/Tools/UnityShaderCompiler
 Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1184 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 139.6 MB.
-System memory in use after: 139.6 MB.
+Unloading 1186 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 139.7 MB.
+System memory in use after: 139.7 MB.
 
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1643.
-Total: 2.840071 ms (FindLiveObjects: 0.332813 ms CreateObjectMapping: 0.062379 ms MarkObjects: 2.331788 ms  DeleteObjects: 0.111479 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/bee.blend
-  artifactKey: Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.blend using Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f705a3986e804e81867303ad66cc9725') in 1.530909 seconds
-  Import took 1.535801 seconds .
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1645.
+Total: 3.206691 ms (FindLiveObjects: 0.301016 ms CreateObjectMapping: 0.084005 ms MarkObjects: 2.689328 ms  DeleteObjects: 0.130585 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 948.341715 seconds.
-  path: Assets/bee 1.blend
-  artifactKey: Guid(5308150d78a7f4e079f26d87f891ef8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee 1.blend using Guid(5308150d78a7f4e079f26d87f891ef8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e4fc6e8e24e8bc08a6ed4018a1de1ac') in 0.006640 seconds
-  Import took 0.011059 seconds .
+  path: Assets/Prefabs/Monsters/Lizard
+  artifactKey: Guid(cf53f094a18ea4bcfac113e3dd66d3db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard using Guid(cf53f094a18ea4bcfac113e3dd66d3db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '876e83b92fe836c2a96a124a2662023e') in 0.005389 seconds
+  Import took 0.009572 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 18.576722 seconds.
-  path: Assets/bee.blend
-  artifactKey: Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.blend using Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc30a49eedca1bac391f38d02dc3f166') in 0.005326 seconds
-  Import took 0.010079 seconds .
+  Time since last request: 23.973997 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '023fc794e85e81f447ab82327ab8e6ac') in 1.665999 seconds
+  Import took 1.670098 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000910 seconds.
-  path: Assets/bee.blend
-  artifactKey: Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.blend using Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc30a49eedca1bac391f38d02dc3f166') in 0.004405 seconds
-  Import took 0.007245 seconds .
+  Time since last request: 7.511329 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3e353d770e11c9f75f0d764a1e01ea9') in 0.113099 seconds
+  Import took 0.118943 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 21.606319 seconds.
-  path: Assets/bee 1.blend
-  artifactKey: Guid(5308150d78a7f4e079f26d87f891ef8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee 1.blend using Guid(5308150d78a7f4e079f26d87f891ef8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5330078fd88e9a1c85878b9adffc47d3') in 0.153137 seconds
-  Import took 0.157647 seconds .
+  Time since last request: 11.870383 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.png
+  artifactKey: Guid(0198e4c3e02a34c1aa2b65aa367e6ec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.png using Guid(0198e4c3e02a34c1aa2b65aa367e6ec8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '959429b30e78944e4539435640c21501') in 1.217509 seconds
+  Import took 1.221222 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 60.365723 seconds.
-  path: Assets/bee.blend
-  artifactKey: Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.blend using Guid(6d1712a9fa1c54c07b6715e38d63fa77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55b0a09d19980bea005a37f207d5ecc2') in 0.169821 seconds
-  Import took 0.174106 seconds .
+  Time since last request: 90.332740 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea595f1fb8a15d038ac18184dde87940') in 0.112322 seconds
+  Import took 0.116845 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3755.801285 seconds.
-  path: Assets/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18cd6e5843d61759c6b94bac491289e5') in 1.489251 seconds
-  Import took 1.493596 seconds .
+  Time since last request: 4.465681 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd127f59aecaadc4666e63d7d057184a') in 0.099710 seconds
+  Import took 0.104778 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 389.370668 seconds.
-  path: Assets/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31722a9fda3d897520d5ad8a90693ed0') in 0.144655 seconds
-  Import took 0.151646 seconds .
+  Time since last request: 55.946020 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0f4903c9acccadd0d48ccaa34cca311') in 0.106646 seconds
+  Import took 0.111778 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 23.757424 seconds.
-  path: Assets/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db28f397a8c89420ea524d7412438ac5') in 0.206575 seconds
-  Import took 0.210476 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 31.922494 seconds.
-  path: Assets/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cf4ebad2b130a24ff0f978983f67cda') in 0.133320 seconds
-  Import took 0.137996 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.643956 seconds.
-  path: Assets/Materials
-  artifactKey: Guid(71dc2781fb54f4ab4bebf060bfeea250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials using Guid(71dc2781fb54f4ab4bebf060bfeea250) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0702d49549ea7c31fd5d32b25ec6030a') in 0.003035 seconds
-  Import took 0.006451 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 26.302449 seconds.
-  path: Assets/Prefabs/Monster
-  artifactKey: Guid(5785418f2bae3447d819d423e0b826ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monster using Guid(5785418f2bae3447d819d423e0b826ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44067fae9e6233ed35402e1998f227c4') in 0.003107 seconds
-  Import took 0.006697 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.618952 seconds.
-  path: Assets/Prefabs/Monsters
-  artifactKey: Guid(5785418f2bae3447d819d423e0b826ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters using Guid(5785418f2bae3447d819d423e0b826ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a1c200e8ce7de24d4f4120680950862') in 0.001604 seconds
-  Import took 0.004713 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.926788 seconds.
-  path: Assets/Prefabs/Characters
-  artifactKey: Guid(2fef48821af9c42c7a8fc672a3b75256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Characters using Guid(2fef48821af9c42c7a8fc672a3b75256) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0ed8b3790b4f2fd140322c62f982cc3') in 0.001747 seconds
-  Import took 0.005310 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.897598 seconds.
-  path: Assets/Prefabs/Monsters/Bee
-  artifactKey: Guid(53e9f2e3d1b6a41d3bb64f915d68f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee using Guid(53e9f2e3d1b6a41d3bb64f915d68f0b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87263aca9afdd7acecd9a24ebce67cf8') in 0.003080 seconds
-  Import took 0.006693 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.060207 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6258b73fc9821098aa55fd4eccdc090d') in 0.223846 seconds
-  Import took 0.227749 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.174839 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29c159424f41af9a6b0fa6e522a05791') in 0.179415 seconds
-  Import took 0.183206 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 51.093496 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30e4317ee35482acd0b34e28acd90343') in 0.118506 seconds
-  Import took 0.122438 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 20.665947 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a94e84412e06131b129c0bccfdc9b95b') in 0.425435 seconds
-  Import took 0.429780 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 87.984956 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.controller
-  artifactKey: Guid(04e3aa1c31638469892defe1dc6f0140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.controller using Guid(04e3aa1c31638469892defe1dc6f0140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48b2f566866a572a7839e66dd46bb9fd') in 0.208354 seconds
-  Import took 0.212213 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 49.059096 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55c374210c4978ed5f7b57a92ee13195') in 0.090573 seconds
-  Import took 0.093955 seconds .
+  Time since last request: 106.713007 seconds.
+  path: Assets/Scripts/Monsters/Lizard.cs
+  artifactKey: Guid(b4081db8d880140f8939a5c2b990ba06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Monsters/Lizard.cs using Guid(b4081db8d880140f8939a5c2b990ba06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa7329064283a663aa8c09bab0e7d29c') in 0.389975 seconds
+  Import took 0.393693 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001197 seconds.
+Registered in 0.000864 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 1.05 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.570 seconds
+- Completed reload, in  1.262 seconds
 Platform modules already initialized, skipping
 Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.96 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 174.3 MB.
-System memory in use after: 174.4 MB.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 169.3 MB.
+System memory in use after: 169.4 MB.
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1689.
-Total: 2.697687 ms (FindLiveObjects: 0.255447 ms CreateObjectMapping: 0.102465 ms MarkObjects: 2.275794 ms  DeleteObjects: 0.061744 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1694.
+Total: 2.504795 ms (FindLiveObjects: 0.227856 ms CreateObjectMapping: 0.046566 ms MarkObjects: 2.161849 ms  DeleteObjects: 0.066776 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Import Request.
-  Time since last request: 1304.741044 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(d4a127de0da80424aadb967e0c665f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6de7151e697656577b51b264acb14e') in 0.185057 seconds
-  Import took 0.189374 seconds .
+  Time since last request: 27.477915 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.prefab
+  artifactKey: Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.prefab using Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50efdffbe539e641033f7c137d5b678a') in 0.472911 seconds
+  Import took 0.477241 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 55.453298 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.controller
-  artifactKey: Guid(04e3aa1c31638469892defe1dc6f0140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.controller using Guid(04e3aa1c31638469892defe1dc6f0140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f1d44056e7356b68ea9e95091cc350c') in 0.004756 seconds
-  Import took 0.008359 seconds .
+  Time since last request: 23.525682 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.controller
+  artifactKey: Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.controller using Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe48fc979743850ff8f6bbcb0e050199') in 0.190174 seconds
+  Import took 0.194602 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 8.082699 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a6a3ccaffb74d485e6844b1b21f8073') in 0.015824 seconds
-  Import took 0.019514 seconds .
+  Time since last request: 35.147516 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fb73382bf640e3466fa363d75deef15') in 0.145510 seconds
+  Import took 0.151588 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000939 seconds.
+Registered in 0.000836 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.170 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.2 MB.
+System memory in use after: 178.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1697.
+Total: 2.745393 ms (FindLiveObjects: 0.223257 ms CreateObjectMapping: 0.075172 ms MarkObjects: 2.365576 ms  DeleteObjects: 0.079255 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001134 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for OSXStandalone target not found
 Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
@@ -299,293 +221,191 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.137 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.91 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 174.8 MB.
-System memory in use after: 174.9 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1692.
-Total: 2.035672 ms (FindLiveObjects: 0.172616 ms CreateObjectMapping: 0.045335 ms MarkObjects: 1.762596 ms  DeleteObjects: 0.053508 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 68.945760 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a857ebf8ab58f2b967a77d70bff8322') in 0.097921 seconds
-  Import took 0.103661 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001051 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.157 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.06 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 175.0 MB.
-System memory in use after: 175.0 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1695.
-Total: 2.452891 ms (FindLiveObjects: 0.230783 ms CreateObjectMapping: 0.051190 ms MarkObjects: 2.090756 ms  DeleteObjects: 0.078319 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 136.615334 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62dde13bce4ca4e7256f7fadfbcb419e') in 0.111242 seconds
-  Import took 0.115387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.692373 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f03a17b1828bd1eb4f41bbf42ce039fe') in 0.014079 seconds
-  Import took 0.018369 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.547029 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea028057779fb2871e1a6a5615b25ff1') in 0.017666 seconds
-  Import took 0.021835 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.044436 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea028057779fb2871e1a6a5615b25ff1') in 0.061891 seconds
-  Import took 0.065957 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.322931 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68d68a6c3427a4491951e3e3f6016b44') in 0.014134 seconds
-  Import took 0.017992 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.587978 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ebf70ad82b789cbc26f53b39ffa144') in 0.015309 seconds
-  Import took 0.019060 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001449 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.02 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.139 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.02 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 175.4 MB.
-System memory in use after: 175.5 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1698.
-Total: 2.586369 ms (FindLiveObjects: 0.268561 ms CreateObjectMapping: 0.070238 ms MarkObjects: 2.170182 ms  DeleteObjects: 0.075782 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 74.695955 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5db790f10da024d50a89e8cf3ec0d02f') in 0.037546 seconds
-  Import took 0.042286 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 258.107195 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee1.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee1.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '518620f349a113d1c6a3a26c5dde56ef') in 0.225104 seconds
-  Import took 0.229130 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.866128 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee1.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee1.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b5cb11e736a8bddfb4796d1be08a2e4') in 0.159197 seconds
-  Import took 0.163103 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 46.882498 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee1.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee1.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ff444cc6358ce7489a9c5d8b9883d73') in 0.169412 seconds
-  Import took 0.173206 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.614441 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee1.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee1.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15fd37e9e34b1da2030eb4c66e10f480') in 0.155675 seconds
-  Import took 0.160050 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000849 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.250 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 176.5 MB.
-System memory in use after: 176.6 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1701.
-Total: 2.300659 ms (FindLiveObjects: 0.231465 ms CreateObjectMapping: 0.048033 ms MarkObjects: 1.952558 ms  DeleteObjects: 0.067307 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 44.692410 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2a7dc62a3dc06fcac9aa4a715780b2e') in 0.148124 seconds
-  Import took 0.152418 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000948 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.212 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.0 MB.
-System memory in use after: 177.0 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1704.
-Total: 2.566138 ms (FindLiveObjects: 0.251607 ms CreateObjectMapping: 0.093575 ms MarkObjects: 2.149620 ms  DeleteObjects: 0.070029 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001025 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.161 seconds
-Platform modules already initialized, skipping
-Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.2 MB.
-System memory in use after: 177.2 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1706.
-Total: 2.330297 ms (FindLiveObjects: 0.232223 ms CreateObjectMapping: 0.045701 ms MarkObjects: 1.978812 ms  DeleteObjects: 0.072192 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001239 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.209 seconds
+- Completed reload, in  1.401 seconds
 Platform modules already initialized, skipping
 Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 177.4 MB.
-System memory in use after: 177.4 MB.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.3 MB.
+System memory in use after: 178.3 MB.
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1708.
-Total: 2.646282 ms (FindLiveObjects: 0.387571 ms CreateObjectMapping: 0.084169 ms MarkObjects: 2.107143 ms  DeleteObjects: 0.065835 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1699.
+Total: 2.802607 ms (FindLiveObjects: 0.257128 ms CreateObjectMapping: 0.087521 ms MarkObjects: 2.393702 ms  DeleteObjects: 0.061765 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Import Request.
-  Time since last request: 175.609203 seconds.
-  path: Assets/Prefabs/Monsters/Bee/Model.fbx
-  artifactKey: Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/Model.fbx using Guid(8c57f658024b843c4b38ee8138eae463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '005688e98083df36ac062fa16b278b70') in 0.217143 seconds
-  Import took 0.221794 seconds .
+  Time since last request: 184.655427 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '892f911841fa285609de3dcf67220608') in 0.229065 seconds
+  Import took 0.234478 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001501 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.803 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 2.26 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.8 MB.
+System memory in use after: 178.8 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1702.
+Total: 3.056471 ms (FindLiveObjects: 0.232958 ms CreateObjectMapping: 0.089726 ms MarkObjects: 2.640944 ms  DeleteObjects: 0.091134 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 431.899137 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3747ddc65719a785c2574647774e1cd1') in 0.306400 seconds
+  Import took 0.311829 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.416351 seconds.
-  path: Assets/Prefabs/Monsters/Bee/bee.prefab
-  artifactKey: Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Monsters/Bee/bee.prefab using Guid(0bee7e62cbfe0418b8f1c5c41e544881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '519374791f63c3985b8b293663dffb99') in 0.017599 seconds
-  Import took 0.021121 seconds .
+  Time since last request: 0.006083 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3747ddc65719a785c2574647774e1cd1') in 0.135153 seconds
+  Import took 0.139720 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 5.733007 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f6f845a4c220260bceedea147149e4e') in 0.162390 seconds
+  Import took 0.168776 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 175.868218 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.controller
+  artifactKey: Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.controller using Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e8b260a68e21232ed13b1b9ac72bb47') in 0.007510 seconds
+  Import took 0.010935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000759 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.controller
+  artifactKey: Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.controller using Guid(d1ca25e8604e544788a1c21b96bd0003) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e8b260a68e21232ed13b1b9ac72bb47') in 0.006022 seconds
+  Import took 0.009096 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.281532 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.prefab
+  artifactKey: Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.prefab using Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6a1fc969f2f3723df99c49c7297013c') in 0.019546 seconds
+  Import took 0.023184 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013961 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.prefab
+  artifactKey: Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.prefab using Guid(4fc41dbc7cf8a40778aeb2db4ff15675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6a1fc969f2f3723df99c49c7297013c') in 0.033473 seconds
+  Import took 0.037073 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 54.354670 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '639aca2e45e13fe7690dfab4098256ac') in 0.130094 seconds
+  Import took 0.134163 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.466065 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70b4de6a98e248411ab0e51dae50337b') in 0.130832 seconds
+  Import took 0.134875 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.053222 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea699679114878cc24805a908120dd2c') in 0.085472 seconds
+  Import took 0.089065 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.289220 seconds.
+  path: Assets/Prefabs/Monsters/Lizard/lizard.fbx
+  artifactKey: Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Monsters/Lizard/lizard.fbx using Guid(c096ed2b83d25499abf1ad9e151bfda8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39c4952effc4b7284a602b0901efccbd') in 0.096666 seconds
+  Import took 0.101046 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001003 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.272 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.5 MB.
+System memory in use after: 180.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1705.
+Total: 2.019427 ms (FindLiveObjects: 0.168378 ms CreateObjectMapping: 0.045104 ms MarkObjects: 1.746083 ms  DeleteObjects: 0.058784 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000954 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.092 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 1.36 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1171 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.8 MB.
+System memory in use after: 180.9 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1707.
+Total: 2.298346 ms (FindLiveObjects: 0.247148 ms CreateObjectMapping: 0.103940 ms MarkObjects: 1.878496 ms  DeleteObjects: 0.067364 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000

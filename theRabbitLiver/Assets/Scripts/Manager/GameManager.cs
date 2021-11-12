@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour {
         ResetGameSettings();
 
         Camera.main.GetComponent<CameraControl>().player = player;
+        Monster.player = player;
     }
 
     public void GameOver() {
