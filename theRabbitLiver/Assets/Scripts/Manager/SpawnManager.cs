@@ -117,7 +117,7 @@ public class SpawnManager : MonoBehaviour {
             if (count > 0) {
                 if (gameObject == null) return false;
 
-                Instantiate(gameObject, pos, Quaternion.identity, parent.transform);
+                Instantiate(gameObject, pos, gameObject.transform.rotation, parent.transform);
                 count--;
                 return true;
             }
