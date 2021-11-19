@@ -3,35 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bee : Monster {
-    public GameObject attackCollider;
-
-
     AnimationEvent animationEvent;
-    
-    bool isAttackColliderOn = false;
-    bool isAnimationRunning = false;
 
-    private void Update() {
-        if(player.transform.position.z < this.transform.position.z
-            && player.transform.position.z >= this.transform.position.z - Definition.TILE_SPACING - 1
-            && !isAnimationRunning) {
+    private void Start() {
+        base.SetForceKnockBack();
+        animator = this.GetComponent<Animator>();
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if (!isAnimationRunning && other.CompareTag("Player")) {
             Attack();
-            isAnimationRunning = true;
-            StartCoroutine(AttackDelay());
         }
     }
 
     public override void Attack() {
         base.Attack();
+        StartCoroutine(AttackDelay(5));
     }
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
-        attackCollider.SetActive(isAttackColliderOn);
-    }
-
-    IEnumerator AttackDelay() {
-        yield return new WaitForSeconds(5);
-        isAnimationRunning = false;
+        childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }
