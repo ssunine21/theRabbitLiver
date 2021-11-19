@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -118,8 +119,6 @@ public class Player : MonoBehaviour {
 
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
 			CollisionWithEnemy(collision);
-		} else if (collision.gameObject.CompareTag(Definition.TAG_TRAP)) {
-			CollisionWithTrap(collision);
 		} else if (collision.gameObject.CompareTag(Definition.TAG_HEALTH_ITEM)) {
 			CollisionWithHealthItem(collision);
 		}
@@ -145,20 +144,14 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private void CollisionWithTrap(Collider collision) {
-		if (!isSuperCharge) {
-
-			Hitting(collision);
-			stamina.hpBar -= TRAP_DAMAGE;
-
-			Destroy(collision.gameObject);
-		}
-	}
-
 	private void Hitting(Collider collider) {
 		StartCoroutine(SuperChargeDelay(3));
 		posAfterHit = this.transform.position;
-		posAfterHit.z -= Definition.TILE_SPACING;
+		try {
+			posAfterHit.z -= (Definition.TILE_SPACING * collider.GetComponent<AttackColliderInfo>().force_KnockBack);
+		} catch (Exception e) {
+			Debug.LogError(e.StackTrace);
+        }
 		animator.SetTrigger(hashHitTheTrap);
 
 		hittingByTrap = true;

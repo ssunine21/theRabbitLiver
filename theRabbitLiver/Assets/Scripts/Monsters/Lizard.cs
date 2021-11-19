@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lizard : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class Lizard : Monster {
+    AnimationEvent animationEvent;
+
+    private void Start() {
+        base.SetForceKnockBack();
+        animator = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnTriggerStay(Collider other) {
+        if (!isAnimationRunning && other.CompareTag("Player")) {
+            Attack();
+        }
+    }
+
+    public override void Attack() {
+        base.Attack();
+        StartCoroutine(AttackDelay(5));
+    }
+
+    private void AttackColliderOnOff() {
+        isAttackColliderOn = !isAttackColliderOn;
+        childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }
