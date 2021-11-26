@@ -11,7 +11,7 @@ public class Murloc : Monster {
     }
 
     private void OnTriggerStay(Collider other) {
-        if (!isAnimationRunning && other.CompareTag("Player")) {
+        if (!isAnimationRunning && other.CompareTag(Definition.TAG_PLAYER)) {
             Attack();
         }
     }
