@@ -5,12 +5,21 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -3602179907063746804
-    second: "\uC544\uB9C8\uD29C\uC5B4|attack"
+    second: attack
   - first:
       74: -693234415598864954
     second: idle
   - first:
       74: -6239216113759591374
+    second: attack
+  - first:
+      74: -693234415598864954
+    second: idle (1)
+  - first:
+      74: -5252816984213320552
+    second: idle
+  - first:
+      74: -3602179907063746804
     second: attack
   externalObjects:
   - first:
@@ -69,7 +78,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.9381794
+        functionName: AttackColliderOnOff
+        data: 
+        objectReferenceParameter: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
