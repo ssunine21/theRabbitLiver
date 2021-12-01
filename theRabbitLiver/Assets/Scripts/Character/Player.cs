@@ -18,7 +18,6 @@ public class Player : MonoBehaviour {
 	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.1f;
 	private readonly float AMOUNT_RECOVERY_MP_ON_KILL = 0.2f;
 
-
 	[Range(0, 20)]
 	public float trapCrashSpeed;
 
@@ -110,8 +109,7 @@ public class Player : MonoBehaviour {
 		this.transform.position = offset;
 		this.transform.rotation = Quaternion.Euler(quaternion);
 
-		if (RecordData.jumpCount > 50)
-			SpawnManager.init.RemoveTile();
+		DataManager.init.score.currScore += 50;
 	}
 
 	private void OnTriggerStay(Collider collision) {

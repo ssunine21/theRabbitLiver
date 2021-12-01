@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameStart() {
-        SpawnManager.init.TileUpDownAnimStart();
+        SpawnManager.init.CreateTileMap();
         player = SpawnManager.init.SpawnPlayer();
 
         ResetGameSettings();
@@ -26,13 +26,16 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver() {
         DataManager.init.ChangeScore();
+        Camera.main.GetComponent<CameraControl>().PosReset();
         if (player != null) {
             Destroy(player);
         }
+
+        SpawnManager.init.DestroyTileMap();
     }
 
     public void GoHome() {
-        
+        Play();
     }
 
     public void Pause() {
@@ -44,8 +47,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void ResetGameSettings() {
+        Play();
         player.GetComponent<Player>().stamina.SetStamina();
-        DataManager.init.score.currScore = 0;
     }
 
     public static GameManager init;
