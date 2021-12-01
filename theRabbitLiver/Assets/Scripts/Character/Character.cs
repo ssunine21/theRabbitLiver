@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour {
     protected Vector3 targetPos;
 
     [SerializeField]
-    protected UserData.CharacterID Type;
+    protected DeviceData.CharacterID Type;
     [SerializeField]
     protected int level;
 

@@ -28,12 +28,29 @@ public class SpawnManager : MonoBehaviour {
         Singleton();
     }
 
-    private void Start() {
+    public void CreateTileMap() {
 
         planeParent = new GameObject("Planes");
         tileParent = new GameObject("Tiles");
-
         PrepareTileSpawn();
+
+        TileUpDownAnimStart();
+    }
+
+    public void DestroyTileMap() {
+        level = 0;
+        totalTileCount = 0;
+        currLevelMaxTileCount = 0;
+
+        try {
+            Destroy(planeParent);
+            Destroy(tileParent);
+
+        } catch (Exception e) {
+            Debug.Log("Destroy TileMap Error ::" + e);
+        }
+
+        player = null;
     }
 
     private void PrepareTileSpawn() {
@@ -57,14 +74,13 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public GameObject SpawnPlayer() {
-        player = Instantiate(characterPrefab[(int)DataManager.init.userData.characterId]);
+        player = Instantiate(characterPrefab[(int)DataManager.init.deviceData.characterId]);
         player.GetComponent<Player>().stamina = FindObjectOfType(typeof(Stamina)) as Stamina;
 
         return player;
     }
 
     public void SpawnTile(bool withObject) {
-
         try {
             if (levelDesign.tileCount <= currLevelMaxTileCount) {
                 if (_levelDesign.Length - 1 > level) {
@@ -108,7 +124,7 @@ public class SpawnManager : MonoBehaviour {
         }
 
         currLevelMaxTileCount++;
-        totalTileCount++;
+        if (totalTileCount++ > 50) RemoveTile();
 	}
 
     public bool SpawnObject(GameObject gameObject, Vector3 pos, ref int count, GameObject parent) {

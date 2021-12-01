@@ -10,6 +10,10 @@ public class CameraControl : MonoBehaviour {
 
 	private Vector3 cameraPos;
 
+	public void PosReset() {
+		transform.position = new Vector3(offset.x, offset.y, -1.4f);
+    }
+
 	private void LateUpdate() {
 		if (player == null) return;
 

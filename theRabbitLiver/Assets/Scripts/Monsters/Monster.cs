@@ -26,7 +26,7 @@ public class Monster : MonoBehaviour {
             childAttackCollider.force_KnockBack = this.force_KnockBack;
             childAttackCollider.gameObject.SetActive(false);
         } catch(NullReferenceException e) {
-            Debug.Log("childAttackCollider is null");
+            Debug.Log("childAttackCollider is null :: " + e);
         }
     }
 
