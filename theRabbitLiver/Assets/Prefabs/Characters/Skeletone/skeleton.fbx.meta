@@ -1,29 +1,26 @@
 fileFormatVersion: 2
-guid: 5695b8ee31c8744c5acf8df8a1ba90a6
+guid: a5c99efda33c94600a4b2c657e16efe4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -693234415598864954
-    second: "\uC544\uB9C8\uD29C\uC5B4|idle"
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
   - first:
-      74: 533576293614537815
-    second: "\uC544\uB9C8\uD29C\uC5B4|leftRun"
+      74: -4791504522942941401
+    second: Idle
   - first:
-      74: 1012133906065450113
-    second: "\uC544\uB9C8\uD29C\uC5B4|rightRun"
+      74: 6165553400957861818
+    second: Armature|Armature|mixamo.com|Layer0.001
   - first:
-      74: 4976367327331641134
-    second: "\uC544\uB9C8\uD29C\uC5B4|skill"
-  - first:
-      74: 8100012866077981208
-    second: "\uC544\uB9C8\uD29C\uC5B4|\uC544\uB9C8\uD29C\uC5B4Action"
+      74: -1978303741906493279
+    second: Armature|idle
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: palette
-    second: {fileID: 2100000, guid: b98df2606dc9b4320ad4f52447b108b4, type: 2}
+      name: palette.001
+    second: {fileID: 2100000, guid: ec6887d2dc658483e9465ee63869368f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,11 +47,40 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Armature|mixamo.com|Layer0.001
+      takeName: Armature|Armature|mixamo.com|Layer0.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 116
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 45
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -92,7 +118,9 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - ec6887d2dc658483e9465ee63869368f
+  - 98444e480db1e4f99914ea6f8bd1d0cb
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -105,7 +133,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.45
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

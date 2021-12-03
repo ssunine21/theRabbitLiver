@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterView : MonoBehaviour {
 
     public GameObject[] characters;
-    private Vector3 pos = new Vector3(0, 0, 50);
+    public Vector3 pos;
 
     private int preIndex = 0;
     private int _index = 0;
