@@ -74,7 +74,7 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public GameObject SpawnPlayer() {
-        player = Instantiate(characterPrefab[(int)DataManager.init.deviceData.characterId]);
+        player = Instantiate(characterPrefab[(int)DataManager.init.DeviceData.characterId]);
         player.GetComponent<Player>().stamina = FindObjectOfType(typeof(Stamina)) as Stamina;
 
         return player;

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour {
 
-    public DeviceData deviceData;
-    public CloudData cloudData;
+    public DeviceData DeviceData {
+        get; set;
+    }
+    public CloudData CloudData {
+        get; set;
+    }
 
     private Score _score;
     public Score score {
@@ -25,16 +29,20 @@ public class DataManager : MonoBehaviour {
     private void Singleton() {
         if(init == null) {
             init = this;
-            deviceData = new DeviceData();
-            cloudData = new CloudData();
+            DeviceData = new DeviceData();
+            CloudData = new CloudData();
             DontDestroyOnLoad(this.gameObject);
         } else {
             Destroy(this.gameObject);
         }
     }
 
+    private void Start() {
+        CloudData.Load();
+    }
+
     public void ChangeCharacterId(int characterId) {
-        deviceData.characterId = (DeviceData.CharacterID)characterId;
+        DeviceData.characterId = (DeviceData.CharacterID)characterId;
     }
 
     public void ChangeScore() {
