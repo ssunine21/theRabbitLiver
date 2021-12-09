@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CharacterPurchase : MonoBehaviour {
@@ -8,10 +9,10 @@ public class CharacterPurchase : MonoBehaviour {
     public GameObject[] characters;
     public Vector3 pos;
     [Space(30)]
-    public GameObject levelUpBtn;
+    public Button levelUpBtn;
     public TextMeshProUGUI levelInfoText;
 
-    private ArrayList characterProductInfoList;
+    private List<CloudData.CharacterProductInfo> characterProductInfoList;
     private int preIndex = 0;
     private int _index = 0;
     public int index {
@@ -31,11 +32,13 @@ public class CharacterPurchase : MonoBehaviour {
         }
         characters[index].transform.localPosition = pos;
         characterProductInfoList = DataManager.init.CloudData.characterProductInfoList;
+
+        ButtnClick(0);
     }
 
-    public void ButtnClick(bool isRight) {
+    public void ButtnClick(int _index) {
         preIndex = index;
-        index += isRight ? 1 : -1;
+        index += _index;
 
         CharacterViewChange();
         CharacterInfoChange();
@@ -48,7 +51,17 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CharacterInfoChange() {
         foreach(var charProductInfo in characterProductInfoList) {
-            //if(characters[index].name == (CloudData.CharacterProductInfo)charProductInfo.Name)
+            if(characters[index].name == charProductInfo.Name) {
+                BtnTextState(charProductInfo.IsPurchase);
+                levelInfoText.text = "Lv. " + charProductInfo.SkillLevel.ToString();
+
+                return;
+            }
         }
+    }
+
+    private void BtnTextState(bool isPurchase) {
+        //TODO 번역 넣을 때 텍스트 변경
+        levelUpBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? "레벨업" : "구매하기";
     }
 }
