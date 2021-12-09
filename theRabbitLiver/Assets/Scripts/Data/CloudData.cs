@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class CloudData {
     public class CharacterProductInfo {
-        public string Name {
-            get; set;
-        }
-        private readonly bool isPurchase;
-        private readonly int skillLevel;
+        public string Name { get; set; }
+        public bool IsPurchase { get; set; }
+        public int SkillLevel { get; set; }
 
         public CharacterProductInfo(string name, bool isPurchase, int skillLevel) {
-            //this.name = name;
-            this.isPurchase = isPurchase;
-            this.skillLevel = skillLevel;
+            this.Name = name;
+            this.IsPurchase = isPurchase;
+            this.SkillLevel = skillLevel;
         }
     }
 
-    public readonly ArrayList characterProductInfoList = new ArrayList();
+    public readonly List<CharacterProductInfo> characterProductInfoList = new List<CharacterProductInfo>();
 
     public void Load() {
         LoadCharacterProductInfo();
