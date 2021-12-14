@@ -25,7 +25,23 @@ public class Stamina : MonoBehaviour {
             _mpBar.fillAmount = value;
             if (_mpBar.fillAmount < 0) _mpBar.fillAmount = 0;
             else if (_mpBar.fillAmount > 1) _mpBar.fillAmount = 1;
+
+            if (_mpBar.fillAmount >= 1) isSkillOn(true);
         }
+    }
+
+    [SerializeField]
+    private Sprite skillOn;
+
+    [SerializeField]
+    private Sprite skillOff;
+
+    [SerializeField]
+    private Image skillImg;
+
+    private void isSkillOn(bool isOn) {
+        if (isOn) skillImg.sprite = skillOn;
+        else skillImg.sprite = skillOff;
     }
 
     private void FixedUpdate() {
@@ -35,5 +51,9 @@ public class Stamina : MonoBehaviour {
     public void SetStamina(float hp = 1, float mp = 0) {
         hpBar = hp;
         mpBar = mp;
+    }
+
+    public void OnSkill() {
+        GameManager.init.player.GetComponent<Player>().Skill();
     }
 }

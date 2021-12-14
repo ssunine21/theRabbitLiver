@@ -14,7 +14,9 @@ public class Monster : MonoBehaviour {
     public AttackColliderInfo childAttackCollider;
     public Animator animator;
 
-    public int force_KnockBack = 0;
+    public int force_KnockBack;
+    [Range(.0f, 1f)]
+    public float damage;
 
     public virtual void Attack() {
         animator.SetTrigger(hashAttack);

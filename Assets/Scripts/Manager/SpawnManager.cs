@@ -106,8 +106,9 @@ public class SpawnManager : MonoBehaviour {
             if (withObject) {
                 bool spawnObj =
                     SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
-                    true : SpawnObject(heart, pos + heart.transform.position, ref levelDesign.heartCount, tileSet) ?
-                    true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet);
+                    true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet) ?
+                    true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
+                    true : SpawnObject(coin, pos, ref levelDesign.coinCount, tileSet);
             }
         }
 
@@ -132,6 +133,10 @@ public class SpawnManager : MonoBehaviour {
         if (random < ((float)count / levelDesign.tileCount) * 33) {
             if (count > 0) {
                 if (gameObject == null) return false;
+
+                try {
+                    pos += gameObject.GetComponent<ObjectInfo>().offset;
+                } catch { }
 
                 Instantiate(gameObject, pos, gameObject.transform.rotation, parent.transform);
                 count--;
