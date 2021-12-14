@@ -14,7 +14,6 @@ public class Player : MonoBehaviour {
 
 	private readonly float CHAR_DIRECTION = 0f;
 	private readonly float TRAP_DAMAGE = 0.1f;
-	private readonly float AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM = 0.3f;
 	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.1f;
 	private readonly float AMOUNT_RECOVERY_MP_ON_KILL = 0.2f;
 
@@ -77,6 +76,7 @@ public class Player : MonoBehaviour {
 				}
 
 				hittingByTrap = false;
+				isSuperCharge = false;
 			}
 		}
 	}
@@ -112,18 +112,12 @@ public class Player : MonoBehaviour {
 		DataManager.init.score.currScore += 50;
 	}
 
-	private void OnTriggerStay(Collider collision) {
+	private void OnTriggerEnter(Collider collision) {
 		Debug.Log("OnTriggerEnter - " + collision);
 
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
 			CollisionWithEnemy(collision);
-		} else if (collision.gameObject.CompareTag(Definition.TAG_HEALTH_ITEM)) {
-			CollisionWithHealthItem(collision);
-		}
-	}
-
-	private void OnTriggerEnter(Collider collision) {
-		if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
+		} else if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
 			CollisionWithAttack(collision);
 		}
 	}
@@ -143,7 +137,6 @@ public class Player : MonoBehaviour {
 	}
 
 	private void Hitting(Collider collider) {
-		StartCoroutine(SuperChargeDelay(3));
 		posAfterHit = this.transform.position;
 		try {
 			posAfterHit.z -= (Definition.TILE_SPACING * collider.GetComponent<AttackColliderInfo>().force_KnockBack);
@@ -153,18 +146,10 @@ public class Player : MonoBehaviour {
 		animator.SetTrigger(hashHitTheTrap);
 
 		hittingByTrap = true;
-	}
-
-	private void CollisionWithHealthItem(Collider collision) {
-		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
+		isSuperCharge = true;
 	}
 
 	public void Skill() {
-		Debug.Log("Skill");
-	}
-
-	IEnumerator SuperChargeDelay(float delay) {
-		yield return new WaitForSeconds(delay);
-		isSuperCharge = false;
+		character.Skill();
 	}
 }

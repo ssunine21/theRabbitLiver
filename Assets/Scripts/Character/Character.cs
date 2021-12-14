@@ -14,7 +14,7 @@ public abstract class Character : MonoBehaviour {
     protected int level;
 
     protected float posErrorRange = 0.05f;
-    protected bool isUsingSkill;
+    protected bool isUsingSkill = false;
 
     virtual public bool Skill() {
         if (isUsingSkill || player.stamina.mpBar < 1) return false;

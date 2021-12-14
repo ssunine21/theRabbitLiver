@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bunny : Character {
     [Range(0, 20)]
     public float speed;
-    private int distance;
+    private int distance = Definition.TILE_SPACING;
 
     protected override void Start() {
         base.Start();
@@ -17,7 +17,8 @@ public class Bunny : Character {
     }
 
     public override bool Skill() {
-        if (!base.Skill()) return false;
+        if (!base.Skill())
+            return false;
 
         targetPos = transform.position;
         targetPos.z -= distance;
