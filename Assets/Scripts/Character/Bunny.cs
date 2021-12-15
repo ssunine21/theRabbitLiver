@@ -17,8 +17,9 @@ public class Bunny : Character {
     }
 
     public override bool Skill() {
-        if (!base.Skill())
-            return false;
+        if (!base.Skill()) return false;
+
+        player.isGroggy = true;
 
         targetPos = transform.position;
         targetPos.z -= distance;
@@ -28,10 +29,13 @@ public class Bunny : Character {
 
     private void FixedUpdate() {
         if (isUsingSkill) {
+            //this.transform.position = Vector3.Lerp(this.transform.position, targetPos, Time.deltaTime * speed);
             transform.Translate((targetPos - transform.position) * speed * Time.deltaTime);
 
             if (transform.position.z <= (targetPos.z + posErrorRange)) {
                 transform.position = targetPos;
+
+                player.isSuperCharge = false;
                 player.isGroggy = false;
                 isUsingSkill = false;
             }

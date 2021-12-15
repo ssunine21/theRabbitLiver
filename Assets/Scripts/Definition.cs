@@ -10,5 +10,4 @@ public static class Definition {
     public static readonly string TAG_ENEMY = "Enemy";
     public static readonly string TAG_TRAP = "Trap";
     public static readonly string TAG_HEALTH_ITEM = "HealthItem";
-
 }

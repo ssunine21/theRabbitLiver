@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 778463573028521157}
   - component: {fileID: 7595589345145957250}
   - component: {fileID: 6538086299871989048}
+  - component: {fileID: 6660652208825635669}
   m_Layer: 0
   m_Name: coral_bullet
   m_TagString: AttackCollider
@@ -108,4 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dda637916494f5597f2d943d6e0cc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 13
+--- !u!114 &6660652208825635669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282773892042974480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aaa595fead444ab825cfb3d2af59aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force_KnockBack: 1
