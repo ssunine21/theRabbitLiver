@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
 	private readonly int hashMoveLeft = Animator.StringToHash("moveLeft");
 	private readonly int hashHitTheTrap = Animator.StringToHash("hitTheTrap");
 	private readonly int hashDead = Animator.StringToHash("dead");
+	private readonly int hashSkill = Animator.StringToHash("skill");
 
 	private readonly float CHAR_DIRECTION = 0f;
 	private readonly float TRAP_DAMAGE = 0.1f;
@@ -150,6 +151,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Skill() {
-		character.Skill();
+		if(character.Skill()) {
+			animator.SetTrigger(hashSkill);
+		}
 	}
 }

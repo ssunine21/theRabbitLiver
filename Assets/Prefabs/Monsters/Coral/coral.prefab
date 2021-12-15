@@ -136,8 +136,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 11}
-  m_Center: {x: 0, y: 0.5, z: 7.5}
+  m_Size: {x: 1, y: 1, z: 13.105848}
+  m_Center: {x: 0, y: 0.5, z: 8.552924}
 --- !u!95 &6790879835151576610
 Animator:
   serializedVersion: 3
@@ -172,4 +172,5 @@ MonoBehaviour:
   childAttackCollider: {fileID: 0}
   animator: {fileID: 0}
   force_KnockBack: 1
+  damage: 0
   bullet: {fileID: 1282773892042974480, guid: ccda09122ad76457aaded6af5e35ec82, type: 3}

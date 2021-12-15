@@ -790,7 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   level: 0
-  speed: 0
+  speed: 7
 --- !u!95 &5906977379036270160
 Animator:
   serializedVersion: 3
