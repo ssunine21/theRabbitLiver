@@ -3967,6 +3967,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelDesign:
   - tile:
+      tileLight: {fileID: 328974107150300791, guid: 1aeb0b61e1779420c81c0fa8c8ac60ea, type: 3}
+      tileDark: {fileID: 2056687562667319364, guid: 633770a9394fe4f4891100037252de68, type: 3}
+    plane: {fileID: 8968158588979736679, guid: cfac0d87e8353454999d012fe3098e20, type: 3}
+    enemy: {fileID: 7505730099720580044, guid: f668484e0a9214434bc28d67e7cb518c, type: 3}
+    trap: {fileID: 0}
+    tileCount: 80
+    enemyCount: 30
+    trapCount: 16
+    coinCount: 0
+    heartCount: 0
+    hpDecreasingSpeed: 0.036
+  - tile:
       tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
       tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
     plane: {fileID: 1000011038681530, guid: f6710321408c46d4782a58e8db0b11e3, type: 3}
@@ -4014,18 +4026,6 @@ MonoBehaviour:
     coinCount: 0
     heartCount: 0
     hpDecreasingSpeed: 0.055
-  - tile:
-      tileLight: {fileID: 328974107150300791, guid: 1aeb0b61e1779420c81c0fa8c8ac60ea, type: 3}
-      tileDark: {fileID: 2056687562667319364, guid: 633770a9394fe4f4891100037252de68, type: 3}
-    plane: {fileID: 8968158588979736679, guid: cfac0d87e8353454999d012fe3098e20, type: 3}
-    enemy: {fileID: 0}
-    trap: {fileID: 0}
-    tileCount: 80
-    enemyCount: 10
-    trapCount: 16
-    coinCount: 0
-    heartCount: 0
-    hpDecreasingSpeed: 0.036
   coin: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
   heart: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
   characterPrefab:
@@ -4963,7 +4963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940392062
 RectTransform:
   m_ObjectHideFlags: 0

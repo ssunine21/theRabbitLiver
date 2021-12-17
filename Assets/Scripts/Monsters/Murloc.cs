@@ -18,7 +18,6 @@ public class Murloc : Monster {
 
     public override void Attack() {
         base.Attack();
-        StartCoroutine(AttackDelay(5));
     }
 
     private void AttackColliderOnOff() {
