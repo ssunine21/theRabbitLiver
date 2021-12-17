@@ -204,3 +204,5 @@ MonoBehaviour:
   childAttackCollider: {fileID: 3409837138897906122}
   animator: {fileID: 0}
   force_KnockBack: 1
+  damage: 0
+  attackDelay: 5

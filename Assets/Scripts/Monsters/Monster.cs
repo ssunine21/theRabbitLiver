@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
-    private readonly int hashAttack = Animator.StringToHash("attack");
+    protected readonly int hashAttack = Animator.StringToHash("attack");
 
     protected bool isAttackColliderOn = false;
     protected bool isAnimationRunning = false;
@@ -14,13 +14,18 @@ public class Monster : MonoBehaviour {
     public AttackColliderInfo childAttackCollider;
     public Animator animator;
 
-    public int force_KnockBack;
-    [Range(.0f, 1f)]
-    public float damage;
+    [Range(1, 5)] public int force_KnockBack;
+    [Range(.0f, 1f)] public float damage;
+    [Range(.0f, 10f)] public float attackDelay;
 
     public virtual void Attack() {
-        animator.SetTrigger(hashAttack);
+        try {
+            animator.SetTrigger(hashAttack);
+        } catch(MissingComponentException e) {
+            animator = GetComponentInChildren<Animator>();
+        }
         isAnimationRunning = true;
+        StartCoroutine(nameof(AttackDelay));
     }
 
     public virtual void SetForceKnockBack() {
@@ -32,8 +37,8 @@ public class Monster : MonoBehaviour {
         }
     }
 
-    public virtual IEnumerator AttackDelay(int delay) {
-        yield return new WaitForSeconds(delay);
+    public virtual IEnumerator AttackDelay() {
+        yield return new WaitForSeconds(attackDelay);
         isAnimationRunning = false;
     }
 }

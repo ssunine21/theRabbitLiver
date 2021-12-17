@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectInfo : MonoBehaviour {
     public enum ItemType {
-        heart, coin
+        heart, coin, enemy
     }
 
     public Vector3 offset;
