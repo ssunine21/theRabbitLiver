@@ -24,6 +24,9 @@ public class JellyFish : Monster {
     private void Start() {
         base.SetForceKnockBack();
         animator = this.GetComponent<Animator>();
+
+        StartCoroutine(nameof(SkillCoroutine));
+
         xPos = transform.position;
         xPos.x = Random.Range(0, 1) == 0 ? XMIN : XMAX;
     }
@@ -31,7 +34,7 @@ public class JellyFish : Monster {
     private void FixedUpdate() {
         if (isAttacking) return;
 
-        if(transform.position.x < 0) {
+        if (transform.position.x < 0) {
             xPos.x = XMAX;
         } else if (transform.position.x > Definition.TILE_SPACING * 2) {
             xPos.x = XMIN;
@@ -39,8 +42,7 @@ public class JellyFish : Monster {
 
         Quaternion rotationDir = xPos.x < 0 ? Quaternion.LookRotation(Vector3.right) : Quaternion.LookRotation(Vector3.left);
         this.transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationDir, RotationSpeed);
-        transform.position = Vector3.Lerp(transform.position, xPos, MoveSpeed);
-
+        this.transform.position = Vector3.Lerp(transform.position, xPos, MoveSpeed);
     }
 
     public void IsAttack(int isAttack) {
@@ -49,7 +51,6 @@ public class JellyFish : Monster {
 
 
     public override void Attack() {
-
         if (!isAnimationRunning) {
             base.Attack();
         }
@@ -59,4 +60,14 @@ public class JellyFish : Monster {
         isAttackColliderOn = !isAttackColliderOn;
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
+
+    IEnumerator SkillCoroutine() {
+        yield return new WaitForSeconds(Random.Range(0, attackDelay));
+
+        while (true) {
+            Attack();
+            yield return new WaitForSeconds(attackDelay);
+        }
+    }
+
 }

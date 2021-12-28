@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1216254061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216254062}
+  - component: {fileID: 1216254064}
+  - component: {fileID: 1216254063}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: AttackCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1216254062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216254061}
+  m_LocalRotation: {x: -0.00000021656288, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7161397883537535350}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1216254064
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216254061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 1, z: 8}
+  m_Center: {x: 0, y: 0.3, z: 0.5}
+--- !u!114 &1216254063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216254061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0aaa595fead444ab825cfb3d2af59aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force_KnockBack: 0
 --- !u!1 &62819995358396882
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,9 +860,10 @@ GameObject:
   - component: {fileID: -2258870451874419669}
   - component: {fileID: -677146217264424973}
   - component: {fileID: 3556996490847798849}
+  - component: {fileID: 7994870020873845527}
   m_Layer: 0
   m_Name: Jellyfish
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,6 +881,7 @@ Transform:
   m_Children:
   - {fileID: 1482293277848367145}
   - {fileID: 8987196772484141407}
+  - {fileID: 1216254062}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -853,12 +913,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddc4f0c3e7914220b55ae160f407837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childAttackCollider: {fileID: 0}
+  childAttackCollider: {fileID: 1216254063}
   animator: {fileID: 3556996490847798849}
-  force_KnockBack: 0
+  force_KnockBack: 1
   damage: 0
-  attackDelay: 0
-  _rotationSpeed: 200
+  attackDelay: 8
+  _rotationSpeed: 300
   _moveSpeed: 0.3
 --- !u!95 &3556996490847798849
 Animator:
@@ -879,6 +939,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &7994870020873845527
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505730099720580044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7734539793216913694
 GameObject:
   m_ObjectHideFlags: 0

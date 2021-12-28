@@ -74,8 +74,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.9997019
+      - time: 0.5926535
+        functionName: AttackColliderOnOff
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.97305924
         functionName: IsAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9960252
+        functionName: AttackColliderOnOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
