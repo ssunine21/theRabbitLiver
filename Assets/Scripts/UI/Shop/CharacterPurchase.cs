@@ -64,4 +64,8 @@ public class CharacterPurchase : MonoBehaviour {
         //TODO 번역 넣을 때 텍스트 변경
         levelUpBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? "레벨업" : "구매하기";
     }
+
+    public void BtnSelectChar() {
+        DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
+    }
 }
