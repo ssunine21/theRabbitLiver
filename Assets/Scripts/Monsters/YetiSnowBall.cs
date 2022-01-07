@@ -3,28 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class YetiSnowBall : MonoBehaviour {
-    private Vector3 startPos;
-    private Vector3 targetPos;
-    private bool shoting = false;
+    private Transform Target;
+    public float firingAngle = 30.0f;
+    public float gravity = 9.8f;
 
     public float shotSpeed;
 
     private void OnEnable() {
-        startPos = this.transform.position;
-        targetPos = GameManager.init.player.transform.position;
-        shoting = true;
+        Target = GameManager.init.player.transform;
+        StartCoroutine(SimulateProjectile());
     }
 
-    private void FixedUpdate() {
-        if (shoting) {
-            float distance = startPos.x - targetPos.x;
-            float nextX = Mathf.MoveTowards(transform.position.x, targetPos.x, shotSpeed * Time.deltaTime);
-            float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - startPos.x) / distance);
-            float arc = (nextX = startPos.x) * (nextX - targetPos.x) / (-0.25f * distance * distance);
-            Vector3 nextPos = new Vector3(nextX, baseY + arc, transform.position.z);
+    IEnumerator SimulateProjectile() {
 
-            this.transform.position = nextPos;
+        float target_Distance = Vector3.Distance(this.transform.position, Target.position);
+        float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
+
+        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
+        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
+        float flightDuration = target_Distance / Vx;
+
+        this.transform.rotation = Quaternion.LookRotation(Target.position - this.transform.position);
+
+        float elapse_time = 0;
+
+        while (elapse_time < flightDuration) {
+            this.transform.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
+
+            elapse_time += Time.deltaTime;
+
+            yield return null;
         }
     }
-
 }

@@ -1138,4 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5475ed02757d448b78196b3da7db3cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotSpeed: 5
+  Target: {fileID: 0}
+  firingAngle: 45
+  gravity: 9.8
+  shotSpeed: 3
