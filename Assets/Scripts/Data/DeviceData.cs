@@ -10,7 +10,6 @@ public class DeviceData {
         bunny, skeleton, bono, notake
     }
 
-
     private CharacterID _characterId = CharacterID.bunny;
     public CharacterID characterId {
         get {

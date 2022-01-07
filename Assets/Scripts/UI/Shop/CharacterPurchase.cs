@@ -51,7 +51,7 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CharacterInfoChange() {
         foreach(var charProductInfo in characterProductInfoList) {
-            if(characters[index].name == charProductInfo.Name) {
+            if(characters[index].GetComponent<Character>()._Type == charProductInfo.Name) {
                 BtnTextState(charProductInfo.IsPurchase);
                 levelInfoText.text = "Lv. " + charProductInfo.SkillLevel.ToString();
 
@@ -63,6 +63,20 @@ public class CharacterPurchase : MonoBehaviour {
     private void BtnTextState(bool isPurchase) {
         //TODO 번역 넣을 때 텍스트 변경
         levelUpBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? "레벨업" : "구매하기";
+    }
+
+    public void BtnLevelUp() {
+        if (characterProductInfoList[index].IsPurchase) {
+            //TODO 레벨업하시겠습니까 메시지.
+            //TODD 레벨당 일정 금액 감소
+            if(ShopManager.init.Coin > 1000) {
+                ShopManager.init.Coin -= 1000;
+
+            }
+            
+        } else {
+            //TODO 구매하시겠습니까 메시지.
+        }
     }
 
     public void BtnSelectChar() {

@@ -10,6 +10,7 @@ public abstract class Character : MonoBehaviour {
 
     [SerializeField]
     protected DeviceData.CharacterID Type;
+    public DeviceData.CharacterID _Type { get { return Type; } }
     [SerializeField]
     protected int level;
 
