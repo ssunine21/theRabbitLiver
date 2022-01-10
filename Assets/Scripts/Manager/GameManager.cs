@@ -34,10 +34,6 @@ public class GameManager : MonoBehaviour {
         SpawnManager.init.DestroyTileMap();
     }
 
-    public void GoHome() {
-        Play();
-    }
-
     public void Pause() {
         Time.timeScale = 0;
     }
