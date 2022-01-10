@@ -1,0 +1,71 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UIManager : MonoBehaviour {
+
+    [SerializeField] private GameObject mainUI;
+    [SerializeField] private GameObject shopUI;
+    [SerializeField] private GameObject inGameUI;
+    [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject pauseBtn;
+    [SerializeField] private GameObject restartUI;
+
+    public void GameStartBtn() {
+        mainUI.SetActive(false);
+        inGameUI.SetActive(true);
+
+        GameManager.init.GameStart();
+    }
+
+    public void ShopBtn() {
+        shopUI.SetActive(true);
+        mainUI.SetActive(false);
+    }
+
+    public void ToMainFromShopBtn() {
+        shopUI.SetActive(false);
+        mainUI.SetActive(true);
+    }
+
+    public void PauseBtn() {
+        pauseBtn.SetActive(false);
+        pauseUI.SetActive(true);
+
+        GameManager.init.Pause();
+    }
+
+    public void PlayBtn() {
+        pauseBtn.SetActive(true);
+        pauseUI.SetActive(false);
+
+        GameManager.init.Play();
+    }
+
+    public void ToMainFromInGame() {
+        GameManager.init.GameOver();
+        GameManager.init.Play();
+
+        restartUI.SetActive(false);
+        pauseUI.SetActive(false);
+        pauseBtn.SetActive(true);
+        inGameUI.SetActive(false);
+        mainUI.SetActive(true);
+    }
+
+    public void OpenRestartUI() {
+        restartUI.SetActive(true);
+    }
+
+
+
+    public static UIManager init;
+    private void Singleton() {
+        if (init == null) {
+            init = this;
+            DontDestroyOnLoad(this.gameObject);
+        } else {
+            Destroy(this.gameObject);
+        }
+    }
+}

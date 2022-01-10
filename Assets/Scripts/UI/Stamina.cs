@@ -13,7 +13,8 @@ public class Stamina : MonoBehaviour {
             _hpBar.fillAmount = value;
             if (_hpBar.fillAmount <= 0) {
                 _hpBar.fillAmount = 0;
-            } else if (_hpBar.fillAmount > 1) _hpBar.fillAmount = 1;
+            } else if (_hpBar.fillAmount > 1)
+                _hpBar.fillAmount = 1;
         }
     }
 
