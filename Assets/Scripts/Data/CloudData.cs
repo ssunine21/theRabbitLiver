@@ -16,7 +16,7 @@ public class CloudData {
     }
 
     public readonly List<CharacterProductInfo> characterProductInfoList = new List<CharacterProductInfo>();
-    public int Coin { get; set; }
+    public int _coin { get; set; }
 
     public void Load() {
         LoadCharacterProductInfo();
@@ -24,7 +24,6 @@ public class CloudData {
     }
 
     public void Save() {
-
     }
 
     private void LoadCharacterProductInfo() {
@@ -40,7 +39,5 @@ public class CloudData {
     }
 
     private void LoadCoinData() {
-        //TODO 코인데이터
-        Coin = 2000;
     }
 }
