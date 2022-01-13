@@ -9,7 +9,7 @@ public class CharacterPurchase : MonoBehaviour {
     public GameObject[] characters;
     public Vector3 pos;
     [Space(30)]
-    public Button levelUpBtn;
+    public Button selectBtn;
     public TextMeshProUGUI levelInfoText;
 
     private List<CloudData.CharacterProductInfo> characterProductInfoList;
@@ -62,24 +62,29 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void BtnTextState(bool isPurchase) {
         //TODO 번역 넣을 때 텍스트 변경
-        levelUpBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? "레벨업" : "구매하기";
+        selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? Definition.SELECT : Definition.BUY;
     }
 
     public void BtnLevelUp() {
         if (characterProductInfoList[index].IsPurchase) {
             //TODO 레벨업하시겠습니까 메시지.
             //TODD 레벨당 일정 금액 감소
-            if(ShopManager.init.Coin > 1000) {
+            if (ShopManager.init.Coin > 1000) {
                 ShopManager.init.Coin -= 1000;
 
             }
-            
-        } else {
-            //TODO 구매하시겠습니까 메시지.
         }
     }
 
     public void BtnSelectChar() {
-        DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
+        if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
+            UIManager.init.ShowAlert(Definition.PURCHASE_MASSAGE, func);
+        } else {
+            DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
+        }
+    }
+
+    private void func() {
+        DataManager.init.CloudData.coin -= 11000;
     }
 }

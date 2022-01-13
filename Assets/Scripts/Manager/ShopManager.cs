@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     private void OnEnable() {
-        Coin = DataManager.init.CloudData._coin;
+        Coin = DataManager.init.CloudData.coin;
     }
 
 

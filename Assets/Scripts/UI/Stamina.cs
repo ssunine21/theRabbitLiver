@@ -45,10 +45,6 @@ public class Stamina : MonoBehaviour {
         else skillImg.sprite = skillOff;
     }
 
-    private void FixedUpdate() {
-        hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
-    }
-
     public void SetStamina(float hp = 1, float mp = 0) {
         hpBar = hp;
         mpBar = mp;

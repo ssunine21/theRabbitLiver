@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Restart : MonoBehaviour {
     private readonly float RESTART_UI_TIME = 5f;
+    private readonly int RESTART_COIN = 1500;
 
     [SerializeField] private Image reImg;
     [SerializeField] private Button coinBtn;
@@ -13,6 +14,7 @@ public class Restart : MonoBehaviour {
 
     private void OnEnable() {
         StartCoroutine(nameof(UITime));
+        CompareCoin();
     }
 
     IEnumerator UITime() {
@@ -26,6 +28,11 @@ public class Restart : MonoBehaviour {
     }
 
     private void CompareCoin() {
+        coinBtn.interactable = DataManager.init.CloudData.coin >= RESTART_COIN;
+    }
 
+    public void CoinBtn() {
+        DataManager.init.CloudData.coin -= RESTART_COIN;
+        GameManager.init.player.GetComponent<Player>().StartReverse();
     }
 }

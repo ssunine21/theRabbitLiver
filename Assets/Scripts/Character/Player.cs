@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	private readonly int hashHitTheTrap = Animator.StringToHash("hitTheTrap");
 	private readonly int hashDead = Animator.StringToHash("dead");
 	private readonly int hashSkill = Animator.StringToHash("skill");
+	private readonly int hashReverse = Animator.StringToHash("reverse");
 
 	private readonly float CHAR_DIRECTION = 0f;
 	private readonly float TRAP_DAMAGE = 0.1f;
@@ -60,10 +61,29 @@ public class Player : MonoBehaviour {
 		}
 
 		if (stamina.hpBar <= 0 && !isDead) {
-			//animator.SetTrigger(hashDead);
-			//isDead = true;
+			StartCoroutine(nameof(Dead));
 		}
 	}
+
+	private IEnumerator Dead() {
+		isDead = true;
+		animator.SetTrigger(hashDead);
+
+		yield return new WaitForSeconds(2f);
+		UIManager.init.OpenRestartUI();
+	}
+
+	public void StartReverse() {
+		StartCoroutine(nameof(Reverse));
+    }
+
+	private IEnumerator Reverse() {
+		animator.SetTrigger(hashReverse);
+		stamina.SetStamina(0.7f, 0);
+		UIManager.init.CloseRestartUI();
+		yield return new WaitForSeconds(2f);
+		isDead = false;
+    }
 
 	private void FixedUpdate() {
 		if (hittingByTrap) {
@@ -80,6 +100,9 @@ public class Player : MonoBehaviour {
 				isSuperCharge = false;
 			}
 		}
+
+		if (!isDead)
+			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
 	}
 
 	private void Move(bool isLeft) {

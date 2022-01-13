@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour {
 
-    public DeviceData DeviceData {
-        get; set;
-    }
-    public CloudData CloudData {
-        get; set;
-    }
+    public DeviceData DeviceData;
+    public CloudData CloudData;
 
     private Score _score;
     public Score score {
@@ -23,18 +19,6 @@ public class DataManager : MonoBehaviour {
 
     private void Awake() {
         Singleton();
-    }
-
-    public static DataManager init;
-    private void Singleton() {
-        if(init == null) {
-            init = this;
-            DeviceData = new DeviceData();
-            CloudData = new CloudData();
-            DontDestroyOnLoad(this.gameObject);
-        } else {
-            Destroy(this.gameObject);
-        }
     }
 
     private void Start() {
@@ -51,5 +35,17 @@ public class DataManager : MonoBehaviour {
         }
 
         score.currScore = 0;
+    }
+
+    public static DataManager init;
+    private void Singleton() {
+        if (init == null) {
+            init = this;
+            DeviceData = new DeviceData();
+            CloudData = new CloudData();
+            DontDestroyOnLoad(this.gameObject);
+        } else {
+            Destroy(this.gameObject);
+        }
     }
 }
