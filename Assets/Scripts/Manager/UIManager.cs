@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour {
 
@@ -10,6 +13,14 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject pauseBtn;
     [SerializeField] private GameObject restartUI;
+    [SerializeField] private GameObject Alert;
+
+    [SerializeField] private Button alertCheckBtn;
+    [SerializeField] private TextMeshProUGUI alertText;
+
+    private void Awake() {
+        Singleton();
+    }
 
     public void GameStartBtn() {
         mainUI.SetActive(false);
@@ -57,7 +68,17 @@ public class UIManager : MonoBehaviour {
         restartUI.SetActive(true);
     }
 
+    public void CloseRestartUI() {
+        restartUI.SetActive(false);
+    }
 
+    public void ShowAlert(string text, UnityAction action) {
+        Alert.SetActive(true);
+
+        alertText.text = text;
+        alertCheckBtn.onClick.AddListener(action);
+        action();
+    }
 
     public static UIManager init;
     private void Singleton() {

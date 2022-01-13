@@ -16,7 +16,13 @@ public class CloudData {
     }
 
     public readonly List<CharacterProductInfo> characterProductInfoList = new List<CharacterProductInfo>();
-    public int _coin { get; set; }
+    private int _coin;
+    public int coin { get {
+            return _coin;
+        } set {
+            _coin = value;
+        }
+    }
 
     public void Load() {
         LoadCharacterProductInfo();
@@ -39,5 +45,6 @@ public class CloudData {
     }
 
     private void LoadCoinData() {
+        coin = 1500;
     }
 }

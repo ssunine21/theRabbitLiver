@@ -17,10 +17,6 @@ public class Coin : MonoBehaviour {
     }
 
     private void OnEnable() {
-        coinText.text = DataManager.init.CloudData._coin.ToString();
-    }
-
-    private void OnDisable() {
-        DataManager.init.CloudData._coin = coin;
+        coin = DataManager.init.CloudData.coin;
     }
 }
