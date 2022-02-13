@@ -3,36 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class YetiSnowBall : MonoBehaviour {
-    private Transform Target;
-    public float firingAngle = 30.0f;
-    public float gravity = 9.8f;
 
-    public float shotSpeed;
+    public Transform tr;
+    public Vector3 initPos;
+    public Vector3 target;
+    public float journeyTime = 20.0F;
+    private float startTime;
+    public float reduceHeight = 25f;
+
+    private bool isStart = false;
 
     private void OnEnable() {
-        Target = GameManager.init.player.transform;
-        StartCoroutine(SimulateProjectile());
+        tr = this.transform;
+        initPos = tr.position;
+        target = GameManager.init.player.transform.position;
+        target.z -= 0.5f;
+        startTime = Time.time;
+        isStart = true;
+    }
+    void Update() {
+        if (isStart) {
+            Vector3 center = (tr.position + target) * 0.5F;
+            center -= new Vector3(0, 1f * reduceHeight, 0);
+            Vector3 riseRelCenter = tr.position - center;
+            Vector3 setRelCenter = target - center;
+            float fracComplete = (Time.time - startTime) / journeyTime;
+            tr.position = Vector3.Slerp(riseRelCenter, setRelCenter, fracComplete);
+            tr.position += center;
+
+        }
+
+        if (CheckArrived()) {
+            tr.position = initPos;
+            this.gameObject.SetActive(false);
+        }
     }
 
-    IEnumerator SimulateProjectile() {
-
-        float target_Distance = Vector3.Distance(this.transform.position, Target.position);
-        float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
-
-        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
-        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-        float flightDuration = target_Distance / Vx;
-
-        this.transform.rotation = Quaternion.LookRotation(Target.position - this.transform.position);
-
-        float elapse_time = 0;
-
-        while (elapse_time < flightDuration) {
-            this.transform.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
-
-            elapse_time += Time.deltaTime;
-
-            yield return null;
-        }
+    private bool CheckArrived() {
+        return (tr.position.z - 0.1 < target.z && tr.position.z + 0.1 > target.z);
     }
 }
