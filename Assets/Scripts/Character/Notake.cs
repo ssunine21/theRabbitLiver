@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Notake : Character {
+    int SKILL_RANGE = 0;
+    int SKILL_COUNT = 5;
+
     [Range(0, 20)]
     public float skillDelay;
-    [Range(0, 20)]
-    public float skillRange;
 
     public LayerMask layerMask;
 
@@ -22,79 +24,49 @@ public class Notake : Character {
 
     public override bool Skill() {
         if (!base.Skill()) return false;
-
         StartCoroutine(nameof(SkillCoroutine));
         return true;
     }
-    
-    private IEnumerator SkillCoroutine() {
 
-        int count = level;
+    IEnumerator SkillCoroutine() {
 
-        float shortDistance;
-        Vector3 targetEnemyPos;
+        for(int i = 0; i < SKILL_COUNT; ++i) {
+            GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
+            if (neareastObject is null) break;
 
-        while (count-- > 0) {
-            pivot = transform.position;
-            pivot.x = 3;
-
-            Collider[] colliders = Physics.OverlapSphere(pivot, skillRange, 1 << 3);
-            if (colliders.Length == 0) break;
-
-            shortDistance = skillRange;
-            targetEnemyPos = Vector3.zero;
-
-            // temptemptemptemptemptemptemptemp
-            GameObject temp = null;
-            // --------------------------------
-
-            float distance;
-
-            foreach (var collider in colliders) {
-                distance = Vector3.Distance(transform.position, collider.transform.position);
-
-                if(collider.transform.position.z >= transform.position.z) {
-                    if (targetEnemyPos == Vector3.zero
-                        || collider.transform.position.z < targetEnemyPos.z) {
-
-                        shortDistance = distance;
-                        targetEnemyPos = collider.transform.position;
-                        temp = collider.gameObject;
-
-                    } else if(collider.transform.position.z == targetEnemyPos.z) {
-
-                        if (shortDistance > distance) {
-
-                            shortDistance = distance;
-                            targetEnemyPos = collider.transform.position;
-
-                            // temptemptemptemptemptemptemptemp
-                            temp = collider.gameObject;
-                            // --------------------------------
-                        }
-                    }
-                }
-            }
-
-            if (targetEnemyPos == Vector3.zero) break;
-
-            transform.position = targetEnemyPos;
-            // temptemptemptemptemptemptemptemp
-            if (!(temp == null))
-                Destroy(temp);
-            // --------------------------------
-
-            yield return new WaitForSeconds(skillDelay);
+            player.animator.SetInteger("skillNum", Random.Range(0, 3));
+            Vector3 targetPos = PosNormalize(neareastObject.transform.position);
+            this.transform.position = targetPos;
+            yield return new WaitForSeconds(.5f);
         }
-        
-            player.isGroggy = false;
-            isUsingSkill = false;
+        player.animator.SetInteger("skillNum", -1);
+
+
+        isUsingSkill = false;
+        player.isGroggy = false;
     }
 
-    private void OnDrawGizmosSelected() {
-        pivot = transform.position;
-        pivot.x = 3;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(pivot, skillRange);
+    private GameObject FindNearestObjectByTag(string tag) {
+        SKILL_RANGE = level * Definition.TILE_SPACING;
+
+        var objects = GameObject.FindGameObjectsWithTag(tag).ToList();
+        var neareastObject = objects
+            .Where(obj => {
+                return ((obj.transform.position.z >= transform.position.z)
+                && (obj.transform.position.z <= transform.position.z + SKILL_RANGE));
+            })
+            .OrderBy(obj => {
+                return Vector3.Distance(transform.position, obj.transform.position);
+            })
+        .FirstOrDefault();
+
+        return neareastObject;
+    }
+
+    private Vector3 PosNormalize(Vector3 vector) {
+        vector.x = vector.x - (vector.x % 3);
+        vector.y = vector.y - (vector.y % 3);
+        vector.z = vector.z - (vector.z % 3);
+        return vector;
     }
 }

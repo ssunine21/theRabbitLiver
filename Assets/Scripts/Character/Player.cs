@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
 	private float crashErrorRange = 0.05f;
 	private Vector3 posAfterHit;
 
-	private Animator animator;
+	public Animator animator;
 
 	private Character _character;
 	public Character character {
@@ -82,6 +82,11 @@ public class Player : MonoBehaviour {
 		stamina.SetStamina(0.7f, 0);
 		UIManager.init.CloseRestartUI();
 		yield return new WaitForSeconds(2f);
+
+		UIManager.init.RestartCount();
+    }
+
+	public void reverseWhenEndDeathAnimation() {
 		isDead = false;
     }
 

@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4894853634900647138}
   m_Layer: 6
   m_Name: Bono
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapCrashSpeed: 0
+  trapCrashSpeed: 4
   stamina: {fileID: 0}
   isGroggy: 0
   isSuperCharge: 0
@@ -192,12 +192,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736719069957200745}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &4894853634900647138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 2
-  level: 0
-  speed: 0
+  level: 3
+  speed: 4
 --- !u!1 &1387491488250972803
 GameObject:
   m_ObjectHideFlags: 0

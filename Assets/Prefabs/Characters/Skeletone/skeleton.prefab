@@ -485,14 +485,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2406802664445964906}
-  - component: {fileID: -4957287588110185630}
-  - component: {fileID: -5588161202761168402}
-  - component: {fileID: 8082200783497402385}
-  - component: {fileID: 2249580279323107036}
   - component: {fileID: -5879321497761596756}
+  - component: {fileID: -5588161202761168402}
+  - component: {fileID: -4957287588110185630}
+  - component: {fileID: 2249580279323107036}
+  - component: {fileID: 8082200783497402385}
   m_Layer: 6
   m_Name: skeleton
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,6 +513,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5879321497761596756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039224863147665616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapCrashSpeed: 4
+  stamina: {fileID: 0}
+  isGroggy: 0
+  isSuperCharge: 0
+  isDead: 0
+--- !u!114 &-5588161202761168402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039224863147665616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b6a06c59d1414d969331a481b4513dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  level: 5
+  speed: 7
 --- !u!95 &-4957287588110185630
 Animator:
   serializedVersion: 3
@@ -532,21 +564,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5588161202761168402
-MonoBehaviour:
+--- !u!136 &2249580279323107036
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3039224863147665616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b6a06c59d1414d969331a481b4513dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 1
-  level: 0
-  speed: 0
+  m_Radius: 0.5
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &8082200783497402385
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -563,37 +594,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &2249580279323107036
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039224863147665616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.7
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &-5879321497761596756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039224863147665616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapCrashSpeed: 0
-  stamina: {fileID: 0}
-  isGroggy: 0
-  isSuperCharge: 0
-  isDead: 0
 --- !u!1 &3698995529983621434
 GameObject:
   m_ObjectHideFlags: 0

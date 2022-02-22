@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject pauseBtn;
     [SerializeField] private GameObject restartUI;
+    [SerializeField] private GameObject restartCountUI;
     [SerializeField] private GameObject Alert;
 
     [SerializeField] private Button alertCheckBtn;
@@ -78,6 +79,10 @@ public class UIManager : MonoBehaviour {
         alertText.text = text;
         alertCheckBtn.onClick.AddListener(action);
         action();
+    }
+
+    public void RestartCount() {
+        restartCountUI.SetActive(true);
     }
 
     public static UIManager init;

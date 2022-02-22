@@ -51,6 +51,7 @@ public class Stamina : MonoBehaviour {
     }
 
     public void OnSkill() {
+        if(mpBar >= 0)
         GameManager.init.player.GetComponent<Player>().Skill();
     }
 }
