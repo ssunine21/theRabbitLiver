@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject Alert;
 
     [SerializeField] private Button alertCheckBtn;
+    [SerializeField] private Button alertCancelBtn;
     [SerializeField] private TextMeshProUGUI alertText;
 
     private void Awake() {
@@ -73,12 +74,12 @@ public class UIManager : MonoBehaviour {
         restartUI.SetActive(false);
     }
 
-    public void ShowAlert(string text, UnityAction action) {
+    public void ShowAlert(string text, UnityAction CheckAction, UnityAction cancelAction) {
         Alert.SetActive(true);
 
         alertText.text = text;
-        alertCheckBtn.onClick.AddListener(action);
-        action();
+
+        alertCheckBtn.onClick.AddListener(CheckAction);
     }
 
     public void RestartCount() {
