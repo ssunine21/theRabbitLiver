@@ -12,13 +12,10 @@ public class Bunny : Character {
         distance = MOVE_OFFSET;
     }
 
-    protected override void Ready() {
-
-    }
+    protected override void Ready() { }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
-
         player.isGroggy = true;
 
         targetPos = transform.position;

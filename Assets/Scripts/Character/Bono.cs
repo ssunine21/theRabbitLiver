@@ -10,7 +10,6 @@ public class Bono : Character {
 
     protected override void Start() {
         base.Start();
-        skillMoveDistance = level * MOVE_OFFSET;
     }
 
     protected override void Ready() {
@@ -18,6 +17,9 @@ public class Bono : Character {
 
     public override bool Skill() {
         if (!base.Skill()) return false;
+        skillMoveDistance = level * MOVE_OFFSET;
+
+        player.isGroggy = true;
 
         targetPos = transform.position;
         targetPos.z += skillMoveDistance;

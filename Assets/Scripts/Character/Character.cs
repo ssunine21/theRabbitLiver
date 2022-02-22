@@ -18,7 +18,7 @@ public abstract class Character : MonoBehaviour {
     protected bool isUsingSkill = false;
 
     virtual public bool Skill() {
-        if (isUsingSkill || player.stamina.mpBar < 1 || player.isGroggy) return false;
+        if (isUsingSkill || player.isGroggy) return false;
 
         player.isSuperCharge = true;
         isUsingSkill = true;
