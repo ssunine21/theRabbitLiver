@@ -5,15 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 
 public class CharacterPurchase : MonoBehaviour {
-    private readonly int CAMERA_DEPTH_UNDER = -1;
-    private readonly int CAMERA_DEPTH_OVER = 1;
 
     public GameObject[] characters;
     public Vector3 pos;
     [Space(30)]
     public Button selectBtn;
     public TextMeshProUGUI levelInfoText;
-    public Camera characterCamera;
 
     private List<CloudData.CharacterProductInfo> characterProductInfoList;
     private int preIndex = 0;
@@ -81,25 +78,17 @@ public class CharacterPurchase : MonoBehaviour {
 
     public void BtnSelectChar() {
         if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
-            UIManager.init.ShowAlert(Definition.PURCHASE_MASSAGE, CheckBtnFun, CancelBtnFun);
-            if(characterCamera != null) {
-                characterCamera.depth = CAMERA_DEPTH_UNDER;
-            }
+            UIManager.init.ShowAlert(Definition.PURCHASE_MASSAGE, CheckBtnFun);
         } else {
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
         }
     }
 
     private void CheckBtnFun() {
-        DataManager.init.CloudData.coin -= 11000;
-        if (characterCamera != null) {
-            characterCamera.depth = CAMERA_DEPTH_OVER;
+        if(DataManager.init.CloudData.coin >= 1000) {
+            DataManager.init.CloudData.coin -= 1000;
+        } else {
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY);
         }
-    }
-    private void CancelBtnFun() {
-        if (characterCamera != null) {
-            characterCamera.depth = CAMERA_DEPTH_OVER;
-        }
-        gameObject.SetActive(false);
     }
 }

@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour {
         }
     }
 
-    private void OnEnable() {
+    private void Update() {
         coin = DataManager.init.CloudData.coin;
     }
 }

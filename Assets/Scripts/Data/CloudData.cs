@@ -45,6 +45,6 @@ public class CloudData {
     }
 
     private void LoadCoinData() {
-        coin = 15000;
+        coin = 2000;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour {
 
@@ -14,11 +15,8 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseBtn;
     [SerializeField] private GameObject restartUI;
     [SerializeField] private GameObject restartCountUI;
-    [SerializeField] private GameObject Alert;
-
-    [SerializeField] private Button alertCheckBtn;
-    [SerializeField] private Button alertCancelBtn;
-    [SerializeField] private TextMeshProUGUI alertText;
+    [SerializeField] private GameObject twoBtnAlert;
+    [SerializeField] private GameObject oneBtnAlert;
 
     private void Awake() {
         Singleton();
@@ -74,12 +72,18 @@ public class UIManager : MonoBehaviour {
         restartUI.SetActive(false);
     }
 
-    public void ShowAlert(string text, UnityAction CheckAction, UnityAction cancelAction) {
-        Alert.SetActive(true);
+    public void ShowAlert(string alertMessage, UnityAction CheckAction) {
+        SetAlert(twoBtnAlert, alertMessage);
+        twoBtnAlert.GetComponent<AlertInfo>().ResetBtnListener(CheckAction);
+    }
 
-        alertText.text = text;
+    public void ShowAlert(string alertMessage) {
+        SetAlert(oneBtnAlert, alertMessage);
+    }
 
-        alertCheckBtn.onClick.AddListener(CheckAction);
+    private void SetAlert(GameObject alert, string message) {
+        alert.SetActive(true);
+        alert.GetComponent<AlertInfo>().SetAlertMessage(message);
     }
 
     public void RestartCount() {

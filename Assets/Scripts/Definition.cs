@@ -14,4 +14,5 @@ public static class Definition {
     public static readonly string SELECT = "선택";
     public static readonly string BUY = "구매하기";
     public static readonly string PURCHASE_MASSAGE = "구매 하시겠습니까?";
+    public static readonly string NOT_ENOUGH_MONEY = "골드가 부족합니다.";
 }
