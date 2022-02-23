@@ -43,7 +43,6 @@ public class CloudData {
         characterProductInfoList.Add(tempInfo2);
         characterProductInfoList.Add(tempInfo3);
     }
-
     private void LoadCoinData() {
         coin = 2000;
     }
