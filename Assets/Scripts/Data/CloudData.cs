@@ -7,11 +7,13 @@ public class CloudData {
         public DeviceData.CharacterID Name { get; set; }
         public bool IsPurchase { get; set; }
         public int SkillLevel { get; set; }
+        public int Price { get; set; }
 
-        public CharacterProductInfo(DeviceData.CharacterID name, bool isPurchase, int skillLevel) {
+        public CharacterProductInfo(DeviceData.CharacterID name, bool isPurchase, int skillLevel, int price) {
             this.Name = name;
             this.IsPurchase = isPurchase;
             this.SkillLevel = skillLevel;
+            this.Price = price;
         }
     }
 
@@ -33,10 +35,10 @@ public class CloudData {
     }
 
     private void LoadCharacterProductInfo() {
-        CharacterProductInfo tempInfo = new CharacterProductInfo(DeviceData.CharacterID.bunny, true, 1);
-        CharacterProductInfo tempInfo1 = new CharacterProductInfo(DeviceData.CharacterID.skeleton, false, 0);
-        CharacterProductInfo tempInfo2 = new CharacterProductInfo(DeviceData.CharacterID.bono, false, 0);
-        CharacterProductInfo tempInfo3 = new CharacterProductInfo(DeviceData.CharacterID.notake, false, 0);
+        CharacterProductInfo tempInfo = new CharacterProductInfo(DeviceData.CharacterID.bunny, true, 1, 1000);
+        CharacterProductInfo tempInfo1 = new CharacterProductInfo(DeviceData.CharacterID.skeleton, false, 0, 1500);
+        CharacterProductInfo tempInfo2 = new CharacterProductInfo(DeviceData.CharacterID.bono, false, 0, 1012);
+        CharacterProductInfo tempInfo3 = new CharacterProductInfo(DeviceData.CharacterID.notake, false, 0, 1039);
 
         characterProductInfoList.Add(tempInfo);
         characterProductInfoList.Add(tempInfo1);
@@ -44,6 +46,6 @@ public class CloudData {
         characterProductInfoList.Add(tempInfo3);
     }
     private void LoadCoinData() {
-        coin = 2000;
+        coin = 20000;
     }
 }
