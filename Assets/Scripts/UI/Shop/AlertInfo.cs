@@ -7,8 +7,6 @@ using System;
 using UnityEngine.Events;
 
 public class AlertInfo : MonoBehaviour {
-    private readonly int CAMERA_DEPTH_UNDER = -1;
-    private readonly int CAMERA_DEPTH_OVER = 1;
 
     public Camera characterViewCamera;
 
@@ -17,13 +15,13 @@ public class AlertInfo : MonoBehaviour {
 
     private void OnEnable() {
         if(!(characterViewCamera is null)) {
-            characterViewCamera.depth = CAMERA_DEPTH_UNDER;
+            characterViewCamera.depth = Definition.CAMERA_DEPTH_UNDER;
         }
     }
 
     private void OnDisable() {
         if (!(characterViewCamera is null)) {
-            characterViewCamera.depth = CAMERA_DEPTH_OVER;
+            //characterViewCamera.depth = Definition.CAMERA_DEPTH_OVER;
         }
     }
 
