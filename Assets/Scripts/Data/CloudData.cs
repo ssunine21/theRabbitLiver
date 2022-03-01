@@ -33,10 +33,10 @@ public class CloudData {
     }
 
     private void LoadCharacterProductInfo() {
-        CharacterProductInfo tempInfo = new CharacterProductInfo(DeviceData.CharacterID.bunny, true, 3);
-        CharacterProductInfo tempInfo1 = new CharacterProductInfo(DeviceData.CharacterID.skeleton, false, 5);
+        CharacterProductInfo tempInfo = new CharacterProductInfo(DeviceData.CharacterID.bunny, true, 1);
+        CharacterProductInfo tempInfo1 = new CharacterProductInfo(DeviceData.CharacterID.skeleton, false, 0);
         CharacterProductInfo tempInfo2 = new CharacterProductInfo(DeviceData.CharacterID.bono, false, 0);
-        CharacterProductInfo tempInfo3 = new CharacterProductInfo(DeviceData.CharacterID.notake, true, 0);
+        CharacterProductInfo tempInfo3 = new CharacterProductInfo(DeviceData.CharacterID.notake, false, 0);
 
         characterProductInfoList.Add(tempInfo);
         characterProductInfoList.Add(tempInfo1);
