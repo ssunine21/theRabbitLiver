@@ -7,6 +7,11 @@ public static class Definition {
     public static readonly int CAMERA_DEPTH_UNDER = -1;
     public static readonly int CAMERA_DEPTH_OVER = 1;
 
+    public static readonly int PRICE_CHAR_BUNNY = 1000;
+    public static readonly int PRICE_CHAR_SKELETON = 1000;
+    public static readonly int PRICE_CHAR_BONO = 1000;
+    public static readonly int PRICE_CHAR_NOTAKE = 1000;
+
     public static readonly string TAG_PLAYER = "Player";
     public static readonly string TAG_ATTACK_COLLIDER = "AttackCollider";
     public static readonly string TAG_ENEMY = "Enemy";
