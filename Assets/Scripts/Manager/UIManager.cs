@@ -73,15 +73,16 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowAlert(string alertMessage, UnityAction CheckAction) {
-        SetAlert(twoBtnAlert, alertMessage);
-        twoBtnAlert.GetComponent<AlertInfo>().ResetBtnListener(CheckAction);
+        SetAlertMessage(oneBtnAlert, alertMessage);
+        oneBtnAlert.GetComponent<AlertInfo>().SetBtnListener(CheckAction);
     }
 
-    public void ShowAlert(string alertMessage) {
-        SetAlert(oneBtnAlert, alertMessage);
+    public void ShowAlert(string alertMessage, UnityAction CheckAction, UnityAction CancelAction) {
+        SetAlertMessage(twoBtnAlert, alertMessage);
+        twoBtnAlert.GetComponent<AlertInfo>().SetBtnListener(CheckAction, CancelAction);
     }
 
-    private void SetAlert(GameObject alert, string message) {
+    private void SetAlertMessage(GameObject alert, string message) {
         alert.SetActive(true);
         alert.GetComponent<AlertInfo>().SetAlertMessage(message);
     }
