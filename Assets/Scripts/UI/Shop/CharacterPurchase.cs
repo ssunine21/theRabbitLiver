@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
+
 
 public class CharacterPurchase : MonoBehaviour {
     private readonly int MAX_LEVEL = 5;
@@ -38,7 +40,12 @@ public class CharacterPurchase : MonoBehaviour {
         characters[index].transform.localPosition = pos;
         characterProductInfoList = DataManager.init.CloudData.characterProductInfoList;
 
-        BtnNextCharacter(0);
+        BtnNextCharacter();
+    }
+
+    public void BtnNextCharacter() {
+        CharacterViewChange();
+        CharacterInfoChange();
     }
 
     public void BtnNextCharacter(int _index) {
@@ -84,47 +91,61 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void BtnTextState(bool isPurchase) {
         selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? Definition.SELECT : Definition.BUY;
+        if (isPurchase && DataManager.init.DeviceData.characterId != (DeviceData.CharacterID)index) {
+            selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
+            selectBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0.25f);
+        } else {
+            selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+            selectBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+        }
     }
 
     public void BtnLevelUp() {
         if (characterProductInfoList[index].IsPurchase) {
-            UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, BuyLevel);
+            UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, BuyLevel, BtnNextCharacter);
         }
     }
 
     public void BtnSelectChar() {
         if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
-            UIManager.init.ShowAlert(Definition.BUY_CHARACATER_MASSAGE, BuyChar);
+            UIManager.init.ShowAlert(Definition.BUY_CHARACATER_MASSAGE, BuyChar, BtnNextCharacter);
         } else {    
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
+            BtnTextState(true);
         }
     }
 
     private void BuyLevel() {
+        var obj = characterProductInfoList[index];
 
-        if(DataManager.init.CloudData.coin >= 1000) {
-            CoinChange(-1000);
-            SetLevelBarColor(++characterProductInfoList[index].SkillLevel);
-            BtnNextCharacter(0);
-        } else {
-            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY);
+        if (CoinComparison(1000)) {
+            CoinPayment(1000);
+            SetLevelBarColor(++obj.SkillLevel);
+            BtnNextCharacter();
         }
     }
 
     private void BuyChar() {
         var obj = characterProductInfoList[index];
 
-        if (DataManager.init.CloudData.coin >= obj.Price) {
-            CoinChange(-obj.Price);
+        if (CoinComparison(obj.Price)) {
+            CoinPayment(obj.Price);
             SetLevelBarColor(++obj.SkillLevel);
             obj.IsPurchase = true;
             BtnNextCharacter(0);
-        } else {
-            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY);
         }
     }
 
-    private void CoinChange(int price) {
-        DataManager.init.CloudData.coin += price;
+    private bool CoinComparison(int coin) {
+        if(DataManager.init.CloudData.coin >= coin) {
+            return true;
+        } else {
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
+            return false;
+        }
+    }
+
+    private void CoinPayment(int price) {
+        DataManager.init.CloudData.coin -= price;
     }
 }

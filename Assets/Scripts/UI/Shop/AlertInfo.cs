@@ -12,6 +12,7 @@ public class AlertInfo : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI alertMessage;
     [SerializeField] private Button checkBtn;
+    [SerializeField] private Button cancelBtn;
 
     private void OnEnable() {
         if(!(characterViewCamera is null)) {
@@ -21,7 +22,7 @@ public class AlertInfo : MonoBehaviour {
 
     private void OnDisable() {
         if (!(characterViewCamera is null)) {
-            //characterViewCamera.depth = Definition.CAMERA_DEPTH_OVER;
+
         }
     }
 
@@ -29,16 +30,41 @@ public class AlertInfo : MonoBehaviour {
         alertMessage.text = message;
     }
 
-    public void ResetBtnListener(UnityAction CheckAction) {
+    public void SetBtnListener(UnityAction CheckAction) {
+        ResetCommonListeners();
+        checkBtn.onClick.AddListener(CheckAction);
+    }
+
+    public void SetBtnListener(UnityAction CheckAction, UnityAction CancelAction) {
+        ResetCommonListeners();
+        checkBtn.onClick.AddListener(CheckAction);
+        cancelBtn.onClick.AddListener(CancelAction);
+    }
+
+    private void ResetCommonListeners() {
+        RemoveListeners();
+        AddCommonListeners();
+    }
+
+    private void RemoveListeners() {
         try {
             checkBtn.onClick.RemoveAllListeners();
-        } catch (Exception e) {
+            cancelBtn.onClick.RemoveAllListeners();
+        }catch (Exception e) {
 
-        } finally {
+        }
+    }
+
+    private void AddCommonListeners() {
+        try {
             checkBtn.onClick.AddListener(() => {
                 this.gameObject.SetActive(false);
             });
-            checkBtn.onClick.AddListener(CheckAction);
+            cancelBtn.onClick.AddListener(() => {
+                this.gameObject.SetActive(false);
+            });
+        } catch(Exception e) {
+
         }
     }
 }

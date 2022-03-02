@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657588, g: 0.4964097, b: 0.5748135, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657612, g: 0.49641, b: 0.5748141, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -893,7 +893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.43500003, y: 1}
-  m_AnchoredPosition: {x: -5.0000153, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -30, y: -48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248538697
@@ -2195,7 +2195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &430755311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4334,9 +4334,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 851750030}
     m_Modifications:
     - target: {fileID: 1167065804, guid: c81708882412a4969a93262851ec8392, type: 3}
+      propertyPath: cancelBtn
+      value: 
+      objectReference: {fileID: 1939950630}
+    - target: {fileID: 1167065804, guid: c81708882412a4969a93262851ec8392, type: 3}
       propertyPath: characterViewCamera
       value: 
       objectReference: {fileID: 2101731248}
+    - target: {fileID: 952725361279410329, guid: c81708882412a4969a93262851ec8392, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 952725362849615512, guid: c81708882412a4969a93262851ec8392, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8043,7 +8051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.25}
-  m_AnchoredPosition: {x: -15, y: 24.999992}
+  m_AnchoredPosition: {x: -15, y: 25}
   m_SizeDelta: {x: -30, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1320177759
@@ -10630,6 +10638,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6990429363539003542, guid: 8539be4cad1674be4bd04a55034bc12d, type: 3}
   m_PrefabInstance: {fileID: 1394456364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1939950630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 952725361279410329, guid: c81708882412a4969a93262851ec8392, type: 3}
+  m_PrefabInstance: {fileID: 729354762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1940660090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12116,6 +12135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 851750030}
     m_Modifications:
+    - target: {fileID: 4775232107186777814, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4775232107639829174, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
       propertyPath: m_Name
       value: oneBtnAlert
@@ -12209,11 +12232,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7067615500438028650, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
+      propertyPath: checkBtn
+      value: 
+      objectReference: {fileID: 1795543222421211464}
+    - target: {fileID: 7067615500438028650, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
       propertyPath: characterViewCamera
       value: 
       objectReference: {fileID: 2101731248}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
+--- !u!114 &1795543222421211464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775232107186777814, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
+  m_PrefabInstance: {fileID: 1795543222421211463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2409465531053495460
 PrefabInstance:
   m_ObjectHideFlags: 0
