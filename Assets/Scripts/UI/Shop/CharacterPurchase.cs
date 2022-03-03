@@ -63,11 +63,11 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CharacterInfoChange() {
         foreach(var charProductInfo in characterProductInfoList) {
-            if(characters[index].GetComponent<Character>()._Type == charProductInfo.Name) {
-                BtnTextState(charProductInfo.IsPurchase);
-                UnlockState(charProductInfo.IsPurchase);
-                OnCharHide(!charProductInfo.IsPurchase);
-                SetLevelBarColor(charProductInfo.SkillLevel);
+            if(characters[index].GetComponent<Character>()._Type == charProductInfo.name) {
+                BtnTextState(charProductInfo.isPurchase);
+                UnlockState(charProductInfo.isPurchase);
+                OnCharHide(!charProductInfo.isPurchase);
+                SetLevelBarColor(charProductInfo.skillLevel);
                 return;
             }
         }
@@ -101,7 +101,7 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     public void BtnLevelUp() {
-        if (characterProductInfoList[index].IsPurchase) {
+        if (characterProductInfoList[index].isPurchase) {
             UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, BuyLevel, BtnNextCharacter);
             OnCharHide(true);
         }
@@ -121,7 +121,7 @@ public class CharacterPurchase : MonoBehaviour {
 
         if (CoinComparison(1000)) {
             CoinPayment(1000);
-            SetLevelBarColor(++obj.SkillLevel);
+            SetLevelBarColor(++obj.skillLevel);
             BtnNextCharacter();
         }
     }
@@ -129,10 +129,10 @@ public class CharacterPurchase : MonoBehaviour {
     private void BuyChar() {
         var obj = characterProductInfoList[index];
 
-        if (CoinComparison(obj.Price)) {
-            CoinPayment(obj.Price);
-            SetLevelBarColor(++obj.SkillLevel);
-            obj.IsPurchase = true;
+        if (CoinComparison(obj.price)) {
+            CoinPayment(obj.price);
+            SetLevelBarColor(++obj.skillLevel);
+            obj.isPurchase = true;
             BtnNextCharacter();
         }
     }

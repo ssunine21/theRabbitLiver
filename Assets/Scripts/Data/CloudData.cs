@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class CloudData {
     public class CharacterProductInfo {
-        public DeviceData.CharacterID Name { get; set; }
-        public bool IsPurchase { get; set; }
-        public int SkillLevel { get; set; }
-        public int Price { get; set; }
+        public DeviceData.CharacterID name { get; set; }
+        public bool isPurchase { get; set; }
+        public int skillLevel { get; set; }
+        public int price { get; set; }
 
         public CharacterProductInfo(DeviceData.CharacterID name, bool isPurchase, int skillLevel, int price) {
-            this.Name = name;
-            this.IsPurchase = isPurchase;
-            this.SkillLevel = skillLevel;
-            this.Price = price;
+            this.name = name;
+            this.isPurchase = isPurchase;
+            this.skillLevel = skillLevel;
+            this.price = price;
+        }
+    }
+
+    public class OtherProductInfo {
+        public bool isPurchase { get; set; }
+        public bool itemLevel { get; set; }
+        public int[] price { get; set; }
+
+        public OtherProductInfo() {
+            price = new int[] { };
         }
     }
 
@@ -44,6 +54,10 @@ public class CloudData {
         characterProductInfoList.Add(tempInfo1);
         characterProductInfoList.Add(tempInfo2);
         characterProductInfoList.Add(tempInfo3);
+    }
+
+    private void LoadOtherProductInfo() {
+
     }
     private void LoadCoinData() {
         coin = 20000;
