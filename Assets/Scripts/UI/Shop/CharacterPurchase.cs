@@ -66,6 +66,7 @@ public class CharacterPurchase : MonoBehaviour {
             if(characters[index].GetComponent<Character>()._Type == charProductInfo.Name) {
                 BtnTextState(charProductInfo.IsPurchase);
                 UnlockState(charProductInfo.IsPurchase);
+                OnCharHide(!charProductInfo.IsPurchase);
                 SetLevelBarColor(charProductInfo.SkillLevel);
                 return;
             }
@@ -84,7 +85,6 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void UnlockState(bool isPurchase) {
         unlockImg.SetActive(!isPurchase);
-        characterViewCamera.depth = isPurchase ? Definition.CAMERA_DEPTH_OVER : Definition.CAMERA_DEPTH_UNDER;
         levelUpBtn.interactable = isPurchase;
         levelUpBtn.GetComponent<Image>().color = isPurchase ? Color.white : new Color(1, 1, 1, 0.5f);
     }
@@ -103,6 +103,7 @@ public class CharacterPurchase : MonoBehaviour {
     public void BtnLevelUp() {
         if (characterProductInfoList[index].IsPurchase) {
             UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, BuyLevel, BtnNextCharacter);
+            OnCharHide(true);
         }
     }
 
@@ -132,7 +133,7 @@ public class CharacterPurchase : MonoBehaviour {
             CoinPayment(obj.Price);
             SetLevelBarColor(++obj.SkillLevel);
             obj.IsPurchase = true;
-            BtnNextCharacter(0);
+            BtnNextCharacter();
         }
     }
 
@@ -147,5 +148,9 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CoinPayment(int price) {
         DataManager.init.CloudData.coin -= price;
+    }
+
+    private void OnCharHide(bool isHide) {
+        characterViewCamera.depth = isHide ? Definition.CAMERA_DEPTH_UNDER : Definition.CAMERA_DEPTH_OVER;
     }
 }

@@ -8,23 +8,10 @@ using UnityEngine.Events;
 
 public class AlertInfo : MonoBehaviour {
 
-    public Camera characterViewCamera;
-
     [SerializeField] private TextMeshProUGUI alertMessage;
     [SerializeField] private Button checkBtn;
     [SerializeField] private Button cancelBtn;
 
-    private void OnEnable() {
-        if(!(characterViewCamera is null)) {
-            characterViewCamera.depth = Definition.CAMERA_DEPTH_UNDER;
-        }
-    }
-
-    private void OnDisable() {
-        if (!(characterViewCamera is null)) {
-
-        }
-    }
 
     public void SetAlertMessage(string message) {
         alertMessage.text = message;
