@@ -10,6 +10,10 @@ public class DeviceData {
         bunny, skeleton, bono, notake
     }
 
+    public enum ItemID {
+        coinplus, heartplus, protectionplus
+    }
+
     private CharacterID _characterId = CharacterID.bunny;
     public CharacterID characterId {
         get {

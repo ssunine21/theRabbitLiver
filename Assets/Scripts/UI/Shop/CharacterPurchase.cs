@@ -19,16 +19,17 @@ public class CharacterPurchase : MonoBehaviour {
     public Button selectBtn;
     public Button levelUpBtn;
 
-    private List<CloudData.CharacterProductInfo> characterProductInfoList;
+    private Dictionary<DeviceData.CharacterID, CloudData.CharacterProductInfo> characterProductInfoList;
     private int preIndex = 0;
     private int _index = 0;
-    public int index {
-        get { return _index; }
+    public DeviceData.CharacterID index {
+        get { return  (DeviceData.CharacterID)_index; }
         set {
-            if (value < 0) value = characters.Length - 1;
-            else if (value >= characters.Length) value = 0;
+            int temp = (int) value;
+            if (temp < 0) temp =  characters.Length - 1;
+            else if (temp >= characters.Length) temp = 0;
 
-            _index = value;
+            _index = temp;
         }
     }
 
@@ -37,7 +38,7 @@ public class CharacterPurchase : MonoBehaviour {
             if (character == null) return;
             character.transform.localPosition = Vector3.one * 100;
         }
-        characters[index].transform.localPosition = pos;
+        characters[_index].transform.localPosition = pos;
         characterProductInfoList = DataManager.init.CloudData.characterProductInfoList;
 
         BtnNextCharacter();
@@ -49,7 +50,7 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     public void BtnNextCharacter(int _index) {
-        preIndex = index;
+        preIndex = this._index;
         index += _index;
 
         CharacterViewChange();
@@ -58,19 +59,18 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CharacterViewChange() {
         characters[preIndex].transform.localPosition = Vector3.one * 100;
-        characters[index].transform.localPosition = pos;
+        characters[_index].transform.localPosition = pos;
     }
 
     private void CharacterInfoChange() {
-        foreach(var charProductInfo in characterProductInfoList) {
-            if(characters[index].GetComponent<Character>()._Type == charProductInfo.name) {
-                BtnTextState(charProductInfo.isPurchase);
-                UnlockState(charProductInfo.isPurchase);
-                OnCharHide(!charProductInfo.isPurchase);
-                SetLevelBarColor(charProductInfo.skillLevel);
-                return;
-            }
-        }
+        CloudData.CharacterProductInfo currCharInfo = characterProductInfoList[characters[_index].GetComponent<Character>()._Type];
+        bool isPurchase = currCharInfo.isPurchase;
+
+        BtnTextState(isPurchase);
+        UnlockState(isPurchase);
+        OnCharHide(!isPurchase);
+
+        SetLevelBarColor(currCharInfo.skillLevel);
     }
 
     private void SetLevelBarColor(int level) {
@@ -102,27 +102,33 @@ public class CharacterPurchase : MonoBehaviour {
 
     public void BtnLevelUp() {
         if (characterProductInfoList[index].isPurchase) {
-            UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, BuyLevel, BtnNextCharacter);
+            if (characterProductInfoList[index].skillLevel >= levelBars.transform.childCount) {
+                UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter); 
+            } else {
+                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, LevelUp, BtnNextCharacter);
+            }
             OnCharHide(true);
         }
     }
 
     public void BtnSelectChar() {
         if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
-            UIManager.init.ShowAlert(Definition.BUY_CHARACATER_MASSAGE, BuyChar, BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, BuyChar, BtnNextCharacter);
         } else {    
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
             BtnTextState(true);
         }
     }
 
-    private void BuyLevel() {
+    private void LevelUp() {
         var obj = characterProductInfoList[index];
 
         if (CoinComparison(1000)) {
             CoinPayment(1000);
             SetLevelBarColor(++obj.skillLevel);
             BtnNextCharacter();
+        } else {
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
     }
 
@@ -134,6 +140,8 @@ public class CharacterPurchase : MonoBehaviour {
             SetLevelBarColor(++obj.skillLevel);
             obj.isPurchase = true;
             BtnNextCharacter();
+        } else {
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
     }
 
@@ -141,7 +149,6 @@ public class CharacterPurchase : MonoBehaviour {
         if(DataManager.init.CloudData.coin >= coin) {
             return true;
         } else {
-            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
             return false;
         }
     }

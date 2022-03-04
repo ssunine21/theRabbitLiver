@@ -17,6 +17,10 @@ public class AlertInfo : MonoBehaviour {
         alertMessage.text = message;
     }
 
+    public void SetBtnListener() {
+        ResetCommonListeners();
+    }
+
     public void SetBtnListener(UnityAction CheckAction) {
         ResetCommonListeners();
         checkBtn.onClick.AddListener(CheckAction);
