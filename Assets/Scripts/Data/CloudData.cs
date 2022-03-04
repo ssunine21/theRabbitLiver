@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class CloudData {
     public class CharacterProductInfo {
-        public DeviceData.CharacterID name { get; set; }
         public bool isPurchase { get; set; }
         public int skillLevel { get; set; }
         public int price { get; set; }
 
-        public CharacterProductInfo(DeviceData.CharacterID name, bool isPurchase, int skillLevel, int price) {
-            this.name = name;
+        public CharacterProductInfo(bool isPurchase, int skillLevel, int price) {
             this.isPurchase = isPurchase;
             this.skillLevel = skillLevel;
             this.price = price;
         }
     }
 
-    public class OtherProductInfo {
+    public class ItemProductInfo {
         public bool isPurchase { get; set; }
-        public bool itemLevel { get; set; }
+        public int itemLevel { get; set; }
         public int[] price { get; set; }
 
-        public OtherProductInfo() {
-            price = new int[] { };
+        public ItemProductInfo(bool isPurchase, int itemLevel) {
+            this.isPurchase = isPurchase;
+            this.itemLevel = itemLevel;
         }
     }
 
-    public readonly List<CharacterProductInfo> characterProductInfoList = new List<CharacterProductInfo>();
+    public readonly Dictionary<DeviceData.CharacterID, CharacterProductInfo> characterProductInfoList = new Dictionary<DeviceData.CharacterID, CharacterProductInfo>();
+    public readonly Dictionary<DeviceData.ItemID, ItemProductInfo> itemProductInfoList = new Dictionary<DeviceData.ItemID, ItemProductInfo>();
     private int _coin;
     public int coin { get {
             return _coin;
@@ -38,6 +38,7 @@ public class CloudData {
 
     public void Load() {
         LoadCharacterProductInfo();
+        LoadItemProductInfo();
         LoadCoinData();
     }
 
@@ -45,20 +46,18 @@ public class CloudData {
     }
 
     private void LoadCharacterProductInfo() {
-        CharacterProductInfo tempInfo = new CharacterProductInfo(DeviceData.CharacterID.bunny, true, 1, 1000);
-        CharacterProductInfo tempInfo1 = new CharacterProductInfo(DeviceData.CharacterID.skeleton, false, 0, 1500);
-        CharacterProductInfo tempInfo2 = new CharacterProductInfo(DeviceData.CharacterID.bono, false, 0, 1012);
-        CharacterProductInfo tempInfo3 = new CharacterProductInfo(DeviceData.CharacterID.notake, false, 0, 1039);
-
-        characterProductInfoList.Add(tempInfo);
-        characterProductInfoList.Add(tempInfo1);
-        characterProductInfoList.Add(tempInfo2);
-        characterProductInfoList.Add(tempInfo3);
+        characterProductInfoList.Add(DeviceData.CharacterID.bunny, new CharacterProductInfo(true, 1, 1000));
+        characterProductInfoList.Add(DeviceData.CharacterID.skeleton, new CharacterProductInfo(false, 0, 1500));
+        characterProductInfoList.Add(DeviceData.CharacterID.bono, new CharacterProductInfo(false, 0, 1012));
+        characterProductInfoList.Add(DeviceData.CharacterID.notake, new CharacterProductInfo(false, 0, 1039));
     }
 
-    private void LoadOtherProductInfo() {
-
+    private void LoadItemProductInfo() {
+        itemProductInfoList.Add(DeviceData.ItemID.coinplus, new ItemProductInfo(true, 0));
+        itemProductInfoList.Add(DeviceData.ItemID.heartplus, new ItemProductInfo(true, 0));
+        itemProductInfoList.Add(DeviceData.ItemID.protectionplus, new ItemProductInfo(true, 0));
     }
+
     private void LoadCoinData() {
         coin = 20000;
     }
