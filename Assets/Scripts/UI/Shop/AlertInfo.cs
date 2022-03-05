@@ -17,19 +17,20 @@ public class AlertInfo : MonoBehaviour {
         alertMessage.text = message;
     }
 
-    public void SetBtnListener() {
-        ResetCommonListeners();
-    }
-
     public void SetBtnListener(UnityAction CheckAction) {
         ResetCommonListeners();
-        checkBtn.onClick.AddListener(CheckAction);
+        if (CheckAction != null)
+            checkBtn.onClick.AddListener(CheckAction);
     }
 
     public void SetBtnListener(UnityAction CheckAction, UnityAction CancelAction) {
         ResetCommonListeners();
-        checkBtn.onClick.AddListener(CheckAction);
-        cancelBtn.onClick.AddListener(CancelAction);
+
+        if (CheckAction != null)
+            checkBtn.onClick.AddListener(CheckAction);
+
+        if (CancelAction != null)
+            cancelBtn.onClick.AddListener(CancelAction);
     }
 
     private void ResetCommonListeners() {

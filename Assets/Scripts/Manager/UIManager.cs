@@ -72,12 +72,6 @@ public class UIManager : MonoBehaviour {
         restartUI.SetActive(false);
     }
 
-
-    public void ShowAlert(string alertMessage) {
-        SetAlertMessage(oneBtnAlert, alertMessage);
-        oneBtnAlert.GetComponent<AlertInfo>().SetBtnListener();
-    }
-
     public void ShowAlert(string alertMessage, UnityAction CheckAction) {
         SetAlertMessage(oneBtnAlert, alertMessage);
         oneBtnAlert.GetComponent<AlertInfo>().SetBtnListener(CheckAction);
