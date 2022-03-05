@@ -123,8 +123,7 @@ public class CharacterPurchase : MonoBehaviour {
     private void LevelUp() {
         var obj = characterProductInfoList[index];
 
-        if (CoinComparison(1000)) {
-            CoinPayment(1000);
+        if (DataManager.init.CoinComparison(1000, true)) {
             SetLevelBarColor(++obj.skillLevel);
             BtnNextCharacter();
         } else {
@@ -135,26 +134,13 @@ public class CharacterPurchase : MonoBehaviour {
     private void BuyChar() {
         var obj = characterProductInfoList[index];
 
-        if (CoinComparison(obj.price)) {
-            CoinPayment(obj.price);
+        if (DataManager.init.CoinComparison(obj.price, true)) {
             SetLevelBarColor(++obj.skillLevel);
-            obj.isPurchase = true;
             BtnNextCharacter();
+            obj.isPurchase = true;
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
-    }
-
-    private bool CoinComparison(int coin) {
-        if(DataManager.init.CloudData.coin >= coin) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void CoinPayment(int price) {
-        DataManager.init.CloudData.coin -= price;
     }
 
     private void OnCharHide(bool isHide) {

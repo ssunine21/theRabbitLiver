@@ -37,18 +37,23 @@ public class DataManager : MonoBehaviour {
         score.currScore = 0;
     }
 
-
-    public bool CoinComparison(int coin) {
-        if (DataManager.init.CloudData.coin >= coin) {
+    /// <summary>
+    /// Comparison Coin.
+    /// </summary>
+    /// <param name="price">Item price</param>
+    /// <param name="isBuy">If you want pay when enoght coin, this value is true</param>
+    /// <returns></returns>
+    public bool CoinComparison(int price, bool isBuy = false) {
+        if (CloudData.coin >= price) {
+            if (isBuy) CoinPayment(price);
             return true;
         } else {
-            //UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
             return false;
         }
     }
 
     public void CoinPayment(int price) {
-        DataManager.init.CloudData.coin -= price;
+        CloudData.coin -= price;
     }
 
 
