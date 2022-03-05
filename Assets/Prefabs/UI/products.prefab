@@ -263,6 +263,8 @@ MonoBehaviour:
   itemName: 0
   levelBar: {fileID: 0}
   btnBuy: {fileID: 7680694255928158314}
+  _textCoinPrice: {fileID: 7680694256434899618}
+  type: 0
 --- !u!1 &7680694256294706012
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,5 +452,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7680694256434899618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 145855279127210450, guid: 69aac735e47a91d4f9485af09a5b5de3, type: 3}
+  m_PrefabInstance: {fileID: 7534909350374097776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

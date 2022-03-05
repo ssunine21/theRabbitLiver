@@ -20,9 +20,10 @@ public class CloudData {
         public int itemLevel { get; set; }
         public int[] price { get; set; }
 
-        public ItemProductInfo(bool isPurchase, int itemLevel) {
+        public ItemProductInfo(bool isPurchase, int itemLevel, int[] price) {
             this.isPurchase = isPurchase;
             this.itemLevel = itemLevel;
+            this.price = price;
         }
     }
 
@@ -53,9 +54,10 @@ public class CloudData {
     }
 
     private void LoadItemProductInfo() {
-        itemProductInfoList.Add(DeviceData.ItemID.coinplus, new ItemProductInfo(true, 0));
-        itemProductInfoList.Add(DeviceData.ItemID.heartplus, new ItemProductInfo(true, 0));
-        itemProductInfoList.Add(DeviceData.ItemID.protectionplus, new ItemProductInfo(true, 0));
+        itemProductInfoList.Add(DeviceData.ItemID.coinplus, new ItemProductInfo(false, 0, new int[5] {1000, 2000, 3000, 4000, 5000}));
+        itemProductInfoList.Add(DeviceData.ItemID.heartplus, new ItemProductInfo(false, 0, new int[5] { 1000, 2000, 3000, 4000, 5000 }));
+        itemProductInfoList.Add(DeviceData.ItemID.protectionplus, new ItemProductInfo(false, 0, new int[5] { 1000, 2000, 3000, 4000, 5000 }));
+        itemProductInfoList.Add(DeviceData.ItemID.protection, new ItemProductInfo(false, 0, new int[5] { 2000, 2000, 2000, 2000, 2000 }));
     }
 
     private void LoadCoinData() {
