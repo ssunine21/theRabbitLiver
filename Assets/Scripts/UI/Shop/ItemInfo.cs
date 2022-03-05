@@ -9,12 +9,20 @@ public class ItemInfo : MonoBehaviour {
     [SerializeField] private Transform levelBar;
     [SerializeField] private Button btnBuy;
 
+    private enum Type {
+        single, multiple
+    }
+
+    [SerializeField]private Type type;
+
     private CloudData.ItemProductInfo infoData;
-    private int level;
+    private int level {
+        get { return infoData == null ? 0 : infoData.itemLevel; }
+        set { infoData.itemLevel = value; }
+    }
 
     private void OnEnable() {
         infoData = DataManager.init.CloudData.itemProductInfoList[this.itemName];
-        this.level = infoData.itemLevel;
 
         AddBuyBtnListener();
         SetLevelBar(level);
@@ -27,24 +35,26 @@ public class ItemInfo : MonoBehaviour {
         }
     }
 
-    private void BuyItem() {
-
-    }
-
     private void AddBuyBtnListener() {
         try {
             btnBuy.onClick.RemoveAllListeners();
         } catch(Exception e) {
             
         }
-        //btnBuy.onClick.AddListener(BuyItem);
+        btnBuy.onClick.AddListener(ShowBuyMessage);
     }
 
-    //private void BuyItem() {
-    //    if (level >= levelBar.childCount) {
-    //        UIManager.init.ShowAlert(Definition.BUY_ENOUGH);
-    //    } else {
-    //        UIManager.init.ShowAlert(Definition.BUY_MASSAGE, LevelUp, BtnNextCharacter);
-    //    }
-    //}
+    private void ShowBuyMessage() {
+        if (type == Type.single) return;
+
+        if (level >= levelBar.childCount) {
+            UIManager.init.ShowAlert(Definition.BUY_ENOUGH, null);
+        } else {
+            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, BuyItem, null);
+        }
+    }
+
+    private void BuyItem() {
+        SetLevelBar(++level);
+    }
 }
