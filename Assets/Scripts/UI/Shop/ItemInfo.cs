@@ -83,14 +83,15 @@ public class ItemInfo : MonoBehaviour {
     private void BuyItem() {
         if (DataManager.init.CoinComparison(infoData.price[level++], true)) {
             if (type == Type.multiple) {
-                SetLevelBar(+level);
+                SetLevelBar(level);
                 if (level >= levelBar.childCount) {
                     OffBtnFunction();
+                } else {
+                    ChangeItemPrice();
                 }
             } else {
                 OffBtnFunction();
             }
-            ChangeItemPrice();
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, null);
         }
