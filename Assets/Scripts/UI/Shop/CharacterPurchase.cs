@@ -105,15 +105,16 @@ public class CharacterPurchase : MonoBehaviour {
             if (characterProductInfoList[index].skillLevel >= levelBars.transform.childCount) {
                 UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter); 
             } else {
-                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, LevelUp, BtnNextCharacter);
+                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, characterProductInfoList[index].levelPrice, LevelUp, BtnNextCharacter);
             }
             OnCharHide(true);
         }
     }
 
     public void BtnSelectChar() {
+
         if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
-            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, BuyChar, BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, characterProductInfoList[index].price, BuyChar, BtnNextCharacter);
         } else {    
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
             BtnTextState(true);
@@ -122,8 +123,7 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void LevelUp() {
         var obj = characterProductInfoList[index];
-
-        if (DataManager.init.CoinComparison(1000, true)) {
+        if (DataManager.init.CoinComparison(obj.levelPrice, true)) {
             SetLevelBarColor(++obj.skillLevel);
             BtnNextCharacter();
         } else {
@@ -134,10 +134,15 @@ public class CharacterPurchase : MonoBehaviour {
     private void BuyChar() {
         var obj = characterProductInfoList[index];
 
+        if(obj.isPurchase) {
+            UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter);
+            return;
+        }
+
         if (DataManager.init.CoinComparison(obj.price, true)) {
             SetLevelBarColor(++obj.skillLevel);
-            BtnNextCharacter();
             obj.isPurchase = true;
+            BtnNextCharacter();
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }

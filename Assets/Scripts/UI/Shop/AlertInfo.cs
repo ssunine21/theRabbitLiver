@@ -9,12 +9,21 @@ using UnityEngine.Events;
 public class AlertInfo : MonoBehaviour {
 
     [SerializeField] private TextMeshProUGUI alertMessage;
+    [SerializeField] private TextMeshProUGUI textCoin;
     [SerializeField] private Button checkBtn;
     [SerializeField] private Button cancelBtn;
 
 
     public void SetAlertMessage(string message) {
         alertMessage.text = message;
+    }
+
+    public void SetCoinValue(int coin) {
+        try {
+            textCoin.text = coin.ToString();
+        } catch(NullReferenceException e) {
+            textCoin.text = 0.ToString();
+        }
     }
 
     public void SetBtnListener(UnityAction CheckAction) {

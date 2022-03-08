@@ -6,12 +6,19 @@ public class CloudData {
     public class CharacterProductInfo {
         public bool isPurchase { get; set; }
         public int skillLevel { get; set; }
-        public int price { get; set; }
+        public int price { get; }
+        private int[] _levelPrice;
+        public int levelPrice {
+            get {
+                return _levelPrice[skillLevel];
+            }
+        }
 
-        public CharacterProductInfo(bool isPurchase, int skillLevel, int price) {
+        public CharacterProductInfo(bool isPurchase, int skillLevel, int price, int[] levelPrice) {
             this.isPurchase = isPurchase;
             this.skillLevel = skillLevel;
             this.price = price;
+            this._levelPrice = levelPrice;
         }
     }
 
@@ -30,7 +37,8 @@ public class CloudData {
     public readonly Dictionary<DeviceData.CharacterID, CharacterProductInfo> characterProductInfoList = new Dictionary<DeviceData.CharacterID, CharacterProductInfo>();
     public readonly Dictionary<DeviceData.ItemID, ItemProductInfo> itemProductInfoList = new Dictionary<DeviceData.ItemID, ItemProductInfo>();
     private int _coin;
-    public int coin { get {
+    public int coin {
+        get {
             return _coin;
         } set {
             _coin = value;
@@ -47,10 +55,10 @@ public class CloudData {
     }
 
     private void LoadCharacterProductInfo() {
-        characterProductInfoList.Add(DeviceData.CharacterID.bunny, new CharacterProductInfo(true, 1, 1000));
-        characterProductInfoList.Add(DeviceData.CharacterID.skeleton, new CharacterProductInfo(false, 0, 1500));
-        characterProductInfoList.Add(DeviceData.CharacterID.bono, new CharacterProductInfo(false, 0, 1012));
-        characterProductInfoList.Add(DeviceData.CharacterID.notake, new CharacterProductInfo(false, 0, 1039));
+        characterProductInfoList.Add(DeviceData.CharacterID.bunny, new CharacterProductInfo(true, 1, 1000, new int[4] { 1000, 2000, 3000, 4000 }));
+        characterProductInfoList.Add(DeviceData.CharacterID.skeleton, new CharacterProductInfo(false, 0, 1500, new int[4] { 1000, 2000, 3000, 4000 }));
+        characterProductInfoList.Add(DeviceData.CharacterID.bono, new CharacterProductInfo(false, 0, 1012, new int[4] { 1000, 2000, 3000, 4000 }));
+        characterProductInfoList.Add(DeviceData.CharacterID.notake, new CharacterProductInfo(false, 0, 1039, new int[4] { 1000, 2000, 3000, 4000 }));
     }
 
     private void LoadItemProductInfo() {
