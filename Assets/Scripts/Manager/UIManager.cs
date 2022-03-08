@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject restartUI;
     [SerializeField] private GameObject restartCountUI;
     [SerializeField] private GameObject twoBtnAlert;
+    [SerializeField] private GameObject twoBtnAlertWithCoin;
     [SerializeField] private GameObject oneBtnAlert;
 
     private void Awake() {
@@ -87,9 +88,20 @@ public class UIManager : MonoBehaviour {
         twoBtnAlert.GetComponent<AlertInfo>().SetBtnListener(CheckAction, CancelAction);
     }
 
+    public void ShowAlert(string alertMessage, int coin, UnityAction CheckAction, UnityAction CancelAction) {
+        SetAlertMessage(twoBtnAlertWithCoin, alertMessage, coin);
+        twoBtnAlertWithCoin.GetComponent<AlertInfo>().SetBtnListener(CheckAction, CancelAction);
+    }
+
     private void SetAlertMessage(GameObject alert, string message) {
         alert.SetActive(true);
         alert.GetComponent<AlertInfo>().SetAlertMessage(message);
+    }
+
+    private void SetAlertMessage(GameObject alert, string message, int coin) {
+        alert.SetActive(true);
+        alert.GetComponent<AlertInfo>().SetAlertMessage(message);
+        alert.GetComponent<AlertInfo>().SetCoinValue(coin);
     }
 
     public void RestartCount() {
