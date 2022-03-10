@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class SpawnManager : MonoBehaviour {
 
@@ -103,13 +104,13 @@ public class SpawnManager : MonoBehaviour {
 
             Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
 
-            if (withObject) {
-                bool spawnObj =
-                    SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
-                    true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet) ?
-                    true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
-                    true : SpawnObject(coin, pos, ref levelDesign.coinCount, tileSet);
-            }
+            //if (withObject) {
+            //    bool spawnObj =
+            //        SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
+            //        true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet) ?
+            //        true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
+            //        true : SpawnObject(coin, pos, ref levelDesign.coinCount, tileSet);
+            //}
         }
 
         tileSet.transform.SetParent(tileParent.transform);
@@ -135,8 +136,8 @@ public class SpawnManager : MonoBehaviour {
                 if (gameObject == null) return false;
 
                 try {
-                    pos += gameObject.GetComponent<ObjectInfo>().offset;
-                } catch { }
+                    PositionCorrection(ref pos, gameObject.GetComponent<ObjectInfo>().offset);
+                } catch(Exception e) { Debug.Log(e); }
 
                 Instantiate(gameObject, pos, gameObject.transform.rotation, parent.transform);
                 count--;
@@ -144,6 +145,20 @@ public class SpawnManager : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    private void PositionCorrection(ref Vector3 currPos, Vector3 correctionPos) {
+        switch (currPos.x) {
+            case 0:
+                currPos.x -= (correctionPos.x);
+                break;
+            case 6:
+                currPos.x += (correctionPos.x);
+                break;
+        }
+
+        currPos.y += correctionPos.y;
+        currPos.z += correctionPos.z;
     }
 
     public void RemoveTile() {

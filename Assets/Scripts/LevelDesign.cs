@@ -6,15 +6,15 @@ public class LevelDesign {
 
 	public Tile tile;
 	public GameObject plane;
-	public GameObject enemy;
-	public GameObject trap;
+	public GameObject[] enemy;
+	public GameObject[] trap;
 
 	[Range(0, 100)]
 	public int tileCount;
 	[Range(0, 100)]
-	public int enemyCount;
+	public int[] enemyCount;
 	[Range(0, 100)]
-	public int trapCount;
+	public int[] trapCount;
 	[Range(0, 100)]
 	public int coinCount;
 	[Range(0, 100)]
