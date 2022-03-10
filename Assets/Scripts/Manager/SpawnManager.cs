@@ -83,7 +83,7 @@ public class SpawnManager : MonoBehaviour {
 
     public void SpawnTile(bool withObject) {
         try {
-            if (levelDesign.tileCount <= currLevelMaxTileCount) {
+            if (levelDesign.tile.tileCount <= currLevelMaxTileCount) {
                 if (_levelDesign.Length - 1 > level) {
                     currLevelMaxTileCount = 0;
                     level++;
@@ -101,7 +101,6 @@ public class SpawnManager : MonoBehaviour {
         for (int i = totalTileCount; i < totalTileCount + Definition.TILE_SPACING; ++i) {
             GameObject tile = i % 2 == 0 ? levelDesign.tile.tileLight : levelDesign.tile.tileDark;
             Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * Definition.TILE_SPACING);
-
             Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
 
             //if (withObject) {
@@ -131,7 +130,7 @@ public class SpawnManager : MonoBehaviour {
 
     public bool SpawnObject(GameObject gameObject, Vector3 pos, ref int count, GameObject parent) {
         int random = UnityEngine.Random.Range(0, 100);
-        if (random < ((float)count / levelDesign.tileCount) * 33) {
+        if (random < ((float)count / levelDesign.tile.tileCount) * 33) {
             if (count > 0) {
                 if (gameObject == null) return false;
 

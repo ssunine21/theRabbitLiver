@@ -22,11 +22,9 @@ public class ObjectInfo : MonoBehaviour {
                     break;
 
                 case ItemType.coin:
-
                     break;
             }
             Destroy(this.gameObject);
         }
     }
-
 }
