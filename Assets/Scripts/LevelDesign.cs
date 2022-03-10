@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
@@ -6,26 +7,30 @@ public class LevelDesign {
 
 	public Tile tile;
 	public GameObject plane;
-	public GameObject[] enemy;
-	public GameObject[] trap;
-
-	[Range(0, 100)]
-	public int tileCount;
-	[Range(0, 100)]
-	public int[] enemyCount;
-	[Range(0, 100)]
-	public int[] trapCount;
-	[Range(0, 100)]
-	public int coinCount;
-	[Range(0, 100)]
-	public int heartCount;
+	public LevelObject[] enemy;
+	public LevelObject[] trap;
+	public LevelObject[] coin;
+	public LevelObject[] heart;
 
 	[Range(0, 1)]
 	public float hpDecreasingSpeed;
-}
 
-[System.Serializable]
-public class Tile {
-	public GameObject tileLight;
-	public GameObject tileDark;
+
+	[System.Serializable]
+	public class LevelObject {
+		public GameObject gameObject;
+		[Range(0, 100)]
+		public int count;
+
+		[HideInInspector]
+		public int currRange;
+	}
+
+	[System.Serializable]
+	public class Tile {
+		public GameObject tileLight;
+		public GameObject tileDark;
+		[Range(0, 100)]
+		public int tileCount;
+	}
 }
