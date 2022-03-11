@@ -11,8 +11,6 @@ public class SpawnManager : MonoBehaviour {
         get { return _levelDesign[level]; }
     }
 
-    public GameObject coin;
-    public GameObject heart;
     public GameObject[] characterPrefab;
 
     public int prepareTileCount;
@@ -25,6 +23,8 @@ public class SpawnManager : MonoBehaviour {
     private int totalTileCount;
     private int currLevelMaxTileCount;
 
+    private List<int> objectSpawnIndex = new List<int>();
+
     private void Awake() {
         Singleton();
     }
@@ -33,8 +33,8 @@ public class SpawnManager : MonoBehaviour {
 
         planeParent = new GameObject("Planes");
         tileParent = new GameObject("Tiles");
-        PrepareTileSpawn();
 
+        PrepareTileSpawn();
         TileUpDownAnimStart();
     }
 
@@ -63,7 +63,6 @@ public class SpawnManager : MonoBehaviour {
     private void Update() {
 
         if (player == null) return;
-
         int playerZPos = player.transform.position.z == 0 ? 0 : (int)player.transform.position.z / 3;
         int spawnCount = (playerZPos + prepareTileCount) - totalTileCount;
 
@@ -87,7 +86,6 @@ public class SpawnManager : MonoBehaviour {
                 if (_levelDesign.Length - 1 > level) {
                     currLevelMaxTileCount = 0;
                     level++;
-
                     PrepareTileSpawn();
                 }
                 return;
@@ -97,11 +95,20 @@ public class SpawnManager : MonoBehaviour {
 		}
 
         GameObject tileSet = new GameObject(totalTileCount.ToString());
-
         for (int i = totalTileCount; i < totalTileCount + Definition.TILE_SPACING; ++i) {
             GameObject tile = i % 2 == 0 ? levelDesign.tile.tileLight : levelDesign.tile.tileDark;
             Vector3 pos = new Vector3((i - totalTileCount) * 3, 0, totalTileCount * Definition.TILE_SPACING);
             Instantiate(tile, pos, Quaternion.identity, tileSet.transform);
+
+            if (withObject) {
+                foreach (var gameObject in levelDesign.enemy)
+                    SpawnObject(gameObject, pos, tileSet);
+                foreach (var gameObject in levelDesign.trap)
+                    SpawnObject(gameObject, pos, tileSet);
+
+                SpawnObject(levelDesign.coin, pos, tileSet);
+                SpawnObject(levelDesign.heart, pos, tileSet);
+            }
 
             //if (withObject) {
             //    bool spawnObj =
@@ -128,19 +135,34 @@ public class SpawnManager : MonoBehaviour {
         if (totalTileCount++ > 50) RemoveTile();
 	}
 
-    public bool SpawnObject(GameObject gameObject, Vector3 pos, ref int count, GameObject parent) {
-        int random = UnityEngine.Random.Range(0, 100);
-        if (random < ((float)count / levelDesign.tile.tileCount) * 33) {
-            if (count > 0) {
-                if (gameObject == null) return false;
+    public bool SpawnObject(LevelDesign.LevelObject levelObject, Vector3 pos, GameObject parent) {
+        //현재 타일이 정해놓은 범위를 넘어가면
+        if (levelObject.currRange < currLevelMaxTileCount) {
+            levelObject.currRange += (levelDesign.tile.tileCount / levelObject.count);
 
-                try {
-                    PositionCorrection(ref pos, gameObject.GetComponent<ObjectInfo>().offset);
-                } catch(Exception e) { Debug.Log(e); }
+            //범위 내에서 소환할 위치 랜덤 결정
+            int minRandomTileNum = currLevelMaxTileCount * Definition.TILE_SPACING;
+            int maxRandomTileNum = levelObject.currRange * Definition.TILE_SPACING;
+            levelObject.tileNum = UnityEngine.Random.Range(minRandomTileNum, maxRandomTileNum);
 
-                Instantiate(gameObject, pos, gameObject.transform.rotation, parent.transform);
-                count--;
+            //혹시 그 자리에 뭐가 있으면 다음 자리
+            foreach (var idx in objectSpawnIndex) {
+                if (levelObject.tileNum == idx) levelObject.tileNum++;
+            }
+            objectSpawnIndex.Add(levelObject.tileNum);
+            return false;
+        }
+
+        //오브젝트 생성되는 타이밍
+        if(currLevelMaxTileCount == (objectSpawnIndex[0] / Definition.TILE_SPACING)) {
+            try {
+                if (levelObject.gameObject == null) return false;
+
+                PositionCorrection(ref pos, levelObject.gameObject.GetComponent<ObjectInfo>().offset);
+                Instantiate(levelObject.gameObject, pos, levelObject.gameObject.transform.rotation, parent.transform);
                 return true;
+            } catch(Exception e) {
+                Debug.LogError(e);
             }
         }
         return false;
