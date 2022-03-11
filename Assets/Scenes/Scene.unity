@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657612, g: 0.4964097, b: 0.57481354, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657612, g: 0.49641, b: 0.5748141, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.43500003, y: 1}
-  m_AnchoredPosition: {x: -5.0000153, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -30, y: -48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248538697
@@ -2132,7 +2132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.000122}
+  m_AnchoredPosition: {x: 0, y: -9.000061}
   m_SizeDelta: {x: -36, y: -18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430755312
@@ -5052,32 +5052,77 @@ MonoBehaviour:
       tileCount: 0
     plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
     enemy:
-    - gameObject: {fileID: 0}
-      count: 0
+    - gameObject: {fileID: 2250665368473982670, guid: 18ed7d3f7db4341f4809ce3682ebe829, type: 3}
+      count: 15
       currRange: 0
-    trap: []
-    coin: []
-    heart: []
+      tileNum: 0
+    - gameObject: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
+    trap:
+    - gameObject: {fileID: 2441076146251619698, guid: 0d5c598c652a7402985e6be5c50986ee, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
     hpDecreasingSpeed: 0
   - tile:
       tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
       tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
       tileCount: 0
     plane: {fileID: 1000011038681530, guid: f6710321408c46d4782a58e8db0b11e3, type: 3}
-    enemy: []
+    enemy:
+    - gameObject: {fileID: 7838219147362458319, guid: 0bee7e62cbfe0418b8f1c5c41e544881, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
     trap: []
-    coin: []
-    heart: []
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
     hpDecreasingSpeed: 0.036
   - tile:
       tileLight: {fileID: 6806486310248525171, guid: e335574da29b9b140a8618fd829d011a, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: f7bdba2bde31b5849a6ed3ab078aecbf, type: 3}
       tileCount: 0
     plane: {fileID: 4623280250564862162, guid: ce8ecd3707ade46209003c8330f4b77b, type: 3}
-    enemy: []
-    trap: []
-    coin: []
-    heart: []
+    enemy:
+    - gameObject: {fileID: 4676449147862298744, guid: 4fc41dbc7cf8a40778aeb2db4ff15675, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
+    trap:
+    - gameObject: {fileID: 5311166934557135649, guid: 6bb100325d4b84e9a90d687ea7abeba0, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
     hpDecreasingSpeed: 0.057
   - tile:
       tileLight: {fileID: 328974107150300791, guid: 3a00d64eb6cc74101b64a2ec0e6364ad, type: 3}
@@ -5086,8 +5131,16 @@ MonoBehaviour:
     plane: {fileID: 8968158588979736679, guid: df3aa48b1139b4301a14a4ef76049e7d, type: 3}
     enemy: []
     trap: []
-    coin: []
-    heart: []
+    coin:
+      gameObject: {fileID: 0}
+      count: 0
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 0}
+      count: 0
+      currRange: 0
+      tileNum: 0
     hpDecreasingSpeed: 0.05
   - tile:
       tileLight: {fileID: 328974107150300791, guid: 1aeb0b61e1779420c81c0fa8c8ac60ea, type: 3}
@@ -5096,8 +5149,16 @@ MonoBehaviour:
     plane: {fileID: 8968158588979736679, guid: cfac0d87e8353454999d012fe3098e20, type: 3}
     enemy: []
     trap: []
-    coin: []
-    heart: []
+    coin:
+      gameObject: {fileID: 0}
+      count: 0
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 0}
+      count: 0
+      currRange: 0
+      tileNum: 0
     hpDecreasingSpeed: 0.036
   coin: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
   heart: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
