@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6790879834280852850}
   - component: {fileID: 1770646783}
+  - component: {fileID: 2171331967128705392}
   m_Layer: 0
   m_Name: coral
   m_TagString: Enemy
@@ -45,6 +46,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.695529, y: 1.2452757, z: 0.6922064}
   m_Center: {x: 0.009514809, y: 0.7849729, z: 0.030779362}
+--- !u!114 &2171331967128705392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6790879834280852851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371674d1c232422dab5af02d6a2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  itemType: 2
+  AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM: 0
+  AMOUNT_COIN: 0
 --- !u!1001 &6790879835151576609
 PrefabInstance:
   m_ObjectHideFlags: 0

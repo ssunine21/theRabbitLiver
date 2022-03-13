@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657612, g: 0.49641, b: 0.5748141, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657588, g: 0.4964097, b: 0.5748135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -937,7 +937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.43500003, y: 1}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: -5.000046, y: 0}
   m_SizeDelta: {x: -30, y: -48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248538697
@@ -5047,39 +5047,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelDesign:
   - tile:
-      tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
-      tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
-      tileCount: 0
-    plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
-    enemy:
-    - gameObject: {fileID: 2250665368473982670, guid: 18ed7d3f7db4341f4809ce3682ebe829, type: 3}
-      count: 15
-      currRange: 0
-      tileNum: 0
-    - gameObject: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
-      count: 15
-      currRange: 0
-      tileNum: 0
-    trap:
-    - gameObject: {fileID: 2441076146251619698, guid: 0d5c598c652a7402985e6be5c50986ee, type: 3}
-      count: 15
-      currRange: 0
-      tileNum: 0
-    coin:
-      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
-      count: 5
-      currRange: 0
-      tileNum: 0
-    heart:
-      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
-      count: 5
-      currRange: 0
-      tileNum: 0
-    hpDecreasingSpeed: 0
-  - tile:
       tileLight: {fileID: 7684936034953531306, guid: d61e44eec8a7eac4887341e3cddbced5, type: 3}
       tileDark: {fileID: 2729432162798970901, guid: b11f9ccf906c0b445bc39760ae14689f, type: 3}
-      tileCount: 0
+      tileCount: 80
     plane: {fileID: 1000011038681530, guid: f6710321408c46d4782a58e8db0b11e3, type: 3}
     enemy:
     - gameObject: {fileID: 7838219147362458319, guid: 0bee7e62cbfe0418b8f1c5c41e544881, type: 3}
@@ -5099,9 +5069,39 @@ MonoBehaviour:
       tileNum: 0
     hpDecreasingSpeed: 0.036
   - tile:
+      tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
+      tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
+      tileCount: 80
+    plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
+    enemy:
+    - gameObject: {fileID: 2250665368473982670, guid: 18ed7d3f7db4341f4809ce3682ebe829, type: 3}
+      count: 15
+      currRange: 0
+      tileNum: 0
+    - gameObject: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    trap:
+    - gameObject: {fileID: 2441076146251619698, guid: 0d5c598c652a7402985e6be5c50986ee, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 5
+      currRange: 0
+      tileNum: 0
+    hpDecreasingSpeed: 0
+  - tile:
       tileLight: {fileID: 6806486310248525171, guid: e335574da29b9b140a8618fd829d011a, type: 3}
       tileDark: {fileID: 2233141228595132022, guid: f7bdba2bde31b5849a6ed3ab078aecbf, type: 3}
-      tileCount: 0
+      tileCount: 80
     plane: {fileID: 4623280250564862162, guid: ce8ecd3707ade46209003c8330f4b77b, type: 3}
     enemy:
     - gameObject: {fileID: 4676449147862298744, guid: 4fc41dbc7cf8a40778aeb2db4ff15675, type: 3}
@@ -5127,7 +5127,7 @@ MonoBehaviour:
   - tile:
       tileLight: {fileID: 328974107150300791, guid: 3a00d64eb6cc74101b64a2ec0e6364ad, type: 3}
       tileDark: {fileID: 2056687562667319364, guid: 2e159425ba8a84601aaf1a2e8876a2fb, type: 3}
-      tileCount: 0
+      tileCount: 80
     plane: {fileID: 8968158588979736679, guid: df3aa48b1139b4301a14a4ef76049e7d, type: 3}
     enemy: []
     trap: []
@@ -5145,7 +5145,7 @@ MonoBehaviour:
   - tile:
       tileLight: {fileID: 328974107150300791, guid: 1aeb0b61e1779420c81c0fa8c8ac60ea, type: 3}
       tileDark: {fileID: 2056687562667319364, guid: 633770a9394fe4f4891100037252de68, type: 3}
-      tileCount: 0
+      tileCount: 80
     plane: {fileID: 8968158588979736679, guid: cfac0d87e8353454999d012fe3098e20, type: 3}
     enemy: []
     trap: []
@@ -5160,8 +5160,6 @@ MonoBehaviour:
       currRange: 0
       tileNum: 0
     hpDecreasingSpeed: 0.036
-  coin: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
-  heart: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
   characterPrefab:
   - {fileID: 6990429363539003542, guid: 8539be4cad1674be4bd04a55034bc12d, type: 3}
   - {fileID: 3039224863147665616, guid: 0c16aff5550b646bb83ab58b899e57f4, type: 3}
@@ -6105,7 +6103,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &940392062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12776,6 +12774,63 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4775232107639829174, guid: 9844072c0985a49aaab5b85be8ca45f5, type: 3}
   m_PrefabInstance: {fileID: 1795543222421211463}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6558887912880740808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4740505489833648486, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_Name
+      value: snowball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368985702671498204, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
 --- !u!1001 &7209039463343773624
 PrefabInstance:
   m_ObjectHideFlags: 0
