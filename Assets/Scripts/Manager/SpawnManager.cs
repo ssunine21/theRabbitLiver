@@ -23,7 +23,8 @@ public class SpawnManager : MonoBehaviour {
     private int totalTileCount;
     private int currLevelMaxTileCount;
 
-    private List<int> objectSpawnIndex = new List<int>();
+    private Dictionary<GameObject, int> objectSpawnIndex = new Dictionary<GameObject, int>();
+    private int tempObejctSpawnIdx;
 
     private void Awake() {
         Singleton();
@@ -102,12 +103,12 @@ public class SpawnManager : MonoBehaviour {
 
             if (withObject) {
                 foreach (var gameObject in levelDesign.enemy)
-                    SpawnObject(gameObject, pos, tileSet);
+                    SpawnObject(gameObject, tileSet);
                 foreach (var gameObject in levelDesign.trap)
-                    SpawnObject(gameObject, pos, tileSet);
+                    SpawnObject(gameObject, tileSet);
 
-                SpawnObject(levelDesign.coin, pos, tileSet);
-                SpawnObject(levelDesign.heart, pos, tileSet);
+                SpawnObject(levelDesign.coin, tileSet);
+                SpawnObject(levelDesign.heart, tileSet);
             }
 
             //if (withObject) {
@@ -135,35 +136,46 @@ public class SpawnManager : MonoBehaviour {
         if (totalTileCount++ > 50) RemoveTile();
 	}
 
-    public bool SpawnObject(LevelDesign.LevelObject levelObject, Vector3 pos, GameObject parent) {
+    public bool SpawnObject(LevelDesign.LevelObject levelObject, GameObject parent) {
         //현재 타일이 정해놓은 범위를 넘어가면
-        if (levelObject.currRange < currLevelMaxTileCount) {
+        if (levelObject.currRange <= totalTileCount) {
+            if (levelObject.currRange == 0)
+                levelObject.currRange = totalTileCount;
+
             levelObject.currRange += (levelDesign.tile.tileCount / levelObject.count);
 
             //범위 내에서 소환할 위치 랜덤 결정
-            int minRandomTileNum = currLevelMaxTileCount * Definition.TILE_SPACING;
+            int minRandomTileNum = totalTileCount * Definition.TILE_SPACING;
             int maxRandomTileNum = levelObject.currRange * Definition.TILE_SPACING;
             levelObject.tileNum = UnityEngine.Random.Range(minRandomTileNum, maxRandomTileNum);
 
             //혹시 그 자리에 뭐가 있으면 다음 자리
             foreach (var idx in objectSpawnIndex) {
-                if (levelObject.tileNum == idx) levelObject.tileNum++;
+                if (levelObject.tileNum == idx.Value)
+                    levelObject.tileNum++;
             }
-            objectSpawnIndex.Add(levelObject.tileNum);
+            
+            //자리 저장
+            if (objectSpawnIndex.ContainsKey(levelObject.gameObject))
+                objectSpawnIndex[levelObject.gameObject] = levelObject.tileNum;
+            else
+                objectSpawnIndex.Add(levelObject.gameObject, levelObject.tileNum);
             return false;
         }
 
         //오브젝트 생성되는 타이밍
-        if(currLevelMaxTileCount == (objectSpawnIndex[0] / Definition.TILE_SPACING)) {
-            try {
-                if (levelObject.gameObject == null) return false;
+        if (totalTileCount == (objectSpawnIndex[levelObject.gameObject] / Definition.TILE_SPACING)) {
+            if (levelObject.gameObject == null) return false;
 
+            int xPos = objectSpawnIndex[levelObject.gameObject] % Definition.TILE_SPACING;
+            Vector3 pos = new Vector3(xPos, 0, totalTileCount) * Definition.TILE_SPACING;
+            try {
                 PositionCorrection(ref pos, levelObject.gameObject.GetComponent<ObjectInfo>().offset);
-                Instantiate(levelObject.gameObject, pos, levelObject.gameObject.transform.rotation, parent.transform);
-                return true;
-            } catch(Exception e) {
-                Debug.LogError(e);
+            } catch (Exception e) {
             }
+            Instantiate(levelObject.gameObject, pos, levelObject.gameObject.transform.rotation, parent.transform);
+            objectSpawnIndex[levelObject.gameObject] = 0;
+            return true;
         }
         return false;
     }

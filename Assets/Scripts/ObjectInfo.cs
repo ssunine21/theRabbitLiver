@@ -19,12 +19,14 @@ public class ObjectInfo : MonoBehaviour {
             switch (itemType) {
                 case ItemType.heart:
                     other.GetComponent<Player>().stamina.hpBar += AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
+                    Destroy(this.gameObject);
                     break;
 
                 case ItemType.coin:
+                    //AMOUNT_COIN plus
+                    Destroy(this.gameObject);
                     break;
             }
-            Destroy(this.gameObject);
         }
     }
 }
