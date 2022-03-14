@@ -58,6 +58,7 @@ public class CloudData {
         characterProductInfoList.Add(DeviceData.CharacterID.bunny, new CharacterProductInfo(true, 1, 1000, new int[4] { 1000, 2000, 3000, 4000 }));
         characterProductInfoList.Add(DeviceData.CharacterID.skeleton, new CharacterProductInfo(false, 0, 1500, new int[4] { 1000, 2000, 3000, 4000 }));
         characterProductInfoList.Add(DeviceData.CharacterID.bono, new CharacterProductInfo(false, 0, 1012, new int[4] { 1000, 2000, 3000, 4000 }));
+        characterProductInfoList.Add(DeviceData.CharacterID.jazz, new CharacterProductInfo(false, 0, 1039, new int[4] { 1000, 2000, 3000, 4000 }));
         characterProductInfoList.Add(DeviceData.CharacterID.notake, new CharacterProductInfo(false, 0, 1039, new int[4] { 1000, 2000, 3000, 4000 }));
     }
 
