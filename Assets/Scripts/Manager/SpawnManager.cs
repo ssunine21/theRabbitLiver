@@ -137,6 +137,8 @@ public class SpawnManager : MonoBehaviour {
 	}
 
     public bool SpawnObject(LevelDesign.LevelObject levelObject, GameObject parent) {
+        if (levelObject.count == 0) return false;
+
         //현재 타일이 정해놓은 범위를 넘어가면
         if (levelObject.currRange <= totalTileCount) {
             if (levelObject.currRange == 0)
