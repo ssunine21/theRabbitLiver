@@ -7,7 +7,7 @@ using System.Linq;
 
 public class DeviceData {
     public enum CharacterID {
-        bunny, skeleton, bono, notake
+        bunny, skeleton, bono, jazz, notake
     }
 
     public enum ItemID {
