@@ -5,21 +5,22 @@ using UnityEngine;
 public class Jazz : Character {
     [Range(0, 20)]
     public float speed;
-    private int distance = Definition.TILE_SPACING;
+    private int skillMoveDistance;
 
     protected override void Start() {
         base.Start();
-        distance = MOVE_OFFSET;
     }
 
     protected override void Ready() { }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
+        skillMoveDistance = level * MOVE_OFFSET;
+
         player.isGroggy = true;
 
         targetPos = transform.position;
-        targetPos.z -= distance;
+        targetPos.z += skillMoveDistance;
 
         return true;
     }
@@ -28,10 +29,8 @@ public class Jazz : Character {
         if (isUsingSkill) {
             transform.Translate((targetPos - transform.position) * speed * Time.deltaTime);
 
-            if (transform.position.z <= (targetPos.z + posErrorRange)) {
+            if (transform.position.z >= (targetPos.z - posErrorRange)) {
                 transform.position = targetPos;
-
-                player.isSuperCharge = false;
                 player.isGroggy = false;
                 isUsingSkill = false;
             }

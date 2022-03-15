@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 76b3779365db54ca8bd84dfd78644993
+guid: 05d0d3da21b9d44ec9aff2ca2353b448
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: Skill
+    second: Jump
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Skill
+      name: Jump
       takeName: Scene
       internalID: 0
-      firstFrame: 20
-      lastFrame: 90
+      firstFrame: 1
+      lastFrame: 2
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
