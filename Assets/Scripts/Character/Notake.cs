@@ -29,7 +29,6 @@ public class Notake : Character {
     }
 
     IEnumerator SkillCoroutine() {
-
         for(int i = 0; i < SKILL_COUNT; ++i) {
             GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
             if (neareastObject is null) break;
@@ -40,7 +39,6 @@ public class Notake : Character {
             yield return new WaitForSeconds(.5f);
         }
         player.animator.SetInteger("skillNum", -1);
-
 
         isUsingSkill = false;
         player.isGroggy = false;

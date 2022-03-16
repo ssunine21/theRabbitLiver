@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class JellyFish : Monster {
         set { _moveSpeed = value; }
     }
 
+    public ParticleSystem attackParticle;
+
     private Vector3 xPos;
     private readonly int XMAX = 9;
     private readonly int XMIN = -3;
@@ -28,7 +31,7 @@ public class JellyFish : Monster {
         StartCoroutine(nameof(SkillCoroutine));
 
         xPos = transform.position;
-        xPos.x = Random.Range(0, 1) == 0 ? XMIN : XMAX;
+        xPos.x = UnityEngine.Random.Range(0, 1) == 0 ? XMIN : XMAX;
     }
 
     private void FixedUpdate() {
@@ -57,12 +60,16 @@ public class JellyFish : Monster {
     }
 
     private void AttackColliderOnOff() {
-        isAttackColliderOn = !isAttackColliderOn;
-        childAttackCollider.gameObject.SetActive(isAttackColliderOn);
+        try {
+            isAttackColliderOn = !isAttackColliderOn;
+            childAttackCollider.gameObject.SetActive(isAttackColliderOn);
+
+            if (isAttackColliderOn) attackParticle.Play();
+        } catch (Exception e) { Debug.LogError(e); }
     }
 
     IEnumerator SkillCoroutine() {
-        yield return new WaitForSeconds(Random.Range(0, attackDelay));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0, attackDelay));
 
         while (true) {
             Attack();
