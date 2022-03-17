@@ -53,10 +53,13 @@ public class Jazz : Character {
         particleSkill.Stop();
     }
 
+    [System.Obsolete]
     private void UseSkill() {
         if (isSkillDuration) {
             GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
             if (neareastObject is null) return;
+
+            DestroyObject(neareastObject);
         }
     }
 
