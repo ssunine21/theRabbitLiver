@@ -4,12 +4,10 @@ Shader "Custom/NewSurfaceShader"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 200
 
         CGPROGRAM
@@ -41,10 +39,9 @@ Shader "Custom/NewSurfaceShader"
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
+            o.Emission = float3(1, 100, 1);
+
             // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }
         ENDCG
