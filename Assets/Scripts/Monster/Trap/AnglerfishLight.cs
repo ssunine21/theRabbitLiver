@@ -10,17 +10,28 @@ public class AnglerfishLight : MonoBehaviour {
         set { _moveSpeed = value; }
     }
 
-    [SerializeField] private float tintFadeTime;
+    [SerializeField] private float tintFadeSpeed;
 
     private Vector3 velocity = Vector3.zero;
     private Vector3 yPos;
 
-    static private Material material;
-    static private Color materialTintColor;
+    private float tintFadeTime;
+    static private bool _isFade = false;
+    public bool isFade {
+        get { return _isFade; }
+        set {
+            tintFadeTime = 0;
+            _isFade = value; 
+        }
+    }
+
+    private Material material;
+    private Color materialTintColor;
 
     private readonly float YMAX = 2.5f;
     private readonly float YMIN = 1f;
     private readonly float OFFSET = 0.1f;
+    private float fadeTime = 0f;
 
     private void Start() {
         yPos = transform.position;
@@ -32,6 +43,11 @@ public class AnglerfishLight : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        MoveUpDown();
+        MaterialTintFade();
+    }
+
+    private void MoveUpDown() {
         if (transform.position.y <= (YMIN + OFFSET)) {
             yPos.y = YMAX;
         } else if (transform.position.y >= (YMAX - OFFSET)) {
@@ -40,27 +56,16 @@ public class AnglerfishLight : MonoBehaviour {
         this.transform.position = Vector3.SmoothDamp(transform.position, yPos, ref velocity, MoveSpeed);
     }
 
-    private IEnumerator MaterialTintFade() {
-        float time = 0f;
-
-        while (true) {
-            if (materialTintColor.a > 0) {
-                time += Time.deltaTime / tintFadeTime;
-                materialTintColor.a = Mathf.Lerp(1, 0, time);
-                material.color = materialTintColor;
-            }
-/*            } else if (materialTintColor.a <= 0.1) {
-                materialTintColor.a = Mathf.Lerp(0, 1, tintFadeSpeed * Time.deltaTime);
-                material.color = materialTintColor;
-            }*/
-            yield return null;
-        }
-    }
-
-    private IEnumerator FadeIn() {
-        while (materialTintColor.a >= 0) {
-            materialTintColor.a = Mathf.Clamp01(materialTintColor.a + tintFadeTime * Time.deltaTime);
-            yield return null;
+    private void MaterialTintFade() {
+        tintFadeTime += Time.deltaTime / tintFadeSpeed;
+        if (isFade) {
+            if (material.color.a <= 0) return;
+            materialTintColor.a = Mathf.Lerp(1, 0, tintFadeTime);
+            material.color = materialTintColor;
+        } else {
+            if (material.color.a >= 1) return;
+            materialTintColor.a = Mathf.Lerp(0, 1, tintFadeTime);
+            material.color = materialTintColor;
         }
     }
 }
