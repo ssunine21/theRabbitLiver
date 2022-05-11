@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour {
+    const float MAX_STAMINA = 1;
+    const float MIN_STAMINA = 0;
 
     [SerializeField]
     private Image _hpBar;
@@ -27,7 +29,7 @@ public class Stamina : MonoBehaviour {
             if (_mpBar.fillAmount < 0) _mpBar.fillAmount = 0;
             else if (_mpBar.fillAmount > 1) _mpBar.fillAmount = 1;
 
-            if (_mpBar.fillAmount >= 1) isSkillOn(true);
+            isSkillOn(_mpBar.fillAmount >= 1);
         }
     }
 
@@ -45,13 +47,15 @@ public class Stamina : MonoBehaviour {
         else skillImg.sprite = skillOff;
     }
 
-    public void SetStamina(float hp = 1, float mp = 0) {
+    public void SetStamina(float hp = MAX_STAMINA, float mp = MIN_STAMINA) {
         hpBar = hp;
         mpBar = mp;
     }
 
     public void OnSkill() {
-        if(mpBar >= 0)
-        GameManager.init.player.GetComponent<Player>().Skill();
+        if (mpBar >= MAX_STAMINA) {
+            GameManager.init.player.GetComponent<Player>().Skill();
+            mpBar = MIN_STAMINA;
+        }
     }
 }
