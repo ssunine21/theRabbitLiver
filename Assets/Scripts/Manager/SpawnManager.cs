@@ -26,6 +26,9 @@ public class SpawnManager : MonoBehaviour {
     private Dictionary<GameObject, int> objectSpawnIndex = new Dictionary<GameObject, int>();
     private int tempObejctSpawnIdx;
 
+    static float fadeTime;
+    static bool isFade = false;
+
     private void Awake() {
         Singleton();
     }
@@ -72,6 +75,8 @@ public class SpawnManager : MonoBehaviour {
                 SpawnTile(true);
             }
         }
+
+        fadeTime = Mathf.Clamp01(Time.deltaTime * 0.2f);
     }
 
     public GameObject SpawnPlayer() {
