@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Trap
-  - HealthItem
   - AttackCollider
+  - Item
+  - HealthItem
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - Character
   - Trap
-  - 
+  - OverUI
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: OverUI
+    uniqueID: 3049815665
     locked: 0

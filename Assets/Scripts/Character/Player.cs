@@ -146,7 +146,13 @@ public class Player : MonoBehaviour {
 
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
 			CollisionWithEnemy(collision);
-		} else if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
+		}
+		else if (collision.gameObject.CompareTag(Definition.TAG_ITEM)) {
+			IItem item = collision.GetComponent<IItem>();
+			item.Use();
+        }
+		
+		else if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
 			CollisionWithAttack(collision);
 		}
 	}

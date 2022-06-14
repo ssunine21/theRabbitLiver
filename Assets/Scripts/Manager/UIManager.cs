@@ -54,6 +54,15 @@ public class UIManager : MonoBehaviour {
         GameManager.init.Play();
     }
 
+    public void RestartBtn() {
+        GameManager.init.GameOver();
+        GameManager.init.GameStart();
+
+        restartUI.SetActive(false);
+        pauseUI.SetActive(false);
+        pauseBtn.SetActive(true);
+    }
+
     public void ToMainFromInGame() {
         GameManager.init.GameOver();
         GameManager.init.Play();
