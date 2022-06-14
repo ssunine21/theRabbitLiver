@@ -16,6 +16,7 @@ public static class Definition {
     public static readonly string TAG_ATTACK_COLLIDER = "AttackCollider";
     public static readonly string TAG_ENEMY = "Enemy";
     public static readonly string TAG_TRAP = "Trap";
+    public static readonly string TAG_ITEM = "Item";
     public static readonly string TAG_HEALTH_ITEM = "HealthItem";
 
     public static readonly string SELECT = "선택";

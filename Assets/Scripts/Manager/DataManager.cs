@@ -7,6 +7,8 @@ public class DataManager : MonoBehaviour {
     public DeviceData DeviceData;
     public CloudData CloudData;
 
+    private List<Dictionary<string, object>> levelData;
+
     private Score _score;
     public Score score {
         get {
@@ -23,6 +25,7 @@ public class DataManager : MonoBehaviour {
 
     private void Start() {
         CloudData.Load();
+        levelData = CSVReader.Read("leveldesign");
     }
 
     public void ChangeCharacterId(int characterId) {

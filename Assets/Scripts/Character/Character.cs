@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
+    public enum levelKey {
+        healthIncrease
+    }
+
     protected static readonly int MOVE_OFFSET = Definition.TILE_SPACING;
 
     protected Player player;
     protected Vector3 targetPos;
+
+    [SerializeField]
+    public Dictionary<levelKey, int[]> levelData;
 
     [SerializeField]
     protected DeviceData.CharacterID Type;

@@ -9,24 +9,4 @@ public class ObjectInfo : MonoBehaviour {
 
     public Vector3 offset;
     public ItemType itemType;
-
-    [Range(0.0f, 1f)]
-    public float AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
-    public int AMOUNT_COIN;
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag(Definition.TAG_PLAYER)) {
-            switch (itemType) {
-                case ItemType.heart:
-                    other.GetComponent<Player>().stamina.hpBar += AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM;
-                    Destroy(this.gameObject);
-                    break;
-
-                case ItemType.coin:
-                    //AMOUNT_COIN plus
-                    Destroy(this.gameObject);
-                    break;
-            }
-        }
-    }
 }

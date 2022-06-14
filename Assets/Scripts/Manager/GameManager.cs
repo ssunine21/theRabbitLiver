@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject player;
+    [HideInInspector]
+    public Player player;
 
 	private void Awake() {
 		Singleton();
 	}
 
-    private void Start() {
-        
-    }
-
     public void GameStart() {
         SpawnManager.init.CreateTileMap();
-        player = SpawnManager.init.SpawnPlayer();
+        player = SpawnManager.init.SpawnPlayer().GetComponent<Player>();
+        player.GetComponent<Player>().stamina.SetStamina();
+        Play();
 
-        ResetGameSettings();
-
-        Camera.main.GetComponent<CameraControl>().player = player;
-        Monster.player = player;
+        Camera.main.GetComponent<CameraControl>().player = player.gameObject;
+        Monster.player = player.gameObject;
     }
 
     public void GameOver() {
         DataManager.init.ChangeScore();
         Camera.main.GetComponent<CameraControl>().PosReset();
         if (player != null) {
-            Destroy(player);
+            Destroy(player.gameObject);
         }
 
         SpawnManager.init.DestroyTileMap();
@@ -40,11 +37,6 @@ public class GameManager : MonoBehaviour {
 
     public void Play() {
         Time.timeScale = 1;
-    }
-
-    private void ResetGameSettings() {
-        Play();
-        player.GetComponent<Player>().stamina.SetStamina();
     }
 
     public static GameManager init;
