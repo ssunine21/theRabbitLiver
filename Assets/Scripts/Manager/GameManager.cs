@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour {
         if (player != null) {
             Destroy(player.gameObject);
         }
-
         SpawnManager.init.DestroyTileMap();
     }
 

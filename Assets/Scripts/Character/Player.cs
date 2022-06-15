@@ -106,8 +106,10 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if (!isDead)
-			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
+		if (!isDead) {
+			float hpDecreaseSpeed = SpawnManager.init.levelDesign.hpDecreasingSpeed * character.hpIncrease;
+			stamina.hpBar -= hpDecreaseSpeed * Time.deltaTime;
+		}
 	}
 
 	private void Move(bool isLeft) {

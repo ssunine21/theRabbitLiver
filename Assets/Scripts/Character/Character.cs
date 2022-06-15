@@ -13,13 +13,23 @@ public abstract class Character : MonoBehaviour {
     protected Vector3 targetPos;
 
     [SerializeField]
-    public Dictionary<levelKey, int[]> levelData;
+    private float[] _hpIncrease;
+    public float hpIncrease {
+        get {
+            level -= 1;
+            if (level < 0) level = 0;
+            else if (level > 4) level = 4;
+            return _hpIncrease[level];
+        }
+    }
+
+    public int skillUsageReductionCount;
 
     [SerializeField]
     protected DeviceData.CharacterID Type;
     public DeviceData.CharacterID _Type { get { return Type; } }
-    [SerializeField]
-    protected int level;
+
+    public int level;
 
     protected float posErrorRange = 0.05f;
     protected bool isUsingSkill = false;
@@ -35,6 +45,9 @@ public abstract class Character : MonoBehaviour {
     virtual protected void Start() {
         player = GetComponent<Player>();
         player.character = this;
+
+        skillUsageReductionCount = DataManager.init.CloudData.characterProductInfoList[_Type].hpincrease;
+        level = DataManager.init.CloudData.characterProductInfoList[_Type].skillLevel;
     }
 
     protected abstract void Ready();

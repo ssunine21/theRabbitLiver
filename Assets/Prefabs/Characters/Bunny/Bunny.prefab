@@ -776,6 +776,7 @@ MonoBehaviour:
   isGroggy: 0
   isSuperCharge: 0
   isDead: 0
+  animator: {fileID: 0}
 --- !u!114 &-5225194083808256245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +789,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b2d478283bd4510bc796855bf810ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpIncrease:
+  - 0.5
+  - 2
+  - 0
+  - 0
+  - 0
+  _skillUsageReductionCount: 
   Type: 0
   level: 0
   speed: 7
