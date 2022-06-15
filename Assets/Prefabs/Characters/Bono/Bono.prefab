@@ -168,6 +168,7 @@ MonoBehaviour:
   isGroggy: 0
   isSuperCharge: 0
   isDead: 0
+  animator: {fileID: 0}
 --- !u!54 &8279115107120713285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -210,8 +211,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c6667a08f73461fbfbc6928fe685f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpIncrease:
+  - 0.5
+  - 1
+  - 0
+  - 1
+  - 1
+  _skillUsageReductionCount: 
   Type: 2
-  level: 3
+  level: 0
   speed: 4
 --- !u!1 &1387491488250972803
 GameObject:

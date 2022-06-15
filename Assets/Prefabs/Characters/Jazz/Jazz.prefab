@@ -882,11 +882,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502f4b0f063f2140a888f0754b1cbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpIncrease: []
+  _skillUsageReductionCount: 
   Type: 3
-  level: 3
+  level: 0
   speed: 20
   particleSkill: {fileID: 1516807120951772205}
-  useMpSpeed: 0.3
+  SKILL_RANGE: 0
+  mpDecreaseSpeed: 0
 --- !u!95 &4552766242474951596
 Animator:
   serializedVersion: 3

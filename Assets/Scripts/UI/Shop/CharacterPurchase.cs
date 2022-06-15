@@ -13,6 +13,7 @@ public class CharacterPurchase : MonoBehaviour {
     public GameObject levelBars;
     public GameObject unlockImg;
     public Camera characterViewCamera;
+    public TextMeshProUGUI characterContents;
 
     public Vector3 pos;
     [Space(30)]
@@ -71,6 +72,7 @@ public class CharacterPurchase : MonoBehaviour {
         OnCharHide(!isPurchase);
 
         SetLevelBarColor(currCharInfo.skillLevel);
+        SetCharacterContents(currCharInfo.hpincrease, currCharInfo.skillCount);
     }
 
     private void SetLevelBarColor(int level) {
@@ -126,6 +128,7 @@ public class CharacterPurchase : MonoBehaviour {
         if (DataManager.init.CoinComparison(obj.levelPrice, true)) {
             SetLevelBarColor(++obj.skillLevel);
             BtnNextCharacter();
+            SetCharacterContents(obj.hpincrease, obj.skillCount);
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
@@ -150,5 +153,10 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void OnCharHide(bool isHide) {
         characterViewCamera.depth = isHide ? Definition.CAMERA_DEPTH_UNDER : Definition.CAMERA_DEPTH_OVER;
+    }
+
+    private void SetCharacterContents(int hpincrease, int skillCount) {
+        characterContents.text = "\n체력 감소 효과  <b><color=#50bcdf>- " + hpincrease + "%</color></b>\n" +
+                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + skillCount + "</color></b>";
     }
 }
