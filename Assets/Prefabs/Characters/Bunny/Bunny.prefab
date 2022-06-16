@@ -790,12 +790,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpIncrease:
-  - 0.5
+  - 1
   - 2
   - 0
   - 0
   - 0
-  _skillUsageReductionCount: 
+  skillUsageReductionCount: 0
   Type: 0
   level: 0
   speed: 7

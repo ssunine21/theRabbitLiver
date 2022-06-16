@@ -33,22 +33,13 @@ public class ItemInfo : MonoBehaviour {
         purchaseBtnAndIsPurchaseText[1] = btnBuy.transform.GetChild(0).GetChild(1);
         ChangeItemPrice();
 
-        if (IsPurchase()) {
-            OffBtnFunction();
-            return;
-        }
         AddBuyBtnListener();
         SetLevelBar(level);
     }
 
     private void OffBtnFunction() {
         btnBuy.interactable = false;
-        infoData.isPurchase = true;
         ChangeBtnText();
-    }
-
-    private bool IsPurchase() {
-        return infoData.isPurchase;
     }
 
     private void ChangeBtnText() {
@@ -71,7 +62,9 @@ public class ItemInfo : MonoBehaviour {
         try {
             btnBuy.onClick.RemoveAllListeners();
         } catch(Exception e) {
-            
+#if (DEBUG)
+            UnityEngine.Debug.Log(e.Message);
+#endif
         }
         btnBuy.onClick.AddListener(ShowBuyMessage);
     }

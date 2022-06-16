@@ -108,7 +108,8 @@ public class Player : MonoBehaviour {
 
 		if (!isDead) {
 			float hpDecreaseSpeed = SpawnManager.init.levelDesign.hpDecreasingSpeed * character.hpIncrease;
-			stamina.hpBar -= hpDecreaseSpeed * Time.deltaTime;
+			//stamina.hpBar -= hpDecreaseSpeed * Time.deltaTime;
+			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
 		}
 	}
 
@@ -117,7 +118,7 @@ public class Player : MonoBehaviour {
 		Vector3 quaternion = new Vector3();
 
 		offset.z = this.transform.position.z + Definition.TILE_SPACING;
-		RecordData.jumpCount++;
+		GameManager.init.recordData.runCount++;
 
 		if (isLeft) {
 			animator.SetTrigger(hashMoveLeft);
@@ -143,6 +144,16 @@ public class Player : MonoBehaviour {
 		DataManager.init.score.currScore += 50;
 	}
 
+	public void Move() {
+		Vector3 offset = new Vector3(0, this.transform.position.y, 0);
+		offset.z = this.transform.position.z + Definition.TILE_SPACING;
+		GameManager.init.recordData.runCount++;
+
+		animator.SetTrigger(hashMoveLeft);
+		this.transform.position = offset;
+		DataManager.init.score.currScore += 50;
+	}
+
 	private void OnTriggerEnter(Collider collision) {
 		Debug.Log("OnTriggerEnter - " + collision);
 
@@ -162,13 +173,14 @@ public class Player : MonoBehaviour {
 	private void CollisionWithEnemy(Collider collision) {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += AMOUNT_RECOVERY_MP_ON_KILL;
-
+		GameManager.init.recordData.enemyKill++;
 		Destroy(collision.gameObject);
 	}
 
 	private void CollisionWithAttack(Collider collider) {
 		if (!isSuperCharge) {
 			Hitting(collider);
+			GameManager.init.recordData.hitCount++;
 			//stamina.hpBar -= 30;
 		}
 	}
@@ -178,8 +190,10 @@ public class Player : MonoBehaviour {
 		try {
 			posAfterHit.z -= (Definition.TILE_SPACING * collider.GetComponent<AttackColliderInfo>().force_KnockBack);
 		} catch (Exception e) {
-			Debug.LogError(e.StackTrace);
-        }
+#if(DEBUG)
+			UnityEngine.Debug.LogError(e.StackTrace);
+#endif
+		}
 		animator.SetTrigger(hashHitTheTrap);
 
 		hittingByTrap = true;

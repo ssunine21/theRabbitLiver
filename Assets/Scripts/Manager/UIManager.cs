@@ -14,10 +14,20 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject pauseBtn;
     [SerializeField] private GameObject restartUI;
+    [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject restartCountUI;
     [SerializeField] private GameObject twoBtnAlert;
     [SerializeField] private GameObject twoBtnAlertWithCoin;
     [SerializeField] private GameObject oneBtnAlert;
+
+
+    [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private TextMeshProUGUI coin;
+    [SerializeField] private TextMeshProUGUI enemyKill;
+    [SerializeField] private TextMeshProUGUI runCount;
+    [SerializeField] private TextMeshProUGUI hitCount;
+    [SerializeField] private TextMeshProUGUI itemCount;
+    [SerializeField] private TextMeshProUGUI totalScore;
 
     private void Awake() {
         Singleton();
@@ -26,8 +36,7 @@ public class UIManager : MonoBehaviour {
     public void GameStartBtn() {
         mainUI.SetActive(false);
         inGameUI.SetActive(true);
-
-        GameManager.init.GameStart();
+        GameManager.init.InitGame();
     }
 
     public void ShopBtn() {
@@ -55,12 +64,17 @@ public class UIManager : MonoBehaviour {
     }
 
     public void RestartBtn() {
-        GameManager.init.GameOver();
-        GameManager.init.GameStart();
+        GameManager.init.GameOver(); 
+        GameManager.init.InitGame();
 
         restartUI.SetActive(false);
         pauseUI.SetActive(false);
         pauseBtn.SetActive(true);
+    }
+
+    public void GameOverUI() {
+        restartUI.SetActive(false);
+        gameOverUI.SetActive(true);
     }
 
     public void ToMainFromInGame() {
@@ -68,6 +82,7 @@ public class UIManager : MonoBehaviour {
         GameManager.init.Play();
 
         restartUI.SetActive(false);
+        gameOverUI.SetActive(false);
         pauseUI.SetActive(false);
         pauseBtn.SetActive(true);
         inGameUI.SetActive(false);
@@ -115,6 +130,17 @@ public class UIManager : MonoBehaviour {
 
     public void RestartCount() {
         restartCountUI.SetActive(true);
+    }
+
+    public void SetRecordDataUI(int score, int coin, int enemyKill, int runCount,
+        int hitCount, int itemCount, int totalScore) {
+        this.score.text = score.ToString();
+        this.coin.text = coin.ToString();
+        this.enemyKill.text = enemyKill.ToString();
+        this.runCount.text = runCount.ToString();
+        this.hitCount.text = hitCount.ToString();
+        this.itemCount.text = itemCount.ToString();
+        this.totalScore.text = totalScore.ToString();
     }
 
     public static UIManager init;
