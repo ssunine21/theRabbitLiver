@@ -23,6 +23,9 @@ public class Monster : MonoBehaviour {
             animator.SetTrigger(hashAttack);
         } catch(MissingComponentException e) {
             animator = GetComponentInChildren<Animator>();
+#if (DEBUG)
+            UnityEngine.Debug.Log(e.Message);
+#endif
         }
         isAnimationRunning = true;
         StartCoroutine(nameof(AttackDelay));

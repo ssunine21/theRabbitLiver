@@ -29,11 +29,15 @@ public class DataManager : MonoBehaviour {
         DeviceData.characterId = (DeviceData.CharacterID)characterId;
     }
 
+    public void InitCurrScore() {
+        score.currScore = 0;
+    }
+
     public void ChangeScore() {
         if(score.currScore > score.bestScore) {
             score.bestScore = score.currScore;
         }
-        score.currScore = 0;
+        InitCurrScore();
     }
 
     /// <summary>

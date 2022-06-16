@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using Random = System.Random;
 
 public class SpawnManager : MonoBehaviour {
 
@@ -22,12 +23,17 @@ public class SpawnManager : MonoBehaviour {
     private int level;
     private int totalTileCount;
     private int currLevelMaxTileCount;
+    private Random randomObj = new Random();
 
     private Dictionary<GameObject, int> objectSpawnIndex = new Dictionary<GameObject, int>();
     private int tempObejctSpawnIdx;
 
     static float fadeTime;
     static bool isFade = false;
+
+    private int coinPercentage;
+    private int heartPercentage;
+    private int protectionPercentage;
 
     private void Awake() {
         Singleton();
@@ -38,8 +44,14 @@ public class SpawnManager : MonoBehaviour {
         planeParent = new GameObject("Planes");
         tileParent = new GameObject("Tiles");
 
+        SetItemPercentage();
+
         PrepareTileSpawn();
         TileUpDownAnimStart();
+    }
+
+    private void SetItemPercentage() {
+        coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage[DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].itemLevel];
     }
 
     public void DestroyTileMap() {
@@ -112,8 +124,13 @@ public class SpawnManager : MonoBehaviour {
                 foreach (var gameObject in levelDesign.trap)
                     SpawnObject(gameObject, tileSet);
 
-                SpawnObject(levelDesign.coin, tileSet);
-                SpawnObject(levelDesign.heart, tileSet);
+                int random = randomObj.Next(100);
+
+                if (IsRandomSpawn(50))
+                    SpawnObject(levelDesign.coin, tileSet);
+
+                if (IsRandomSpawn(50))
+                    SpawnObject(levelDesign.heart, tileSet);
             }
 
             //if (withObject) {
@@ -140,6 +157,10 @@ public class SpawnManager : MonoBehaviour {
         currLevelMaxTileCount++;
         if (totalTileCount++ > 50) RemoveTile();
 	}
+
+    private bool IsRandomSpawn(int percentage) {
+        return randomObj.Next(100) < percentage;
+    }
 
     public bool SpawnObject(LevelDesign.LevelObject levelObject, GameObject parent) {
         if (levelObject.count == 0) return false;
@@ -179,6 +200,9 @@ public class SpawnManager : MonoBehaviour {
             try {
                 PositionCorrection(ref pos, levelObject.gameObject.GetComponent<ObjectInfo>().offset);
             } catch (Exception e) {
+#if (DEBUG)
+                UnityEngine.Debug.Log(e.Message);
+#endif
             }
             Instantiate(levelObject.gameObject, pos, levelObject.gameObject.transform.rotation, parent.transform);
             objectSpawnIndex[levelObject.gameObject] = 0;

@@ -37,14 +37,16 @@ public class CloudData {
     }
 
     public class ItemProductInfo {
-        public bool isPurchase { get; set; }
         public int itemLevel { get; set; }
         public int[] price { get; set; }
 
-        public ItemProductInfo(bool isPurchase, int itemLevel, int[] price) {
-            this.isPurchase = isPurchase;
+        private int[] _percentage;
+        public int[] percentage { get; set; }
+
+        public ItemProductInfo(int itemLevel, int[] price, int[] percentage) {
             this.itemLevel = itemLevel;
             this.price = price;
+            this.percentage = percentage;
         }
     }
 
@@ -82,10 +84,12 @@ public class CloudData {
     }
 
     private void LoadItemProductInfo() {
-        itemProductInfoList.Add(DeviceData.ItemID.coinplus, new ItemProductInfo(false, 0, new int[5] {1000, 2000, 3000, 4000, 5000}));
-        itemProductInfoList.Add(DeviceData.ItemID.heartplus, new ItemProductInfo(false, 0, new int[5] { 1000, 2000, 3000, 4000, 5000 }));
-        itemProductInfoList.Add(DeviceData.ItemID.protectionplus, new ItemProductInfo(false, 0, new int[5] { 1000, 2000, 3000, 4000, 5000 }));
-        itemProductInfoList.Add(DeviceData.ItemID.protection, new ItemProductInfo(false, 0, new int[5] { 2000, 2000, 2000, 2000, 2000 }));
+        itemProductInfoList.Add(DeviceData.ItemID.coinplus,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 20, 25, 30, 35, 40 }));
+        itemProductInfoList.Add(DeviceData.ItemID.heartplus,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 20, 25, 30, 35, 40 }));
+        itemProductInfoList.Add(DeviceData.ItemID.protectionplus,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
     }
 
     private void LoadCoinData() {

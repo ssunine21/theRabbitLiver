@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Restart : MonoBehaviour {
@@ -10,7 +11,6 @@ public class Restart : MonoBehaviour {
     [SerializeField] private Image reImg;
     [SerializeField] private Button coinBtn;
     [SerializeField] private Button adsBtn;
-
 
     private void OnEnable() {
         StartCoroutine(nameof(UITime));
@@ -25,6 +25,7 @@ public class Restart : MonoBehaviour {
             reImg.fillAmount = (currTime / RESTART_UI_TIME);
             yield return null;
         }
+        GameManager.init.FinishGame();
     }
 
     private void CompareCoin() {

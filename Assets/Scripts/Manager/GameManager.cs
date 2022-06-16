@@ -6,10 +6,17 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]
     public Player player;
+    public RecordData recordData;
 
 	private void Awake() {
 		Singleton();
 	}
+
+    public void InitGame() {
+        recordData = new RecordData();
+        DataManager.init.InitCurrScore();
+        GameStart();
+    }
 
     public void GameStart() {
         SpawnManager.init.CreateTileMap();
@@ -22,12 +29,21 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-        DataManager.init.ChangeScore();
+        recordData.score = DataManager.init.score.currScore;
+        UIManager.init.SetRecordDataUI(recordData.score, recordData.coin, recordData.enemyKill,
+            recordData.runCount, recordData.hitCount, recordData.itemCount, recordData.TotalScore());
+
         Camera.main.GetComponent<CameraControl>().PosReset();
         if (player != null) {
             Destroy(player.gameObject);
         }
         SpawnManager.init.DestroyTileMap();
+    } 
+
+    public void FinishGame() {
+        GameOver();
+        DataManager.init.ChangeScore();
+        UIManager.init.GameOverUI();
     }
 
     public void Pause() {

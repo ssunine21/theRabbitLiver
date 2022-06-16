@@ -21,8 +21,11 @@ public class AlertInfo : MonoBehaviour {
     public void SetCoinValue(int coin) {
         try {
             textCoin.text = coin.ToString();
-        } catch(NullReferenceException e) {
+        } catch(NullReferenceException NRE) {
             textCoin.text = 0.ToString();
+#if (DEBUG)
+            UnityEngine.Debug.Log(NRE.Message);
+#endif
         }
     }
 
@@ -52,7 +55,9 @@ public class AlertInfo : MonoBehaviour {
             checkBtn.onClick.RemoveAllListeners();
             cancelBtn.onClick.RemoveAllListeners();
         }catch (Exception e) {
-
+#if (DEBUG)
+            UnityEngine.Debug.Log(e.Message);
+#endif
         }
     }
 
@@ -65,7 +70,9 @@ public class AlertInfo : MonoBehaviour {
                 this.gameObject.SetActive(false);
             });
         } catch(Exception e) {
-
+#if (DEBUG)
+            UnityEngine.Debug.Log(e.Message);
+#endif
         }
     }
 }
