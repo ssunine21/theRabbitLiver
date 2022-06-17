@@ -23,10 +23,21 @@ public class Player : MonoBehaviour {
 	public float trapCrashSpeed;
 
 	public Stamina stamina;
+	public ParticleSystem protectionParticle;
 
 	public bool isGroggy = false;
 	public bool isSuperCharge = false;
 	public bool isDead = false;
+
+	private bool _isProtection;
+	public bool isProtection {
+		get => _isProtection;
+		set {
+			if (value) protectionParticle.Play();
+			else protectionParticle.Stop();
+			_isProtection = value;
+        }
+    }
 
 	private bool _hittingByTrap = false;
 	public bool hittingByTrap {
@@ -145,7 +156,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Move() {
-		Vector3 offset = new Vector3(0, this.transform.position.y, 0);
+		Vector3 offset = new Vector3(this.transform.position.x, this.transform.position.y, 0);
 		offset.z = this.transform.position.z + Definition.TILE_SPACING;
 		GameManager.init.recordData.runCount++;
 
@@ -153,6 +164,10 @@ public class Player : MonoBehaviour {
 		this.transform.position = offset;
 		DataManager.init.score.currScore += 50;
 	}
+
+	public void OnProtection() {
+		isProtection = true;
+    }
 
 	private void OnTriggerEnter(Collider collision) {
 		Debug.Log("OnTriggerEnter - " + collision);
@@ -163,6 +178,7 @@ public class Player : MonoBehaviour {
 		else if (collision.gameObject.CompareTag(Definition.TAG_ITEM)) {
 			IItem item = collision.GetComponent<IItem>();
 			item.Use();
+			Destroy(collision.gameObject);
         }
 		
 		else if (collision.gameObject.CompareTag(Definition.TAG_ATTACK_COLLIDER)) {
@@ -179,9 +195,13 @@ public class Player : MonoBehaviour {
 
 	private void CollisionWithAttack(Collider collider) {
 		if (!isSuperCharge) {
-			Hitting(collider);
-			GameManager.init.recordData.hitCount++;
-			//stamina.hpBar -= 30;
+			if (!isProtection) {
+				Hitting(collider);
+				GameManager.init.recordData.hitCount++;
+				//stamina.hpBar -= 30;
+			} else {
+				isProtection = false;
+            }
 		}
 	}
 

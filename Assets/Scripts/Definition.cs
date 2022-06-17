@@ -25,4 +25,5 @@ public static class Definition {
     public static readonly string BUY_ENOUGH = "더 이상 구매할 수 없습니다.";
     public static readonly string BUY_LEVEL_MASSAGE = "레벨업 하시겠습니까?";
     public static readonly string NOT_ENOUGH_MONEY = "골드가 부족합니다.";
+    public static readonly string CURR_ITEM_COUNT = "현재 개수 : ";
 }

@@ -31,7 +31,7 @@ public class Notake : Character {
     IEnumerator SkillCoroutine() {
         for(int i = 0; i < SKILL_COUNT; ++i) {
             GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
-            if (neareastObject is null) break;
+            if (neareastObject == null) break;
 
             player.animator.SetInteger("skillNum", Random.Range(0, 3));
             Vector3 targetPos = PosNormalize(neareastObject.transform.position);

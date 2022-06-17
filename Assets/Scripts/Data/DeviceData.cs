@@ -11,7 +11,7 @@ public class DeviceData {
     }
 
     public enum ItemID {
-        coinplus, heartplus, protectionplus, protection
+        coinplus, heartplus, protectionplus, heart, protection, skip, Max
     }
 
     private CharacterID _characterId = CharacterID.bunny;

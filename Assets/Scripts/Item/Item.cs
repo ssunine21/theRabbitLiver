@@ -7,7 +7,8 @@ public class Item : MonoBehaviour {
     private Player _player;
     public Player player {
         get {
-            if (_player is null) _player = GameManager.init.player;
+            if (_player == null) 
+                _player = GameManager.init.player;
             return _player;
         }
         set {

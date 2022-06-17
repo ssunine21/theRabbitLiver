@@ -17,7 +17,7 @@ public class AnimationControll : MonoBehaviour {
     }
 
     private void OnEnable() {
-        if (rect is null) rect = GetComponent<RectTransform>();
+        if (rect == null) rect = GetComponent<RectTransform>();
         offsetMax = rect.offsetMax;
         offsetMin = rect.offsetMin;
         Invoke("StartAnimation", delay);
