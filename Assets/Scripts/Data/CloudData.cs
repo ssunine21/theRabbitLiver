@@ -41,12 +41,17 @@ public class CloudData {
         public int[] price { get; set; }
 
         private int[] _percentage;
-        public int[] percentage { get; set; }
+        public int percentage {
+            get => _percentage[itemLevel];
+        }
 
-        public ItemProductInfo(int itemLevel, int[] price, int[] percentage) {
+        public int count;
+
+        public ItemProductInfo(int itemLevel, int[] price, int[] percentage, int count = 1) {
             this.itemLevel = itemLevel;
             this.price = price;
-            this.percentage = percentage;
+            this._percentage = percentage;
+            this.count = count;
         }
     }
 
@@ -89,6 +94,12 @@ public class CloudData {
         itemProductInfoList.Add(DeviceData.ItemID.heartplus,
             new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 20, 25, 30, 35, 40 }));
         itemProductInfoList.Add(DeviceData.ItemID.protectionplus,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+        itemProductInfoList.Add(DeviceData.ItemID.heart,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+        itemProductInfoList.Add(DeviceData.ItemID.protection,
+            new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+        itemProductInfoList.Add(DeviceData.ItemID.skip,
             new ItemProductInfo(0, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
     }
 

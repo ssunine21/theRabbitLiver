@@ -11,6 +11,7 @@ public class LevelDesign {
 	public LevelObject[] trap;
 	public LevelObject coin;
 	public LevelObject heart;
+	public LevelObject protection;
 
 	[Range(0, 1)]
 	public float hpDecreasingSpeed;

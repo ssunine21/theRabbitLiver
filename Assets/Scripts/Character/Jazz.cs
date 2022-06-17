@@ -57,7 +57,7 @@ public class Jazz : Character {
     private void UseSkill() {
         if (isSkillDuration) {
             GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
-            if (neareastObject is null) return;
+            if (neareastObject == null) return;
 
             DestroyObject(neareastObject);
         }

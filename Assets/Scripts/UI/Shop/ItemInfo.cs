@@ -14,6 +14,22 @@ public class ItemInfo : MonoBehaviour {
         set { _textCoinPrice.text = value.ToString(); }
     }
 
+    [SerializeField] private TextMeshProUGUI _textCurrItemCount;
+    private int _currItemCount;
+    public int currItemCount {
+        get { return _currItemCount; }
+        set {
+            try {
+                _currItemCount = value;
+                _textCurrItemCount.text = Definition.CURR_ITEM_COUNT + value.ToString();
+            } catch (NullReferenceException NRE) {
+#if DEBUG
+                UnityEngine.Debug.LogError(NRE.Message);
+#endif
+            }
+        }
+    }
+
     private enum Type {
         single, multiple
     }
@@ -32,6 +48,7 @@ public class ItemInfo : MonoBehaviour {
         purchaseBtnAndIsPurchaseText[0] = btnBuy.transform.GetChild(0).GetChild(0);
         purchaseBtnAndIsPurchaseText[1] = btnBuy.transform.GetChild(0).GetChild(1);
         ChangeItemPrice();
+        ChangeItemCountText();
 
         AddBuyBtnListener();
         SetLevelBar(level);
@@ -45,6 +62,16 @@ public class ItemInfo : MonoBehaviour {
     private void ChangeBtnText() {
         purchaseBtnAndIsPurchaseText[0].gameObject.SetActive(false);
         purchaseBtnAndIsPurchaseText[1].gameObject.SetActive(true);
+    }
+
+    private void ChangeItemCountText() {
+        if (type == Type.single)
+            currItemCount = infoData.count;
+    }
+
+    private void SingleItemPruchase() {
+        infoData.count += 1;
+        ChangeItemCountText();
     }
 
     private void ChangeItemPrice() {
@@ -74,8 +101,9 @@ public class ItemInfo : MonoBehaviour {
     }
 
     private void BuyItem() {
-        if (DataManager.init.CoinComparison(infoData.price[level++], true)) {
+        if (DataManager.init.CoinComparison(infoData.price[level], true)) {
             if (type == Type.multiple) {
+                level += 1;
                 SetLevelBar(level);
                 if (level >= levelBar.childCount) {
                     OffBtnFunction();
@@ -83,7 +111,7 @@ public class ItemInfo : MonoBehaviour {
                     ChangeItemPrice();
                 }
             } else {
-                OffBtnFunction();
+                SingleItemPruchase();
             }
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, null);

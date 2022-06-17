@@ -51,7 +51,9 @@ public class SpawnManager : MonoBehaviour {
     }
 
     private void SetItemPercentage() {
-        coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage[DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].itemLevel];
+        coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage;
+        heartPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.heartplus].percentage;
+        protectionPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.protectionplus].percentage;
     }
 
     public void DestroyTileMap() {
@@ -126,11 +128,14 @@ public class SpawnManager : MonoBehaviour {
 
                 int random = randomObj.Next(100);
 
-                if (IsRandomSpawn(50))
+                if (IsRandomSpawn(coinPercentage))
                     SpawnObject(levelDesign.coin, tileSet);
 
-                if (IsRandomSpawn(50))
+                if (IsRandomSpawn(heartPercentage))
                     SpawnObject(levelDesign.heart, tileSet);
+
+                if (IsRandomSpawn(protectionPercentage))
+                    SpawnObject(levelDesign.protection, tileSet);
             }
 
             //if (withObject) {

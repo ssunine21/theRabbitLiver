@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
 
     [HideInInspector]
     public Player player;
     public RecordData recordData;
+
+    public UnityEvent onStartGame;
 
 	private void Awake() {
 		Singleton();
@@ -19,11 +22,15 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameStart() {
-        SpawnManager.init.CreateTileMap();
+        onStartGame.Invoke();
+    }
+    
+    public void SetPlayer() {
         player = SpawnManager.init.SpawnPlayer().GetComponent<Player>();
         player.GetComponent<Player>().stamina.SetStamina();
-        Play();
+    }
 
+    public void SetObjectOnPlayer() {
         Camera.main.GetComponent<CameraControl>().player = player.gameObject;
         Monster.player = player.gameObject;
     }
