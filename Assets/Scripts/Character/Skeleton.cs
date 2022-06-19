@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Skeleton : Character {
+public class Skeleton : Character, ICharacter {
     int SKILL_RANGE = 0;
     float HP_RECOVERY = 0.01f;
 
@@ -16,7 +16,10 @@ public class Skeleton : Character {
 
     protected override void Start() {
         base.Start();
-        distance = MOVE_OFFSET;
+        distance = MOVE_OFFSET; 
+        
+        levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
+        purchasePrice = 1000;
     }
 
     private void Update() {
@@ -78,5 +81,48 @@ public class Skeleton : Character {
 
     public void OffUsingSkill() {
         isUsingSkill = false;
+    }
+    public int SkillLevel() {
+        return level;
+    }
+    public int LevelPrice() {
+        return levelPrice[level];
+    }
+
+    public int PurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void LevelUp() {
+        level += 1;
+    }
+
+    public DeviceData.CharacterID CharacterType() {
+        return _Type;
+    }
+
+    public string SetInfoMessage() {
+        string message = "";
+
+        switch (level) {
+            case 0:
+                message =
+                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 11 + "%</color></b>\n" +
+                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                message = "";
+                break;
+        }
+
+        return message;
     }
 }

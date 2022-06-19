@@ -20,7 +20,7 @@ public class CharacterPurchase : MonoBehaviour {
     public Button selectBtn;
     public Button levelUpBtn;
 
-    private Dictionary<DeviceData.CharacterID, CloudData.CharacterProductInfo> characterProductInfoList;
+    private ICharacter iCharacter;
     private int preIndex = 0;
     private int _index = 0;
     public DeviceData.CharacterID index {
@@ -40,8 +40,6 @@ public class CharacterPurchase : MonoBehaviour {
             character.transform.localPosition = Vector3.one * 100;
         }
         characters[_index].transform.localPosition = pos;
-        characterProductInfoList = DataManager.init.CloudData.characterProductInfoList;
-
         BtnNextCharacter();
     }
 
@@ -64,15 +62,15 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     private void CharacterInfoChange() {
-        CloudData.CharacterProductInfo currCharInfo = characterProductInfoList[characters[_index].GetComponent<Character>()._Type];
-        bool isPurchase = currCharInfo.isPurchase;
+        iCharacter = characters[_index].GetComponent<ICharacter>();
+        bool isPurchase = iCharacter.SkillLevel() <= 0 ? false : true;
 
         BtnTextState(isPurchase);
         UnlockState(isPurchase);
         OnCharHide(!isPurchase);
 
-        SetLevelBarColor(currCharInfo.skillLevel);
-        SetCharacterContents(currCharInfo.hpincrease, currCharInfo.skillCount);
+        SetLevelBarColor(iCharacter.SkillLevel());
+        SetCharacterContents();
     }
 
     private void SetLevelBarColor(int level) {
@@ -103,11 +101,11 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     public void BtnLevelUp() {
-        if (characterProductInfoList[index].isPurchase) {
-            if (characterProductInfoList[index].skillLevel >= levelBars.transform.childCount) {
+        if (iCharacter.SkillLevel() > 0) {
+            if ((iCharacter.SkillLevel() >= levelBars.transform.childCount)) {
                 UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter); 
             } else {
-                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, characterProductInfoList[index].levelPrice, LevelUp, BtnNextCharacter);
+                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, iCharacter.LevelPrice(), LevelUp, BtnNextCharacter);
             }
             OnCharHide(true);
         }
@@ -116,7 +114,7 @@ public class CharacterPurchase : MonoBehaviour {
     public void BtnSelectChar() {
 
         if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
-            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, characterProductInfoList[index].price, BuyChar, BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, iCharacter.PurchasePrice(), BuyChar, BtnNextCharacter);
         } else {    
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
             BtnTextState(true);
@@ -124,27 +122,26 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     private void LevelUp() {
-        var obj = characterProductInfoList[index];
-        if (DataManager.init.CoinComparison(obj.levelPrice, true)) {
-            SetLevelBarColor(++obj.skillLevel);
+        if (DataManager.init.CoinComparison(iCharacter.LevelPrice(), true)) {
+            iCharacter.LevelUp();
+            DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()] = iCharacter.SkillLevel();
+            SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
-            SetCharacterContents(obj.hpincrease, obj.skillCount);
+            SetCharacterContents();
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
     }
 
     private void BuyChar() {
-        var obj = characterProductInfoList[index];
-
-        if(obj.isPurchase) {
+        if(iCharacter.SkillLevel() > 0) {
             UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter);
             return;
         }
 
-        if (DataManager.init.CoinComparison(obj.price, true)) {
-            SetLevelBarColor(++obj.skillLevel);
-            obj.isPurchase = true;
+        if (DataManager.init.CoinComparison(iCharacter.PurchasePrice(), true)) {
+            iCharacter.LevelUp();
+            SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
@@ -155,8 +152,8 @@ public class CharacterPurchase : MonoBehaviour {
         characterViewCamera.depth = isHide ? Definition.CAMERA_DEPTH_UNDER : Definition.CAMERA_DEPTH_OVER;
     }
 
-    private void SetCharacterContents(int hpincrease, int skillCount) {
-        characterContents.text = "\n체력 감소 효과  <b><color=#50bcdf>- " + hpincrease + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + skillCount + "</color></b>";
+    private void SetCharacterContents() {
+        ICharacter iCharacter = characters[(int)index].GetComponent<ICharacter>();
+        characterContents.text = iCharacter.SetInfoMessage();
     }
 }
