@@ -1,33 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
-    public enum levelKey {
-        healthIncrease
-    }
-
+  
     protected static readonly int MOVE_OFFSET = Definition.TILE_SPACING;
 
     protected Player player;
     protected Vector3 targetPos;
 
     [SerializeField]
-    private float[] _hpIncrease;
-    public float hpIncrease {
-        get {
-            level -= 1;
-            if (level < 0) level = 0;
-            else if (level > 4) level = 4;
-            return _hpIncrease[level];
-        }
-    }
-
-    public int skillUsageReductionCount;
-
-    [SerializeField]
     protected DeviceData.CharacterID Type;
     public DeviceData.CharacterID _Type { get { return Type; } }
+    protected int[] levelPrice;
+    protected int purchasePrice;
 
     public int level;
 
@@ -43,11 +30,16 @@ public abstract class Character : MonoBehaviour {
     }
 
     virtual protected void Start() {
-        player = GetComponent<Player>();
-        player.character = this;
-
-        skillUsageReductionCount = DataManager.init.CloudData.characterProductInfoList[_Type].hpincrease;
-        level = DataManager.init.CloudData.characterProductInfoList[_Type].skillLevel;
+        try {
+            player = GetComponent<Player>();
+            player.character = this;
+        } catch(NullReferenceException NRE) {
+#if DEBUG
+            //UnityEngine.Debug.LogError(NRE.Message);
+#endif
+        } finally {
+            level = DataManager.init.CloudData.characterLevel[_Type];
+        }
     }
 
     protected abstract void Ready();

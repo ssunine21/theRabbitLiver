@@ -499,9 +499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94036976d668344f4a0c4ee220726a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterViewCamera: {fileID: 0}
   alertMessage: {fileID: 6617971791803527744}
+  textCoin: {fileID: 0}
   checkBtn: {fileID: 952725362463806087}
+  cancelBtn: {fileID: 0}
 --- !u!1 &952725362859645972
 GameObject:
   m_ObjectHideFlags: 0

@@ -118,8 +118,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (!isDead) {
-			float hpDecreaseSpeed = SpawnManager.init.levelDesign.hpDecreasingSpeed * character.hpIncrease;
-			//stamina.hpBar -= hpDecreaseSpeed * Time.deltaTime;
+			float hpDecreaseSpeed = SpawnManager.init.levelDesign.hpDecreasingSpeed;
 			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
 		}
 	}

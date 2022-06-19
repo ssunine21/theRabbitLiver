@@ -19,10 +19,10 @@ public class DataManager : MonoBehaviour {
 
     private void Awake() {
         Singleton();
+        CloudData.Load();
     }
 
     private void Start() {
-        CloudData.Load();
     }
 
     public void ChangeCharacterId(int characterId) {
