@@ -8,14 +8,18 @@ public class Bono : Character, ICharacter {
     private int skillMoveDistance;
     //BONO : Bono uses skill what move forward.
 
+    float ICharacter.hpDecreasing {
+        get => hpDecreasingSpeed;
+    }
+    float ICharacter.mpIncreasing {
+        get => mpIncreasing;
+    }
+
     protected override void Start() {
         base.Start();
 
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
-    }
-
-    protected override void Ready() {
     }
 
     public override bool Skill() {
@@ -55,6 +59,40 @@ public class Bono : Character, ICharacter {
 
     public void LevelUp() {
         level += 1;
+    }
+    public override void GameSetting() {
+        base.GameSetting();
+        switch (level) {
+            case 0:
+            case 1:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                break;
+            case 2:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 0.9f;
+                break;
+            case 3:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.8f;
+                break;
+            case 4:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.75f;
+                break;
+            case 5:
+                mpIncreasing = 0.15f;
+                hpDecreasingSpeed = 0.7f;
+                break;
+            default:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                break;
+        }
+    }
+
+    public int SkillCount() {
+        return 1;
     }
 
     public DeviceData.CharacterID CharacterType() {

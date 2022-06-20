@@ -813,7 +813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7521354328492080834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 3}
+  m_LocalPosition: {x: 100, y: 100, z: 100}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 570908146098303138}
@@ -866,6 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapCrashSpeed: 4
   stamina: {fileID: 0}
+  protectionParticle: {fileID: 0}
   isGroggy: 0
   isSuperCharge: 0
   isDead: 0
@@ -882,10 +883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502f4b0f063f2140a888f0754b1cbf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hpIncrease: []
-  _skillUsageReductionCount: 
   Type: 3
   level: 0
+  hpDecreasingSpeed: 0
   speed: 20
   particleSkill: {fileID: 1516807120951772205}
   SKILL_RANGE: 0

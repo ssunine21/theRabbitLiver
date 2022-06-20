@@ -29,4 +29,6 @@ public static class Definition {
 
     public static readonly string HEALTH_SKILL_LEVEL = "체력 감소 속도 ";
     public static readonly string SKILL_SKILL_LEVEL = "스킬 충전 속도 ";
+    public static readonly string SKILL_USE_COUNT = "스킬 사용 횟수 ";
+    public static readonly string HIT_DELAY = "타격 딜레이 감소  ";
 }

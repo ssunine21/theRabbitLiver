@@ -9,20 +9,21 @@ public class Notake : Character, ICharacter {
 
     [Range(0, 20)]
     public float skillDelay;
-
     public LayerMask layerMask;
-
     private Vector3 pivot;
+      
+    float ICharacter.hpDecreasing {
+        get => hpDecreasingSpeed;
+    }
+    float ICharacter.mpIncreasing {
+        get => mpIncreasing;
+    }
 
     protected override void Start() {
         base.Start();
 
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
-    }
-
-    protected override void Ready() {
-
     }
 
     public override bool Skill() {
@@ -85,8 +86,16 @@ public class Notake : Character, ICharacter {
         level += 1;
     }
 
+    public int SkillCount() {
+        return 1;
+    }
+
     public DeviceData.CharacterID CharacterType() {
         return _Type;
+    }
+
+    public override void GameSetting() {
+        this.transform.position = new Vector3(3, 0, 3);
     }
 
     public string SetInfoMessage() {

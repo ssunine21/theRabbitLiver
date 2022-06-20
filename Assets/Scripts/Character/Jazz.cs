@@ -11,14 +11,19 @@ public class Jazz : Character, ICharacter {
     private bool isSkillDuration = false;
     public float mpDecreaseSpeed;
 
+    float ICharacter.hpDecreasing {
+        get => hpDecreasingSpeed;
+    }
+    float ICharacter.mpIncreasing {
+        get => mpIncreasing;
+    }
+
     protected override void Start() {
         base.Start();
 
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
     }
-
-    protected override void Ready() { }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
@@ -95,6 +100,14 @@ public class Jazz : Character, ICharacter {
 
     public void LevelUp() {
         level += 1;
+    }
+
+    public override void GameSetting() {
+        this.transform.position = new Vector3(3, 0, 3);
+    }
+
+    public int SkillCount() {
+        return 1;
     }
 
     public DeviceData.CharacterID CharacterType() {
