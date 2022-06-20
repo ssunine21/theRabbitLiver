@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapCrashSpeed: 4
+  hitDelay: 0
   stamina: {fileID: 0}
   protectionParticle: {fileID: 0}
   isGroggy: 0
@@ -547,6 +547,7 @@ MonoBehaviour:
   Type: 1
   level: 0
   hpDecreasingSpeed: 0
+  mpIncreasing: 0
   speed: 7
 --- !u!95 &-4957287588110185630
 Animator:
@@ -577,7 +578,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 1
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
