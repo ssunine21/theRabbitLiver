@@ -196,7 +196,7 @@ public class Player : MonoBehaviour {
 			if (!isProtection) {
 				Hitting(collider);
 				GameManager.init.recordData.hitCount++;
-				//stamina.hpBar -= 30;
+				stamina.hpBar -= 0.1f;
 			} else {
 				isProtection = false;
             }
@@ -213,6 +213,7 @@ public class Player : MonoBehaviour {
 #endif
 		}
 		animator.SetTrigger(hashHitTheTrap);
+
 
 		hittingByTrap = true;
 		isSuperCharge = true;

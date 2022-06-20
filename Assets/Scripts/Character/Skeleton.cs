@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class Skeleton : Character, ICharacter {
-    int SKILL_RANGE = 1;
-    float HP_RECOVERY = 0.01f;
+    public int SKILL_RANGE = 3;
+    float HP_RECOVERY;
 
     [Range(0, 20)]
     public float speed;
@@ -35,13 +35,10 @@ public class Skeleton : Character, ICharacter {
         GameObject target = FindNearestObjectByTag(Definition.TAG_ENEMY);
         if (target != null) {
             if (!base.Skill()) return false;
-
-            SKILL_RANGE = level * Definition.TILE_SPACING;
-
+            player.isGroggy = true;
             player.isSuperCharge = false;
 
             Vector3 targetPos = PosNormalize(target.transform.position);
-
             this.transform.position = targetPos;
             initZPosWithSkill = this.transform.position.z;
             StartCoroutine(nameof(HPRecovery));
@@ -73,13 +70,17 @@ public class Skeleton : Character, ICharacter {
 
     IEnumerator HPRecovery() {
         while (isUsingSkill) {
-            player.stamina.hpBar += HP_RECOVERY * level * Time.deltaTime;
+            if (player.hittingByTrap) {
+                isUsingSkill = false;
+            }
+            player.stamina.hpBar += (HP_RECOVERY * Time.deltaTime);
             yield return null;
         }
     }
 
     public void OffUsingSkill() {
         isUsingSkill = false;
+        player.isGroggy = false;
     }
 
     public int SkillLevel() {
@@ -113,31 +114,39 @@ public class Skeleton : Character, ICharacter {
             case 1:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 1f;
+                HP_RECOVERY = 0.05f;
                 player.hitDelay = 4f;
+                SKILL_RANGE = 3;
                 break;
             case 2:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 0.9f;
                 player.hitDelay = 4f;
+                SKILL_RANGE = 3;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
                 hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 6f;
+                SKILL_RANGE = 3;
                 break;
             case 4:
                 mpIncreasing = 0.05f;
                 hpDecreasingSpeed = 0.75f;
                 player.hitDelay = 7f;
+                SKILL_RANGE = 3;
                 break;
             case 5:
                 mpIncreasing = 0.15f;
                 hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 8f;
+                SKILL_RANGE = 3;
                 break;
             default:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+                SKILL_RANGE = 3;
                 break;
         }
     }
@@ -148,16 +157,43 @@ public class Skeleton : Character, ICharacter {
         switch (level) {
             case 0:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 11 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 3:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 4:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n";
+                break;
+            case 5:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
                 message = "";
