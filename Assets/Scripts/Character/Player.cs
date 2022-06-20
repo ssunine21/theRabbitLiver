@@ -19,8 +19,8 @@ public class Player : MonoBehaviour {
 	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.1f;
 	private readonly float AMOUNT_RECOVERY_MP_ON_KILL = 0.2f;
 
-	[Range(0, 20)]
-	public float trapCrashSpeed;
+	[Range(0, 100)]
+	public float hitDelay;
 
 	public Stamina stamina;
 	public ParticleSystem protectionParticle;
@@ -52,14 +52,14 @@ public class Player : MonoBehaviour {
 
 	public Animator animator;
 
-	private Character _character;
-	public Character character {
-		get { return _character; }
-		set { _character = value; }
-	}
+	public ICharacter iCharacter;
 
 	private void Start() {
 		animator = GetComponent<Animator>();
+		iCharacter = GetComponent<ICharacter>();
+
+		iCharacter.GameSetting();
+		stamina.skillUseCount = iCharacter.SkillCount();
 	}
 
 	private void Update() {
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour {
 
 	private void FixedUpdate() {
 		if (hittingByTrap) {
-			this.transform.position = Vector3.Lerp(this.transform.position, posAfterHit, Time.deltaTime * trapCrashSpeed);
+			this.transform.position = Vector3.Lerp(this.transform.position, posAfterHit, Time.deltaTime * hitDelay);
 
 			if (transform.position.z <= (posAfterHit.z + crashErrorRange)) {
 				transform.position = posAfterHit;
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
 
 		if (!isDead) {
 			float hpDecreaseSpeed = SpawnManager.init.levelDesign.hpDecreasingSpeed;
-			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * Time.deltaTime;
+			stamina.hpBar -= SpawnManager.init.levelDesign.hpDecreasingSpeed * iCharacter.hpDecreasing * Time.deltaTime;
 		}
 	}
 
@@ -169,7 +169,6 @@ public class Player : MonoBehaviour {
     }
 
 	private void OnTriggerEnter(Collider collision) {
-		Debug.Log("OnTriggerEnter - " + collision);
 
 		if (collision.gameObject.CompareTag(Definition.TAG_ENEMY)) {
 			CollisionWithEnemy(collision);
@@ -187,7 +186,7 @@ public class Player : MonoBehaviour {
 
 	private void CollisionWithEnemy(Collider collision) {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
-		stamina.mpBar += AMOUNT_RECOVERY_MP_ON_KILL;
+		stamina.mpBar += (AMOUNT_RECOVERY_MP_ON_KILL + iCharacter.mpIncreasing);
 		GameManager.init.recordData.enemyKill++;
 		Destroy(collision.gameObject);
 	}
@@ -219,9 +218,11 @@ public class Player : MonoBehaviour {
 		isSuperCharge = true;
 	}
 
-	public void Skill() {
-		if(character.Skill()) {
+	public bool Skill() {
+		if(iCharacter.Skill()) {
 			animator.SetTrigger(hashSkill);
+			return true;
 		}
+		return false;
 	}
 }

@@ -8,5 +8,10 @@ public interface ICharacter {
     public int LevelPrice();
     public int PurchasePrice();
     public void LevelUp();
+    public void GameSetting();
+    public float hpDecreasing { get; }
+    public float mpIncreasing { get; }
+    public bool Skill();
+    public int SkillCount();
     public DeviceData.CharacterID CharacterType();
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ObjectInfo))]
 public class Item : MonoBehaviour {
 
     private Player _player;

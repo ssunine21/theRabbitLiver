@@ -68,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7838219147362458306}
   - component: {fileID: 7838219147362458316}
+  - component: {fileID: 2380437817836758592}
   m_Layer: 0
   m_Name: bee
   m_TagString: Enemy
@@ -105,6 +106,20 @@ CapsuleCollider:
   m_Height: 1.6296233
   m_Direction: 1
   m_Center: {x: 0, y: 0.9969364, z: 0}
+--- !u!114 &2380437817836758592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838219147362458319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371674d1c232422dab5af02d6a2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  itemType: 2
 --- !u!1001 &7838219148008458504
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class LevelDesign {
 		[Range(0, 100)]
 		public int count;
 
-		[HideInInspector]
+		//[HideInInspector]
 		public int currRange;
 		[HideInInspector]
 		public int tileNum;
@@ -34,5 +34,18 @@ public class LevelDesign {
 		public GameObject tileDark;
 		[Range(0, 100)]
 		public int tileCount;
+	}
+
+	public void init() {
+		foreach (var obj in enemy) {
+			obj.currRange = 0;
+		}
+		foreach (var obj in trap) {
+			obj.currRange = 0;
+		}
+
+		coin.currRange = 0;
+		heart.currRange = 0;
+		protection.currRange = 0;
 	}
 }

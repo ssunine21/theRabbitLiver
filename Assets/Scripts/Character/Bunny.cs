@@ -6,16 +6,26 @@ public class Bunny : Character, ICharacter {
     [Range(0, 20)]
     public float speed;
     private int distance = Definition.TILE_SPACING;
+    private int skillCount = 1;
+
+    float ICharacter.hpDecreasing {
+        get => hpDecreasingSpeed;
+    }
+    float ICharacter.mpIncreasing {
+        get => mpIncreasing;
+    }
 
     protected override void Start() {
         base.Start();
         distance = MOVE_OFFSET;
+        PurchaseSetting();
+    }
 
+    private void PurchaseSetting() {
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
     }
 
-    protected override void Ready() { }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
@@ -29,7 +39,6 @@ public class Bunny : Character, ICharacter {
 
     private void FixedUpdate() {
         if (isUsingSkill) {
-            //this.transform.position = Vector3.Lerp(this.transform.position, targetPos, Time.deltaTime * speed);
             transform.Translate((targetPos - transform.position) * speed * Time.deltaTime);
 
             if (transform.position.z <= (targetPos.z + posErrorRange)) {
@@ -57,9 +66,57 @@ public class Bunny : Character, ICharacter {
         level += 1;
     }
 
+    public int SkillCount() {
+        return skillCount;
+    }
+
     public DeviceData.CharacterID CharacterType() {
         return _Type;
     }
+
+    public override void GameSetting() {
+        base.GameSetting();
+        switch (level) {
+            case 0:
+            case 1:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+                skillCount = 1;
+                break;
+            case 2:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 0.9f;
+                player.hitDelay = 5f;
+                skillCount = 1;
+                break;
+            case 3:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.8f;
+                player.hitDelay = 6f;
+                skillCount = 2;
+                break;
+            case 4:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.75f;
+                player.hitDelay = 7f;
+                skillCount = 2;
+                break;
+            case 5:
+                mpIncreasing = 0.15f;
+                hpDecreasingSpeed = 0.7f;
+                player.hitDelay = 7.5f;
+                skillCount = 2;
+                break;
+            default:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+                skillCount = 1;
+                break;
+        }
+    }
+
 
     public string SetInfoMessage() {
         string message = "";
@@ -78,25 +135,29 @@ public class Bunny : Character, ICharacter {
             case 2:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>";
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>";
                 break;
             case 3:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    "스킬 사용 횟수 " + "<b><color=#50bcdf>+1</color></b>";
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
                 break;
             case 4:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    "스킬 사용 횟수 " + "<b><color=#50bcdf>+1</color></b>";
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
                 break;
             case 5:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    "스킬 사용 횟수 " + "<b><color=#50bcdf>+2</color></b>";
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
                 break;
             default:
                 message = "";

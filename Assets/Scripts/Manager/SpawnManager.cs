@@ -78,6 +78,9 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
+    private void Start() {
+    }
+
     private void Update() {
 
         if (player == null) return;
@@ -137,14 +140,6 @@ public class SpawnManager : MonoBehaviour {
                 if (IsRandomSpawn(protectionPercentage))
                     SpawnObject(levelDesign.protection, tileSet);
             }
-
-            //if (withObject) {
-            //    bool spawnObj =
-            //        SpawnObject(levelDesign.trap, pos, ref levelDesign.trapCount, tileSet) ?
-            //        true : SpawnObject(levelDesign.enemy, pos, ref levelDesign.enemyCount, tileSet) ?
-            //        true : SpawnObject(heart, pos, ref levelDesign.heartCount, tileSet) ?
-            //        true : SpawnObject(coin, pos, ref levelDesign.coinCount, tileSet);
-            //}
         }
 
         tileSet.transform.SetParent(tileParent.transform);
@@ -213,6 +208,7 @@ public class SpawnManager : MonoBehaviour {
             objectSpawnIndex[levelObject.gameObject] = 0;
             return true;
         }
+
         return false;
     }
 
@@ -241,6 +237,12 @@ public class SpawnManager : MonoBehaviour {
     public void TileUpDownAnimStart() {
         foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
             tile.StartUpDownCoroutine();
+        }
+    }
+
+    public void InitObjCurrRange() {
+        foreach(var obj in _levelDesign) {
+            obj.init();
         }
     }
 
