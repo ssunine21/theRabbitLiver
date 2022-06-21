@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Skeleton : Character, ICharacter {
     public int SKILL_RANGE = 3;
-    float HP_RECOVERY;
+    public float HP_RECOVERY;
 
     [Range(0, 20)]
     public float speed;
@@ -86,6 +86,9 @@ public class Skeleton : Character, ICharacter {
     public int SkillLevel() {
         return level;
     }
+    public void SetSkillLevel(int level) {
+        this.level = level;
+    }
 
     public int LevelPrice() {
         return levelPrice[level];
@@ -114,38 +117,49 @@ public class Skeleton : Character, ICharacter {
             case 1:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 1f;
-                HP_RECOVERY = 0.05f;
                 player.hitDelay = 4f;
+
+                HP_RECOVERY = 0.07f;
                 SKILL_RANGE = 3;
                 break;
             case 2:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 0.9f;
                 player.hitDelay = 4f;
+
+                HP_RECOVERY = 0.08f;
                 SKILL_RANGE = 3;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
                 hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 6f;
-                SKILL_RANGE = 3;
+
+                HP_RECOVERY = 0.08f;
+                SKILL_RANGE = 6;
                 break;
             case 4:
                 mpIncreasing = 0.05f;
                 hpDecreasingSpeed = 0.75f;
                 player.hitDelay = 7f;
-                SKILL_RANGE = 3;
+
+                HP_RECOVERY = 0.09f;
+                SKILL_RANGE = 6;
                 break;
             case 5:
                 mpIncreasing = 0.15f;
                 hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 8f;
-                SKILL_RANGE = 3;
+
+                HP_RECOVERY = 0.09f;
+                SKILL_RANGE = 6;
                 break;
             default:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 1f;
                 player.hitDelay = 4f;
+
+                HP_RECOVERY = 0.09f;
                 SKILL_RANGE = 3;
                 break;
         }
@@ -179,6 +193,7 @@ public class Skeleton : Character, ICharacter {
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
                     Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
                     Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 4:
@@ -186,6 +201,7 @@ public class Skeleton : Character, ICharacter {
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
                     Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
                     Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 5:
@@ -193,10 +209,14 @@ public class Skeleton : Character, ICharacter {
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
                     Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
                     Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
-                message = "";
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 

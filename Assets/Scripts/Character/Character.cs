@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour {
   
     protected static readonly int MOVE_OFFSET = Definition.TILE_SPACING;
+    public Vector3 startPosOffset = Vector3.zero;
 
     private Player _player;
     protected Player player {
@@ -37,6 +38,7 @@ public abstract class Character : MonoBehaviour {
     }
     virtual public void GameSetting() {
         this.transform.position = new Vector3(3, 0, 3);
+        this.transform.position += startPosOffset;
         level = DataManager.init.CloudData.characterLevel[_Type];
     }
 
