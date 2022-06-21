@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bono : Character, ICharacter {
     [Range(0, 20)]
     public float speed;
-    private int skillMoveDistance;
+    public int skillMoveDistance;
     //BONO : Bono uses skill what move forward.
 
     float ICharacter.hpDecreasing {
@@ -18,19 +18,19 @@ public class Bono : Character, ICharacter {
     protected override void Start() {
         base.Start();
 
+        PurchaseSetting();
+    }
+
+    private void PurchaseSetting() {
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
     }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
-        skillMoveDistance = level * MOVE_OFFSET;
-
         player.isGroggy = true;
-
         targetPos = transform.position;
-        targetPos.z += skillMoveDistance;
-
+        targetPos.z += skillMoveDistance * MOVE_OFFSET;
         return true;
     }
 
@@ -49,6 +49,9 @@ public class Bono : Character, ICharacter {
     public int SkillLevel() {
         return level;
     }
+    public void SetSkillLevel(int level) {
+        this.level = level;
+    }
     public int LevelPrice() {
         return levelPrice[level];
     }
@@ -60,36 +63,6 @@ public class Bono : Character, ICharacter {
     public void LevelUp() {
         level += 1;
     }
-    public override void GameSetting() {
-        base.GameSetting();
-        switch (level) {
-            case 0:
-            case 1:
-                mpIncreasing = 0f;
-                hpDecreasingSpeed = 1f;
-                break;
-            case 2:
-                mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.9f;
-                break;
-            case 3:
-                mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.8f;
-                break;
-            case 4:
-                mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.75f;
-                break;
-            case 5:
-                mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.7f;
-                break;
-            default:
-                mpIncreasing = 0f;
-                hpDecreasingSpeed = 1f;
-                break;
-        }
-    }
 
     public int SkillCount() {
         return 1;
@@ -99,37 +72,100 @@ public class Bono : Character, ICharacter {
         return _Type;
     }
 
+    public override void GameSetting() {
+        base.GameSetting();
+        switch (level) {
+            case 0:
+            case 1:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                skillMoveDistance = 2;
+                break;
+            case 2:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 0.9f;
+                player.hitDelay = 5f;
+
+                skillMoveDistance = 3;
+                break;
+            case 3:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.8f;
+                player.hitDelay = 6f;
+
+                skillMoveDistance = 3;
+                break;
+            case 4:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.75f;
+                player.hitDelay = 7f;
+
+                skillMoveDistance = 4;
+                break;
+            case 5:
+                mpIncreasing = 0.15f;
+                hpDecreasingSpeed = 0.7f;
+                player.hitDelay = 7.5f;
+
+                skillMoveDistance = 4;
+                break;
+            default:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                skillMoveDistance = 2;
+                break;
+        }
+    }
+
     public string SetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 11 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 22 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 33 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 44 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 4:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 55 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
+                break;
+            case 5:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
-                message = "";
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 

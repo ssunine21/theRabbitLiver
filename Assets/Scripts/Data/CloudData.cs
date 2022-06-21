@@ -43,9 +43,9 @@ public class CloudData {
     }
 
     private void LoadCharacterProductInfo() {
-        characterLevel.Add(DeviceData.CharacterID.bunny, 1);
-        characterLevel.Add(DeviceData.CharacterID.skeleton, 0);
-        characterLevel.Add(DeviceData.CharacterID.bono, 0);
+        characterLevel.Add(DeviceData.CharacterID.bunny, 4);
+        characterLevel.Add(DeviceData.CharacterID.skeleton, 5);
+        characterLevel.Add(DeviceData.CharacterID.bono, 1);
         characterLevel.Add(DeviceData.CharacterID.jazz, 0);
         characterLevel.Add(DeviceData.CharacterID.notake, 0);
     }

@@ -23,6 +23,7 @@ public class CharacterPurchase : MonoBehaviour {
     private ICharacter iCharacter;
     private int preIndex = 0;
     private int _index = 0;
+
     public DeviceData.CharacterID index {
         get { return  (DeviceData.CharacterID)_index; }
         set {
@@ -63,7 +64,8 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void CharacterInfoChange() {
         iCharacter = characters[_index].GetComponent<ICharacter>();
-        bool isPurchase = iCharacter.SkillLevel() <= 0 ? false : true;
+        iCharacter.SetSkillLevel(DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()]);
+        bool isPurchase = iCharacter.SkillLevel() > 0 ? true : false;
 
         BtnTextState(isPurchase);
         UnlockState(isPurchase);
@@ -123,8 +125,7 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void LevelUp() {
         if (DataManager.init.CoinComparison(iCharacter.LevelPrice(), true)) {
-            iCharacter.LevelUp();
-            DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()] = iCharacter.SkillLevel();
+            LevelUpAndAysnc();
             SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
             SetCharacterContents();
@@ -140,7 +141,7 @@ public class CharacterPurchase : MonoBehaviour {
         }
 
         if (DataManager.init.CoinComparison(iCharacter.PurchasePrice(), true)) {
-            iCharacter.LevelUp();
+            LevelUpAndAysnc();
             SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
         } else {
@@ -155,5 +156,10 @@ public class CharacterPurchase : MonoBehaviour {
     private void SetCharacterContents() {
         ICharacter iCharacter = characters[(int)index].GetComponent<ICharacter>();
         characterContents.text = iCharacter.SetInfoMessage();
+    }
+
+    private void LevelUpAndAysnc() {
+        DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()] += 1;
+        iCharacter.SetSkillLevel(DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()]);
     }
 }

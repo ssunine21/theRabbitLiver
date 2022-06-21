@@ -5,6 +5,7 @@ using UnityEngine;
 public interface ICharacter {
     public string SetInfoMessage();
     public int SkillLevel();
+    public void SetSkillLevel(int level);
     public int LevelPrice();
     public int PurchasePrice();
     public void LevelUp();

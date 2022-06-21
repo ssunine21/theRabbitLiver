@@ -74,6 +74,9 @@ public class Notake : Character, ICharacter {
     public int SkillLevel() {
         return level;
     }
+    public void SetSkillLevel(int level) {
+        this.level = level;
+    }
     public int LevelPrice() {
         return levelPrice[level];
     }

@@ -163,13 +163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapCrashSpeed: 4
+  hitDelay: 0
   stamina: {fileID: 0}
   protectionParticle: {fileID: 0}
   isGroggy: 0
   isSuperCharge: 0
   isDead: 0
-  animator: {fileID: 0}
+  animator: {fileID: -4689416030986250584}
 --- !u!54 &8279115107120713285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,10 +212,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c6667a08f73461fbfbc6928fe685f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosOffset: {x: 0, y: 0, z: -0.75}
   Type: 2
   level: 0
   hpDecreasingSpeed: 0
-  speed: 4
+  mpIncreasing: 0
+  speed: 7
+  skillMoveDistance: 0
 --- !u!1 &1387491488250972803
 GameObject:
   m_ObjectHideFlags: 0
