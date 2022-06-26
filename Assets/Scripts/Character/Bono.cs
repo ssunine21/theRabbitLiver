@@ -42,6 +42,7 @@ public class Bono : Character, ICharacter {
                 transform.position = targetPos;
                 player.isGroggy = false;
                 isUsingSkill = false;
+                player.isSuperCharge = false;
             }
         }
     }
@@ -141,24 +142,28 @@ public class Bono : Character, ICharacter {
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>" +
                     Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
                     Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 4:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
                     Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             case 5:
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
                     Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
