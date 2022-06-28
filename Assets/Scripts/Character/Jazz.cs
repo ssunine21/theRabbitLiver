@@ -8,7 +8,8 @@ public class Jazz : Character, ICharacter {
     [SerializeField] private ParticleSystem particleSkill;
     [SerializeField] private int SKILL_RANGE = 0;
     private int skillMoveDistance;
-    private bool isSkillDuration = false;
+    private float skillDurationTime = 0;
+    private bool isSkillEffectContinue = false;
     public float mpDecreaseSpeed;
 
     float ICharacter.hpDecreasing {
@@ -20,60 +21,53 @@ public class Jazz : Character, ICharacter {
 
     protected override void Start() {
         base.Start();
+        PurchaseSetting();
+    }
 
+    private void PurchaseSetting() {
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
     }
 
     public override bool Skill() {
         if (!base.Skill()) return false;
-        skillMoveDistance = level * MOVE_OFFSET;
-
         player.isGroggy = true;
-
+        StartCoroutine(nameof(SkillDuration));
         targetPos = transform.position;
-        targetPos.z += skillMoveDistance;
-
+        targetPos.z += skillMoveDistance * MOVE_OFFSET;
         return true;
     }
 
     private void FixedUpdate() {
         if (isUsingSkill) {
             transform.Translate((targetPos - transform.position) * speed * Time.deltaTime);
-
+             
             if (transform.position.z >= (targetPos.z - posErrorRange)) {
-                StartCoroutine(nameof(SkillDuration));
                 transform.position = targetPos;
                 player.isGroggy = false;
+                player.isSuperCharge = false;
                 isUsingSkill = false;
+            }
+        }
+
+        if (isSkillEffectContinue) {
+            GameObject enemyObj = FindNearestObjectByTag(Definition.TAG_ENEMY);
+            if(enemyObj != null) {
+                Destroy(enemyObj);
+                player.stamina.hpBar += 0.04f;
             }
         }
     }
 
     private IEnumerator SkillDuration() {
         particleSkill.Play();
-        isSkillDuration = true;
-        while (player.stamina.mpBar > 0 ) {
-            player.stamina.mpBar -= (mpDecreaseSpeed * Time.deltaTime); 
-            yield return null;
-        }
-        isSkillDuration = false;
+        isSkillEffectContinue = true;
+        yield return new WaitForSeconds(skillDurationTime);
+        isSkillEffectContinue = false;
         particleSkill.Stop();
     }
 
-    [System.Obsolete]
-    private void UseSkill() {
-        if (isSkillDuration) {
-            GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
-            if (neareastObject == null) return;
-
-            DestroyObject(neareastObject);
-        }
-    }
-
     private GameObject FindNearestObjectByTag(string tag) {
-        SKILL_RANGE = level * Definition.TILE_SPACING;
-
         var objects = GameObject.FindGameObjectsWithTag(tag).ToList();
         var neareastObject = objects
             .Where(obj => {
@@ -87,6 +81,7 @@ public class Jazz : Character, ICharacter {
 
         return neareastObject;
     }
+
     public int SkillLevel() {
         return level;
     }
@@ -105,10 +100,6 @@ public class Jazz : Character, ICharacter {
         level += 1;
     }
 
-    public override void GameSetting() {
-        this.transform.position = new Vector3(3, 0, 3);
-    }
-
     public int SkillCount() {
         return 1;
     }
@@ -117,25 +108,124 @@ public class Jazz : Character, ICharacter {
         return _Type;
     }
 
+
+    public override void GameSetting() {
+        base.GameSetting();
+        switch (level) {
+            case 0:
+            case 1:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                skillMoveDistance = 2;
+                skillDurationTime = 2.5f;
+                SKILL_RANGE = 6;
+                break;
+            case 2:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 0.9f;
+                player.hitDelay = 5f;
+
+                skillMoveDistance = 2;
+                skillDurationTime = 2.5f;
+                SKILL_RANGE = 6;
+                break;
+            case 3:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.8f;
+                player.hitDelay = 6f;
+
+                skillMoveDistance = 3;
+                skillDurationTime = 3;
+                SKILL_RANGE = 6;
+                break;
+            case 4:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.75f;
+                player.hitDelay = 7f;
+
+                skillMoveDistance = 3;
+                skillDurationTime = 3.5f;
+                SKILL_RANGE = 9;
+                break;
+            case 5:
+                mpIncreasing = 0.15f;
+                hpDecreasingSpeed = 0.7f;
+                player.hitDelay = 7.5f;
+
+                skillMoveDistance = 3;
+                skillDurationTime = 4.5f;
+                SKILL_RANGE = 9;
+                break;
+            default:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                skillMoveDistance = 2;
+                skillDurationTime = 2.5f;
+                SKILL_RANGE = 6;
+                break;
+        }
+    }
+
     public string SetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 11 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 3:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 4:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+++</color></b>\n";
+                break;
+            case 5:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
-                message = "";
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 

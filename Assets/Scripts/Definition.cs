@@ -39,8 +39,9 @@ public static class Definition {
     //skeleton
     public static readonly string AMOUNT_OF_BLOOD = "흡혈량 ";
 
-    //bono
+    //jazz 
+    public static readonly string SKILL_DURATION = "스킬 지속시간 ";
 
-
-
+    //notake
+    public static readonly string CONSECUTIVE_HIT_COUNT = "연속 타격 횟수 ";
 }

@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class Notake : Character, ICharacter {
     int SKILL_RANGE = 0;
-    int SKILL_COUNT = 5;
-
-    [Range(0, 20)]
-    public float skillDelay;
-    public LayerMask layerMask;
-    private Vector3 pivot;
+    int CONSECUTIVE_HIT_COUNT = 0;
       
     float ICharacter.hpDecreasing {
         get => hpDecreasingSpeed;
@@ -21,25 +16,35 @@ public class Notake : Character, ICharacter {
 
     protected override void Start() {
         base.Start();
+        PurchaseSetting();
+    }
 
+    private void PurchaseSetting() {
         levelPrice = new int[5] { 0, 1000, 2000, 3000, 4000 };
         purchasePrice = 1000;
     }
 
     public override bool Skill() {
-        if (!base.Skill()) return false;
-        StartCoroutine(nameof(SkillCoroutine));
-        return true;
+        GameObject target = FindNearestObjectByTag(Definition.TAG_ENEMY);
+        if (target != null) {
+            if (!base.Skill()) return false;
+            StartCoroutine(nameof(SkillCoroutine));
+            return true;
+        }
+        return false;
     }
 
     IEnumerator SkillCoroutine() {
-        for(int i = 0; i < SKILL_COUNT; ++i) {
-            GameObject neareastObject = FindNearestObjectByTag(Definition.TAG_ENEMY);
-            if (neareastObject == null) break;
+        for(int i = 0; i < CONSECUTIVE_HIT_COUNT; ++i) {
+            GameObject target = FindNearestObjectByTag(Definition.TAG_ENEMY);
+            if (target == null) break;
 
             player.animator.SetInteger("skillNum", Random.Range(0, 3));
-            Vector3 targetPos = PosNormalize(neareastObject.transform.position);
+            Vector3 targetPos = PosNormalize(target.transform.position);
+            Destroy(target);
+
             this.transform.position = targetPos;
+            player.stamina.hpBar += 0.06f;
             yield return new WaitForSeconds(.5f);
         }
         player.animator.SetInteger("skillNum", -1);
@@ -49,8 +54,6 @@ public class Notake : Character, ICharacter {
     }
 
     private GameObject FindNearestObjectByTag(string tag) {
-        SKILL_RANGE = level * Definition.TILE_SPACING;
-
         var objects = GameObject.FindGameObjectsWithTag(tag).ToList();
         var neareastObject = objects
             .Where(obj => {
@@ -98,8 +101,60 @@ public class Notake : Character, ICharacter {
     }
 
     public override void GameSetting() {
-        this.transform.position = new Vector3(3, 0, 3);
+        base.GameSetting();
+        switch (level) {
+            case 0:
+            case 1:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                CONSECUTIVE_HIT_COUNT = 2;
+                SKILL_RANGE = 6;
+                break;
+            case 2:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 0.9f;
+                player.hitDelay = 5f;
+
+                SKILL_RANGE = 6;
+                CONSECUTIVE_HIT_COUNT = 2;
+                break;
+            case 3:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.8f;
+                player.hitDelay = 6f;
+
+                SKILL_RANGE = 9;
+                CONSECUTIVE_HIT_COUNT = 3;
+                break;
+            case 4:
+                mpIncreasing = 0.05f;
+                hpDecreasingSpeed = 0.75f;
+                player.hitDelay = 7f;
+
+                SKILL_RANGE = 9;
+                CONSECUTIVE_HIT_COUNT = 4;
+                break;
+            case 5:
+                mpIncreasing = 0.15f;
+                hpDecreasingSpeed = 0.7f;
+                player.hitDelay = 7.5f;
+
+                SKILL_RANGE = 12;
+                CONSECUTIVE_HIT_COUNT = 5;
+                break;
+            default:
+                mpIncreasing = 0f;
+                hpDecreasingSpeed = 1f;
+                player.hitDelay = 4f;
+
+                SKILL_RANGE = 3;
+                CONSECUTIVE_HIT_COUNT = 2;
+                break;
+        }
     }
+
 
     public string SetInfoMessage() {
         string message = "";
@@ -107,19 +162,63 @@ public class Notake : Character, ICharacter {
         switch (level) {
             case 0:
                 message =
-                    "\n체력 감소 효과  <b><color=#50bcdf>- " + 11 + "%</color></b>\n" +
-                    "스킬 충전 횟수  <b><color=#50bcdf>+ " + 11 + "</color></b>";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             case 4:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>++++</color></b>\n";
+                break;
+            case 5:
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+++++</color></b>\n";
                 break;
             default:
-                message = "";
+                message =
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 
