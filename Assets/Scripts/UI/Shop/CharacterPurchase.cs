@@ -62,6 +62,7 @@ public class CharacterPurchase : MonoBehaviour {
         characters[_index].transform.localPosition = pos;
     }
 
+
     private void CharacterInfoChange() {
         iCharacter = characters[_index].GetComponent<ICharacter>();
         iCharacter.SetSkillLevel(DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()]);

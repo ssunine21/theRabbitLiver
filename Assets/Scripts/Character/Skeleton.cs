@@ -37,8 +37,9 @@ public class Skeleton : Character, ICharacter {
             if (!base.Skill()) return false;
             player.isGroggy = true;
             player.isSuperCharge = false;
-
             Vector3 targetPos = PosNormalize(target.transform.position);
+            Destroy(target);
+
             this.transform.position = targetPos;
             initZPosWithSkill = this.transform.position.z;
             StartCoroutine(nameof(HPRecovery));
@@ -120,7 +121,7 @@ public class Skeleton : Character, ICharacter {
                 player.hitDelay = 4f;
 
                 HP_RECOVERY = 0.07f;
-                SKILL_RANGE = 3;
+                SKILL_RANGE = 6;
                 break;
             case 2:
                 mpIncreasing = 0f;
@@ -128,7 +129,7 @@ public class Skeleton : Character, ICharacter {
                 player.hitDelay = 4f;
 
                 HP_RECOVERY = 0.08f;
-                SKILL_RANGE = 3;
+                SKILL_RANGE = 6;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
@@ -144,7 +145,7 @@ public class Skeleton : Character, ICharacter {
                 player.hitDelay = 7f;
 
                 HP_RECOVERY = 0.09f;
-                SKILL_RANGE = 6;
+                SKILL_RANGE = 9;
                 break;
             case 5:
                 mpIncreasing = 0.15f;
@@ -152,7 +153,7 @@ public class Skeleton : Character, ICharacter {
                 player.hitDelay = 8f;
 
                 HP_RECOVERY = 0.09f;
-                SKILL_RANGE = 6;
+                SKILL_RANGE = 9;
                 break;
             default:
                 mpIncreasing = 0f;
@@ -160,7 +161,7 @@ public class Skeleton : Character, ICharacter {
                 player.hitDelay = 4f;
 
                 HP_RECOVERY = 0.09f;
-                SKILL_RANGE = 3;
+                SKILL_RANGE = 6;
                 break;
         }
     }

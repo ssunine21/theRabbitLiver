@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapCrashSpeed: 4
+  hitDelay: 0
   stamina: {fileID: 0}
   protectionParticle: {fileID: 0}
   isGroggy: 0
@@ -560,13 +560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6983f19f279284ee2b73be402d457a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosOffset: {x: 0, y: 0, z: -0.2}
   Type: 4
   level: 0
   hpDecreasingSpeed: 0
-  skillDelay: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
+  mpIncreasing: 0
 --- !u!1 &3159473528226269625
 GameObject:
   m_ObjectHideFlags: 0
