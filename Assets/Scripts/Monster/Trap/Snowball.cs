@@ -12,6 +12,8 @@ public class Snowball : MonoBehaviour {
 
         initPos.x = range == 0 ? 1.5f : 4.5f;
         transform.position = initPos;
+
+        Destroy(this.gameObject, 15f);
     }
 
     private void Update() {

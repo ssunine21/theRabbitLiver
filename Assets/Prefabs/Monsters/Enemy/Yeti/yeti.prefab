@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6824404654321666201}
   - component: {fileID: 3196694587424242208}
   m_Layer: 0
-  m_Name: Yeti
+  m_Name: yeti
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7756209105763073932, guid: b32d250b9c46a4e70b1c725e62f8a130, type: 3}
       propertyPath: attackDelay
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7756209105763073932, guid: b32d250b9c46a4e70b1c725e62f8a130, type: 3}
       propertyPath: force_KnockBack

@@ -188,7 +188,8 @@ public class Player : MonoBehaviour {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += (AMOUNT_RECOVERY_MP_ON_KILL + iCharacter.mpIncreasing);
 		GameManager.init.recordData.enemyKill++;
-		Destroy(collision.gameObject);
+		if (collision.GetComponent<Wolf>() == null)
+			Destroy(collision.gameObject);
 	}
 
 	private void CollisionWithAttack(Collider collider) {
