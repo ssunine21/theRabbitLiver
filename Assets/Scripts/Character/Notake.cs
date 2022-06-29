@@ -50,6 +50,7 @@ public class Notake : Character, ICharacter {
         player.animator.SetInteger("skillNum", -1);
 
         isUsingSkill = false;
+        player.isSuperCharge = false;
         player.isGroggy = false;
     }
 

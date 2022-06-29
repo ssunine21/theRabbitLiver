@@ -142,7 +142,7 @@ public class Bono : Character, ICharacter {
                 message =
                     Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
                     Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
                     Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:

@@ -81,6 +81,8 @@ public class UIManager : MonoBehaviour {
         GameManager.init.GameOver();
         GameManager.init.Play();
 
+        AdsManager.init.ShowInterstitialAd();
+
         restartUI.SetActive(false);
         gameOverUI.SetActive(false);
         pauseUI.SetActive(false);

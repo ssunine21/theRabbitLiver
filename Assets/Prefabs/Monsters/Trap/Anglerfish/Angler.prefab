@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114721193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 4, z: 0.3}
+  m_LocalPosition: {x: 0, y: 3, z: 0.3}
   m_LocalScale: {x: 0.79999983, y: 0.8, z: 0.79999983}
   m_Children:
   - {fileID: 545958019}
@@ -252,8 +252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0.6, y: -3.5, z: 0.3}
   itemType: 3
-  AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM: 0
-  AMOUNT_COIN: 0
 --- !u!1 &4379277738716015039
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,3 +431,17 @@ MonoBehaviour:
   damage: 0
   attackDelay: 5
   lightSphere: {fileID: 114721193}
+--- !u!114 &449098915987156741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238708099226877466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371674d1c232422dab5af02d6a2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  itemType: 0
