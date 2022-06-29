@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour {
     public void GameStart() {
         onStartGame.Invoke();
     }
+
+    public void GameRestart() {
+        player.GetComponent<Player>().StartReverse();
+    }
     
     public void SetPlayer() {
         player = SpawnManager.init.SpawnPlayer().GetComponent<Player>();

@@ -34,6 +34,6 @@ public class Restart : MonoBehaviour {
 
     public void CoinBtn() {
         DataManager.init.CloudData.coin -= RESTART_COIN;
-        GameManager.init.player.GetComponent<Player>().StartReverse();
+        GameManager.init.GameRestart();
     }
 }

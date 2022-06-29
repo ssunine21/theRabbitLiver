@@ -185,11 +185,12 @@ public class Player : MonoBehaviour {
 	}
 
 	private void CollisionWithEnemy(Collider collision) {
+		if (collision.GetComponent<Wolf>() != null) return;
+
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += (AMOUNT_RECOVERY_MP_ON_KILL + iCharacter.mpIncreasing);
 		GameManager.init.recordData.enemyKill++;
-		if (collision.GetComponent<Wolf>() == null)
-			Destroy(collision.gameObject);
+		Destroy(collision.gameObject);
 	}
 
 	private void CollisionWithAttack(Collider collider) {

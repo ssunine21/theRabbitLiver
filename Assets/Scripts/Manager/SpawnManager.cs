@@ -78,7 +78,19 @@ public class SpawnManager : MonoBehaviour {
         }
     }
 
+    private float progress = 0f;
+
+    public Material material;
+    private Color lightColor = new Color(0.58f, 0.65f, 0.75f);
+    private Color darkColor = new Color(0.32f, 0.36f, 0.42f);
+
+    private float duration = 3;
+    private float smoothness = 0.02f;
+    private float dealyTime = 3.5f;
+
     private void Start() {
+        material.SetColor("_SpecColor", lightColor);
+        StartCoroutine(nameof(LerpColor));
     }
 
     private void Update() {
@@ -243,6 +255,28 @@ public class SpawnManager : MonoBehaviour {
     public void InitObjCurrRange() {
         foreach(var obj in _levelDesign) {
             obj.init();
+        }
+    }
+
+
+    IEnumerator LerpColor() {
+        float increment = smoothness / duration;
+        while (true) {
+            progress = 0;
+            yield return new WaitForSeconds(dealyTime);
+            while (progress < 1) {
+                material.SetColor("_SpecColor", Color.Lerp(lightColor, darkColor, progress));
+                progress += increment;
+                yield return new WaitForSeconds(smoothness);
+            }
+
+            progress = 0;
+            yield return new WaitForSeconds(dealyTime);
+            while (progress < 1) {
+                material.SetColor("_SpecColor", Color.Lerp(darkColor, lightColor, progress));
+                progress += increment;
+                yield return new WaitForSeconds(smoothness);
+            }
         }
     }
 
