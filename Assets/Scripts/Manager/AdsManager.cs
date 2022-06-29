@@ -128,6 +128,8 @@ public class AdsManager : MonoBehaviour {
         if(this.interstitialAd != null && this.interstitialAd.IsLoaded()) {
             if (InterstitialAdShowCount == 0) {
                 this.interstitialAd.Show();
+            } else {
+                InterstitialAdShowCount--;
             }
         }
     }
