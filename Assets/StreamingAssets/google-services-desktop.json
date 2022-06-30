@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36276639816",
+    "project_id": "rabbit-349907",
+    "storage_bucket": "rabbit-349907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36276639816:android:ed709ddc4a0041bac5607d",
+        "android_client_info": {
+          "package_name": "com.bognstudio.rabbitrun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36276639816-h8v0jar7m1f1iamt7hck8ffbq8cmqfo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArjNAaZ0QRxBs0xwX0hFfJxpt1X1Ye-is"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36276639816-h8v0jar7m1f1iamt7hck8ffbq8cmqfo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
