@@ -60,8 +60,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   itemType: 2
-  AMOUNT_RECOVERY_HP_ON_HEALTH_ITEM: 0
-  AMOUNT_COIN: 0
 --- !u!1001 &6790879835151576609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,5 +188,19 @@ MonoBehaviour:
   animator: {fileID: 0}
   force_KnockBack: 1
   damage: 0
-  attackDelay: 5
+  attackDelay: 3
   bullet: {fileID: 1282773892042974480, guid: ccda09122ad76457aaded6af5e35ec82, type: 3}
+--- !u!114 &3047864488364714073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980609791098065776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371674d1c232422dab5af02d6a2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  itemType: 0

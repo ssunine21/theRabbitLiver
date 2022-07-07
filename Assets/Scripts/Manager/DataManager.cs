@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Database;
 
 public class DataManager : MonoBehaviour {
 
     public DeviceData DeviceData;
     public CloudData CloudData;
+
+    private DatabaseReference databaseReference;
 
     private Score _score;
     public Score score {
@@ -23,6 +26,7 @@ public class DataManager : MonoBehaviour {
     }
 
     private void Start() {
+        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     public void ChangeCharacterId(int characterId) {
@@ -38,6 +42,9 @@ public class DataManager : MonoBehaviour {
             score.bestScore = score.currScore;
         }
         InitCurrScore();
+    }
+
+    public void LoadToFirebase(string ID) {
     }
 
     /// <summary>

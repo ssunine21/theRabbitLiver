@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
     } 
 
     public void FinishGame() {
-        GameOver();
+        //GameOver();
         DataManager.init.ChangeScore();
         UIManager.init.GameOverUI();
     }

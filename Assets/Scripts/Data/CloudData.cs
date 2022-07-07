@@ -40,6 +40,7 @@ public class CloudData {
     }
 
     public void Save() {
+        
     }
 
     private void LoadCharacterProductInfo() {

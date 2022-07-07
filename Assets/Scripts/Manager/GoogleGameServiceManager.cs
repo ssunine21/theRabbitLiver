@@ -11,16 +11,21 @@ public class GoogleGameServiceManager : MonoBehaviour {
     private void Start() {
 #if UNITY_ANDROID
         OnLogin();
-        FirebaseAutenticate();
+        //FirebaseAutenticate();
 #endif
     }
 
-    private void OnLogin() {
-        if(!Social.localUser.authenticated) {
+    public void OnLogin() {
+
+        //if(!Social.localUser.authenticated) {
             Social.localUser.Authenticate(callback => {
-                authCode = PlayGamesPlatform.Instance.GetUserId();
+                if (callback) {
+                    MonoBehaviour.print(Social.localUser.id);
+                    DataManager.init.LoadToFirebase(Social.localUser.id);
+                } else MonoBehaviour.print("½ÇÆÐ");
+
             });
-        }
+        //}
     }
 
     private void FirebaseAutenticate() {

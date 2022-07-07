@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 
 	private readonly float CHAR_DIRECTION = 0f;
 	private readonly float TRAP_DAMAGE = 0.1f;
-	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.1f;
+	private readonly float AMOUNT_RECOVERY_HP_ON_KILL = 0.06f;
 	private readonly float AMOUNT_RECOVERY_MP_ON_KILL = 0.2f;
 
 	[Range(0, 100)]
@@ -60,6 +60,10 @@ public class Player : MonoBehaviour {
 
 		iCharacter.GameSetting();
 		stamina.skillUseCount = iCharacter.SkillCount();
+
+		if(protectionParticle == null ) {
+			protectionParticle = this.transform.Find("ProtectionParticle").GetComponent<ParticleSystem>();
+        }
 	}
 
 	private void Update() {
@@ -78,6 +82,7 @@ public class Player : MonoBehaviour {
 
 	private IEnumerator Dead() {
 		isDead = true;
+		isSuperCharge = true;
 		animator.SetTrigger(hashDead);
 
 		yield return new WaitForSeconds(2f);
@@ -94,6 +99,7 @@ public class Player : MonoBehaviour {
 		UIManager.init.CloseRestartUI();
 		yield return new WaitForSeconds(2f);
 
+		isSuperCharge = false;
 		UIManager.init.RestartCount();
     }
 

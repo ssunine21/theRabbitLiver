@@ -28,6 +28,7 @@ public class Notake : Character, ICharacter {
         GameObject target = FindNearestObjectByTag(Definition.TAG_ENEMY);
         if (target != null) {
             if (!base.Skill()) return false;
+            player.isGroggy = true;
             StartCoroutine(nameof(SkillCoroutine));
             return true;
         }
@@ -111,14 +112,14 @@ public class Notake : Character, ICharacter {
                 player.hitDelay = 4f;
 
                 CONSECUTIVE_HIT_COUNT = 2;
-                SKILL_RANGE = 6;
+                SKILL_RANGE = 12;
                 break;
             case 2:
                 mpIncreasing = 0f;
                 hpDecreasingSpeed = 0.9f;
                 player.hitDelay = 5f;
 
-                SKILL_RANGE = 6;
+                SKILL_RANGE = 12;
                 CONSECUTIVE_HIT_COUNT = 2;
                 break;
             case 3:
@@ -126,7 +127,7 @@ public class Notake : Character, ICharacter {
                 hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 6f;
 
-                SKILL_RANGE = 9;
+                SKILL_RANGE = 15;
                 CONSECUTIVE_HIT_COUNT = 3;
                 break;
             case 4:
@@ -134,7 +135,7 @@ public class Notake : Character, ICharacter {
                 hpDecreasingSpeed = 0.75f;
                 player.hitDelay = 7f;
 
-                SKILL_RANGE = 9;
+                SKILL_RANGE = 15;
                 CONSECUTIVE_HIT_COUNT = 4;
                 break;
             case 5:
@@ -142,7 +143,7 @@ public class Notake : Character, ICharacter {
                 hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 7.5f;
 
-                SKILL_RANGE = 12;
+                SKILL_RANGE = 15;
                 CONSECUTIVE_HIT_COUNT = 5;
                 break;
             default:

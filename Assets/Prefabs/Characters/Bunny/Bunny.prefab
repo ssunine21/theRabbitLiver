@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2e825caad39b478b46f0d22a2636f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapCrashSpeed: 20
+  hitDelay: 0
   stamina: {fileID: 0}
   protectionParticle: {fileID: 488084894454501174}
   isGroggy: 0
@@ -791,6 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b2d478283bd4510bc796855bf810ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startPosOffset: {x: 0, y: 0, z: 0}
   Type: 0
   level: 1
   hpDecreasingSpeed: 1
@@ -1055,14 +1056,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4299952606933750, guid: 023dc0e9e1b5ff843afd2a14989aaaa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198314808193956702, guid: 023dc0e9e1b5ff843afd2a14989aaaa7, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198858562690846188, guid: 023dc0e9e1b5ff843afd2a14989aaaa7, type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
