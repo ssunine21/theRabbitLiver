@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 2632373268942912523}
   - component: {fileID: 274726110456877164}
   m_Layer: 6
-  m_Name: Bono.vox
+  m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

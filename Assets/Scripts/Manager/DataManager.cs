@@ -22,7 +22,7 @@ public class DataManager : MonoBehaviour {
 
     private void Awake() {
         Singleton();
-        CloudData.Load();
+        CloudData.Start();
     }
 
     private void Start() {

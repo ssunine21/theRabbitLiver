@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 5005413499695329582}
   - component: {fileID: 178723955797741301}
   m_Layer: 6
-  m_Name: Notake.vox
+  m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosOffset: {x: 0, y: 0, z: -0.2}
+  material: {fileID: 0}
   Type: 4
   level: 0
   hpDecreasingSpeed: 0

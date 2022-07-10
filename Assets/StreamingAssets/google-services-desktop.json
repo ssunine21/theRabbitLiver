@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "36276639816",
+    "firebase_url": "https://rabbit-349907-default-rtdb.firebaseio.com",
     "project_id": "rabbit-349907",
     "storage_bucket": "rabbit-349907.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "36276639816-jd43r63103ncshj3lng5p6rus6rqkl6o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bognstudio.rabbitrun",
+            "certificate_hash": "085da8be3be6fa9ef4783dd5eca6065f8eb9a503"
+          }
+        },
         {
           "client_id": "36276639816-h8v0jar7m1f1iamt7hck8ffbq8cmqfo1.apps.googleusercontent.com",
           "client_type": 3

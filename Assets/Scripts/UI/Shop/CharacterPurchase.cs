@@ -89,7 +89,9 @@ public class CharacterPurchase : MonoBehaviour {
     private void UnlockState(bool isPurchase) {
         unlockImg.SetActive(!isPurchase);
         levelUpBtn.interactable = isPurchase;
+
         levelUpBtn.GetComponent<Image>().color = isPurchase ? Color.white : new Color(1, 1, 1, 0.5f);
+        characters[_index].transform.Find("model").GetComponent<SkinnedMeshRenderer>().material.color = isPurchase ? Color.white : Color.black;
     }
 
     private void BtnTextState(bool isPurchase) {

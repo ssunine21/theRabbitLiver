@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 6935180487237589450}
   - component: {fileID: 5297047357780903119}
   m_Layer: 6
-  m_Name: skeleton.vox
+  m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour {
   
     protected static readonly int MOVE_OFFSET = Definition.TILE_SPACING;
     public Vector3 startPosOffset = Vector3.zero;
+    public Material material;
 
     private Player _player;
     protected Player player {
@@ -43,6 +44,5 @@ public abstract class Character : MonoBehaviour {
     }
 
     protected virtual void Start() {
-
     }
 }

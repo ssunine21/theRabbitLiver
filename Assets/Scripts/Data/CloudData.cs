@@ -1,8 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Database;
+using System.Linq;
 
 public class CloudData {
+
+    struct SaveData {
+
+        public int[] level;
+        public int coin;
+
+        public SaveData(int[] level, int coin) {
+            this.level = level;
+            this.coin = coin;
+        }
+    }
+
     public class ItemProductInfo {
         public int itemLevel { get; set; }
         public int[] price { get; set; }
@@ -22,6 +36,9 @@ public class CloudData {
         }
     }
 
+    private DatabaseReference databaseReference;
+    private string firebaseKey = null;
+
     public readonly Dictionary<DeviceData.CharacterID, int> characterLevel = new Dictionary<DeviceData.CharacterID, int>();
     public readonly Dictionary<DeviceData.ItemID, ItemProductInfo> itemProductInfoList = new Dictionary<DeviceData.ItemID, ItemProductInfo>();
     private int _coin;
@@ -33,6 +50,13 @@ public class CloudData {
         }
     }
 
+    public void Start() {
+        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        Load();
+        Save();
+    }
+
     public void Load() {
         LoadCharacterProductInfo();
         LoadItemProductInfo();
@@ -40,7 +64,12 @@ public class CloudData {
     }
 
     public void Save() {
-        
+        SaveData saveData = new SaveData(characterLevel.Values.ToArray(), coin);
+        if(firebaseKey is null) {
+            firebaseKey = databaseReference.Push().Key;
+        }
+        string json = JsonUtility.ToJson(saveData);
+        databaseReference.Child(firebaseKey).SetRawJsonValueAsync(json);
     }
 
     private void LoadCharacterProductInfo() {
