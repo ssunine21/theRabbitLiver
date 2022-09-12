@@ -16,6 +16,7 @@ public class SpawnChandelier : MonoBehaviour
     }
 
     private IEnumerator Spawn() {
+        yield return new WaitForSeconds(2f);
         while (true) {
             if(Random.Range(0, 10) < 1) {
                 Instantiate(chandelierWarring, warringPos, chandelierWarring.transform.rotation);
