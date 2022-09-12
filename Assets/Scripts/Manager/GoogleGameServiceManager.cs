@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-using UnityEngine.SocialPlatforms;
+using GooglePlayGames.BasicApi.Events;
 using System.Threading.Tasks;
 
 public class GoogleGameServiceManager : MonoBehaviour {
-    private string authCode;
+
+    public bool isLogin = false;
+
     private void Start() {
+       // OnLogin();
+
 #if UNITY_ANDROID
-        OnLogin();
-        //FirebaseAutenticate();
 #endif
+    }
+
+    private void InitService() {
     }
 
     public void OnLogin() {
@@ -22,28 +28,10 @@ public class GoogleGameServiceManager : MonoBehaviour {
                 if (callback) {
                     MonoBehaviour.print(Social.localUser.id);
                     DataManager.init.LoadToFirebase(Social.localUser.id);
-                } else MonoBehaviour.print("실패");
-
+                } else 
+                    MonoBehaviour.print("실패");
             });
         //}
-    }
-
-    private void FirebaseAutenticate() {
-        Firebase.Auth.FirebaseAuth auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
-        Firebase.Auth.Credential credential =
-            Firebase.Auth.PlayGamesAuthProvider.GetCredential(authCode);
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
-            if (task.IsCanceled) {
-                return;
-            }
-            if (task.IsFaulted) {
-                return;
-            }
-
-            Firebase.Auth.FirebaseUser newUser = task.Result;
-            Debug.LogFormat("User signed in successfully: {0} ({1})",
-                newUser.DisplayName, newUser.UserId);
-        });
     }
 
     public static GoogleGameServiceManager init;

@@ -75,7 +75,11 @@ public class ItemInfo : MonoBehaviour {
     }
 
     private void ChangeItemPrice() {
-        coinPrice = infoData.price[level]; 
+        if (level >= infoData.price.Length)
+            OffBtnFunction();
+        else {
+            coinPrice = infoData.price[level];
+        }
     }
 
     private void SetLevelBar(int level) {
@@ -104,11 +108,11 @@ public class ItemInfo : MonoBehaviour {
         if (DataManager.init.CoinComparison(infoData.price[level], true)) {
             if (type == Type.multiple) {
                 level += 1;
-                SetLevelBar(level);
                 if (level >= levelBar.childCount) {
                     OffBtnFunction();
                 } else {
                     ChangeItemPrice();
+                    SetLevelBar(level);
                 }
             } else {
                 SingleItemPruchase();

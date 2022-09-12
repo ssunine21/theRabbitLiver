@@ -99,7 +99,6 @@ public class Player : MonoBehaviour {
 		UIManager.init.CloseRestartUI();
 		yield return new WaitForSeconds(2f);
 
-		isSuperCharge = false;
 		UIManager.init.RestartCount();
     }
 
@@ -118,8 +117,10 @@ public class Player : MonoBehaviour {
 					vector3.z -= (this.transform.transform.position.z % 3);
 				}
 
-				hittingByTrap = false;
-				isSuperCharge = false;
+				if (!isDead) {
+					hittingByTrap = false;
+					isSuperCharge = false;
+				}
 			}
 		}
 

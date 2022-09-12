@@ -16,8 +16,8 @@ public class SpawnManager : MonoBehaviour {
 
     public int prepareTileCount;
 
-    private GameObject tileParent;
-    private GameObject planeParent;
+    public GameObject tileParent;
+    public GameObject planeParent;
     private GameObject player;
 
     private int level;
@@ -40,20 +40,21 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public void CreateTileMap() {
-
-        planeParent = new GameObject("Planes");
-        tileParent = new GameObject("Tiles");
-
         SetItemPercentage();
-
         PrepareTileSpawn();
         TileUpDownAnimStart();
     }
 
     private void SetItemPercentage() {
-        coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage;
-        heartPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.heartplus].percentage;
-        protectionPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.protectionplus].percentage;
+        try {
+            coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage;
+            heartPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.heartplus].percentage;
+            protectionPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.protectionplus].percentage;
+        } catch {
+            coinPercentage = 1;
+            heartPercentage = 1;
+            protectionPercentage = 1;
+        }
     }
 
     public void DestroyTileMap() {
@@ -62,14 +63,16 @@ public class SpawnManager : MonoBehaviour {
         currLevelMaxTileCount = 0;
 
         try {
-            Destroy(planeParent);
-            Destroy(tileParent);
+            DestroyImmediate(planeParent);
+            DestroyImmediate(tileParent);
 
         } catch (Exception e) {
             Debug.Log("Destroy TileMap Error ::" + e);
         }
 
         player = null;
+        tileParent = new GameObject("tileParent");
+        planeParent = new GameObject("planeParent");
     }
 
     private void PrepareTileSpawn() {
@@ -176,6 +179,8 @@ public class SpawnManager : MonoBehaviour {
 
     public bool SpawnObject(LevelDesign.LevelObject levelObject, GameObject parent) {
         if (levelObject.count == 0) return false;
+        if (currLevelMaxTileCount < levelObject.startOrder) return false;
+
 
         //현재 타일이 정해놓은 범위를 넘어가면
         if (levelObject.currRange <= totalTileCount) {
@@ -246,9 +251,15 @@ public class SpawnManager : MonoBehaviour {
             Destroy(planeParent.transform.GetChild(0).gameObject);
     }
 
-    public void TileUpDownAnimStart() {
-        foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
-            tile.StartUpDownCoroutine();
+    public void TileUpDownAnimStart(bool isReverse = false) {
+        if (isReverse) {
+            foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>().Reverse()) {
+                tile.StartUpDownCoroutine();
+            }
+        } else {
+            foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>()) {
+                tile.StartUpDownCoroutine();
+            }
         }
     }
 

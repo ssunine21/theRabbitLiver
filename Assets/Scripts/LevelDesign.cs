@@ -21,6 +21,8 @@ public class LevelDesign {
 		public GameObject gameObject;
 		[Range(0, 100)]
 		public int count;
+		[Range(0, 100)]
+		public int startOrder;
 
 		//[HideInInspector]
 		public int currRange;
@@ -32,7 +34,7 @@ public class LevelDesign {
 	public class Tile {
 		public GameObject tileLight;
 		public GameObject tileDark;
-		[Range(0, 100)]
+		[Range(0, 300)]
 		public int tileCount;
 	}
 

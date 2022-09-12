@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
     } 
 
     public void FinishGame() {
-        //GameOver();
+        GameOver();
         DataManager.init.ChangeScore();
         UIManager.init.GameOverUI();
     }
@@ -63,6 +63,10 @@ public class GameManager : MonoBehaviour {
 
     public void Play() {
         Time.timeScale = 1;
+    }
+
+    private void OnApplicationQuit() {
+        //DataManager.init.CloudData.Save();
     }
 
     public static GameManager init;

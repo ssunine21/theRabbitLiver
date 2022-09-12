@@ -9,7 +9,13 @@ public class DataManager : MonoBehaviour {
     public CloudData CloudData;
 
     private DatabaseReference databaseReference;
+    private string _googleId;
+    public string GoogleId {
+        get => _googleId;
+        set => _googleId = value;
+    }
 
+    [SerializeField]
     private Score _score;
     public Score score {
         get {
@@ -22,11 +28,12 @@ public class DataManager : MonoBehaviour {
 
     private void Awake() {
         Singleton();
-        CloudData.Start();
     }
 
     private void Start() {
         databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+        CloudData.Start();
+
     }
 
     public void ChangeCharacterId(int characterId) {
@@ -44,7 +51,9 @@ public class DataManager : MonoBehaviour {
         InitCurrScore();
     }
 
-    public void LoadToFirebase(string ID) {
+    public void LoadToFirebase(string id) {
+        GoogleId = id;
+        CloudData.Start();
     }
 
     /// <summary>
