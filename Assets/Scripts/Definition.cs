@@ -20,6 +20,7 @@ public static class Definition {
     public static readonly string TAG_HEALTH_ITEM = "HealthItem";
 
     public static readonly string SELECT = "선택";
+    public static readonly string SELECTED = "선택됨";
     public static readonly string BUY = "구매하기";
     public static readonly string BUY_MASSAGE = "구매 하시겠습니까?";
     public static readonly string BUY_ENOUGH = "더 이상 구매할 수 없습니다.";

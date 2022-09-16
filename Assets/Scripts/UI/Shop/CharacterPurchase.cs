@@ -95,13 +95,14 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     private void BtnTextState(bool isPurchase) {
-        selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? Definition.SELECT : Definition.BUY;
+        selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? Definition.SELECTED : Definition.BUY;
         if (isPurchase && DataManager.init.DeviceData.characterId != (DeviceData.CharacterID)index) {
-            selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = new Color(1, 1, 1, 0.5f);
-            selectBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0.25f);
-        } else {
+            selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = Definition.SELECT;
             selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
-            selectBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            selectBtn.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 0.2f);
+        } else {
+            selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+            selectBtn.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 1f);
         }
     }
 
