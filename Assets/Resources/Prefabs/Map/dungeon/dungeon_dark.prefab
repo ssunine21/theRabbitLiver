@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899f104ed27976942bef1326b28bb159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 7
+  delayTime: 5
   chandelierWarring: {fileID: 7398630623498899757, guid: 0e3add8932273ad42859d2db9681433e, type: 3}

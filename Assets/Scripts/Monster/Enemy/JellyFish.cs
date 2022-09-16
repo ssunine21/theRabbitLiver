@@ -64,8 +64,11 @@ public class JellyFish : Monster {
             isAttackColliderOn = !isAttackColliderOn;
             childAttackCollider.gameObject.SetActive(isAttackColliderOn);
 
-            if (isAttackColliderOn) attackParticle.Play();
-        } catch (Exception e) { Debug.LogError(e); }
+            if (isAttackColliderOn) 
+                attackParticle.Play();
+        } catch (Exception e) { 
+            Debug.LogError(e); 
+        }
     }
 
     IEnumerator SkillCoroutine() {
