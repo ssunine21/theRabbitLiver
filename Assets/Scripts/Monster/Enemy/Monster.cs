@@ -9,6 +9,7 @@ public class Monster : MonoBehaviour {
 
     protected bool isAttackColliderOn = false;
     protected bool isAnimationRunning = false;
+    protected ParticleSystem particle;
 
     public static GameObject player;
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class JellyFish : Monster {
     AnimationEvent animationEvent;
+    Transform tr;
 
     [SerializeField] private float _rotationSpeed;
     public float RotationSpeed {
@@ -18,6 +19,7 @@ public class JellyFish : Monster {
     }
 
     public ParticleSystem attackParticle;
+    public ParticleSystem preAttack;
 
     private Vector3 xPos;
     private readonly int XMAX = 9;
@@ -27,29 +29,38 @@ public class JellyFish : Monster {
     private void Start() {
         base.SetForceKnockBack();
         animator = this.GetComponent<Animator>();
+        tr = this.GetComponent<Transform>();
 
-        StartCoroutine(nameof(SkillCoroutine));
-
-        xPos = transform.position;
+        xPos = tr.position;
         xPos.x = UnityEngine.Random.Range(0, 1) == 0 ? XMIN : XMAX;
+    }
+
+    private void Update() {
+        if (tr.position.x < 0.1 || 
+            (tr.position.x >= 2.95 && tr.position.x <= 3.05) ||
+            tr.position.x >= 6)
+            StartCoroutine(nameof(SkillCoroutine));
     }
 
     private void FixedUpdate() {
         if (isAttacking) return;
 
-        if (transform.position.x < 0) {
+        if (tr.position.x < 0) {
             xPos.x = XMAX;
-        } else if (transform.position.x > Definition.TILE_SPACING * 2) {
+        } else if (tr.position.x > Definition.TILE_SPACING * 2) {
             xPos.x = XMIN;
         }
 
         Quaternion rotationDir = xPos.x < 0 ? Quaternion.LookRotation(Vector3.right) : Quaternion.LookRotation(Vector3.left);
-        this.transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationDir, RotationSpeed);
-        this.transform.position = Vector3.Lerp(transform.position, xPos, MoveSpeed);
+        tr.rotation = Quaternion.RotateTowards(tr.rotation, rotationDir, RotationSpeed);
+        tr.position = Vector3.Lerp(tr.position, xPos, MoveSpeed);
     }
 
     public void IsAttack(int isAttack) {
         isAttacking = isAttack == 1 ? true : false;
+
+        if (preAttack != null)
+            preAttack.Play();
     }
 
 
@@ -64,17 +75,21 @@ public class JellyFish : Monster {
             isAttackColliderOn = !isAttackColliderOn;
             childAttackCollider.gameObject.SetActive(isAttackColliderOn);
 
-            if (isAttackColliderOn) 
-                attackParticle.Play();
+            if (isAttackColliderOn) {
+                if (attackParticle != null)
+                    attackParticle.Play();
+            } else {
+                if (preAttack.isPlaying)
+                    preAttack.Stop();
+            }
         } catch (Exception e) { 
             Debug.LogError(e); 
         }
     }
 
     IEnumerator SkillCoroutine() {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0, attackDelay));
+        if(UnityEngine.Random.Range(1, 3) % 2 == 0) {
 
-        while (true) {
             Attack();
             yield return new WaitForSeconds(attackDelay);
         }

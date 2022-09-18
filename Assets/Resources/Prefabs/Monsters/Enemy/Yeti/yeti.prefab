@@ -170,6 +170,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4504499532517464435, guid: b32d250b9c46a4e70b1c725e62f8a130, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 19800000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
+    - target: {fileID: 4504499532517464435, guid: b32d250b9c46a4e70b1c725e62f8a130, type: 3}
       propertyPath: shotSpeed
       value: 2
       objectReference: {fileID: 0}

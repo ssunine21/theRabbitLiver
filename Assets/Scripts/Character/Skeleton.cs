@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class Skeleton : Character, ICharacter {
+    public ParticleSystem bloodParticle;
+
     public int SKILL_RANGE = 3;
     public float HP_RECOVERY;
 
@@ -70,6 +72,9 @@ public class Skeleton : Character, ICharacter {
     }
 
     IEnumerator HPRecovery() {
+        if (bloodParticle != null)
+            bloodParticle.Play();
+
         while (isUsingSkill) {
             if (player.hittingByTrap) {
                 isUsingSkill = false;
@@ -77,6 +82,9 @@ public class Skeleton : Character, ICharacter {
             player.stamina.hpBar += (HP_RECOVERY * Time.deltaTime);
             yield return null;
         }
+
+        if (bloodParticle != null)
+            bloodParticle.Stop();
     }
 
     public void OffUsingSkill() {

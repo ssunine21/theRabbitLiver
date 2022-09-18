@@ -7,7 +7,8 @@ public class Scorpion : Monster {
 
     private void Start() {
         base.SetForceKnockBack();
-        animator = this.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
+        particle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnTriggerStay(Collider other) {
@@ -18,6 +19,7 @@ public class Scorpion : Monster {
 
     public override void Attack() {
         base.Attack();
+        particle.Play();
     }
 
     private void AttackColliderOnOff() {

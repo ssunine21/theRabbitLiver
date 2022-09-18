@@ -61,9 +61,6 @@ public class Player : MonoBehaviour {
 		iCharacter.GameSetting();
 		stamina.skillUseCount = iCharacter.SkillCount();
 
-		if(protectionParticle == null ) {
-			protectionParticle = this.transform.Find("ProtectionParticle").GetComponent<ParticleSystem>();
-        }
 	}
 
 	private void Update() {

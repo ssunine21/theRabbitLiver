@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 4284399832138331629}
   - component: {fileID: 7756209105763073932}
   - component: {fileID: 4705056615172673551}
+  - component: {fileID: 1711118846404047215}
   m_Layer: 0
   m_Name: Model
   m_TagString: Enemy
@@ -823,6 +824,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9, y: 3, z: 21}
   m_Center: {x: 0, y: 0, z: 12}
+--- !u!114 &1711118846404047215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842433241535557847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371674d1c232422dab5af02d6a2c520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  itemType: 0
 --- !u!1 &5998716119727844283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5475ed02757d448b78196b3da7db3cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingAngle: 45
-  gravity: 9.8
-  shotSpeed: 3
+  tr: {fileID: 0}
+  initPos: {x: 0, y: 0, z: 0}
+  target: {x: 0, y: 0, z: 0}
+  journeyTime: 20
+  reduceHeight: 25
+  particle: {fileID: 100000, guid: 83cd9cc9f9c88824ba18dc59b05ae328, type: 3}
