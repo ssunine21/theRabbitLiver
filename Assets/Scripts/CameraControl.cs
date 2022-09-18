@@ -11,6 +11,7 @@ public class CameraControl : MonoBehaviour {
 	public Vector3 offset;
 	public float followSpeed;
 	public float initHeight = 18f;
+	public float isOnTitleTime;
 	private bool isOnTitle = false;
 
 	private Vector3 cameraPos;
@@ -35,7 +36,7 @@ public class CameraControl : MonoBehaviour {
 		while (tr.localPosition.y > (endPos.y + 0.01f)) {
 			tr.localPosition = Vector3.Lerp(tr.localPosition, endPos, Time.deltaTime * initCameraSpeed);
 
-			if(!isOnTitle && tr.position.y < 9f) {
+			if(!isOnTitle && tr.position.y < isOnTitleTime) {
 				isOnTitle = true;
 				titleAnimator.Play("Title");
             }

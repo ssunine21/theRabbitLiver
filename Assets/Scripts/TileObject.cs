@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TileObject : MonoBehaviour {
     public float speed;
-    public float maxHeight;
+    public float maxHeight = 2f;
     public float delayTime;
 
     private float height;

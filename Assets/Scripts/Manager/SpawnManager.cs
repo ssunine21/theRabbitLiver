@@ -40,6 +40,7 @@ public class SpawnManager : MonoBehaviour {
     }
 
     public void CreateTileMap() {
+        DestroyTileMap();
         SetItemPercentage();
         PrepareTileSpawn();
         TileUpDownAnimStart();
@@ -160,7 +161,7 @@ public class SpawnManager : MonoBehaviour {
         tileSet.transform.SetParent(tileParent.transform);
 
         //Spawn Plane
-        if(totalTileCount % 10 == 0) {
+        if(totalTileCount % 10 == 0 || totalTileCount == 0) {
             GameObject planeSet = new GameObject((totalTileCount * 0.1).ToString());
 
             Instantiate(levelDesign.plane, new Vector3(-16.4f, -0.7f, (totalTileCount * 3) + 13.5f), Quaternion.Euler(new Vector3(0, 90, 0)), planeSet.transform);
@@ -253,7 +254,8 @@ public class SpawnManager : MonoBehaviour {
 
     public void TileUpDownAnimStart(bool isReverse = false) {
         if (isReverse) {
-            foreach (TileObject tile in tileParent.GetComponentsInChildren<TileObject>().Reverse()) {
+            var tileReverse = tileParent.GetComponentsInChildren<TileObject>().Reverse();
+            foreach (TileObject tile in tileReverse) {
                 tile.StartUpDownCoroutine();
             }
         } else {

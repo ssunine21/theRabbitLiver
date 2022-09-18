@@ -108,7 +108,7 @@ public class ItemInfo : MonoBehaviour {
         if (DataManager.init.CoinComparison(infoData.price[level], true)) {
             if (type == Type.multiple) {
                 level += 1;
-                if (level >= levelBar.childCount) {
+                if (level > levelBar.childCount) {
                     OffBtnFunction();
                 } else {
                     ChangeItemPrice();
