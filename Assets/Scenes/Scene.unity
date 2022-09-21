@@ -11248,6 +11248,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelDesign:
   - tile:
+      tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
+      tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
+      tileCount: 100
+    plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
+    enemy:
+    - gameObject: {fileID: 2250665368473982670, guid: 18ed7d3f7db4341f4809ce3682ebe829, type: 3}
+      count: 20
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    - gameObject: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
+      count: 20
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    trap:
+    - gameObject: {fileID: 2441076146251619698, guid: 0d5c598c652a7402985e6be5c50986ee, type: 3}
+      count: 25
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 20
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 5
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    protection:
+      gameObject: {fileID: 1104063764556715644, guid: eb52719a93a174e43a8d9c5cc76034f1, type: 3}
+      count: 3
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    hpDecreasingSpeed: 0
+  - tile:
+      tileLight: {fileID: 328974107150300791, guid: 3a00d64eb6cc74101b64a2ec0e6364ad, type: 3}
+      tileDark: {fileID: 2056687562667319364, guid: 2e159425ba8a84601aaf1a2e8876a2fb, type: 3}
+      tileCount: 100
+    plane: {fileID: 8968158588979736679, guid: df3aa48b1139b4301a14a4ef76049e7d, type: 3}
+    enemy:
+    - gameObject: {fileID: 6760130939605722357, guid: b6bf070cc16a7f043848ae9a8bd62267, type: 3}
+      count: 15
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    - gameObject: {fileID: 7924509279035598817, guid: 137c3f19ebfa8114a9a5d807fc5604f9, type: 3}
+      count: 15
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    trap:
+    - gameObject: {fileID: 4740505489833648486, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
+      count: 0
+      startOrder: 10
+      currRange: 0
+      tileNum: 0
+    coin:
+      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
+      count: 25
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    heart:
+      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
+      count: 10
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    protection:
+      gameObject: {fileID: 1104063764556715644, guid: eb52719a93a174e43a8d9c5cc76034f1, type: 3}
+      count: 3
+      startOrder: 0
+      currRange: 0
+      tileNum: 0
+    hpDecreasingSpeed: 0
+  - tile:
       tileLight: {fileID: 2056687562667319364, guid: 633770a9394fe4f4891100037252de68, type: 3}
       tileDark: {fileID: 328974107150300791, guid: 1aeb0b61e1779420c81c0fa8c8ac60ea, type: 3}
       tileCount: 80
@@ -11315,88 +11397,6 @@ MonoBehaviour:
     protection:
       gameObject: {fileID: 1104063764556715644, guid: eb52719a93a174e43a8d9c5cc76034f1, type: 3}
       count: 2
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    hpDecreasingSpeed: 0
-  - tile:
-      tileLight: {fileID: 328974107150300791, guid: 3a00d64eb6cc74101b64a2ec0e6364ad, type: 3}
-      tileDark: {fileID: 2056687562667319364, guid: 2e159425ba8a84601aaf1a2e8876a2fb, type: 3}
-      tileCount: 100
-    plane: {fileID: 8968158588979736679, guid: df3aa48b1139b4301a14a4ef76049e7d, type: 3}
-    enemy:
-    - gameObject: {fileID: 6760130939605722357, guid: b6bf070cc16a7f043848ae9a8bd62267, type: 3}
-      count: 15
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    - gameObject: {fileID: 7924509279035598817, guid: 137c3f19ebfa8114a9a5d807fc5604f9, type: 3}
-      count: 15
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    trap:
-    - gameObject: {fileID: 4740505489833648486, guid: 78154a1705658ad4a85fab69e9209f94, type: 3}
-      count: 0
-      startOrder: 10
-      currRange: 0
-      tileNum: 0
-    coin:
-      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
-      count: 25
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    heart:
-      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
-      count: 10
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    protection:
-      gameObject: {fileID: 1104063764556715644, guid: eb52719a93a174e43a8d9c5cc76034f1, type: 3}
-      count: 3
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    hpDecreasingSpeed: 0
-  - tile:
-      tileLight: {fileID: 6806486310248525171, guid: 9ab8ffe05c906426eb951efc365b8ad5, type: 3}
-      tileDark: {fileID: 2233141228595132022, guid: 9dd52cfa108e24eb8a5fc36b78fdc41f, type: 3}
-      tileCount: 100
-    plane: {fileID: 8968158588979736679, guid: 606160a4a820e4dbaa57dc073ee1a7f0, type: 3}
-    enemy:
-    - gameObject: {fileID: 2250665368473982670, guid: 18ed7d3f7db4341f4809ce3682ebe829, type: 3}
-      count: 20
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    - gameObject: {fileID: 6790879834280852851, guid: bedfe11570d614202938bf44edc6042f, type: 3}
-      count: 20
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    trap:
-    - gameObject: {fileID: 2441076146251619698, guid: 0d5c598c652a7402985e6be5c50986ee, type: 3}
-      count: 25
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    coin:
-      gameObject: {fileID: 7069758053092613971, guid: 4b2983b7b282847aaa446ab3a5d3c00b, type: 3}
-      count: 20
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    heart:
-      gameObject: {fileID: 2349651202833295328, guid: 1ff1681e7e3634e9f8f6f81b3e41c117, type: 3}
-      count: 5
-      startOrder: 0
-      currRange: 0
-      tileNum: 0
-    protection:
-      gameObject: {fileID: 1104063764556715644, guid: eb52719a93a174e43a8d9c5cc76034f1, type: 3}
-      count: 3
       startOrder: 0
       currRange: 0
       tileNum: 0
