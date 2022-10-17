@@ -40,10 +40,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
-        recordData.score = DataManager.init.score.currScore;
-        UIManager.init.SetRecordDataUI(recordData.score, recordData.coin, recordData.enemyKill,
-            recordData.runCount, recordData.hitCount, recordData.itemCount, recordData.TotalScore());
-
         Camera.main.GetComponent<CameraControl>().PosReset();
         if (player != null) {
             Destroy(player.gameObject);
@@ -51,9 +47,24 @@ public class GameManager : MonoBehaviour {
         SpawnManager.init.DestroyTileMap();
     } 
 
+    public void Goal() {
+        StartCoroutine(GoalCheck());
+    }
+
+    private void SetRecoreData() {
+        recordData.score = DataManager.init.score.currScore;
+        UIManager.init.SetRecordDataUI(recordData.score, recordData.coin, recordData.enemyKill,
+            recordData.runCount, recordData.hitCount, recordData.itemCount, recordData.TotalScore());
+    }
+
+    IEnumerator GoalCheck() {
+        player.isGroggy = true;
+        yield return new WaitForSeconds(3);
+        FinishGame();
+    }
+
     public void FinishGame() {
-        GameOver();
-        DataManager.init.ChangeScore();
+        SetRecoreData();
         UIManager.init.GameOverUI();
     }
 

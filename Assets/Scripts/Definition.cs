@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Definition {
+    public enum SoundType {
+        Intro,
+        Tik,
+        ButtonClick,
+        ButtonClose,
+        Stage1,
+        Stage2,
+        Stage3,
+        Stage4,
+        Stage5,
+    }
+
     public static readonly int TILE_SPACING = 3;
     public static readonly int CAMERA_DEPTH_UNDER = -1;
     public static readonly int CAMERA_DEPTH_OVER = 1;
@@ -12,12 +24,18 @@ public static class Definition {
     public static readonly int PRICE_CHAR_BONO = 1000;
     public static readonly int PRICE_CHAR_NOTAKE = 1000;
 
+    public static readonly string KEY_UID = "KEY_UID";
+    public static readonly string KEY_INIT = "KEY_INIT";
+
     public static readonly string TAG_PLAYER = "Player";
     public static readonly string TAG_ATTACK_COLLIDER = "AttackCollider";
     public static readonly string TAG_ENEMY = "Enemy";
     public static readonly string TAG_TRAP = "Trap";
     public static readonly string TAG_ITEM = "Item";
     public static readonly string TAG_HEALTH_ITEM = "HealthItem";
+
+    public static readonly string GOOGLE_LOGIN_MESSAGE = "구글 계정으로 로그인 하시겠습니까?";
+    public static readonly string GOOGLE_LOGIN_FAIL = "로그인에 실패 했습니다.";
 
     public static readonly string SELECT = "선택";
     public static readonly string SELECTED = "선택됨";
@@ -32,6 +50,8 @@ public static class Definition {
     public static readonly string SKILL_SKILL_LEVEL = "스킬 충전 속도 ";
     public static readonly string HIT_DELAY = "타격 딜레이 감소  ";
     public static readonly string SKILL_DISTANCE = "스킬 거리 증가 ";
+
+    public static readonly string RESTART_MESSAGE = "다시 시작하시겠습니까?";
 
 
     //bunny

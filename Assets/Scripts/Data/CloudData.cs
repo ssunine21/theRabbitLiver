@@ -8,14 +8,14 @@ using System.Linq;
 public class CloudData {
     static readonly private string USERS = "users";
     static readonly private string LEVEL = "level";
-    static readonly private string COIN = "coin";
+    static readonly public string COIN = "coin";
     static readonly private string COINPLUS = "coinPlus";
     static readonly private string HEARTPLUS = "heartPlus";
     static readonly private string PROTECTIONPLUS = "protectionPlus";
     static readonly private string HEART = "heart";
     static readonly private string PROTECTION = "protection";
     static readonly private string SKIP = "skip";
-    static readonly private string SCORE = "score";
+    static readonly public string SCORE = "score";
 
     public class SaveData {
 
@@ -78,10 +78,12 @@ public class CloudData {
         }
     }
 
+
     private DatabaseReference databaseReference;
 
     public readonly Dictionary<DeviceData.CharacterID, int> characterLevel = new Dictionary<DeviceData.CharacterID, int>();
     public readonly Dictionary<DeviceData.ItemID, ItemProductInfo> itemProductInfoList = new Dictionary<DeviceData.ItemID, ItemProductInfo>();
+
     private int _coin;
     public int coin {
         get {
@@ -92,66 +94,108 @@ public class CloudData {
         }
     }
 
-    public void Start() {
+    public CloudData() {
         databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-
-        loadData = new SaveData(new int[5] { 1, 0, 0, 0, 0 }, 1000000, 0, 0, 0, 1, 1, 1, 0);
-
-        LoadCharacterProductInfo();
-        LoadItemProductInfo();
-        LoadCoinData();
-        LoadScore();
-
-        //Load();
     }
 
     SaveData loadData = null;
-    public bool Load() {
-        string id = DataManager.init.GoogleId;
+    public void Load(string _uid) {
+        string originUid = null;
+        string newUid = null;
 
-        FirebaseDatabase.DefaultInstance.GetReference(USERS).Child(id)
-            //.ValueChanged += HandleValueChanged;
-            .GetValueAsync().ContinueWith(task => {
-                if (task.IsFaulted) {
+        if (PlayerPrefs.HasKey(Definition.KEY_UID)) {
+            originUid = DataManager.init.DeviceData.GetUID();
+            if(_uid != originUid) {
+                newUid = _uid;
+                _uid = originUid;
+            }
+        }
 
-                } else if (task.IsCompleted) {
-                    DataSnapshot snapshot = task.Result;
-                    if (snapshot.Value != null) {
-                        IDictionary data = (IDictionary)snapshot.Value;
-                        Console.Write(int.Parse(data[COIN].ToString()));
-                        Console.Write(snapshot.Child(LEVEL).Value as int[]);
+        FirebaseDatabase.DefaultInstance.GetReference(USERS).Child(_uid)
+        .GetValueAsync().ContinueWith(task => {
 
-                        IList collection = (IList)data[LEVEL];
-                        int[] level = new int[5];
+            if (task.IsFaulted) {
+                Debug.Log($"<color=red>Haven't Id in firebase. : {_uid}</color>");
+                loadData = GetInitData();
+            } else if (task.IsCompleted) {
 
-                        int i = 0;
-                        foreach (var d in collection) {
-                            level[i] = int.Parse(d.ToString());
-                            i++;
-                        }
+                Debug.Log($"<color=blue>Have Id in firebase. : {_uid}</color>");
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Value != null) {
+                    IDictionary data = (IDictionary)snapshot.Value;
 
-                        loadData = new SaveData(
-                            level,
-                            int.Parse(data[COIN].ToString()),
-                            int.Parse(data[COINPLUS].ToString()),
-                            int.Parse(data[HEARTPLUS].ToString()),
-                            int.Parse(data[PROTECTIONPLUS].ToString()),
-                            int.Parse(data[HEART].ToString()),
-                            int.Parse(data[PROTECTION].ToString()),
-                            int.Parse(data[SKIP].ToString()),
-                            int.Parse(data[SCORE].ToString())
-                            );
+                    IList collection = (IList)data[LEVEL];
+                    int[] level = new int[5];
+
+                    int i = 0;
+                    foreach (var d in collection) {
+                        level[i] = int.Parse(d.ToString());
+                        i++;
                     }
 
-                    LoadCharacterProductInfo();
-                    LoadItemProductInfo();
-                    LoadCoinData();
-                    LoadScore();
+                    loadData = new SaveData(
+                        level,
+                        int.Parse(data[COIN].ToString()),
+                        int.Parse(data[COINPLUS].ToString()),
+                        int.Parse(data[HEARTPLUS].ToString()),
+                        int.Parse(data[PROTECTIONPLUS].ToString()),
+                        int.Parse(data[HEART].ToString()),
+                        int.Parse(data[PROTECTION].ToString()),
+                        int.Parse(data[SKIP].ToString()),
+                        int.Parse(data[SCORE].ToString())
+                        );
+                } else {
+                    loadData = GetInitData();
                 }
-            });
+            }
 
-        return loadData != null;
+            Debug.Log($"<color=blue>Loading Data : {_uid}</color>");
+            try {
+                LoadCharacterProductInfo();
+                LoadItemProductInfo();
+                LoadCoinData();
+                LoadScore();
+
+                if (!PlayerPrefs.HasKey(Definition.KEY_INIT)) {
+                    Save(_uid);
+                    PlayerPrefs.SetString(Definition.KEY_INIT, "false");
+                }
+
+                if(newUid != null) {
+                    databaseReference.Child(USERS).Child(_uid).RemoveValueAsync();
+
+                    Save(newUid);
+                    PlayerPrefs.SetString(Definition.KEY_UID, newUid);
+                }
+
+            } catch (Exception e) {
+                Debug.LogError(e.Message);
+            }
+
+            Debug.Log($"<color=blue>Load Data : {_uid}</color>");
+            UIManager.init.isInitGame = true;
+        });
     }
+
+    public void FirstGuestLogin() {
+        string uid;
+        if (PlayerPrefs.HasKey(Definition.KEY_UID)) {
+            uid = DataManager.init.DeviceData.GetUID();
+        }
+        else {
+            uid = databaseReference.Child(USERS).Push().Key;
+            GoogleGameServiceManager.init.UID = uid;
+            PlayerPrefs.SetString(Definition.KEY_UID, uid);
+        }
+
+        Debug.Log($"<color=blue>Guest Login</color>");
+        Load(uid);
+    }
+
+    private DatabaseReference GetFirebaseDataBase() {
+        return FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
     public void HandleValueChanged(object sender, ValueChangedEventArgs args) {
         if (args.DatabaseError != null) {
             Debug.LogError(args.DatabaseError.Message);
@@ -160,14 +204,14 @@ public class CloudData {
         // Do something with the data in args.Snapshot
     }
 
-    public void Save() {
-        string id = DataManager.init.GoogleId;
+    public void Save(string _uid) {
+        Debug.Log($"<color=blue>Saving Data : {_uid}</color>");
         SaveData saveData = new SaveData(
             characterLevel.Values.ToArray(),
             coin,
-            itemProductInfoList[DeviceData.ItemID.coinplus].itemLevel,
-            itemProductInfoList[DeviceData.ItemID.heartplus].itemLevel,
-            itemProductInfoList[DeviceData.ItemID.protectionplus].itemLevel,
+            itemProductInfoList[DeviceData.ItemID.coinPlus].itemLevel,
+            itemProductInfoList[DeviceData.ItemID.heartPlus].itemLevel,
+            itemProductInfoList[DeviceData.ItemID.protectionPlus].itemLevel,
             itemProductInfoList[DeviceData.ItemID.heart].count,
             itemProductInfoList[DeviceData.ItemID.protection].count,
             itemProductInfoList[DeviceData.ItemID.skip].count,
@@ -175,7 +219,32 @@ public class CloudData {
             );
 
         string json = JsonUtility.ToJson(saveData);
-        databaseReference.Child(USERS).Child(id).SetRawJsonValueAsync(json);
+        Debug.Log($"<color=blue>Save Data : {_uid}</color>");
+        databaseReference.Child(USERS).Child(_uid).SetRawJsonValueAsync(json);
+
+        PlayerPrefs.SetString(Definition.KEY_UID, _uid);
+    }
+
+    public void LevelUpAndAysnc(DeviceData.CharacterID characterID) {
+        characterLevel[characterID] += 1;
+        databaseReference.Child(USERS).Child(GoogleGameServiceManager.init.UID).Child(LEVEL).Child(((int)characterID).ToString()).SetValueAsync(characterLevel[characterID]);
+    }
+
+    public void DataAysnc(string Child, int value) {
+        databaseReference.Child(USERS).Child(GoogleGameServiceManager.init.UID).Child(Child).SetValueAsync(value);
+    }
+
+    private SaveData GetInitData() {
+        return new SaveData(
+                        level: new int[5] { 1, 0, 0, 0, 0 },
+                        coin: 1000000,
+                        coinPlus: 0,
+                        heartPlus: 0,
+                        protectionPlus: 0,
+                        heart: 1,
+                        protection: 1,
+                        skip: 1,
+                        score: 0);
     }
 
     private void LoadCharacterProductInfo() {
@@ -188,18 +257,44 @@ public class CloudData {
     }
 
     private void LoadItemProductInfo() {
-        itemProductInfoList.Add(DeviceData.ItemID.coinplus,
-            new ItemProductInfo(loadData.coinPlus, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 20, 25, 30, 35, 40 }));
-        itemProductInfoList.Add(DeviceData.ItemID.heartplus,
-            new ItemProductInfo(loadData.heartPlus, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 20, 25, 30, 35, 40 }));
-        itemProductInfoList.Add(DeviceData.ItemID.protectionplus,
-            new ItemProductInfo(loadData.protectionPlus, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+        itemProductInfoList.Add(DeviceData.ItemID.coinPlus,
+            new ItemProductInfo(
+                itemLevel:loadData.coinPlus,
+                price:new int[5] { 1000, 2000, 3000, 4000, 5000 },
+                percentage:new int[5] { 20, 25, 30, 35, 40 }));
+
+        itemProductInfoList.Add(DeviceData.ItemID.heartPlus,
+            new ItemProductInfo(
+                itemLevel:loadData.heartPlus,
+                price: new int[5] { 1000, 2000, 3000, 4000, 5000 },
+                percentage:new int[5] { 20, 25, 30, 35, 40 }));
+
+        itemProductInfoList.Add(DeviceData.ItemID.protectionPlus,
+            new ItemProductInfo(
+                itemLevel:loadData.protectionPlus,
+                price:new int[5] { 1000, 2000, 3000, 4000, 5000 },
+                percentage:new int[5] { 5, 10, 12, 15, 17 }));
+
         itemProductInfoList.Add(DeviceData.ItemID.heart,
-            new ItemProductInfo(loadData.heart, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+            new ItemProductInfo(
+                itemLevel:1, 
+                price:new int[5] { 1000, 2000, 3000, 4000, 5000 }, 
+                percentage:new int[5] { 5, 10, 12, 15, 17 } ,
+                count:loadData.heart));
+
         itemProductInfoList.Add(DeviceData.ItemID.protection,
-            new ItemProductInfo(loadData.protection, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+            new ItemProductInfo(
+                itemLevel:1,
+                price:new int[5] { 1000, 2000, 3000, 4000, 5000 },
+                percentage:new int[5] { 5, 10, 12, 15, 17 },
+                count:loadData.protection));
+
         itemProductInfoList.Add(DeviceData.ItemID.skip,
-            new ItemProductInfo(loadData.skip, new int[5] { 1000, 2000, 3000, 4000, 5000 }, new int[5] { 5, 10, 12, 15, 17 }));
+            new ItemProductInfo(
+                itemLevel:1,
+                price:new int[5] { 1000, 2000, 3000, 4000, 5000 },
+                percentage:new int[5] { 5, 10, 12, 15, 17 },
+                count:loadData.skip));
     }
 
     private void LoadCoinData() {

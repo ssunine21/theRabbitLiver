@@ -6,12 +6,18 @@ using UnityEngine;
 public class Notake : Character, ICharacter {
     int SKILL_RANGE = 0;
     int CONSECUTIVE_HIT_COUNT = 0;
+
+    private ParticleSystem attackParticle;
       
     float ICharacter.hpDecreasing {
         get => hpDecreasingSpeed;
     }
     float ICharacter.mpIncreasing {
         get => mpIncreasing;
+    }
+
+    private void Awake() {
+        attackParticle = Resources.Load<ParticleSystem>("Particle/Notake_attack");
     }
 
     protected override void Start() {
@@ -42,6 +48,11 @@ public class Notake : Character, ICharacter {
 
             player.animator.SetInteger("skillNum", Random.Range(0, 3));
             Vector3 targetPos = PosNormalize(target.transform.position);
+
+            if(attackParticle != null) {
+                Instantiate(attackParticle, new Vector3(targetPos.x, 1.2f, targetPos.z), Quaternion.identity);
+            }
+
             Destroy(target);
 
             this.transform.position = targetPos;

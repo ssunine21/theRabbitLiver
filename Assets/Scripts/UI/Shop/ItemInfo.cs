@@ -71,6 +71,7 @@ public class ItemInfo : MonoBehaviour {
 
     private void SingleItemPruchase() {
         infoData.count += 1;
+        DataManager.init.CloudData.DataAysnc(itemName.ToString(), infoData.count);
         ChangeItemCountText();
     }
 
@@ -108,6 +109,7 @@ public class ItemInfo : MonoBehaviour {
         if (DataManager.init.CoinComparison(infoData.price[level], true)) {
             if (type == Type.multiple) {
                 level += 1;
+                DataManager.init.CloudData.DataAysnc(itemName.ToString(), level);
                 if (level > levelBar.childCount) {
                     OffBtnFunction();
                 } else {
@@ -117,6 +119,9 @@ public class ItemInfo : MonoBehaviour {
             } else {
                 SingleItemPruchase();
             }
+
+
+
         } else {
             UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, null);
         }

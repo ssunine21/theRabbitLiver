@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bono : Character, ICharacter {
+    private ParticleSystem particle;
+
     [Range(0, 20)]
     public float speed;
     public int skillMoveDistance;
@@ -13,6 +15,10 @@ public class Bono : Character, ICharacter {
     }
     float ICharacter.mpIncreasing {
         get => mpIncreasing;
+    }
+
+    private void Awake() {
+        particle = GetComponentInChildren<ParticleSystem>();
     }
 
     protected override void Start() {
@@ -31,6 +37,7 @@ public class Bono : Character, ICharacter {
         player.isGroggy = true;
         targetPos = transform.position;
         targetPos.z += skillMoveDistance * MOVE_OFFSET;
+        
         return true;
     }
 
@@ -43,6 +50,11 @@ public class Bono : Character, ICharacter {
                 player.isGroggy = false;
                 isUsingSkill = false;
                 player.isSuperCharge = false;
+
+                if(particle != null) {
+                    
+                    particle.Play();
+                }
             }
         }
     }

@@ -3,13 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ObjectInfo))]
 public class Monster : MonoBehaviour {
     protected readonly int hashAttack = Animator.StringToHash("attack");
 
     protected bool isAttackColliderOn = false;
     protected bool isAnimationRunning = false;
-    protected ParticleSystem particle;
+    [SerializeField]protected ParticleSystem particle;
 
     public static GameObject player;
 

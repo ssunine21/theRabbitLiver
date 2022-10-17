@@ -48,9 +48,9 @@ public class SpawnManager : MonoBehaviour {
 
     private void SetItemPercentage() {
         try {
-            coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinplus].percentage;
-            heartPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.heartplus].percentage;
-            protectionPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.protectionplus].percentage;
+            coinPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.coinPlus].percentage;
+            heartPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.heartPlus].percentage;
+            protectionPercentage = DataManager.init.CloudData.itemProductInfoList[DeviceData.ItemID.protectionPlus].percentage;
         } catch {
             coinPercentage = 1;
             heartPercentage = 1;

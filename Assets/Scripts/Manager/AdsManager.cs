@@ -124,14 +124,17 @@ public class AdsManager : MonoBehaviour {
         return rewardedAd;
     }
 
-    public void ShowInterstitialAd() {
+    public bool ShowInterstitialAd() {
         if(this.interstitialAd != null && this.interstitialAd.IsLoaded()) {
             if (InterstitialAdShowCount == 0) {
                 this.interstitialAd.Show();
+                return true;
             } else {
                 InterstitialAdShowCount--;
             }
         }
+
+        return false;
     }
 
     public void GameOverRewarded() {

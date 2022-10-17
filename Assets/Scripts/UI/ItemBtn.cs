@@ -14,31 +14,29 @@ public class ItemBtn : MonoBehaviour {
         if(DataManager.init.CloudData.itemProductInfoList[itemName].count <= 0) {
             this.GetComponent<Button>().interactable = false;
             btnImg.color = new Color(1, 1, 1, 0.3f);
+
+            if (itemName == DeviceData.ItemID.skip) {
+                gameObject.SetActive(false);
+            }
         } else {
             this.GetComponent<Button>().interactable = true;
             btnImg.color = new Color(1, 1, 1, 1);
 
-            if(itemName == DeviceData.ItemID.skip) {
-                StartCoroutine(nameof(UITime));
+            if (itemName == DeviceData.ItemID.skip) {
+                gameObject.SetActive(true);
+                Invoke(nameof(SetActiveFalse), 8f);
             }
         }
     }
 
     public void Use() {
         DataManager.init.CloudData.itemProductInfoList[itemName].count -= 1;
+        DataManager.init.CloudData.DataAysnc(itemName.ToString(), DataManager.init.CloudData.itemProductInfoList[itemName].count);
         this.GetComponent<Button>().interactable = false;
         btnImg.color = new Color(1, 1, 1, 0.3f);
     }
 
-    IEnumerator UITime() {
-        float currTime = UI_FADEOUT_TIME;
-
-        while (currTime >= 0) {
-            currTime -= Time.deltaTime;
-            btnImg.fillAmount = (currTime / UI_FADEOUT_TIME);
-            yield return null;
-        }
-
-        this.GetComponent<Button>().interactable = false;
+    private void SetActiveFalse() {
+        gameObject.SetActive(false);
     }
 }

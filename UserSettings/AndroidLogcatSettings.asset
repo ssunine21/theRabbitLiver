@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "emulator-5554",
+    "m_SelectedDeviceId": "emulator-5556",
     "m_SelectedPackage": {
         "deviceId": "",
         "name": "",
@@ -10,8 +10,44 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 8118,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 8701,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 4613,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 5519,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 6228,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.bognstudio.rabbitrun",
+            "processId": 6817,
+            "exited": false
+        },
+        {
+            "deviceId": "127.0.0.1:5557",
             "name": "com.ldmnq.launcher3",
-            "processId": 1796,
+            "processId": 1828,
             "exited": false
         }
     ],
@@ -23,7 +59,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -39,7 +75,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",

@@ -23,19 +23,33 @@ public class Player : MonoBehaviour {
 	public float hitDelay;
 
 	public Stamina stamina;
-	public ParticleSystem protectionParticle;
+	private ParticleSystem protectionParticle;
+	private ParticleSystem healParticle;
+	private ParticleSystem hitParticle;
 
 	public bool isGroggy = false;
 	public bool isSuperCharge = false;
 	public bool isDead = false;
 
 	private bool _isProtection;
-	public bool isProtection {
+	public bool IsProtection {
 		get => _isProtection;
 		set {
+			if (protectionParticle == null) return;
+
 			if (value) protectionParticle.Play();
 			else protectionParticle.Stop();
 			_isProtection = value;
+        }
+    }
+
+	public bool isHeal {
+		set {
+			if(value) {
+				if (healParticle != null) {
+					healParticle.Play();
+				}
+            }
         }
     }
 
@@ -54,7 +68,13 @@ public class Player : MonoBehaviour {
 
 	public ICharacter iCharacter;
 
-	private void Start() {
+    private void Awake() {
+		healParticle = Instantiate(Resources.Load<ParticleSystem>("Particle/Healing"), transform);
+		hitParticle = Resources.Load<ParticleSystem>("Particle/Hit_Smoke");
+		protectionParticle = Instantiate(Resources.Load<ParticleSystem>("Particle/Shield"), transform);
+	}
+
+    private void Start() {
 		animator = GetComponent<Animator>();
 		iCharacter = GetComponent<ICharacter>();
 
@@ -156,6 +176,10 @@ public class Player : MonoBehaviour {
 		this.transform.rotation = Quaternion.Euler(quaternion);
 
 		DataManager.init.score.currScore += 50;
+
+
+		if (GameManager.init.recordData.runCount > 500)
+			GameManager.init.Goal();
 	}
 
 	public void Move() {
@@ -169,7 +193,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void OnProtection() {
-		isProtection = true;
+		IsProtection = true;
     }
 
 	private void OnTriggerEnter(Collider collision) {
@@ -194,17 +218,21 @@ public class Player : MonoBehaviour {
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += (AMOUNT_RECOVERY_MP_ON_KILL + iCharacter.mpIncreasing);
 		GameManager.init.recordData.enemyKill++;
+
+		if (hitParticle != null) {
+			Instantiate(hitParticle, new Vector3(transform.position.x, .8f, transform.position.z), Quaternion.identity);
+		}
 		Destroy(collision.gameObject);
 	}
 
 	private void CollisionWithAttack(Collider collider) {
 		if (!isSuperCharge) {
-			if (!isProtection) {
+			if (!IsProtection) {
 				Hitting(collider);
 				GameManager.init.recordData.hitCount++;
 				stamina.hpBar -= 0.1f;
 			} else {
-				isProtection = false;
+				IsProtection = false;
             }
 		}
 	}

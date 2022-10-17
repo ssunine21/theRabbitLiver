@@ -5,8 +5,10 @@ using System.Linq;
 
 public class Jazz : Character, ICharacter {
     [Range(0, 20)] public float speed;
-    [SerializeField] private ParticleSystem particleSkill;
     [SerializeField] private int SKILL_RANGE = 0;
+
+    private ParticleSystem weaponParticle;
+    private ParticleSystem attackParticle;
     private int skillMoveDistance;
     private float skillDurationTime = 0;
     private bool isSkillEffectContinue = false;
@@ -17,6 +19,11 @@ public class Jazz : Character, ICharacter {
     }
     float ICharacter.mpIncreasing {
         get => mpIncreasing;
+    }
+
+    private void Awake() {
+        weaponParticle = GetComponentInChildren<ParticleSystem>();
+        attackParticle = Resources.Load<ParticleSystem>("Particle/Jazz_attack");
     }
 
     protected override void Start() {
@@ -53,18 +60,27 @@ public class Jazz : Character, ICharacter {
         if (isSkillEffectContinue) {
             GameObject enemyObj = FindNearestObjectByTag(Definition.TAG_ENEMY);
             if(enemyObj != null) {
+                if (attackParticle != null) {
+                    Instantiate(attackParticle, new Vector3(enemyObj.transform.position.x, 0.8f, enemyObj.transform.position.z), Quaternion.identity);
+                }
+
                 Destroy(enemyObj);
                 player.stamina.hpBar += 0.04f;
+
             }
         }
     }
 
     private IEnumerator SkillDuration() {
-        particleSkill.Play();
+        if(weaponParticle != null)
+            weaponParticle.Play();
+
         isSkillEffectContinue = true;
         yield return new WaitForSeconds(skillDurationTime);
         isSkillEffectContinue = false;
-        particleSkill.Stop();
+
+        if (weaponParticle != null)
+            weaponParticle.Stop();
     }
 
     private GameObject FindNearestObjectByTag(string tag) {

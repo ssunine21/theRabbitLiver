@@ -33,13 +33,8 @@ public class JellyFish : Monster {
 
         xPos = tr.position;
         xPos.x = UnityEngine.Random.Range(0, 1) == 0 ? XMIN : XMAX;
-    }
 
-    private void Update() {
-        if (tr.position.x < 0.1 || 
-            (tr.position.x >= 2.95 && tr.position.x <= 3.05) ||
-            tr.position.x >= 6)
-            StartCoroutine(nameof(SkillCoroutine));
+        StartCoroutine(nameof(SkillCoroutine));
     }
 
     private void FixedUpdate() {
@@ -88,10 +83,19 @@ public class JellyFish : Monster {
     }
 
     IEnumerator SkillCoroutine() {
-        if(UnityEngine.Random.Range(1, 3) % 2 == 0) {
 
-            Attack();
-            yield return new WaitForSeconds(attackDelay);
+        while (true) {
+            if (tr.position.x < 0.1 || (tr.position.x >= 2.95 && tr.position.x <= 3.05) || tr.position.x >= 6) {
+                int rand = UnityEngine.Random.Range(0, 10);
+                if (rand % 2 == 0) {
+                    Attack();
+                    yield return new WaitForSeconds(attackDelay);
+                }
+
+                yield return new WaitForSeconds(.5f);
+            }
+
+            yield return null;
         }
     }
 

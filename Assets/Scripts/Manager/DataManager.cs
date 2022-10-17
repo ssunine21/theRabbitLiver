@@ -8,7 +8,6 @@ public class DataManager : MonoBehaviour {
     public DeviceData DeviceData;
     public CloudData CloudData;
 
-    private DatabaseReference databaseReference;
     private string _googleId;
     public string GoogleId {
         get => _googleId;
@@ -30,10 +29,8 @@ public class DataManager : MonoBehaviour {
         Singleton();
     }
 
-    private void Start() {
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-        CloudData.Start();
-
+    private void OnApplicationQuit() {
+        CloudData.Save(GoogleGameServiceManager.init.UID);
     }
 
     public void ChangeCharacterId(int characterId) {
@@ -44,16 +41,12 @@ public class DataManager : MonoBehaviour {
         score.currScore = 0;
     }
 
-    public void ChangeScore() {
-        if(score.currScore > score.bestScore) {
-            score.bestScore = score.currScore;
+    public void ChangeScore(int currScore) {
+        if(currScore > score.bestScore) {
+            score.bestScore = currScore;
+            CloudData.DataAysnc(CloudData.SCORE, score.bestScore);
         }
         InitCurrScore();
-    }
-
-    public void LoadToFirebase(string id) {
-        GoogleId = id;
-        CloudData.Start();
     }
 
     /// <summary>
@@ -73,8 +66,8 @@ public class DataManager : MonoBehaviour {
 
     public void CoinPayment(int price) {
         CloudData.coin -= price;
+        CloudData.DataAysnc(CloudData.COIN, CloudData.coin);
     }
-
 
     public static DataManager init;
     private void Singleton() {

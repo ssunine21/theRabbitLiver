@@ -6,7 +6,6 @@ public class CameraControl : MonoBehaviour {
 
 	private Transform tr;
 
-	public Animator titleAnimator;
 	public GameObject player;
 	public Vector3 offset;
 	public float followSpeed;
@@ -19,31 +18,35 @@ public class CameraControl : MonoBehaviour {
 	private float initCameraSpeed = 0.8f;
 	private Vector3 endPos;
 	private Vector3 startPos;
+	private bool isCameraMoveAtFirstStarting = false;
 
-    private void Awake() {
+
+	private void Awake() {
 		tr = GetComponent<Transform>();
-
 		InitStartPos();
-    }
+	}
 
-    private void Start() {
-		StartCoroutine(CameraMoveAtFirstStart());
-    }
+	public IEnumerator CameraMoveAtFirstStart() {
 
-	private IEnumerator CameraMoveAtFirstStart() {
 		SpawnManager.init.TileUpDownAnimStart(true);
-		yield return new WaitForSeconds(0.5f);
-		while (tr.localPosition.y > (endPos.y + 0.01f)) {
+		while (true) { //tr.localPosition.y < (endPos.y - 0.05f) && isCameraMoveAtFirstStarting) {
+
+			if (!isCameraMoveAtFirstStarting) {
+				yield return null;
+				continue;
+			}
+
 			tr.localPosition = Vector3.Lerp(tr.localPosition, endPos, Time.deltaTime * initCameraSpeed);
 
-			if(!isOnTitle && tr.position.y < isOnTitleTime) {
+			if(!isOnTitle && tr.position.y > isOnTitleTime) {
 				isOnTitle = true;
-				titleAnimator.Play("Title");
+				UIManager.init.Title.GetComponent<Title>().Play();
             }
 			yield return null;
 		}
 
 		tr.localPosition = endPos;
+		isCameraMoveAtFirstStarting = false;
 	}
 
     public void PosReset() {
@@ -51,18 +54,23 @@ public class CameraControl : MonoBehaviour {
     }
 
 	private void LateUpdate() {
-		if (player == null) return;
+		if (player == null) {
+			isCameraMoveAtFirstStarting = true;
+			return;
+		}
+
+		isCameraMoveAtFirstStarting = false;
 
 		cameraPos = player.transform.position + offset;
 		cameraPos.x = offset.x;
 
-		tr.position = Vector3.Lerp(transform.position, cameraPos, followSpeed * Time.deltaTime);
+		tr.position = Vector3.Lerp(tr.position, cameraPos, followSpeed * Time.deltaTime);
 	}
 
 	private void InitStartPos() {
 		startPos = tr.localPosition;
 		endPos = tr.localPosition;
-		startPos.y = initHeight;
+		endPos.y = initHeight;
 		tr.localPosition = startPos;
     }
 }

@@ -163,7 +163,7 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     private void LevelUpAndAysnc() {
-        DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()] += 1;
+        DataManager.init.CloudData.LevelUpAndAysnc(iCharacter.CharacterType());
         iCharacter.SetSkillLevel(DataManager.init.CloudData.characterLevel[iCharacter.CharacterType()]);
     }
 }

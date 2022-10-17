@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Anglerfish : Monster {
     public GameObject lightSphere;
+
     //225 160
     private void Start() {
         base.SetForceKnockBack();
@@ -17,6 +18,10 @@ public class Anglerfish : Monster {
         if (!isAnimationRunning && other.CompareTag(Definition.TAG_PLAYER)) {
             childAttackCollider.gameObject.SetActive(true);
             Attack();
+
+            if(particle != null) {
+                particle.Play();
+            }
         }
     }
 

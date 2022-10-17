@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.beetlecircus.serializabledictionary": "0.1.2-preview.4",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "1.15.1",
     "com.unity.ide.rider": "2.0.7",
@@ -42,5 +43,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "Rain Office",
+      "url": "https://office.rain-games.com:4873",
+      "scopes": [
+        "com.beetlecircus"
+      ]
+    }
+  ]
 }

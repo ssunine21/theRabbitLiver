@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private GameObject twoBtnAlert;
     [SerializeField] private GameObject twoBtnAlertWithCoin;
     [SerializeField] private GameObject oneBtnAlert;
+    [SerializeField] private GameObject loadingPanel;
 
 
     [SerializeField] private TextMeshProUGUI score;
@@ -29,14 +30,53 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI itemCount;
     [SerializeField] private TextMeshProUGUI totalScore;
 
+    public GameObject Title { get => _title; }
+    [SerializeField] private GameObject _title;
+
+    public GameObject NoTouchPanel { get => _noTouchPanel;}
+    [SerializeField] private GameObject _noTouchPanel;
+
+    [SerializeField] private Curtain _curtain;
+
     private void Awake() {
         Singleton();
     }
 
+    private void Start() {
+        StartCoroutine(CoInitGame());
+    }
+
+    public bool isInitGame = false;
+    IEnumerator CoInitGame() {
+        float timer = 5f;
+        ShowLoading(true);
+
+        while (timer > 0) {
+            if (isInitGame) {
+                StartCoroutine(Camera.main.GetComponent<CameraControl>().CameraMoveAtFirstStart());
+                _curtain.StartFadeIn();
+                NoTouchPanel.SetActive(true);
+
+                ShowLoading(false);
+                yield break;
+            }
+
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        StartCoroutine(Camera.main.GetComponent<CameraControl>().CameraMoveAtFirstStart());
+        _curtain.StartFadeIn();
+        NoTouchPanel.SetActive(true);
+        ShowLoading(false);
+    }
+
     public void GameStartBtn() {
-        mainUI.SetActive(false);
-        inGameUI.SetActive(true);
-        GameManager.init.InitGame();
+        //StartCoroutine(CoFadeInOut(() => {
+            mainUI.SetActive(false);
+            inGameUI.SetActive(true);
+            GameManager.init.InitGame();
+        //}));
     }
 
     public void ShopBtn() {
@@ -64,12 +104,26 @@ public class UIManager : MonoBehaviour {
     }
 
     public void RestartBtn() {
-        GameManager.init.GameOver(); 
-        GameManager.init.InitGame();
+        ShowAlert(Definition.RESTART_MESSAGE, GameRestart, null);
+    }
 
-        restartUI.SetActive(false);
-        pauseUI.SetActive(false);
-        pauseBtn.SetActive(true);
+    private void GameRestart() {
+        GameManager.init.Play();
+
+        _curtain.FadeInOut(() => {
+            GameManager.init.GameOver();
+            GameManager.init.InitGame();
+            GameManager.init.Play();
+
+            GameManager.init.player.isDead = true;
+            restartUI.SetActive(false);
+            pauseUI.SetActive(false);
+            pauseBtn.SetActive(true);
+
+            restartCountUI.GetComponent<RestartCount>().Count(() => {
+                GameManager.init.player.isDead = false;
+            });
+        });
     }
 
     public void GameOverUI() {
@@ -78,17 +132,20 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToMainFromInGame() {
-        GameManager.init.GameOver();
         GameManager.init.Play();
+        _curtain.FadeInOut(() => {
+            GameManager.init.GameOver();
+            GameManager.init.Play();
 
-        AdsManager.init.ShowInterstitialAd();
+            restartUI.SetActive(false);
+            gameOverUI.SetActive(false);
+            pauseUI.SetActive(false);
+            pauseBtn.SetActive(true);
+            inGameUI.SetActive(false);
+            mainUI.SetActive(true);
 
-        restartUI.SetActive(false);
-        gameOverUI.SetActive(false);
-        pauseUI.SetActive(false);
-        pauseBtn.SetActive(true);
-        inGameUI.SetActive(false);
-        mainUI.SetActive(true);
+            AdsManager.init.ShowInterstitialAd();
+        });
     }
 
     public void OpenRestartUI() {
@@ -97,6 +154,11 @@ public class UIManager : MonoBehaviour {
 
     public void CloseRestartUI() {
         restartUI.SetActive(false);
+    }
+
+    public void ShowLoading(bool isShow) {
+        if (loadingPanel.activeSelf == isShow) return;
+        loadingPanel.SetActive(isShow);
     }
 
     /// <summary>
@@ -131,7 +193,10 @@ public class UIManager : MonoBehaviour {
     }
 
     public void RestartCount() {
-        restartCountUI.SetActive(true);
+        restartCountUI.GetComponent<RestartCount>().Count(() => {
+            GameManager.init.player.GetComponent<Player>().reverseWhenEndDeathAnimation();
+            this.gameObject.SetActive(false);
+        });
     }
 
     public void SetRecordDataUI(int score, int coin, int enemyKill, int runCount,
@@ -143,6 +208,8 @@ public class UIManager : MonoBehaviour {
         this.hitCount.text = hitCount.ToString();
         this.itemCount.text = itemCount.ToString();
         this.totalScore.text = totalScore.ToString();
+        
+        DataManager.init.ChangeScore(totalScore);
     }
 
     public static UIManager init;
