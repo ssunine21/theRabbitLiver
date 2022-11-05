@@ -7,17 +7,11 @@ public class Notake : Character, ICharacter {
     int SKILL_RANGE = 0;
     int CONSECUTIVE_HIT_COUNT = 0;
 
-    private ParticleSystem attackParticle;
-      
     float ICharacter.hpDecreasing {
         get => hpDecreasingSpeed;
     }
     float ICharacter.mpIncreasing {
         get => mpIncreasing;
-    }
-
-    private void Awake() {
-        attackParticle = Resources.Load<ParticleSystem>("Particle/Notake_attack");
     }
 
     protected override void Start() {
@@ -47,11 +41,8 @@ public class Notake : Character, ICharacter {
             if (target == null) break;
 
             player.animator.SetInteger("skillNum", Random.Range(0, 3));
+            SoundManager.init.PlayPlayerSound(GetSkillSound());
             Vector3 targetPos = PosNormalize(target.transform.position);
-
-            if(attackParticle != null) {
-                Instantiate(attackParticle, new Vector3(targetPos.x, 1.2f, targetPos.z), Quaternion.identity);
-            }
 
             Destroy(target);
 
@@ -64,6 +55,22 @@ public class Notake : Character, ICharacter {
         isUsingSkill = false;
         player.isSuperCharge = false;
         player.isGroggy = false;
+    }
+
+    private Definition.SoundType GetSkillSound() {
+        int idx = Random.Range(0, 4);
+        switch (idx) {
+            case 0:
+                return Definition.SoundType.Skill_Notake_Zero;
+            case 1:
+                return Definition.SoundType.Skill_Notake_One;
+            case 2:
+                return Definition.SoundType.Skill_Notake_Two;
+            case 3:
+                return Definition.SoundType.Skill_Notake_Three;
+        }
+
+        return Definition.SoundType.Skill_Notake_Zero;
     }
 
     private GameObject FindNearestObjectByTag(string tag) {
@@ -119,7 +126,7 @@ public class Notake : Character, ICharacter {
             case 0:
             case 1:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 1f;
+                hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 4f;
 
                 CONSECUTIVE_HIT_COUNT = 2;
@@ -127,7 +134,7 @@ public class Notake : Character, ICharacter {
                 break;
             case 2:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.9f;
+                hpDecreasingSpeed = 0.6f;
                 player.hitDelay = 5f;
 
                 SKILL_RANGE = 12;
@@ -135,7 +142,7 @@ public class Notake : Character, ICharacter {
                 break;
             case 3:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.8f;
+                hpDecreasingSpeed = 0.5f;
                 player.hitDelay = 6f;
 
                 SKILL_RANGE = 15;
@@ -143,7 +150,7 @@ public class Notake : Character, ICharacter {
                 break;
             case 4:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.75f;
+                hpDecreasingSpeed = 0.4f;
                 player.hitDelay = 7f;
 
                 SKILL_RANGE = 15;
@@ -151,7 +158,7 @@ public class Notake : Character, ICharacter {
                 break;
             case 5:
                 mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.7f;
+                hpDecreasingSpeed = 0.35f;
                 player.hitDelay = 7.5f;
 
                 SKILL_RANGE = 15;
@@ -169,72 +176,77 @@ public class Notake : Character, ICharacter {
     }
 
 
-    public string SetInfoMessage() {
+    public string GetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             case 4:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>++</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>++++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>++++</color></b>\n";
                 break;
             case 5:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+++</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+++++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>+++++</color></b>\n";
                 break;
             default:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
 
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.CONSECUTIVE_HIT_COUNT + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hitARow") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 
         return message;
+    }
+
+
+    public string GetContentMessage() {
+        return LocalizationManager.init.GetLocalizedValue("notake_content");
     }
 }

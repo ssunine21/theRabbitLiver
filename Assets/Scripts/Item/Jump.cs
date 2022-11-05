@@ -12,9 +12,14 @@ public class Jump : Item, IItem {
     }
 
     IEnumerator JumpCorountine() {
-        for(int i = 0; i < _tileCount; ++i) {
+        SoundManager.init.PlayPlayerSound(Definition.SoundType.Item_Health);
+        player.isSuperCharge = true;
+        for (int i = 0; i < _tileCount; ++i) {
             player.Move();
-            yield return null;
+            yield return new WaitForSeconds(0.01f);
         }
+
+        player.isSuperCharge = false;
+        SoundManager.init.StopPlayerSound();
     }
 }

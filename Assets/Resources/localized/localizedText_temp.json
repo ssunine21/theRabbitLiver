@@ -1,0 +1,196 @@
+﻿{
+  "items": [
+    {
+      "key": "gameStart",
+      "value": ""
+    },
+    {
+      "key": "character",
+      "value": ""
+    },
+    {
+      "key": "etc",
+      "value": ""
+    },
+    {
+      "key": "special",
+      "value": ""
+    },
+    {
+      "key": "bunny_content",
+      "value": ""
+    },
+    {
+      "key": "skeleton_content",
+      "value": ""
+    },
+    {
+      "key": "bono_content",
+      "value": ""
+    },
+    {
+      "key": "jazz_content",
+      "value": ""
+    },
+    {
+      "key": "notake_content",
+      "value": ""
+    },
+    {
+      "key": "coinplus_content",
+      "value": ""
+    },
+    {
+      "key": "healthplus_content",
+      "value": ""
+    },
+    {
+      "key": "protectionplus_content",
+      "value": ""
+    },
+    {
+      "key": "skip_content",
+      "value": ""
+    },
+    {
+      "key": "protection_content",
+      "value": ""
+    },
+    {
+      "key": "health_content",
+      "value": ""
+    },
+    {
+      "key": "currCount",
+      "value": ""
+    },
+    {
+      "key": "premium",
+      "value": ""
+    },
+    {
+      "key": "premium_content",
+      "value": ""
+    },
+    {
+      "key": "coin_dummy",
+      "value": ""
+    },
+    {
+      "key": "coin_dummy_content",
+      "value": ""
+    },
+    {
+      "key": "coin_box",
+      "value": ""
+    },
+    {
+      "key": "coin_box_content",
+      "value": ""
+    },
+    {
+      "key": "characterpack",
+      "value": ""
+    },
+    {
+      "key": "characterpack_content",
+      "value": ""
+    },
+    {
+      "key": "package",
+      "value": ""
+    },
+    {
+      "key": "package_content",
+      "value": ""
+    },
+    {
+      "key": "select",
+      "value": ""
+    },
+    {
+      "key": "selected",
+      "value": ""
+    },
+    {
+      "key": "buy",
+      "value": ""
+    },
+    {
+      "key": "isBuy",
+      "value": ""
+    },
+    {
+      "key": "cancel",
+      "value": ""
+    },
+    {
+      "key": "check",
+      "value": ""
+    },
+    {
+      "key": "levelUp",
+      "value": ""
+    },
+    {
+      "key": "isLevelUp",
+      "value": ""
+    },
+    {
+      "key": "bougth",
+      "value": ""
+    },
+    {
+      "key": "notEnoughMoney",
+      "value": ""
+    },
+    {
+      "key": "noMoreBuy",
+      "value": ""
+    },
+    {
+      "key": "isRestart",
+      "value": ""
+    },
+    {
+      "key": "hpDecreaseSpeed",
+      "value": ""
+    },
+    {
+      "key": "skillChargeSpeed",
+      "value": ""
+    },
+    {
+      "key": "skillDistanceIncrease",
+      "value": ""
+    },
+    {
+      "key": "hitARow",
+      "value": ""
+    },
+    {
+      "key": "hittedDelayDecrease",
+      "value": ""
+    },
+    {
+      "key": "skillCount",
+      "value": ""
+    },
+    {
+      "key": "AmountOfBlood",
+      "value": ""
+    },
+    {
+      "key": "skillDuration",
+      "value": ""
+    },
+    {
+      "key": "normal",
+      "value": ""
+    },
+    {
+      "key": "language",
+      "value": ""
+    }
+  ]
+}

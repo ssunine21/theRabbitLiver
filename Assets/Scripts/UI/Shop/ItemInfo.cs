@@ -21,7 +21,7 @@ public class ItemInfo : MonoBehaviour {
         set {
             try {
                 _currItemCount = value;
-                _textCurrItemCount.text = Definition.CURR_ITEM_COUNT + value.ToString();
+                _textCurrItemCount.text = LocalizationManager.init.GetLocalizedValue("currCount") + value.ToString();
             } catch (NullReferenceException NRE) {
 #if DEBUG
                 UnityEngine.Debug.LogError(NRE.Message);
@@ -102,11 +102,14 @@ public class ItemInfo : MonoBehaviour {
     }
 
     private void ShowBuyMessage() {
-        UIManager.init.ShowAlert(Definition.BUY_MASSAGE, BuyItem, null);
+        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
+        UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("isBuy"), BuyItem, null);
     }
 
     private void BuyItem() {
         if (DataManager.init.CoinComparison(infoData.price[level], true)) {
+
+            SoundManager.init.PlaySFXSound(Definition.SoundType.SFX_BUY);
             if (type == Type.multiple) {
                 level += 1;
                 DataManager.init.CloudData.DataAysnc(itemName.ToString(), level);
@@ -123,7 +126,7 @@ public class ItemInfo : MonoBehaviour {
 
 
         } else {
-            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, null);
+            UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("notEnoughMoney"), null);
         }
     }
 }

@@ -22,6 +22,9 @@ public class Wolf : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
+        if (isAttackColliderOn) {
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Wolf);
+        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }

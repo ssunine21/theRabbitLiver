@@ -21,6 +21,7 @@ public class Yeti : Monster {
     }
 
     private void AttackColliderOnOff() {
+        SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Yeti);
         childAttackCollider.gameObject.SetActive(true);
     }
 }

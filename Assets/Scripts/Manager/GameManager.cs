@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour {
     public Player player;
     public RecordData recordData;
 
+    public bool Chance = false;
+
     public UnityEvent onStartGame;
 
 	private void Awake() {
 		Singleton();
-	}
+        PlayerPrefs.DeleteAll();
+        Application.targetFrameRate = 60;
+    }
 
     public void InitGame() {
         recordData = new RecordData();
@@ -23,6 +27,8 @@ public class GameManager : MonoBehaviour {
 
     public void GameStart() {
         onStartGame.Invoke();
+        Chance = true;
+        SoundManager.init.ChangeBGM(Definition.SoundType.Stage1);
     }
 
     public void GameRestart() {
@@ -69,10 +75,12 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Pause() {
+        Debug.Log("pause");
         Time.timeScale = 0;
     }
 
     public void Play() {
+        Debug.Log("Play");
         Time.timeScale = 1;
     }
 

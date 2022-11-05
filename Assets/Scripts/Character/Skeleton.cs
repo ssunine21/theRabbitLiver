@@ -75,6 +75,8 @@ public class Skeleton : Character, ICharacter {
         if (bloodParticle != null)
             bloodParticle.Play();
 
+        SoundManager.init.PlaySFXSound(Definition.SoundType.Skill_Skeleton);
+
         while (isUsingSkill) {
             if (player.hittingByTrap) {
                 isUsingSkill = false;
@@ -82,6 +84,8 @@ public class Skeleton : Character, ICharacter {
             player.stamina.hpBar += (HP_RECOVERY * Time.deltaTime);
             yield return null;
         }
+
+        SoundManager.init.StopPlayerSound();
 
         if (bloodParticle != null)
             bloodParticle.Stop();
@@ -125,7 +129,7 @@ public class Skeleton : Character, ICharacter {
             case 0:
             case 1:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 1f;
+                hpDecreasingSpeed = 0.9f;
                 player.hitDelay = 4f;
 
                 HP_RECOVERY = 0.07f;
@@ -133,15 +137,15 @@ public class Skeleton : Character, ICharacter {
                 break;
             case 2:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.9f;
+                hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 4f;
 
-                HP_RECOVERY = 0.08f;
+                HP_RECOVERY = 0.07f;
                 SKILL_RANGE = 6;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.8f;
+                hpDecreasingSpeed = 0.6f;
                 player.hitDelay = 6f;
 
                 HP_RECOVERY = 0.08f;
@@ -149,7 +153,7 @@ public class Skeleton : Character, ICharacter {
                 break;
             case 4:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.75f;
+                hpDecreasingSpeed = 0.5f;
                 player.hitDelay = 7f;
 
                 HP_RECOVERY = 0.09f;
@@ -157,7 +161,7 @@ public class Skeleton : Character, ICharacter {
                 break;
             case 5:
                 mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.7f;
+                hpDecreasingSpeed = 0.5f;
                 player.hitDelay = 8f;
 
                 HP_RECOVERY = 0.09f;
@@ -174,61 +178,65 @@ public class Skeleton : Character, ICharacter {
         }
     }
 
-    public string SetInfoMessage() {
+    public string GetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 3:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 4:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 5:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             default:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.AMOUNT_OF_BLOOD + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("AmountOfBlood") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 
         return message;
+    }
+
+    public string GetContentMessage() {
+        return LocalizationManager.init.GetLocalizedValue("skeleton_content");
     }
 }

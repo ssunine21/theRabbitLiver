@@ -1,0 +1,196 @@
+﻿{
+  "items": [
+    {
+      "key": "gameStart",
+      "value": "Inizio del gioco"
+    },
+    {
+      "key": "character",
+      "value": "Carattere"
+    },
+    {
+      "key": "etc",
+      "value": "Eccetera"
+    },
+    {
+      "key": "special",
+      "value": "Speciale"
+    },
+    {
+      "key": "bunny_content",
+      "value": "Il piccolo coniglio carino nella foresta fa un passo indietro."
+    },
+    {
+      "key": "skeleton_content",
+      "value": "Cerca di placare la mia sete infinita assorbendo il sangue, ma raramente torna in vita."
+    },
+    {
+      "key": "bono_content",
+      "value": "Sempre arrabbiato, il coniglio avanza incondizionatamente."
+    },
+    {
+      "key": "jazz_content",
+      "value": "Un coniglio con una pistola!"
+    },
+    {
+      "key": "notake_content",
+      "value": "Non è Take. Devi essere colpito per tornare in te."
+    },
+    {
+      "key": "coinplus_content",
+      "value": "La possibilità di ottenere monete aumenta."
+    },
+    {
+      "key": "healthplus_content",
+      "value": "La possibilità di ottenere salute aumenta."
+    },
+    {
+      "key": "protectionplus_content",
+      "value": "La possibilità di ottenere uno scudo aumenta."
+    },
+    {
+      "key": "skip_content",
+      "value": "Salta la prima mappa."
+    },
+    {
+      "key": "protection_content",
+      "value": "Puoi usare un oggetto scudo fino a una volta per partita."
+    },
+    {
+      "key": "health_content",
+      "value": "Puoi usare un oggetto salute fino a una volta per partita."
+    },
+    {
+      "key": "currCount",
+      "value": "Conteggio attuale : "
+    },
+    {
+      "key": "premium",
+      "value": "Rimuovere gli annunci"
+    },
+    {
+      "key": "premium_content",
+      "value": "Rimuovere gli annunci"
+    },
+    {
+      "key": "coin_dummy",
+      "value": "Mucchio di monete"
+    },
+    {
+      "key": "coin_dummy_content",
+      "value": "Verranno aggiunte 5.000 monete."
+    },
+    {
+      "key": "coin_box",
+      "value": "Portamonete"
+    },
+    {
+      "key": "coin_box_content",
+      "value": "Verranno aggiunte 15.000 monete."
+    },
+    {
+      "key": "characterpack",
+      "value": "Pacchetto personaggi"
+    },
+    {
+      "key": "characterpack_content",
+      "value": "Tutti i personaggi sono sbloccati."
+    },
+    {
+      "key": "package",
+      "value": "Pacchetto completo"
+    },
+    {
+      "key": "package_content",
+      "value": "Tutti i personaggi e 20.000 monete vengono pagati all'istante!"
+    },
+    {
+      "key": "select",
+      "value": "Selezionare"
+    },
+    {
+      "key": "selected",
+      "value": "Selezionato"
+    },
+    {
+      "key": "buy",
+      "value": "Acquistare"
+    },
+    {
+      "key": "isBuy",
+      "value": "Vuoi comprare?"
+    },
+    {
+      "key": "cancel",
+      "value": "Annulla"
+    },
+    {
+      "key": "check",
+      "value": "Confermare"
+    },
+    {
+      "key": "levelUp",
+      "value": "Sali di livello"
+    },
+    {
+      "key": "isLevelUp",
+      "value": "Vuoi salire di livello?"
+    },
+    {
+      "key": "bougth",
+      "value": "Acquistato"
+    },
+    {
+      "key": "notEnoughMoney",
+      "value": "Non abbastanza oro."
+    },
+    {
+      "key": "noMoreBuy",
+      "value": "Non più disponibile per l'acquisto."
+    },
+    {
+      "key": "isRestart",
+      "value": "Sei sicuro di voler ricominciare?"
+    },
+    {
+      "key": "hpDecreaseSpeed",
+      "value": "Velocità di riduzione della salute"
+    },
+    {
+      "key": "skillChargeSpeed",
+      "value": "Velocità di carica delle abilità"
+    },
+    {
+      "key": "skillDistanceIncrease",
+      "value": "Aumenta la distanza delle abilità"
+    },
+    {
+      "key": "hitARow",
+      "value": "Colpisci di fila"
+    },
+    {
+      "key": "hittedDelayDecrease",
+      "value": "Ritardo di sciopero ridotto"
+    },
+    {
+      "key": "skillCount",
+      "value": "Numero di usi delle abilità"
+    },
+    {
+      "key": "AmountOfBlood",
+      "value": "Quantità di sangue prelevata"
+    },
+    {
+      "key": "skillDuration",
+      "value": "Durata dell'abilità"
+    },
+    {
+      "key": "normal",
+      "value": "Normale"
+    },
+    {
+      "key": "language",
+      "value": "Lingua"
+    }
+  ]
+}

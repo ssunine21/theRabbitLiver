@@ -1,0 +1,196 @@
+﻿{
+  "items": [
+    {
+      "key": "gameStart",
+      "value": "Início do jogo"
+    },
+    {
+      "key": "character",
+      "value": "Personagem"
+    },
+    {
+      "key": "etc",
+      "value": "etc"
+    },
+    {
+      "key": "special",
+      "value": "Especial"
+    },
+    {
+      "key": "bunny_content",
+      "value": "Coelhinho fofo na floresta dá um passo para trás."
+    },
+    {
+      "key": "skeleton_content",
+      "value": "Tente saciar minha sede interminável absorvendo sangue, mas raramente ele volta à vida."
+    },
+    {
+      "key": "bono_content",
+      "value": "Sempre zangado, o coelho avança incondicionalmente."
+    },
+    {
+      "key": "jazz_content",
+      "value": "Um coelho com uma arma!"
+    },
+    {
+      "key": "notake_content",
+      "value": "Não é tomar. Você precisa ser atingido para voltar a seus sentidos."
+    },
+    {
+      "key": "coinplus_content",
+      "value": "A chance de obter moedas aumenta."
+    },
+    {
+      "key": "healthplus_content",
+      "value": "A chance de obter saúde aumenta."
+    },
+    {
+      "key": "protectionplus_content",
+      "value": "A chance de obter escudo aumenta."
+    },
+    {
+      "key": "skip_content",
+      "value": "Pule o primeiro mapa."
+    },
+    {
+      "key": "protection_content",
+      "value": "Você pode usar um item de escudo até uma vez por jogo."
+    },
+    {
+      "key": "health_content",
+      "value": "Você pode usar um item de saúde até uma vez por jogo."
+    },
+    {
+      "key": "currCount",
+      "value": "Contagem atual : "
+    },
+    {
+      "key": "premium",
+      "value": "Remover propagandas"
+    },
+    {
+      "key": "premium_content",
+      "value": "Remover propagandas"
+    },
+    {
+      "key": "coin_dummy",
+      "value": "Pilha de moedas"
+    },
+    {
+      "key": "coin_dummy_content",
+      "value": "5.000 moedas serão adicionadas."
+    },
+    {
+      "key": "coin_box",
+      "value": "Caixa de moedas"
+    },
+    {
+      "key": "coin_box_content",
+      "value": "15.000 moedas serão adicionadas."
+    },
+    {
+      "key": "characterpack",
+      "value": "Pacote de personagens"
+    },
+    {
+      "key": "characterpack_content",
+      "value": "Todos os personagens são desbloqueados."
+    },
+    {
+      "key": "package",
+      "value": "Pacote completo"
+    },
+    {
+      "key": "package_content",
+      "value": "Todos os personagens e 20.000 moedas são pagos instantaneamente!"
+    },
+    {
+      "key": "select",
+      "value": "Selecionar"
+    },
+    {
+      "key": "selected",
+      "value": "Selecionado"
+    },
+    {
+      "key": "buy",
+      "value": "Comprar"
+    },
+    {
+      "key": "isBuy",
+      "value": "Você quer comprar?"
+    },
+    {
+      "key": "cancel",
+      "value": "Cancelar"
+    },
+    {
+      "key": "check",
+      "value": "confirme"
+    },
+    {
+      "key": "levelUp",
+      "value": "Subir de nível"
+    },
+    {
+      "key": "isLevelUp",
+      "value": "Você quer subir de nível?"
+    },
+    {
+      "key": "bougth",
+      "value": "Comprado"
+    },
+    {
+      "key": "notEnoughMoney",
+      "value": "Não é ouro suficiente."
+    },
+    {
+      "key": "noMoreBuy",
+      "value": "Não está mais disponível para compra."
+    },
+    {
+      "key": "isRestart",
+      "value": "Tem certeza de que deseja reiniciar?"
+    },
+    {
+      "key": "hpDecreaseSpeed",
+      "value": "Velocidade de redução de saúde"
+    },
+    {
+      "key": "skillChargeSpeed",
+      "value": "Velocidade de carga de habilidade"
+    },
+    {
+      "key": "skillDistanceIncrease",
+      "value": "Aumente a distância da habilidade"
+    },
+    {
+      "key": "hitARow",
+      "value": "Acerte em sequência"
+    },
+    {
+      "key": "hittedDelayDecrease",
+      "value": "Retardo de greve reduzido"
+    },
+    {
+      "key": "skillCount",
+      "value": "Número de usos de habilidade"
+    },
+    {
+      "key": "AmountOfBlood",
+      "value": "Quantidade de sangue retirada"
+    },
+    {
+      "key": "skillDuration",
+      "value": "Duração da habilidade"
+    },
+    {
+      "key": "normal",
+      "value": "Normal"
+    },
+    {
+      "key": "language",
+      "value": "Linguagem"
+    }
+  ]
+}

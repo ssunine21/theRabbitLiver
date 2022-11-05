@@ -28,6 +28,7 @@ public class Coral : Monster {
 
         for (int i = 0; i < bullets.Length; ++i) {
             bullets[i] = Instantiate(bullet, this.transform.position, this.transform.rotation, this.transform);
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Coral);
         }
 
         bullets[0].GetComponent<CoralBullet>().direction = Vector3.forward;

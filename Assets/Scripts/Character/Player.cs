@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 // 스킬 : jump attack,
 // 맞거나 죽을 때 : Shoulder Hit And Fall, Head Hit
@@ -85,7 +86,20 @@ public class Player : MonoBehaviour {
 
 	private void Update() {
 		if (!isGroggy && !isDead) {
-			if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+			if (Input.touchCount > 0) {
+				if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) {
+
+					if (Input.GetTouch(0).phase == TouchPhase.Began) {
+						var touchPoint = Input.GetTouch(0).position;
+						Move(Camera.main.ScreenToViewportPoint(touchPoint).x < 0.5);
+					}
+				}
+			} else if (Input.GetMouseButtonDown(0)) {
+				if (!EventSystem.current.IsPointerOverGameObject()) {
+					var touchPoint = Input.mousePosition;
+					Move(Camera.main.ScreenToViewportPoint(touchPoint).x < 0.5);
+				}
+			} else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
 				Move(true);
 			} else if (Input.GetKeyDown(KeyCode.RightArrow)) {
 				Move(false);
@@ -103,7 +117,12 @@ public class Player : MonoBehaviour {
 		animator.SetTrigger(hashDead);
 
 		yield return new WaitForSeconds(2f);
-		UIManager.init.OpenRestartUI();
+		if (GameManager.init.Chance) {
+			UIManager.init.OpenRestartUI();
+			GameManager.init.Chance = false;
+		} else {
+			GameManager.init.FinishGame();
+		}
 	}
 
 	public void StartReverse() {
@@ -115,12 +134,12 @@ public class Player : MonoBehaviour {
 		stamina.SetStamina(0.7f, 0);
 		UIManager.init.CloseRestartUI();
 		yield return new WaitForSeconds(2f);
-
 		UIManager.init.RestartCount();
     }
 
 	public void reverseWhenEndDeathAnimation() {
 		isDead = false;
+		isSuperCharge = false;
     }
 
 	private void FixedUpdate() {
@@ -171,6 +190,7 @@ public class Player : MonoBehaviour {
 			else
 				offset.x = this.transform.position.x + Definition.TILE_SPACING;
 		}
+		SoundManager.init.PlaySFXSound(Definition.SoundType.Move);
 
 		this.transform.position = offset;
 		this.transform.rotation = Quaternion.Euler(quaternion);
@@ -178,7 +198,7 @@ public class Player : MonoBehaviour {
 		DataManager.init.score.currScore += 50;
 
 
-		if (GameManager.init.recordData.runCount > 500)
+		if (GameManager.init.recordData.runCount > 1350)
 			GameManager.init.Goal();
 	}
 
@@ -215,6 +235,7 @@ public class Player : MonoBehaviour {
 	private void CollisionWithEnemy(Collider collision) {
 		if (collision.GetComponent<Wolf>() != null) return;
 
+		SoundManager.init.PlaySFXSound(Definition.SoundType.Hit);
 		stamina.hpBar += AMOUNT_RECOVERY_HP_ON_KILL;
 		stamina.mpBar += (AMOUNT_RECOVERY_MP_ON_KILL + iCharacter.mpIncreasing);
 		GameManager.init.recordData.enemyKill++;
@@ -231,9 +252,11 @@ public class Player : MonoBehaviour {
 				Hitting(collider);
 				GameManager.init.recordData.hitCount++;
 				stamina.hpBar -= 0.1f;
+				SoundManager.init.PlaySFXSound(Definition.SoundType.Hitted);
 			} else {
 				IsProtection = false;
-            }
+				SoundManager.init.PlaySFXSound(Definition.SoundType.Hitted_Shield);
+			}
 		}
 	}
 
@@ -247,7 +270,6 @@ public class Player : MonoBehaviour {
 #endif
 		}
 		animator.SetTrigger(hashHitTheTrap);
-
 
 		hittingByTrap = true;
 		isSuperCharge = true;

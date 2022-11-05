@@ -24,6 +24,9 @@ public class Scorpion : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
+        if (isAttackColliderOn) {
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Scorpion);
+        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 

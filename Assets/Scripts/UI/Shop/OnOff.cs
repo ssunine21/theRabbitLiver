@@ -22,6 +22,7 @@ public class OnOff : MonoBehaviour {
 
     public void OnClick(int index) {
         if (preIndex == index) return;
+        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         BtnStateChange(index);
         PanelStateChange(index);
         preIndex = index;

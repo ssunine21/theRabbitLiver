@@ -1,0 +1,196 @@
+﻿{
+  "items": [
+    {
+      "key": "gameStart",
+      "value": "ゲーム開始"
+    },
+    {
+      "key": "character",
+      "value": "キャラクター"
+    },
+    {
+      "key": "etc",
+      "value": "等"
+    },
+    {
+      "key": "special",
+      "value": "特別な"
+    },
+    {
+      "key": "bunny_content",
+      "value": "森の中の小さなかわいいウサギが一歩後退します。"
+    },
+    {
+      "key": "skeleton_content",
+      "value": "止まることのない喉の渇きを血を吸って癒そうとするが、なかなか元に戻らない。"
+    },
+    {
+      "key": "bono_content",
+      "value": "いつも怒っているうさぎは無条件で前に進みます。"
+    },
+    {
+      "key": "jazz_content",
+      "value": "銃を持ったウサギ！"
+    },
+    {
+      "key": "notake_content",
+      "value": "テイクではありません。あなたは自分の感覚に達するために殴られる必要があります。"
+    },
+    {
+      "key": "coinplus_content",
+      "value": "コインの獲得確率が上がります。"
+    },
+    {
+      "key": "healthplus_content",
+      "value": "健康になる確率が上がります。"
+    },
+    {
+      "key": "protectionplus_content",
+      "value": "シールドの獲得確率が上がる。"
+    },
+    {
+      "key": "skip_content",
+      "value": "最初のマップをスキップします。"
+    },
+    {
+      "key": "protection_content",
+      "value": "シールドアイテムは、1ゲームにつき1回まで使用できます。"
+    },
+    {
+      "key": "health_content",
+      "value": "ヘルスアイテムは、1 ゲームにつき 1 回まで使用できます。"
+    },
+    {
+      "key": "currCount",
+      "value": "現在のカウント : "
+    },
+    {
+      "key": "premium",
+      "value": "広告を削除"
+    },
+    {
+      "key": "premium_content",
+      "value": "広告を削除"
+    },
+    {
+      "key": "coin_dummy",
+      "value": "コインパイル"
+    },
+    {
+      "key": "coin_dummy_content",
+      "value": "5,000コインが追加されます。"
+    },
+    {
+      "key": "coin_box",
+      "value": "コインボックス"
+    },
+    {
+      "key": "coin_box_content",
+      "value": "15,000コインが追加されます。"
+    },
+    {
+      "key": "characterpack",
+      "value": "キャラクターパッケージ"
+    },
+    {
+      "key": "characterpack_content",
+      "value": "すべてのキャラクターがアンロックされています。"
+    },
+    {
+      "key": "package",
+      "value": "完全なパッケージ"
+    },
+    {
+      "key": "package_content",
+      "value": "すべてのキャラクターと 20,000 コインが即座に支払われます!"
+    },
+    {
+      "key": "select",
+      "value": "選択する"
+    },
+    {
+      "key": "selected",
+      "value": "選択済み"
+    },
+    {
+      "key": "buy",
+      "value": "購入"
+    },
+    {
+      "key": "isBuy",
+      "value": "買いたいですか？"
+    },
+    {
+      "key": "cancel",
+      "value": "キャンセル"
+    },
+    {
+      "key": "check",
+      "value": "確認"
+    },
+    {
+      "key": "levelUp",
+      "value": "レベルアップ"
+    },
+    {
+      "key": "isLevelUp",
+      "value": "レベルアップしますか？"
+    },
+    {
+      "key": "bougth",
+      "value": "購入した"
+    },
+    {
+      "key": "notEnoughMoney",
+      "value": "ゴールドが足りない。"
+    },
+    {
+      "key": "noMoreBuy",
+      "value": "購入できなくなりました。"
+    },
+    {
+      "key": "isRestart",
+      "value": "本当に再起動しますか?"
+    },
+    {
+      "key": "hpDecreaseSpeed",
+      "value": "体力減少速度"
+    },
+    {
+      "key": "skillChargeSpeed",
+      "value": "スキルチャージ速度"
+    },
+    {
+      "key": "skillDistanceIncrease",
+      "value": "スキル距離を伸ばす"
+    },
+    {
+      "key": "hitARow",
+      "value": "連続ヒット"
+    },
+    {
+      "key": "hittedDelayDecrease",
+      "value": "攻撃遅延の減少"
+    },
+    {
+      "key": "skillCount",
+      "value": "スキル使用回数"
+    },
+    {
+      "key": "AmountOfBlood",
+      "value": "採血量"
+    },
+    {
+      "key": "skillDuration",
+      "value": "スキル持続時間"
+    },
+    {
+      "key": "normal",
+      "value": "普通"
+    },
+    {
+      "key": "language",
+      "value": "言語"
+    }
+  ]
+}

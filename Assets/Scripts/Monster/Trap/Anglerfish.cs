@@ -32,6 +32,9 @@ public class Anglerfish : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
+        if (isAttackColliderOn) {
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Anglerfish);
+        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 

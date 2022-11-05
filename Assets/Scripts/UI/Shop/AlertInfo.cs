@@ -41,8 +41,9 @@ public class AlertInfo : MonoBehaviour {
         if (CheckAction != null)
             checkBtn.onClick.AddListener(CheckAction);
 
-        if (CancelAction != null)
+        if (CancelAction != null) {
             cancelBtn.onClick.AddListener(CancelAction);
+        }
     }
 
     private void ResetCommonListeners() {
@@ -67,6 +68,7 @@ public class AlertInfo : MonoBehaviour {
                 this.gameObject.SetActive(false);
             });
             cancelBtn.onClick.AddListener(() => {
+                SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClose);
                 this.gameObject.SetActive(false);
             });
         } catch(Exception e) {

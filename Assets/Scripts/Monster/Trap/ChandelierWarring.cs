@@ -34,6 +34,8 @@ public class ChandelierWarring : MonoBehaviour
     }
 
     private IEnumerator SizeUp() {
+        yield return new WaitForSeconds(Random.Range(0f, 3f));
+
         while(tr.localScale.x < maxSize) {
             tr.localScale = originScale * (time * speed);
             time += Time.deltaTime;

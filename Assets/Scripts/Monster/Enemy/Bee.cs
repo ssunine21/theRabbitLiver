@@ -22,6 +22,9 @@ public class Bee : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
+        if (isAttackColliderOn) {
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Bee);
+        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }

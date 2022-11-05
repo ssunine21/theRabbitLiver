@@ -21,6 +21,8 @@ public class IAPManager : MonoBehaviour, IStoreListener {
     private IExtensionProvider extensionProvider;
     private bool isInit = false;
 
+    private Dictionary<string, string> specialProductsPriceTextDic = new Dictionary<string, string>();
+
     private void Awake() {
         Singleton();
     }
@@ -28,6 +30,21 @@ public class IAPManager : MonoBehaviour, IStoreListener {
     private void Start() {
         if (isInit) return;
         InitIAP();
+    }
+
+    public string GetSpecialProductsPrice(string key) {
+        return specialProductsPriceTextDic[key];
+    }
+
+    private void SetSpecialProductsPrice() {
+        if (specialProductsPriceTextDic == null)
+            specialProductsPriceTextDic = new Dictionary<string, string>();
+
+        specialProductsPriceTextDic.Add(Premium, storeController.products.WithID(Premium).metadata.localizedPrice.ToString());
+        specialProductsPriceTextDic.Add(AllPackage, storeController.products.WithID(AllPackage).metadata.localizedPrice.ToString());
+        specialProductsPriceTextDic.Add(CharacterPackage, storeController.products.WithID(CharacterPackage).metadata.localizedPrice.ToString());
+        specialProductsPriceTextDic.Add(CoinBox, storeController.products.WithID(CoinBox).metadata.localizedPrice.ToString());
+        specialProductsPriceTextDic.Add(CoinDummy, storeController.products.WithID(CoinDummy).metadata.localizedPrice.ToString());
     }
 
     private void InitIAP() {
@@ -56,6 +73,13 @@ public class IAPManager : MonoBehaviour, IStoreListener {
         storeController = controller;
         extensionProvider = extensions;
 
+        SetSpecialProductsPrice();
+
+        if (storeController.products.WithID(Premium).hasReceipt) {
+            DataManager.init.DeviceData.isPremium = 1;
+            DataManager.init.DeviceData.Save();
+        }
+
         isInit = true;
     }
 
@@ -68,19 +92,23 @@ public class IAPManager : MonoBehaviour, IStoreListener {
 
     PurchaseProcessingResult IStoreListener.ProcessPurchase(PurchaseEventArgs purchaseEvent) {
         if(purchaseEvent.purchasedProduct.definition.id == and_AllPackage) {
-
+            DataManager.init.CloudData.AllCharacterUnlock();
+            DataManager.init.CoinEarn(20000);
         } else if (purchaseEvent.purchasedProduct.definition.id == and_CharacterPackage) {
-            Debug.Log("구매_캐릭터팩");
-        } else if (purchaseEvent.purchasedProduct.definition.id == and_CoinBox) {
-            Debug.Log("구매_코인박스");
+            DataManager.init.CloudData.AllCharacterUnlock();
+        }  else if (purchaseEvent.purchasedProduct.definition.id == and_CoinBox) {
+            DataManager.init.CoinEarn(15000);
         } else if (purchaseEvent.purchasedProduct.definition.id == and_CoinDummy) {
-            Debug.Log("구매_코인더미");
+            DataManager.init.CoinEarn(5000);
         } else if (purchaseEvent.purchasedProduct.definition.id == and_Premium) {
-            Debug.Log("구매_프리미엄");
+            DataManager.init.DeviceData.isPremium = 1;
+            DataManager.init.DeviceData.Save();
         }
 
         return PurchaseProcessingResult.Complete;
     }
+
+
 
     public void Purchase(string productId) {
         if (!isInit) return;

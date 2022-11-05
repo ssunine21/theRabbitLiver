@@ -1,0 +1,196 @@
+﻿{
+  "items": [
+    {
+      "key": "gameStart",
+      "value": "Spielbeginn"
+    },
+    {
+      "key": "character",
+      "value": "Charakter"
+    },
+    {
+      "key": "etc",
+      "value": "Etc"
+    },
+    {
+      "key": "special",
+      "value": "Speziell"
+    },
+    {
+      "key": "bunny_content",
+      "value": "Kleines süßes Kaninchen im Wald tritt einen Schritt zurück."
+    },
+    {
+      "key": "skeleton_content",
+      "value": "Versuchen Sie, meinen nie endenden Durst zu stillen, indem Sie Blut aufsaugen, aber es erwacht selten wieder zum Leben."
+    },
+    {
+      "key": "bono_content",
+      "value": "Immer wütend, bewegt sich der Hase bedingungslos vorwärts."
+    },
+    {
+      "key": "jazz_content",
+      "value": "Ein Kaninchen mit einer Waffe!"
+    },
+    {
+      "key": "notake_content",
+      "value": "Es ist nicht Take. Sie müssen geschlagen werden, um zur Besinnung zu kommen."
+    },
+    {
+      "key": "coinplus_content",
+      "value": "Die Chance auf Coins steigt."
+    },
+    {
+      "key": "healthplus_content",
+      "value": "Die Chance auf Gesundheit steigt."
+    },
+    {
+      "key": "protectionplus_content",
+      "value": "Die Chance, einen Schild zu bekommen, steigt."
+    },
+    {
+      "key": "skip_content",
+      "value": "Überspringen Sie die erste Karte."
+    },
+    {
+      "key": "protection_content",
+      "value": "Du kannst einen Schildgegenstand bis zu einmal pro Spiel verwenden."
+    },
+    {
+      "key": "health_content",
+      "value": "Sie können einen Gesundheitsgegenstand bis zu einmal pro Spiel verwenden."
+    },
+    {
+      "key": "currCount",
+      "value": "Aktueller Zählerstand : "
+    },
+    {
+      "key": "premium",
+      "value": "Anzeigen entfernen"
+    },
+    {
+      "key": "premium_content",
+      "value": "Anzeigen entfernen"
+    },
+    {
+      "key": "coin_dummy",
+      "value": "Münzhaufen"
+    },
+    {
+      "key": "coin_dummy_content",
+      "value": "5.000 Münzen werden hinzugefügt."
+    },
+    {
+      "key": "coin_box",
+      "value": "Münzbox"
+    },
+    {
+      "key": "coin_box_content",
+      "value": "15.000 Münzen werden hinzugefügt."
+    },
+    {
+      "key": "characterpack",
+      "value": "Zeichenpaket"
+    },
+    {
+      "key": "characterpack_content",
+      "value": "Alle Charaktere sind freigeschaltet."
+    },
+    {
+      "key": "package",
+      "value": "Komplettpaket"
+    },
+    {
+      "key": "package_content",
+      "value": "Alle Charaktere und 20.000 Münzen werden sofort bezahlt!"
+    },
+    {
+      "key": "select",
+      "value": "Auswählen"
+    },
+    {
+      "key": "selected",
+      "value": "Ausgewählt"
+    },
+    {
+      "key": "buy",
+      "value": "Kaufen"
+    },
+    {
+      "key": "isBuy",
+      "value": "Willst du kaufen?"
+    },
+    {
+      "key": "cancel",
+      "value": "Absagen"
+    },
+    {
+      "key": "check",
+      "value": "Bestätigen"
+    },
+    {
+      "key": "levelUp",
+      "value": "Aufleveln"
+    },
+    {
+      "key": "isLevelUp",
+      "value": "Willst du aufsteigen?"
+    },
+    {
+      "key": "bougth",
+      "value": "Gekauft"
+    },
+    {
+      "key": "notEnoughMoney",
+      "value": "Nicht genug Gold."
+    },
+    {
+      "key": "noMoreBuy",
+      "value": "Nicht mehr käuflich zu erwerben."
+    },
+    {
+      "key": "isRestart",
+      "value": "Möchten Sie wirklich neu starten?"
+    },
+    {
+      "key": "hpDecreaseSpeed",
+      "value": "Geschwindigkeit der Gesundheitsreduzierung"
+    },
+    {
+      "key": "skillChargeSpeed",
+      "value": "Skill-Ladegeschwindigkeit"
+    },
+    {
+      "key": "skillDistanceIncrease",
+      "value": "Erhöhen Sie die Fähigkeitsdistanz"
+    },
+    {
+      "key": "hitARow",
+      "value": "Schlag in Folge"
+    },
+    {
+      "key": "hittedDelayDecrease",
+      "value": "Reduzierte Strike-Verzögerung"
+    },
+    {
+      "key": "skillCount",
+      "value": "Anzahl der Fertigkeitsverwendungen"
+    },
+    {
+      "key": "AmountOfBlood",
+      "value": "Entnommene Blutmenge"
+    },
+    {
+      "key": "skillDuration",
+      "value": "Fähigkeitsdauer"
+    },
+    {
+      "key": "normal",
+      "value": "Normal"
+    },
+    {
+      "key": "language",
+      "value": "Sprache"
+    }
+  ]
+}

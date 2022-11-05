@@ -33,7 +33,7 @@ public class Bunny : Character, ICharacter {
 
         targetPos = transform.position;
         targetPos.z -= distance;
-
+        SoundManager.init.PlayPlayerSound(Definition.SoundType.Skill_Bunny);
         return true;
     }
 
@@ -89,25 +89,25 @@ public class Bunny : Character, ICharacter {
                 break;
             case 2:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.9f;
+                hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 5f;
                 skillCount = 1;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.8f;
+                hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 6f;
                 skillCount = 2;
                 break;
             case 4:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.75f;
+                hpDecreasingSpeed = 0.6f;
                 player.hitDelay = 7f;
                 skillCount = 2;
                 break;
             case 5:
                 mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.7f;
+                hpDecreasingSpeed = 0.5f;
                 player.hitDelay = 7.5f;
                 skillCount = 2;
                 break;
@@ -121,46 +121,46 @@ public class Bunny : Character, ICharacter {
     }
 
 
-    public string SetInfoMessage() {
+    public string GetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>";
                 break;
             case 1:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>";
                 break;
             case 2:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease")  + "<b><color=#50bcdf>+</color></b>";
                 break;
             case 3:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillCount") + "<b><color=#50bcdf>+1</color></b>";
                 break;
             case 4:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillCount") + "<b><color=#50bcdf>+1</color></b>";
                 break;
             case 5:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_USE_COUNT + "<b><color=#50bcdf>+1</color></b>";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillCount") + "<b><color=#50bcdf>+1</color></b>";
                 break;
             default:
                 message = "";
@@ -168,5 +168,9 @@ public class Bunny : Character, ICharacter {
         }
 
         return message;
+    }
+
+    public string GetContentMessage() {
+        return LocalizationManager.init.GetLocalizedValue("bunny_content");
     }
 }

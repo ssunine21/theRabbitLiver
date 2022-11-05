@@ -64,6 +64,7 @@ public class Jazz : Character, ICharacter {
                     Instantiate(attackParticle, new Vector3(enemyObj.transform.position.x, 0.8f, enemyObj.transform.position.z), Quaternion.identity);
                 }
 
+                SoundManager.init.PlaySFXSound(Definition.SoundType.Skill_Jazz);
                 Destroy(enemyObj);
                 player.stamina.hpBar += 0.04f;
 
@@ -72,6 +73,7 @@ public class Jazz : Character, ICharacter {
     }
 
     private IEnumerator SkillDuration() {
+        SoundManager.init.PlayPlayerSound(Definition.SoundType.Skill_Jazz_Effect);
         if(weaponParticle != null)
             weaponParticle.Play();
 
@@ -81,6 +83,8 @@ public class Jazz : Character, ICharacter {
 
         if (weaponParticle != null)
             weaponParticle.Stop();
+
+        SoundManager.init.StopPlayerSound();
     }
 
     private GameObject FindNearestObjectByTag(string tag) {
@@ -131,7 +135,7 @@ public class Jazz : Character, ICharacter {
             case 0:
             case 1:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 1f;
+                hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 4f;
 
                 skillMoveDistance = 2;
@@ -140,7 +144,7 @@ public class Jazz : Character, ICharacter {
                 break;
             case 2:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.9f;
+                hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 5f;
 
                 skillMoveDistance = 2;
@@ -149,7 +153,7 @@ public class Jazz : Character, ICharacter {
                 break;
             case 3:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.8f;
+                hpDecreasingSpeed = 0.6f;
                 player.hitDelay = 6f;
 
                 skillMoveDistance = 3;
@@ -158,7 +162,7 @@ public class Jazz : Character, ICharacter {
                 break;
             case 4:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.75f;
+                hpDecreasingSpeed = 0.55f;
                 player.hitDelay = 7f;
 
                 skillMoveDistance = 3;
@@ -167,7 +171,7 @@ public class Jazz : Character, ICharacter {
                 break;
             case 5:
                 mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.7f;
+                hpDecreasingSpeed = 0.5f;
                 player.hitDelay = 7.5f;
 
                 skillMoveDistance = 3;
@@ -186,65 +190,70 @@ public class Jazz : Character, ICharacter {
         }
     }
 
-    public string SetInfoMessage() {
+    public string GetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease")  + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 3:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 4:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             case 5:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+++</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
                 message =
-                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n" +
-                    Definition.SKILL_DURATION + "<b><color=#50bcdf>+</color></b>\n";
+                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n" +
+                    LocalizationManager.init.GetLocalizedValue("skillDuration") + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 
         return message;
+    }
+
+
+    public string GetContentMessage() {
+        return LocalizationManager.init.GetLocalizedValue("jazz_content");
     }
 }

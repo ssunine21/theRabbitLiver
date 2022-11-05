@@ -22,6 +22,9 @@ public class Murloc : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
+        if (isAttackColliderOn) {
+            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Muloc);
+        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }
