@@ -125,7 +125,6 @@ public class SpawnManager : MonoBehaviour {
                 if (_levelDesign.Length - 1 > level) {
                     currLevelMaxTileCount = 0;
                     level++;
-                    SoundManager.init.ChangeBGM(levelDesign.soundType);
                     PrepareTileSpawn();
                 }
                 return;

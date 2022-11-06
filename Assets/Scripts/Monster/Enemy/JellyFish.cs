@@ -71,7 +71,6 @@ public class JellyFish : Monster {
             childAttackCollider.gameObject.SetActive(isAttackColliderOn);
 
             if (isAttackColliderOn) {
-                SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Jellyfish);
                 if (attackParticle != null)
                     attackParticle.Play();
             } else {

@@ -37,8 +37,6 @@ public class TileObject : MonoBehaviour {
         float delay = this.transform.position.z * delayTime;
         yield return new WaitForSeconds(delay);
 
-       //SoundManager.init.PlaySFXSound(Definition.SoundType.Tik);
-
         isUpDownAnim = true;
     }
 }

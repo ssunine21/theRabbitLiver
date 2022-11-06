@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject shopUI;
-    [SerializeField] private GameObject optionUI;
     [SerializeField] private GameObject inGameUI;
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject pauseBtn;
@@ -37,7 +36,7 @@ public class UIManager : MonoBehaviour {
     public GameObject NoTouchPanel { get => _noTouchPanel;}
     [SerializeField] private GameObject _noTouchPanel;
 
-    public Curtain Curtain;
+    [SerializeField] private Curtain _curtain;
 
     private void Awake() {
         Singleton();
@@ -55,7 +54,7 @@ public class UIManager : MonoBehaviour {
         while (timer > 0) {
             if (isInitGame) {
                 StartCoroutine(Camera.main.GetComponent<CameraControl>().CameraMoveAtFirstStart());
-                Curtain.StartFadeIn();
+                _curtain.StartFadeIn();
                 NoTouchPanel.SetActive(true);
 
                 ShowLoading(false);
@@ -67,51 +66,30 @@ public class UIManager : MonoBehaviour {
         }
 
         StartCoroutine(Camera.main.GetComponent<CameraControl>().CameraMoveAtFirstStart());
-        Curtain.StartFadeIn();
+        _curtain.StartFadeIn();
         NoTouchPanel.SetActive(true);
         ShowLoading(false);
     }
 
     public void GameStartBtn() {
-
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         //StartCoroutine(CoFadeInOut(() => {
-        mainUI.SetActive(false);
+            mainUI.SetActive(false);
             inGameUI.SetActive(true);
             GameManager.init.InitGame();
         //}));
     }
 
     public void ShopBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         shopUI.SetActive(true);
         mainUI.SetActive(false);
     }
 
-    public void OptionBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
-        optionUI.SetActive(true);
-        mainUI.SetActive(false);
-    }
-
-    public bool OptionUIActiveSelf() {
-        return optionUI.activeSelf;
-    }
-
     public void ToMainFromShopBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         shopUI.SetActive(false);
         mainUI.SetActive(true);
     }
 
-    public void ToMainFromOptionBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
-        optionUI.SetActive(false);
-        mainUI.SetActive(true);
-    }
-
     public void PauseBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         pauseBtn.SetActive(false);
         pauseUI.SetActive(true);
 
@@ -119,7 +97,6 @@ public class UIManager : MonoBehaviour {
     }
 
     public void PlayBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         pauseBtn.SetActive(true);
         pauseUI.SetActive(false);
 
@@ -127,14 +104,13 @@ public class UIManager : MonoBehaviour {
     }
 
     public void RestartBtn() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
-        ShowAlert(LocalizationManager.init.GetLocalizedValue("isRestart"), GameRestart, null);
+        ShowAlert(Definition.RESTART_MESSAGE, GameRestart, null);
     }
 
     private void GameRestart() {
         GameManager.init.Play();
 
-        Curtain.FadeInOut(() => {
+        _curtain.FadeInOut(() => {
             GameManager.init.GameOver();
             GameManager.init.InitGame();
             GameManager.init.Play();
@@ -156,10 +132,8 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToMainFromInGame() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
         GameManager.init.Play();
-        SoundManager.init.ChangeBGM(Definition.SoundType.Intro);
-        Curtain.FadeInOut(() => {
+        _curtain.FadeInOut(() => {
             GameManager.init.GameOver();
             GameManager.init.Play();
 
@@ -234,9 +208,8 @@ public class UIManager : MonoBehaviour {
         this.hitCount.text = hitCount.ToString();
         this.itemCount.text = itemCount.ToString();
         this.totalScore.text = totalScore.ToString();
-
+        
         DataManager.init.ChangeScore(totalScore);
-        DataManager.init.CoinEarn(coin);
     }
 
     public static UIManager init;

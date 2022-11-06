@@ -49,7 +49,6 @@ public class Curtain : MonoBehaviour {
     }
 
     public void StartFadeIn() {
-        Debug.Log("startFadeIn");
         StartCoroutine(CoFadeIn());
     }
 }

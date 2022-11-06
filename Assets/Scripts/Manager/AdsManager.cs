@@ -39,9 +39,6 @@ public class AdsManager : MonoBehaviour {
 
         RewardedAds();
         InterstitialAds();
-
-        OnAdClosed.AddListener(UIManager.init.Curtain.StartFadeIn);
-        OnAdClosed.AddListener(GameManager.init.Play);
     }
 
     private void RewardedAds() {
@@ -78,13 +75,10 @@ public class AdsManager : MonoBehaviour {
         };
         interstitialAd.OnAdClosed += (sender, arge) => {
             MonoBehaviour.print("OnAdClosed");
-
             InterstitialAdShowCount -= 1;
-            MonoBehaviour.print("OnAdClosed1");
+            this.interstitialAd = CreateAndLoadInterstitialAd(adUnitId);
 
-            if (!this.interstitialAd.IsLoaded())
-                this.interstitialAd = CreateAndLoadInterstitialAd(adUnitId);
-
+            if (!this.gameOverRewardedAd.IsLoaded())
             OnAdClosed.Invoke();
         };
 
@@ -115,6 +109,7 @@ public class AdsManager : MonoBehaviour {
         }
         rewardedAd.OnAdClosed += (sender, args) => {
             MonoBehaviour.print("OnAdClosed");
+
             if (!this.gameOverRewardedAd.IsLoaded())
                 this.gameOverRewardedAd = CreateAndLoadRewardedAd(adUnitId, GAMEOVER_REWARDED);
 
@@ -130,8 +125,6 @@ public class AdsManager : MonoBehaviour {
     }
 
     public bool ShowInterstitialAd() {
-        if (DataManager.init.DeviceData.isPremium == 1) return false;
-
         if(this.interstitialAd != null && this.interstitialAd.IsLoaded()) {
             if (InterstitialAdShowCount == 0) {
                 this.interstitialAd.Show();

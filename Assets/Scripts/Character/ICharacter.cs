@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface ICharacter {
-    public string GetInfoMessage();
-    public string GetContentMessage();
+    public string SetInfoMessage();
     public int SkillLevel();
     public void SetSkillLevel(int level);
     public int LevelPrice();

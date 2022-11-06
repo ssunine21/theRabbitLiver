@@ -8,7 +8,7 @@ public class TouchClose : MonoBehaviour {
     private void Update() {
         if(lastObject.isPlaying) {
             if(Input.GetMouseButtonDown(0)) {
-
+                GameManager.init.GameOver();
                 UIManager.init.ToMainFromInGame();
             }
         }

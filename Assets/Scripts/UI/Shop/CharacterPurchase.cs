@@ -14,7 +14,6 @@ public class CharacterPurchase : MonoBehaviour {
     public GameObject unlockImg;
     public Camera characterViewCamera;
     public TextMeshProUGUI characterContents;
-    public TextMeshProUGUI characterInfos;
 
     public Vector3 pos;
     [Space(30)]
@@ -53,7 +52,7 @@ public class CharacterPurchase : MonoBehaviour {
     public void BtnNextCharacter(int _index) {
         preIndex = this._index;
         index += _index;
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
+
         CharacterViewChange();
         CharacterInfoChange();
     }
@@ -75,7 +74,6 @@ public class CharacterPurchase : MonoBehaviour {
 
         SetLevelBarColor(iCharacter.SkillLevel());
         SetCharacterContents();
-        SetCharacterInfos();
     }
 
     private void SetLevelBarColor(int level) {
@@ -97,12 +95,9 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     private void BtnTextState(bool isPurchase) {
-
-        selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ?
-            LocalizationManager.init.GetLocalizedValue("selected") :
-            LocalizationManager.init.GetLocalizedValue("buy");
+        selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = isPurchase ? Definition.SELECTED : Definition.BUY;
         if (isPurchase && DataManager.init.DeviceData.characterId != (DeviceData.CharacterID)index) {
-            selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = LocalizationManager.init.GetLocalizedValue("select");
+            selectBtn.GetComponentInChildren<TextMeshProUGUI>().text = Definition.SELECT;
             selectBtn.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
             selectBtn.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 0.2f);
         } else {
@@ -112,13 +107,11 @@ public class CharacterPurchase : MonoBehaviour {
     }
 
     public void BtnLevelUp() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
-
         if (iCharacter.SkillLevel() > 0) {
             if ((iCharacter.SkillLevel() >= levelBars.transform.childCount)) {
-                UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("noMoreBuy"), BtnNextCharacter);
+                UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter); 
             } else {
-                UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("isLevelUp"), iCharacter.LevelPrice(), LevelUp, BtnNextCharacter);
+                UIManager.init.ShowAlert(Definition.BUY_LEVEL_MASSAGE, iCharacter.LevelPrice(), LevelUp, BtnNextCharacter);
             }
             OnCharHide(true);
         }
@@ -126,43 +119,37 @@ public class CharacterPurchase : MonoBehaviour {
 
     public void BtnSelectChar() {
 
-        SoundManager.init.PlaySFXSound(Definition.SoundType.ButtonClick);
-        if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(LocalizationManager.init.GetLocalizedValue("buy"))) {
-            UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("isBuy"), iCharacter.PurchasePrice(), BuyChar, BtnNextCharacter);
+        if (selectBtn.GetComponentInChildren<TextMeshProUGUI>().text.Equals(Definition.BUY)) {
+            UIManager.init.ShowAlert(Definition.BUY_MASSAGE, iCharacter.PurchasePrice(), BuyChar, BtnNextCharacter);
         } else {    
             DataManager.init.DeviceData.characterId = (DeviceData.CharacterID)index;
-
-            PlayerPrefs.SetInt("CharacterID", (int)DataManager.init.DeviceData.characterId);
             BtnTextState(true);
         }
     }
 
     private void LevelUp() {
-        SoundManager.init.PlaySFXSound(Definition.SoundType.SFX_BUY);
         if (DataManager.init.CoinComparison(iCharacter.LevelPrice(), true)) {
             LevelUpAndAysnc();
             SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
-            SetCharacterInfos();
-
+            SetCharacterContents();
         } else {
-            UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("notEnoughMoney"), BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
     }
 
     private void BuyChar() {
         if(iCharacter.SkillLevel() > 0) {
-            UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("noMoreBuy"), BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.BUY_ENOUGH, BtnNextCharacter);
             return;
         }
 
         if (DataManager.init.CoinComparison(iCharacter.PurchasePrice(), true)) {
-            SoundManager.init.PlaySFXSound(Definition.SoundType.SFX_BUY);
             LevelUpAndAysnc();
             SetLevelBarColor(iCharacter.SkillLevel());
             BtnNextCharacter();
         } else {
-            UIManager.init.ShowAlert(LocalizationManager.init.GetLocalizedValue("notEnoughMoney"), BtnNextCharacter);
+            UIManager.init.ShowAlert(Definition.NOT_ENOUGH_MONEY, BtnNextCharacter);
         }
     }
 
@@ -172,12 +159,7 @@ public class CharacterPurchase : MonoBehaviour {
 
     private void SetCharacterContents() {
         ICharacter iCharacter = characters[(int)index].GetComponent<ICharacter>();
-        characterContents.text = iCharacter.GetContentMessage();
-    }
-
-    private void SetCharacterInfos() {
-        ICharacter iCharacter = characters[(int)index].GetComponent<ICharacter>();
-        characterInfos.text = iCharacter.GetInfoMessage();
+        characterContents.text = iCharacter.SetInfoMessage();
     }
 
     private void LevelUpAndAysnc() {

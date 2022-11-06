@@ -29,13 +29,8 @@ public class DataManager : MonoBehaviour {
         Singleton();
     }
 
-    private void Start() {
-        DeviceData.Load();
-    }
-
     private void OnApplicationQuit() {
         CloudData.Save(GoogleGameServiceManager.init.UID);
-        DeviceData.Save();
     }
 
     public void ChangeCharacterId(int characterId) {
@@ -71,10 +66,6 @@ public class DataManager : MonoBehaviour {
 
     public void CoinPayment(int price) {
         CloudData.coin -= price;
-        CloudData.DataAysnc(CloudData.COIN, CloudData.coin);
-    }
-    public void CoinEarn(int price) {
-        CloudData.coin += price;
         CloudData.DataAysnc(CloudData.COIN, CloudData.coin);
     }
 

@@ -108,8 +108,6 @@ public class CloudData {
             if(_uid != originUid) {
                 newUid = _uid;
                 _uid = originUid;
-
-                PlayerPrefs.SetString(Definition.KEY_UID, newUid);
             }
         }
 
@@ -158,19 +156,24 @@ public class CloudData {
                 LoadCoinData();
                 LoadScore();
 
-                if(newUid != null) {
-                    databaseReference.Child(USERS).Child(_uid).RemoveValueAsync();
-                    Save(newUid);
-                } else {
+                if (!PlayerPrefs.HasKey(Definition.KEY_INIT)) {
                     Save(_uid);
+                    PlayerPrefs.SetString(Definition.KEY_INIT, "false");
                 }
 
-                Debug.Log($"<color=blue>Load Data : {_uid}</color>");
-                UIManager.init.isInitGame = true;
+                if(newUid != null) {
+                    databaseReference.Child(USERS).Child(_uid).RemoveValueAsync();
+
+                    Save(newUid);
+                    PlayerPrefs.SetString(Definition.KEY_UID, newUid);
+                }
 
             } catch (Exception e) {
                 Debug.LogError(e.Message);
             }
+
+            Debug.Log($"<color=blue>Load Data : {_uid}</color>");
+            UIManager.init.isInitGame = true;
         });
     }
 
@@ -178,7 +181,6 @@ public class CloudData {
         string uid;
         if (PlayerPrefs.HasKey(Definition.KEY_UID)) {
             uid = DataManager.init.DeviceData.GetUID();
-            GoogleGameServiceManager.init.UID = uid;
         }
         else {
             uid = databaseReference.Child(USERS).Push().Key;
@@ -219,19 +221,13 @@ public class CloudData {
         string json = JsonUtility.ToJson(saveData);
         Debug.Log($"<color=blue>Save Data : {_uid}</color>");
         databaseReference.Child(USERS).Child(_uid).SetRawJsonValueAsync(json);
+
+        PlayerPrefs.SetString(Definition.KEY_UID, _uid);
     }
 
     public void LevelUpAndAysnc(DeviceData.CharacterID characterID) {
         characterLevel[characterID] += 1;
         databaseReference.Child(USERS).Child(GoogleGameServiceManager.init.UID).Child(LEVEL).Child(((int)characterID).ToString()).SetValueAsync(characterLevel[characterID]);
-    }
-
-    public void AllCharacterUnlock() {
-        for (int i = 0; i < characterLevel.Count; ++i) {
-            if (characterLevel[(DeviceData.CharacterID)i] <= 0) {
-                LevelUpAndAysnc((DeviceData.CharacterID)i);
-            }
-        }
     }
 
     public void DataAysnc(string Child, int value) {
@@ -241,7 +237,7 @@ public class CloudData {
     private SaveData GetInitData() {
         return new SaveData(
                         level: new int[5] { 1, 0, 0, 0, 0 },
-                        coin: 500,
+                        coin: 1000000,
                         coinPlus: 0,
                         heartPlus: 0,
                         protectionPlus: 0,

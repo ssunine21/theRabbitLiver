@@ -22,9 +22,6 @@ public class Lizard : Monster {
 
     private void AttackColliderOnOff() {
         isAttackColliderOn = !isAttackColliderOn;
-        if (isAttackColliderOn) {
-            SoundManager.init.PlayMonsterSound(Definition.SoundType.Enemy_Lizard);
-        }
         childAttackCollider.gameObject.SetActive(isAttackColliderOn);
     }
 }

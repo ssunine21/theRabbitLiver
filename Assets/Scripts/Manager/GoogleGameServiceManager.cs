@@ -20,7 +20,7 @@ public class GoogleGameServiceManager : MonoBehaviour {
 
     private void Start() {
 #if UNITY_EDITOR
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
 #endif
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();

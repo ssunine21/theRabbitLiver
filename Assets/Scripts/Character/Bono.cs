@@ -23,6 +23,7 @@ public class Bono : Character, ICharacter {
 
     protected override void Start() {
         base.Start();
+
         PurchaseSetting();
     }
 
@@ -36,9 +37,7 @@ public class Bono : Character, ICharacter {
         player.isGroggy = true;
         targetPos = transform.position;
         targetPos.z += skillMoveDistance * MOVE_OFFSET;
-
-        SoundManager.init.PlayPlayerSound(Definition.SoundType.Skill_Bono);
-
+        
         return true;
     }
 
@@ -53,8 +52,7 @@ public class Bono : Character, ICharacter {
                 player.isSuperCharge = false;
 
                 if(particle != null) {
-
-                    SoundManager.init.PlayPlayerSound(Definition.SoundType.Skill_Bono);
+                    
                     particle.Play();
                 }
             }
@@ -93,35 +91,35 @@ public class Bono : Character, ICharacter {
             case 0:
             case 1:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.7f;
+                hpDecreasingSpeed = 1f;
                 player.hitDelay = 4f;
 
                 skillMoveDistance = 2;
                 break;
             case 2:
                 mpIncreasing = 0f;
-                hpDecreasingSpeed = 0.6f;
+                hpDecreasingSpeed = 0.9f;
                 player.hitDelay = 5f;
 
                 skillMoveDistance = 3;
                 break;
             case 3:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.5f;
+                hpDecreasingSpeed = 0.8f;
                 player.hitDelay = 6f;
 
                 skillMoveDistance = 3;
                 break;
             case 4:
                 mpIncreasing = 0.05f;
-                hpDecreasingSpeed = 0.45f;
+                hpDecreasingSpeed = 0.75f;
                 player.hitDelay = 7f;
 
                 skillMoveDistance = 4;
                 break;
             case 5:
                 mpIncreasing = 0.15f;
-                hpDecreasingSpeed = 0.4f;
+                hpDecreasingSpeed = 0.7f;
                 player.hitDelay = 7.5f;
 
                 skillMoveDistance = 4;
@@ -136,62 +134,58 @@ public class Bono : Character, ICharacter {
         }
     }
 
-    public string GetInfoMessage() {
+    public string SetInfoMessage() {
         string message = "";
 
         switch (level) {
             case 0:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 1:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
             case 2:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 3:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>++</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>++</color></b>\n";
                 break;
             case 4:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>++++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             case 5:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+++++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("hittedDelayDecrease") + "<b><color=#50bcdf>+++</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+++</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+++++</color></b>\n" +
+                    Definition.HIT_DELAY + "<b><color=#50bcdf>+++</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+++</color></b>\n";
                 break;
             default:
                 message =
-                    LocalizationManager.init.GetLocalizedValue("hpDecreaseSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillChargeSpeed") + "<b><color=#50bcdf>+</color></b>\n" +
-                    LocalizationManager.init.GetLocalizedValue("skillDistanceIncrease") + "<b><color=#50bcdf>+</color></b>\n";
+                    Definition.HEALTH_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_SKILL_LEVEL + "<b><color=#50bcdf>+</color></b>\n" +
+                    Definition.SKILL_DISTANCE + "<b><color=#50bcdf>+</color></b>\n";
                 break;
         }
 
         return message;
-    }
-
-    public string GetContentMessage() {
-        return LocalizationManager.init.GetLocalizedValue("bono_content");
     }
 }

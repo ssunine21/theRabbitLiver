@@ -5,44 +5,14 @@ using UnityEngine;
 public static class Definition {
     public enum SoundType {
         Intro,
+        Tik,
+        ButtonClick,
+        ButtonClose,
         Stage1,
         Stage2,
         Stage3,
         Stage4,
         Stage5,
-        Stage6,
-        Tik,
-        Skill_Bunny,
-        Skill_Bono,
-        Skill_Skeleton,
-        Skill_Jazz,
-        Skill_Jazz_Effect,
-        Skill_Notake_Zero,
-        Skill_Notake_One,
-        Skill_Notake_Two,
-        Skill_Notake_Three,
-        Item_Health,
-        Item_Shield,
-        Item_Skip,
-        Item_Coin,
-        Hit,
-        Hitted,
-        Hitted_Shield,
-        Hitted_SnowBall,
-        Enemy_Bee,
-        Enemy_Lizard,
-        Enemy_Scorpion,
-        Enemy_Chandelier,
-        Enemy_Muloc,
-        Enemy_Coral,
-        Enemy_Wolf,
-        Enemy_Yeti,
-        Enemy_Jellyfish,
-        Enemy_Anglerfish,
-        ButtonClick,
-        ButtonClose,
-        SFX_BUY,
-        Move,
     }
 
     public static readonly int TILE_SPACING = 3;
@@ -66,4 +36,33 @@ public static class Definition {
 
     public static readonly string GOOGLE_LOGIN_MESSAGE = "구글 계정으로 로그인 하시겠습니까?";
     public static readonly string GOOGLE_LOGIN_FAIL = "로그인에 실패 했습니다.";
+
+    public static readonly string SELECT = "선택";
+    public static readonly string SELECTED = "선택됨";
+    public static readonly string BUY = "구매하기";
+    public static readonly string BUY_MASSAGE = "구매 하시겠습니까?";
+    public static readonly string BUY_ENOUGH = "더 이상 구매할 수 없습니다.";
+    public static readonly string BUY_LEVEL_MASSAGE = "레벨업 하시겠습니까?";
+    public static readonly string NOT_ENOUGH_MONEY = "골드가 부족합니다.";
+    public static readonly string CURR_ITEM_COUNT = "현재 개수 : ";
+
+    public static readonly string HEALTH_SKILL_LEVEL = "체력 감소 속도 ";
+    public static readonly string SKILL_SKILL_LEVEL = "스킬 충전 속도 ";
+    public static readonly string HIT_DELAY = "타격 딜레이 감소  ";
+    public static readonly string SKILL_DISTANCE = "스킬 거리 증가 ";
+
+    public static readonly string RESTART_MESSAGE = "다시 시작하시겠습니까?";
+
+
+    //bunny
+    public static readonly string SKILL_USE_COUNT = "스킬 사용 횟수 ";
+
+    //skeleton
+    public static readonly string AMOUNT_OF_BLOOD = "흡혈량 ";
+
+    //jazz 
+    public static readonly string SKILL_DURATION = "스킬 지속시간 ";
+
+    //notake
+    public static readonly string CONSECUTIVE_HIT_COUNT = "연속 타격 횟수 ";
 }

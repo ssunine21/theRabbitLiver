@@ -16,8 +16,6 @@ public class LevelDesign {
 	[Range(0, 1)]
 	public float hpDecreasingSpeed;
 
-	public Definition.SoundType soundType;
-
 	[System.Serializable]
 	public class LevelObject {
 		public GameObject gameObject;
